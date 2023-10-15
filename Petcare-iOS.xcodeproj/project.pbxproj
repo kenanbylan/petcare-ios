@@ -13,6 +13,24 @@
 		933780192ADA7DA800103273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933780172ADA7DA800103273 /* Main.storyboard */; };
 		9337801B2ADA7DAA00103273 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9337801A2ADA7DAA00103273 /* Assets.xcassets */; };
 		9337801E2ADA7DAA00103273 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9337801C2ADA7DAA00103273 /* LaunchScreen.storyboard */; };
+		9337803E2ADA80FF00103273 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9337803D2ADA80FF00103273 /* Constants.swift */; };
+		933780412ADA814400103273 /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780402ADA814400103273 /* OnboardingModel.swift */; };
+		933780432ADA815400103273 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933780422ADA815400103273 /* Onboarding.storyboard */; };
+		933780472ADA816F00103273 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780462ADA816F00103273 /* OnboardingViewController.swift */; };
+		933780492ADA81A100103273 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780482ADA81A100103273 /* OnboardingPresenter.swift */; };
+		9337804B2ADA81A700103273 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9337804A2ADA81A700103273 /* OnboardingRouter.swift */; };
+		9337804D2ADA81AF00103273 /* OnboardingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9337804C2ADA81AF00103273 /* OnboardingInteractor.swift */; };
+		933780512ADA823300103273 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933780502ADA823300103273 /* Login.storyboard */; };
+		933780532ADA823D00103273 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780522ADA823D00103273 /* LoginViewController.swift */; };
+		933780552ADA824500103273 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780542ADA824500103273 /* LoginPresenter.swift */; };
+		933780572ADA824D00103273 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780562ADA824D00103273 /* LoginInteractor.swift */; };
+		933780592ADA825200103273 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780582ADA825200103273 /* LoginRouter.swift */; };
+		9337805B2ADA826B00103273 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9337805A2ADA826B00103273 /* User.swift */; };
+		933780602ADC0DC000103273 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9337805E2ADC0DC000103273 /* SplashViewController.swift */; };
+		933780612ADC0DC000103273 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9337805F2ADC0DC000103273 /* SplashViewController.xib */; };
+		933780652ADC0DF000103273 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780642ADC0DF000103273 /* SplashRouter.swift */; };
+		933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780662ADC0DF900103273 /* SplashPresenter.swift */; };
+		933780692ADC0DFF00103273 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780682ADC0DFF00103273 /* SplashInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +42,24 @@
 		9337801A2ADA7DAA00103273 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9337801D2ADA7DAA00103273 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9337801F2ADA7DAA00103273 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9337803D2ADA80FF00103273 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		933780402ADA814400103273 /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		933780422ADA815400103273 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		933780462ADA816F00103273 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		933780482ADA81A100103273 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		9337804A2ADA81A700103273 /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
+		9337804C2ADA81AF00103273 /* OnboardingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInteractor.swift; sourceTree = "<group>"; };
+		933780502ADA823300103273 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		933780522ADA823D00103273 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		933780542ADA824500103273 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		933780562ADA824D00103273 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		933780582ADA825200103273 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		9337805A2ADA826B00103273 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9337805E2ADC0DC000103273 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		9337805F2ADC0DC000103273 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		933780642ADC0DF000103273 /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
+		933780662ADC0DF900103273 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
+		933780682ADC0DFF00103273 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +92,250 @@
 		933780102ADA7DA800103273 /* Petcare-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				933780112ADA7DA800103273 /* AppDelegate.swift */,
-				933780132ADA7DA800103273 /* SceneDelegate.swift */,
-				933780152ADA7DA800103273 /* ViewController.swift */,
-				933780172ADA7DA800103273 /* Main.storyboard */,
-				9337801A2ADA7DAA00103273 /* Assets.xcassets */,
-				9337801C2ADA7DAA00103273 /* LaunchScreen.storyboard */,
-				9337801F2ADA7DAA00103273 /* Info.plist */,
+				933780252ADA7E0400103273 /* App */,
+				933780292ADA7E2700103273 /* Helper */,
+				933780272ADA7E1E00103273 /* Network */,
+				933780382ADA7F1300103273 /* Components */,
+				933780282ADA7E2200103273 /* Core */,
+				9337802C2ADA7E4100103273 /* Modules */,
+				933780262ADA7E1300103273 /* Resources */,
 			);
 			path = "Petcare-iOS";
+			sourceTree = "<group>";
+		};
+		933780252ADA7E0400103273 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				933780132ADA7DA800103273 /* SceneDelegate.swift */,
+				933780112ADA7DA800103273 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		933780262ADA7E1300103273 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9337801C2ADA7DAA00103273 /* LaunchScreen.storyboard */,
+				933780152ADA7DA800103273 /* ViewController.swift */,
+				9337801F2ADA7DAA00103273 /* Info.plist */,
+				9337801A2ADA7DAA00103273 /* Assets.xcassets */,
+				933780172ADA7DA800103273 /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		933780272ADA7E1E00103273 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		933780282ADA7E2200103273 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				933780352ADA7E9100103273 /* Tabbar */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		933780292ADA7E2700103273 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9337802B2ADA7E3600103273 /* Constants */,
+				9337802A2ADA7E2C00103273 /* Extensions */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		9337802A2ADA7E2C00103273 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9337802B2ADA7E3600103273 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				9337803D2ADA80FF00103273 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		9337802C2ADA7E4100103273 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				9337802D2ADA7E4C00103273 /* Splash */,
+				9337802E2ADA7E5400103273 /* Onboarding */,
+				9337802F2ADA7E5A00103273 /* Authentication */,
+				933780302ADA7E6600103273 /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		9337802D2ADA7E4C00103273 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				933780632ADC0DE200103273 /* View */,
+				933780682ADC0DFF00103273 /* SplashInteractor.swift */,
+				933780662ADC0DF900103273 /* SplashPresenter.swift */,
+				933780642ADC0DF000103273 /* SplashRouter.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		9337802E2ADA7E5400103273 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				9337803F2ADA813500103273 /* Entity */,
+				933780452ADA815E00103273 /* View */,
+				9337804A2ADA81A700103273 /* OnboardingRouter.swift */,
+				933780482ADA81A100103273 /* OnboardingPresenter.swift */,
+				9337804C2ADA81AF00103273 /* OnboardingInteractor.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		9337802F2ADA7E5A00103273 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				9337803C2ADA7F4000103273 /* ForgotPassword */,
+				9337803B2ADA7F3800103273 /* SmsOtp */,
+				9337803A2ADA7F2F00103273 /* Register */,
+				933780392ADA7F2900103273 /* Login */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		933780302ADA7E6600103273 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				933780332ADA7E7B00103273 /* Home */,
+				933780372ADA7EA900103273 /* Calendar */,
+				933780362ADA7E9600103273 /* Settings */,
+				933780322ADA7E7200103273 /* VetMaps */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		933780322ADA7E7200103273 /* VetMaps */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VetMaps;
+			sourceTree = "<group>";
+		};
+		933780332ADA7E7B00103273 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		933780352ADA7E9100103273 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		933780362ADA7E9600103273 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		933780372ADA7EA900103273 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		933780382ADA7F1300103273 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		933780392ADA7F2900103273 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9337804F2ADA821C00103273 /* View */,
+				9337804E2ADA821700103273 /* Entity */,
+				933780582ADA825200103273 /* LoginRouter.swift */,
+				933780542ADA824500103273 /* LoginPresenter.swift */,
+				933780562ADA824D00103273 /* LoginInteractor.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		9337803A2ADA7F2F00103273 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Register;
+			path = "Regşster";
+			sourceTree = "<group>";
+		};
+		9337803B2ADA7F3800103273 /* SmsOtp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SmsOtp;
+			sourceTree = "<group>";
+		};
+		9337803C2ADA7F4000103273 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		9337803F2ADA813500103273 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				933780402ADA814400103273 /* OnboardingModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		933780452ADA815E00103273 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				933780422ADA815400103273 /* Onboarding.storyboard */,
+				933780462ADA816F00103273 /* OnboardingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9337804E2ADA821700103273 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				9337805A2ADA826B00103273 /* User.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		9337804F2ADA821C00103273 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				933780502ADA823300103273 /* Login.storyboard */,
+				933780522ADA823D00103273 /* LoginViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		933780632ADC0DE200103273 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9337805E2ADC0DC000103273 /* SplashViewController.swift */,
+				9337805F2ADC0DC000103273 /* SplashViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +398,10 @@
 			files = (
 				9337801E2ADA7DAA00103273 /* LaunchScreen.storyboard in Resources */,
 				9337801B2ADA7DAA00103273 /* Assets.xcassets in Resources */,
+				933780612ADC0DC000103273 /* SplashViewController.xib in Resources */,
 				933780192ADA7DA800103273 /* Main.storyboard in Resources */,
+				933780512ADA823300103273 /* Login.storyboard in Resources */,
+				933780432ADA815400103273 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,8 +413,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				933780162ADA7DA800103273 /* ViewController.swift in Sources */,
+				933780472ADA816F00103273 /* OnboardingViewController.swift in Sources */,
+				933780412ADA814400103273 /* OnboardingModel.swift in Sources */,
 				933780122ADA7DA800103273 /* AppDelegate.swift in Sources */,
+				933780552ADA824500103273 /* LoginPresenter.swift in Sources */,
+				933780492ADA81A100103273 /* OnboardingPresenter.swift in Sources */,
+				9337805B2ADA826B00103273 /* User.swift in Sources */,
+				9337804D2ADA81AF00103273 /* OnboardingInteractor.swift in Sources */,
+				9337804B2ADA81A700103273 /* OnboardingRouter.swift in Sources */,
+				933780652ADC0DF000103273 /* SplashRouter.swift in Sources */,
+				933780602ADC0DC000103273 /* SplashViewController.swift in Sources */,
+				933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */,
+				933780572ADA824D00103273 /* LoginInteractor.swift in Sources */,
+				933780692ADC0DFF00103273 /* SplashInteractor.swift in Sources */,
 				933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */,
+				933780532ADA823D00103273 /* LoginViewController.swift in Sources */,
+				933780592ADA825200103273 /* LoginRouter.swift in Sources */,
+				9337803E2ADA80FF00103273 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,12 +583,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6RYG55F8TD;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Petcare-iOS/Info.plist";
+				INFOPLIST_FILE = "Petcare-iOS/Resources/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,12 +613,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6RYG55F8TD;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Petcare-iOS/Info.plist";
+				INFOPLIST_FILE = "Petcare-iOS/Resources/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
