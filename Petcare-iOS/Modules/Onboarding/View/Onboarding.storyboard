@@ -6,37 +6,151 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Kanit-Bold.ttf">
+            <string>Kanit-Bold</string>
+        </array>
+        <array key="Kanit-Light.ttf">
+            <string>Kanit-Light</string>
+        </array>
+        <array key="Kanit-Medium.ttf">
+            <string>Kanit-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Onboarding View Controller-->
-        <scene sceneID="s0d-6b-0kx">
+        <scene sceneID="FIi-YZ-5zc">
             <objects>
-                <viewController storyboardIdentifier="OnboardingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="OnboardingViewController" customModule="Petcare_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                <viewController storyboardIdentifier="OnboardingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6zI-8P-9HS" customClass="OnboardingViewController" customModule="Petcare_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tee-RP-c4n">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Onboarding View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8d-KZ-4zJ">
-                                <rect key="frame" x="131" y="410" width="131" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="U28-Zj-G0N">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="682.33333333333337"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="519-gh-ppA">
+                                    <size key="itemSize" width="393" height="606"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SwipeCollectionViewCell" id="Ksy-NI-ZGT" customClass="SwipeCollectionViewCell" customModule="Petcare_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="38.333333333333336" width="393" height="606"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HCo-8U-ipe">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="606"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboard2" translatesAutoresizingMaskIntoConstraints="NO" id="X8R-Zh-Llf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="475"/>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Vdb-il-BpE">
+                                                    <rect key="frame" x="16" y="475" width="361" height="115"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quickly Delivery Order Foods Doorstep" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBR-lV-efl">
+                                                            <rect key="frame" x="0.0" y="0.0" width="361" height="72"/>
+                                                            <fontDescription key="fontDescription" name="Kanit-Medium" family="Kanit" pointSize="24"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quickly Delivery Order Foods Doorstep" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bq0-mx-66x">
+                                                            <rect key="frame" x="0.0" y="88" width="361" height="27"/>
+                                                            <fontDescription key="fontDescription" name="Kanit-Light" family="Kanit" pointSize="18"/>
+                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="X8R-Zh-Llf" firstAttribute="leading" secondItem="HCo-8U-ipe" secondAttribute="leading" id="0EU-BO-eRJ"/>
+                                                <constraint firstItem="Vdb-il-BpE" firstAttribute="leading" secondItem="HCo-8U-ipe" secondAttribute="leading" constant="16" id="R2h-rJ-C9P"/>
+                                                <constraint firstAttribute="bottom" secondItem="Vdb-il-BpE" secondAttribute="bottom" constant="16" id="UA3-j7-z9L"/>
+                                                <constraint firstAttribute="trailing" secondItem="Vdb-il-BpE" secondAttribute="trailing" constant="16" id="UGX-k2-uBt"/>
+                                                <constraint firstItem="X8R-Zh-Llf" firstAttribute="top" secondItem="HCo-8U-ipe" secondAttribute="top" id="iI5-bZ-T9W"/>
+                                                <constraint firstItem="Vdb-il-BpE" firstAttribute="top" secondItem="X8R-Zh-Llf" secondAttribute="bottom" id="jOp-OJ-KDO"/>
+                                                <constraint firstAttribute="trailing" secondItem="X8R-Zh-Llf" secondAttribute="trailing" id="wd6-EA-dbj"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="393" height="606"/>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="Bq0-mx-66x" id="Q8c-mc-hyp"/>
+                                            <outlet property="imageView" destination="X8R-Zh-Llf" id="5EH-LR-vMc"/>
+                                            <outlet property="titleLabel" destination="gBR-lV-efl" id="tu0-WL-6lC"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Tee-RP-c4n" id="0Ai-Jw-I1V"/>
+                                    <outlet property="delegate" destination="Tee-RP-c4n" id="CAE-YT-Ze0"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9d-hu-9hS">
+                                <rect key="frame" x="106.66666666666669" y="728" width="180" height="50"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="RRs-9a-Stl"/>
+                                    <constraint firstAttribute="height" constant="50" id="uYW-sV-udU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kanit-Bold" family="Kanit" pointSize="22"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Next"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="NextButtonTapped:" destination="6zI-8P-9HS" eventType="touchUpInside" id="8mY-1T-hPp"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="epw-9h-h4S">
+                                <rect key="frame" x="138.66666666666666" y="682.33333333333337" width="115.66666666666666" height="25.666666666666629"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="currentPageIndicatorTintColor" systemColor="systemOrangeColor"/>
+                            </pageControl>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                        <viewLayoutGuide key="safeArea" id="Y49-bI-b9E"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="U28-Zj-G0N" firstAttribute="trailing" secondItem="Y49-bI-b9E" secondAttribute="trailing" id="7GH-6y-xET"/>
+                            <constraint firstItem="U28-Zj-G0N" firstAttribute="leading" secondItem="Y49-bI-b9E" secondAttribute="leading" id="9iS-bt-pxF"/>
+                            <constraint firstItem="o9d-hu-9hS" firstAttribute="centerX" secondItem="Y49-bI-b9E" secondAttribute="centerX" id="Bcr-5T-to2"/>
+                            <constraint firstItem="epw-9h-h4S" firstAttribute="centerX" secondItem="Y49-bI-b9E" secondAttribute="centerX" id="GwY-Bz-oP4"/>
+                            <constraint firstItem="Y49-bI-b9E" firstAttribute="bottom" secondItem="o9d-hu-9hS" secondAttribute="bottom" constant="40" id="M0j-s3-EnT"/>
+                            <constraint firstItem="epw-9h-h4S" firstAttribute="top" secondItem="U28-Zj-G0N" secondAttribute="bottom" id="MKk-pv-ZZX"/>
+                            <constraint firstItem="U28-Zj-G0N" firstAttribute="top" secondItem="Tee-RP-c4n" secondAttribute="top" id="dU9-c0-nkV"/>
+                            <constraint firstItem="o9d-hu-9hS" firstAttribute="top" secondItem="epw-9h-h4S" secondAttribute="bottom" constant="20" id="fH3-kx-N9l"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="U28-Zj-G0N" id="Rpy-xT-6BZ"/>
+                        <outlet property="nextButton" destination="o9d-hu-9hS" id="5lv-Ya-Dwo"/>
+                        <outlet property="pageControl" destination="epw-9h-h4S" id="7c9-VN-otD"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b6O-l2-qng" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="-2"/>
+            <point key="canvasLocation" x="-326" y="-47"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="onboard2" width="1700" height="1200"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -9,5 +9,7 @@ import Foundation
 
 
 struct OnboardingModel {
-    
+    let image: String
+    let headline:String
+    let subheadline: String
 }

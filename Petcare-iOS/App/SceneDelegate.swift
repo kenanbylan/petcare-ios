@@ -15,18 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        
-        let navigationController = UINavigationController()
-//        let onboardingController = OnboardingRouter().navigate(navigationController: navigationController)
-//        self.window?.rootViewController = onboardingController
-//        window?.makeKeyAndVisible()
-//        window?.windowScene = windowScene
-//        
         let splash = SplashRouter.createModule()
         window.makeKeyAndVisible()
         window.rootViewController = splash
         self.window = window
-        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -56,7 +48,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
+    
 }
 

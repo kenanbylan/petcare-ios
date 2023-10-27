@@ -13,7 +13,6 @@ protocol OnboardingRouterInterface: AnyObject {
 }
 
 final class OnboardingRouter: OnboardingRouterInterface {
-
     func navigate(navigationController: UINavigationController) -> OnboardingViewController {
         let storyboard = UIStoryboard(name: Constants.Storyboard.onboarding, bundle: nil)
         guard let view = storyboard.instantiateViewController(withIdentifier: Constants.Controller.onboarding) as? OnboardingViewController else {
@@ -27,5 +26,4 @@ final class OnboardingRouter: OnboardingRouterInterface {
         
         return view
     }
-    
 }
