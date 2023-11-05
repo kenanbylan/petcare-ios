@@ -8,22 +8,37 @@
 import Foundation
 import UIKit
 
-protocol OnboardingRouterInterface: AnyObject {
-    func navigate(navigationController : UINavigationController) -> OnboardingViewController
+protocol OnboardingRouterProtocol: AnyObject {
+    func navigateToLogin() -> Void
 }
 
-final class OnboardingRouter: OnboardingRouterInterface {
-    func navigate(navigationController: UINavigationController) -> OnboardingViewController {
-        let storyboard = UIStoryboard(name: Constants.Storyboard.onboarding, bundle: nil)
-        guard let view = storyboard.instantiateViewController(withIdentifier: Constants.Controller.onboarding) as? OnboardingViewController else {
-            fatalError("Error: OnboardingController not build!!")
+final class OnboardingRouter {
+    var navigationController: UINavigationController?
+    
+    init(navigationController: UINavigationController? = nil) {
+        self.navigationController = navigationController
+    }
+    
+    static func build(navigationController: UINavigationController?) -> OnboardingViewController {
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        guard let view = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as? OnboardingViewController else {
+            fatalError("Could not instantiate OnboardingViewController from storyboard.")
         }
-        let interactor = OnboardingInteractor()
-        let router = OnboardingRouter()
-        let presenter = OnboardingPresenter(view: view , router: router, interactor: interactor)
         
+        let router = OnboardingRouter(navigationController: navigationController)
+        let interactor = OnboardingInteractor()
+        let presenter = OnboardingPresenter(view: view, router: router, interactor: interactor)
         view.presenter = presenter
+        interactor.output = presenter
         
         return view
+    }
+}
+
+extension OnboardingRouter: OnboardingRouterProtocol {
+    func navigateToLogin() {
+        let loginView = LoginRouter.build(navigationController: navigationController)
+        self.navigationController?.pushViewController(loginView, animated: true)
+     //   navigationController?.show(loginView, sender: nil)
     }
 }

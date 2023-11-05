@@ -7,41 +7,37 @@
 
 import Foundation
 
-protocol OnboardingPresenterInterface {
-    
-    var swipeData: [OnboardingModel] { get}
-    func load()
-    func setupView()
-    func setTitle(title: String?)
-    
+protocol OnboardingPresenterProtocol {
+    func viewDidLoad()
+    func navigateToLogin()
 }
 
-final class OnboardingPresenter {
-    private weak var view: OnboardingViewInterface?
-    private var router: OnboardingRouterInterface?
-    private var interactor: OnboardingInteractorInterface?
-    private var data: [OnboardingModel]?
+
+final class OnboardingPresenter: OnboardingPresenterProtocol {
     
-    init(view: OnboardingViewInterface?, router: OnboardingRouterInterface?, interactor: OnboardingInteractorInterface?) {
+    private weak var view: OnboardingViewProtocol?
+    private var router: OnboardingRouterProtocol?
+    private var interactor: OnboardingInteractorProtocol?
+
+    init(view: OnboardingViewController?, router: OnboardingRouterProtocol?, interactor: OnboardingInteractorProtocol?) {
         self.view = view
         self.router = router
         self.interactor = interactor
     }
     
-    let swipeData = [
-        OnboardingModel(image: "onboard1", headline: "Make sure always be perfect parent to your pets", subheadline: "Pin your favorite restaurants and create your own food guide"),
-        OnboardingModel(image: "onboard2", headline: "SHOW YOU THE LOCATION", subheadline: "Search and locate your favourite restaurant on Maps"),
-        OnboardingModel(image: "onboard3", headline: "DISCOVER GREAT RESTAURANTS", subheadline: "Find restaurants shared by your friends and other foodies")
-    ]
-}
-
-extension OnboardingPresenter: OnboardingPresenterInterface {
-    func load() {
+    func viewDidLoad() {
+        interactor?.getData()
         view?.prepareUI()
-        view?.setTitle("TESTTT")
     }
     
-    func setupView() { }
-    func setTitle(title: String?) { }
+    
+    func navigateToLogin() {
+        router?.navigateToLogin()
+    }
+
+    
+}
+
+extension OnboardingPresenter: OnboardingInteractorOutputProtocol {
     
 }

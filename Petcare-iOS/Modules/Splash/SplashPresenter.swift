@@ -5,38 +5,40 @@
 //  Created by Kenan Baylan on 15.10.2023.
 
 import Foundation
+import UIKit
 
-protocol SplashPresenterInterface {
-    func load()
+protocol SplashPresenterProtocol: AnyObject {
+    func viewDidLoad() -> Void
 }
 
-final class SplashPresenter {
-    private unowned var view : SplashViewControllerInterface?
-    let router: SplashRouterInterface?
-    let interactor: SplashInteractorInterface?
+final class SplashPresenter: SplashPresenterProtocol {
+        
+    private weak var view: SplashViewProtocol?
+    private let interactor: SplashInteractorProtocol
+    private var router: SplashRouterProtocol?
     
-    init(view: SplashViewControllerInterface? , router: SplashRouterInterface?, interactor: SplashInteractorInterface?) {
+    init(view: SplashViewProtocol? , interactor: SplashInteractorProtocol, router: SplashRouterProtocol?) {
         self.view = view
-        self.router = router
         self.interactor = interactor
+        self.router = router
     }
+    
+    func viewDidLoad() {
+        interactor.checkInternetConnection()
+        view?.prepareUI()
+    }
+
 }
 
-extension SplashPresenter: SplashPresenterInterface {
-    func load() {
-        interactor?.checkInternetConnection()
-    }
-}
-
-extension SplashPresenter: SplashInteractorOutput {
+extension SplashPresenter: SplashInteractorOutputProtocol {
     func internetConnectionStatus(_ status: Bool) {
         if status {
+            print("STATUS is true")
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.router?.navigate(.onboardingScreen)
+                self.router?.navigateToOnboarding()
             }
-            
         } else {
-            view?.noInternetConnection()
+            print("STATUS is nil ")
         }
     }
 }

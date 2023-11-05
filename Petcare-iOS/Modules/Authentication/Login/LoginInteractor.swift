@@ -6,3 +6,23 @@
 //
 
 import Foundation
+
+
+protocol LoginInteractorProtocol {
+    func checkUserLogin(email: String, password: String)
+}
+
+protocol LoginInteractorOutput {
+    func internetConnectionStatus(_ status: Bool)
+}
+
+
+final class LoginInteractor : LoginInteractorProtocol {
+    var output: LoginInteractorOutput?
+    
+    func checkUserLogin(email: String, password: String) {
+        
+    }
+    
+}
+

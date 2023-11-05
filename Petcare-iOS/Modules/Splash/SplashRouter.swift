@@ -8,44 +8,38 @@
 import Foundation
 import UIKit
 
-enum SplashRoutes {
-    case homeScreen
-    case onboardingScreen
-    case loginScreen
-}
-
-protocol SplashRouterInterface: AnyObject {
-    func navigate(_ route: SplashRoutes)
+protocol SplashRouterProtocol: AnyObject {
+    func navigateToOnboarding() -> Void
 }
 
 final class SplashRouter {
-    weak var viewController: SplashViewController?
+    var navigationController: UINavigationController?
     
-    static func createModule() -> SplashViewController {
-        let view = SplashViewController()
-        let interactor = SplashInteractor()
-        let router = SplashRouter()
-        let presenter = SplashPresenter(view: view, router: router, interactor: interactor)
+    init(navigationController: UINavigationController?) {
+        self.navigationController = navigationController
+    }
+    
+    static func build(navigationController: UINavigationController?) -> SplashViewController {
+        let storyboard = UIStoryboard(name: "Splash", bundle: nil)
+        guard let view = storyboard.instantiateViewController(withIdentifier: "SplashViewController") as? SplashViewController else {
+            fatalError("Could not instantiate SplashViewController from storyboard.")
+        }
         
+        let router = SplashRouter(navigationController: navigationController)
+
+        let interactor = SplashInteractor()
+        let presenter = SplashPresenter(view: view, interactor: interactor, router: router)
+    
         view.presenter = presenter
         interactor.output = presenter
-        router.viewController = view
         
         return view
     }
 }
 
-extension SplashRouter : SplashRouterInterface {
-    func navigate(_ route: SplashRoutes) {
-        switch route {
-        case .homeScreen:
-            break
-        case .onboardingScreen:
-            guard let window = viewController?.view.window else { return }
-            let onboardingVC = OnboardingRouter().navigate(navigationController: UINavigationController())
-            window.rootViewController = onboardingVC
-        case .loginScreen:
-            break
-        }
+extension SplashRouter: SplashRouterProtocol {
+    func navigateToOnboarding() {
+        let onboardingVC = OnboardingRouter.build(navigationController: UINavigationController())
+        self.navigationController?.pushViewController(onboardingVC, animated: true)
     }
 }

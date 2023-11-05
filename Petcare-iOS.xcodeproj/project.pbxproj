@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		930CB6C02AF18F4F00E632A7 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 930CB6BF2AF18F4F00E632A7 /* Splash.storyboard */; };
+		93262B452AEBD1360047A79F /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 93262B442AEBD1360047A79F /* CombineCocoa */; };
 		933780122ADA7DA800103273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780112ADA7DA800103273 /* AppDelegate.swift */; };
 		933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780132ADA7DA800103273 /* SceneDelegate.swift */; };
 		933780192ADA7DA800103273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933780172ADA7DA800103273 /* Main.storyboard */; };
@@ -26,15 +28,38 @@
 		933780592ADA825200103273 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780582ADA825200103273 /* LoginRouter.swift */; };
 		9337805B2ADA826B00103273 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9337805A2ADA826B00103273 /* User.swift */; };
 		933780602ADC0DC000103273 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9337805E2ADC0DC000103273 /* SplashViewController.swift */; };
-		933780612ADC0DC000103273 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9337805F2ADC0DC000103273 /* SplashViewController.xib */; };
 		933780652ADC0DF000103273 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780642ADC0DF000103273 /* SplashRouter.swift */; };
 		933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780662ADC0DF900103273 /* SplashPresenter.swift */; };
 		933780692ADC0DFF00103273 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780682ADC0DFF00103273 /* SplashInteractor.swift */; };
 		9348B4532AE05DAE00F7185A /* SwipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9348B4522AE05DAE00F7185A /* SwipeCollectionViewCell.swift */; };
 		9348B45E2AE0631E00F7185A /* Font + Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9348B45D2AE0631E00F7185A /* Font + Enum.swift */; };
+		93CE90672AF7BA2E0025FBB0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93CE90662AF7BA2E0025FBB0 /* Home.storyboard */; };
+		93CE90692AF7BA380025FBB0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90682AF7BA380025FBB0 /* HomeViewController.swift */; };
+		93CE906B2AF7BA420025FBB0 /* HomeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE906A2AF7BA420025FBB0 /* HomeEntity.swift */; };
+		93CE906D2AF7BA4C0025FBB0 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE906C2AF7BA4C0025FBB0 /* HomePresenter.swift */; };
+		93CE906F2AF7BA550025FBB0 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE906E2AF7BA550025FBB0 /* HomeInteractor.swift */; };
+		93CE90712AF7BA5C0025FBB0 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90702AF7BA5C0025FBB0 /* HomeRouter.swift */; };
+		93CE90732AF7BA910025FBB0 /* MainTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90722AF7BA910025FBB0 /* MainTabbar.swift */; };
+		93CE90752AF7D51C0025FBB0 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93CE90742AF7D51C0025FBB0 /* Calendar.storyboard */; };
+		93CE90772AF7D5260025FBB0 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90762AF7D5260025FBB0 /* CalendarViewController.swift */; };
+		93CE90792AF7D5370025FBB0 /* CalendarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90782AF7D5370025FBB0 /* CalendarRouter.swift */; };
+		93CE907B2AF7D53F0025FBB0 /* CalendarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE907A2AF7D53F0025FBB0 /* CalendarInteractor.swift */; };
+		93CE907D2AF7D5460025FBB0 /* CalendarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE907C2AF7D5460025FBB0 /* CalendarPresenter.swift */; };
+		93CE907F2AF7D5580025FBB0 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE907E2AF7D5580025FBB0 /* CalendarModel.swift */; };
+		93CE90812AF7D57F0025FBB0 /* VetMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93CE90802AF7D57F0025FBB0 /* VetMap.storyboard */; };
+		93CE90832AF7D5980025FBB0 /* VetMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90822AF7D5980025FBB0 /* VetMapViewController.swift */; };
+		93CE90852AF7D5AF0025FBB0 /* VetMapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90842AF7D5AF0025FBB0 /* VetMapRouter.swift */; };
+		93CE90872AF7D5C40025FBB0 /* VetMapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90862AF7D5C40025FBB0 /* VetMapInteractor.swift */; };
+		93CE90892AF7D5CC0025FBB0 /* VetMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90882AF7D5CC0025FBB0 /* VetMapPresenter.swift */; };
+		93CE908B2AF7D5E00025FBB0 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93CE908A2AF7D5E00025FBB0 /* Settings.storyboard */; };
+		93CE908D2AF7D5E60025FBB0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE908C2AF7D5E60025FBB0 /* SettingsViewController.swift */; };
+		93CE908F2AF7D5F50025FBB0 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE908E2AF7D5F50025FBB0 /* SettingsInteractor.swift */; };
+		93CE90912AF7D5FA0025FBB0 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90902AF7D5FA0025FBB0 /* SettingsPresenter.swift */; };
+		93CE90932AF7D6000025FBB0 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90922AF7D6000025FBB0 /* SettingsRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		930CB6BF2AF18F4F00E632A7 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		9337800E2ADA7DA800103273 /* Petcare-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Petcare-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		933780112ADA7DA800103273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		933780132ADA7DA800103273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,7 +81,6 @@
 		933780582ADA825200103273 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		9337805A2ADA826B00103273 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9337805E2ADC0DC000103273 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		9337805F2ADC0DC000103273 /* SplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
 		933780642ADC0DF000103273 /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
 		933780662ADC0DF900103273 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		933780682ADC0DFF00103273 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
@@ -69,6 +93,29 @@
 		9348B45B2AE0620400F7185A /* Kanit-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-ExtraBold.ttf"; sourceTree = "<group>"; };
 		9348B45C2AE0620400F7185A /* Kanit-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Light.ttf"; sourceTree = "<group>"; };
 		9348B45D2AE0631E00F7185A /* Font + Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Enum.swift"; sourceTree = "<group>"; };
+		93CE90662AF7BA2E0025FBB0 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		93CE90682AF7BA380025FBB0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		93CE906A2AF7BA420025FBB0 /* HomeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEntity.swift; sourceTree = "<group>"; };
+		93CE906C2AF7BA4C0025FBB0 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		93CE906E2AF7BA550025FBB0 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		93CE90702AF7BA5C0025FBB0 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		93CE90722AF7BA910025FBB0 /* MainTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbar.swift; sourceTree = "<group>"; };
+		93CE90742AF7D51C0025FBB0 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
+		93CE90762AF7D5260025FBB0 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		93CE90782AF7D5370025FBB0 /* CalendarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRouter.swift; sourceTree = "<group>"; };
+		93CE907A2AF7D53F0025FBB0 /* CalendarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarInteractor.swift; sourceTree = "<group>"; };
+		93CE907C2AF7D5460025FBB0 /* CalendarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPresenter.swift; sourceTree = "<group>"; };
+		93CE907E2AF7D5580025FBB0 /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
+		93CE90802AF7D57F0025FBB0 /* VetMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VetMap.storyboard; sourceTree = "<group>"; };
+		93CE90822AF7D5980025FBB0 /* VetMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetMapViewController.swift; sourceTree = "<group>"; };
+		93CE90842AF7D5AF0025FBB0 /* VetMapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetMapRouter.swift; sourceTree = "<group>"; };
+		93CE90862AF7D5C40025FBB0 /* VetMapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetMapInteractor.swift; sourceTree = "<group>"; };
+		93CE90882AF7D5CC0025FBB0 /* VetMapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetMapPresenter.swift; sourceTree = "<group>"; };
+		93CE908A2AF7D5E00025FBB0 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		93CE908C2AF7D5E60025FBB0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		93CE908E2AF7D5F50025FBB0 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		93CE90902AF7D5FA0025FBB0 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		93CE90922AF7D6000025FBB0 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93262B452AEBD1360047A79F /* CombineCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +151,6 @@
 			children = (
 				933780252ADA7E0400103273 /* App */,
 				933780292ADA7E2700103273 /* Helper */,
-				933780272ADA7E1E00103273 /* Network */,
 				933780382ADA7F1300103273 /* Components */,
 				933780282ADA7E2200103273 /* Core */,
 				9337802C2ADA7E4100103273 /* Modules */,
@@ -132,18 +179,11 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		933780272ADA7E1E00103273 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		933780282ADA7E2200103273 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				93E0D78A2ADF0FB80087979F /* CustomViews */,
-				933780352ADA7E9100103273 /* Tabbar */,
+				933780352ADA7E9100103273 /* MainTabbar */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -188,10 +228,11 @@
 		9337802D2ADA7E4C00103273 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
-				933780632ADC0DE200103273 /* View */,
+				933780642ADC0DF000103273 /* SplashRouter.swift */,
 				933780682ADC0DFF00103273 /* SplashInteractor.swift */,
 				933780662ADC0DF900103273 /* SplashPresenter.swift */,
-				933780642ADC0DF000103273 /* SplashRouter.swift */,
+				9337805E2ADC0DC000103273 /* SplashViewController.swift */,
+				930CB6BF2AF18F4F00E632A7 /* Splash.storyboard */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -199,11 +240,12 @@
 		9337802E2ADA7E5400103273 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				9337803F2ADA813500103273 /* Entity */,
-				933780452ADA815E00103273 /* View */,
+				933780402ADA814400103273 /* OnboardingModel.swift */,
 				9337804A2ADA81A700103273 /* OnboardingRouter.swift */,
-				933780482ADA81A100103273 /* OnboardingPresenter.swift */,
 				9337804C2ADA81AF00103273 /* OnboardingInteractor.swift */,
+				933780482ADA81A100103273 /* OnboardingPresenter.swift */,
+				933780462ADA816F00103273 /* OnboardingViewController.swift */,
+				933780422ADA815400103273 /* Onboarding.storyboard */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -211,10 +253,10 @@
 		9337802F2ADA7E5A00103273 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				933780392ADA7F2900103273 /* Login */,
 				9337803C2ADA7F4000103273 /* ForgotPassword */,
 				9337803B2ADA7F3800103273 /* SmsOtp */,
 				9337803A2ADA7F2F00103273 /* Register */,
-				933780392ADA7F2900103273 /* Login */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -224,8 +266,8 @@
 			children = (
 				933780332ADA7E7B00103273 /* Home */,
 				933780372ADA7EA900103273 /* Calendar */,
-				933780362ADA7E9600103273 /* Settings */,
 				933780322ADA7E7200103273 /* VetMaps */,
+				933780362ADA7E9600103273 /* Settings */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -233,6 +275,11 @@
 		933780322ADA7E7200103273 /* VetMaps */ = {
 			isa = PBXGroup;
 			children = (
+				93CE90842AF7D5AF0025FBB0 /* VetMapRouter.swift */,
+				93CE90862AF7D5C40025FBB0 /* VetMapInteractor.swift */,
+				93CE90882AF7D5CC0025FBB0 /* VetMapPresenter.swift */,
+				93CE90822AF7D5980025FBB0 /* VetMapViewController.swift */,
+				93CE90802AF7D57F0025FBB0 /* VetMap.storyboard */,
 			);
 			path = VetMaps;
 			sourceTree = "<group>";
@@ -240,20 +287,32 @@
 		933780332ADA7E7B00103273 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				93CE906A2AF7BA420025FBB0 /* HomeEntity.swift */,
+				93CE90702AF7BA5C0025FBB0 /* HomeRouter.swift */,
+				93CE906E2AF7BA550025FBB0 /* HomeInteractor.swift */,
+				93CE906C2AF7BA4C0025FBB0 /* HomePresenter.swift */,
+				93CE90682AF7BA380025FBB0 /* HomeViewController.swift */,
+				93CE90662AF7BA2E0025FBB0 /* Home.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		933780352ADA7E9100103273 /* Tabbar */ = {
+		933780352ADA7E9100103273 /* MainTabbar */ = {
 			isa = PBXGroup;
 			children = (
+				93CE90722AF7BA910025FBB0 /* MainTabbar.swift */,
 			);
-			path = Tabbar;
+			path = MainTabbar;
 			sourceTree = "<group>";
 		};
 		933780362ADA7E9600103273 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				93CE90922AF7D6000025FBB0 /* SettingsRouter.swift */,
+				93CE908E2AF7D5F50025FBB0 /* SettingsInteractor.swift */,
+				93CE90902AF7D5FA0025FBB0 /* SettingsPresenter.swift */,
+				93CE908C2AF7D5E60025FBB0 /* SettingsViewController.swift */,
+				93CE908A2AF7D5E00025FBB0 /* Settings.storyboard */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -261,6 +320,12 @@
 		933780372ADA7EA900103273 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				93CE907E2AF7D5580025FBB0 /* CalendarModel.swift */,
+				93CE90782AF7D5370025FBB0 /* CalendarRouter.swift */,
+				93CE907A2AF7D53F0025FBB0 /* CalendarInteractor.swift */,
+				93CE907C2AF7D5460025FBB0 /* CalendarPresenter.swift */,
+				93CE90762AF7D5260025FBB0 /* CalendarViewController.swift */,
+				93CE90742AF7D51C0025FBB0 /* Calendar.storyboard */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -275,11 +340,12 @@
 		933780392ADA7F2900103273 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				9337804F2ADA821C00103273 /* View */,
-				9337804E2ADA821700103273 /* Entity */,
+				9337805A2ADA826B00103273 /* User.swift */,
 				933780582ADA825200103273 /* LoginRouter.swift */,
-				933780542ADA824500103273 /* LoginPresenter.swift */,
 				933780562ADA824D00103273 /* LoginInteractor.swift */,
+				933780542ADA824500103273 /* LoginPresenter.swift */,
+				933780522ADA823D00103273 /* LoginViewController.swift */,
+				933780502ADA823300103273 /* Login.storyboard */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -304,49 +370,6 @@
 			children = (
 			);
 			path = ForgotPassword;
-			sourceTree = "<group>";
-		};
-		9337803F2ADA813500103273 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				933780402ADA814400103273 /* OnboardingModel.swift */,
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		933780452ADA815E00103273 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				933780422ADA815400103273 /* Onboarding.storyboard */,
-				933780462ADA816F00103273 /* OnboardingViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		9337804E2ADA821700103273 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				9337805A2ADA826B00103273 /* User.swift */,
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		9337804F2ADA821C00103273 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				933780502ADA823300103273 /* Login.storyboard */,
-				933780522ADA823D00103273 /* LoginViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		933780632ADC0DE200103273 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				9337805E2ADC0DC000103273 /* SplashViewController.swift */,
-				9337805F2ADC0DC000103273 /* SplashViewController.xib */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		9348B4512AE05D9600F7185A /* UICollectionViewCell */ = {
@@ -403,6 +426,9 @@
 			dependencies = (
 			);
 			name = "Petcare-iOS";
+			packageProductDependencies = (
+				93262B442AEBD1360047A79F /* CombineCocoa */,
+			);
 			productName = "Petcare-iOS";
 			productReference = 9337800E2ADA7DA800103273 /* Petcare-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -431,6 +457,9 @@
 				Base,
 			);
 			mainGroup = 933780052ADA7DA800103273;
+			packageReferences = (
+				93262B432AEBD1360047A79F /* XCRemoteSwiftPackageReference "CombineCocoa" */,
+			);
 			productRefGroup = 9337800F2ADA7DA800103273 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -445,12 +474,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93CE90672AF7BA2E0025FBB0 /* Home.storyboard in Resources */,
 				9337801E2ADA7DAA00103273 /* LaunchScreen.storyboard in Resources */,
 				9337801B2ADA7DAA00103273 /* Assets.xcassets in Resources */,
-				933780612ADC0DC000103273 /* SplashViewController.xib in Resources */,
 				933780192ADA7DA800103273 /* Main.storyboard in Resources */,
+				93CE90752AF7D51C0025FBB0 /* Calendar.storyboard in Resources */,
 				933780512ADA823300103273 /* Login.storyboard in Resources */,
+				93CE90812AF7D57F0025FBB0 /* VetMap.storyboard in Resources */,
 				933780432ADA815400103273 /* Onboarding.storyboard in Resources */,
+				930CB6C02AF18F4F00E632A7 /* Splash.storyboard in Resources */,
+				93CE908B2AF7D5E00025FBB0 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,21 +498,40 @@
 				9348B4532AE05DAE00F7185A /* SwipeCollectionViewCell.swift in Sources */,
 				933780412ADA814400103273 /* OnboardingModel.swift in Sources */,
 				933780122ADA7DA800103273 /* AppDelegate.swift in Sources */,
+				93CE90832AF7D5980025FBB0 /* VetMapViewController.swift in Sources */,
 				933780552ADA824500103273 /* LoginPresenter.swift in Sources */,
 				933780492ADA81A100103273 /* OnboardingPresenter.swift in Sources */,
 				9337805B2ADA826B00103273 /* User.swift in Sources */,
 				9337804D2ADA81AF00103273 /* OnboardingInteractor.swift in Sources */,
+				93CE907B2AF7D53F0025FBB0 /* CalendarInteractor.swift in Sources */,
+				93CE90772AF7D5260025FBB0 /* CalendarViewController.swift in Sources */,
 				9337804B2ADA81A700103273 /* OnboardingRouter.swift in Sources */,
+				93CE90872AF7D5C40025FBB0 /* VetMapInteractor.swift in Sources */,
+				93CE90732AF7BA910025FBB0 /* MainTabbar.swift in Sources */,
 				933780652ADC0DF000103273 /* SplashRouter.swift in Sources */,
 				933780602ADC0DC000103273 /* SplashViewController.swift in Sources */,
+				93CE90912AF7D5FA0025FBB0 /* SettingsPresenter.swift in Sources */,
 				933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */,
 				9348B45E2AE0631E00F7185A /* Font + Enum.swift in Sources */,
+				93CE90712AF7BA5C0025FBB0 /* HomeRouter.swift in Sources */,
 				933780572ADA824D00103273 /* LoginInteractor.swift in Sources */,
+				93CE90932AF7D6000025FBB0 /* SettingsRouter.swift in Sources */,
 				933780692ADC0DFF00103273 /* SplashInteractor.swift in Sources */,
+				93CE907F2AF7D5580025FBB0 /* CalendarModel.swift in Sources */,
+				93CE90692AF7BA380025FBB0 /* HomeViewController.swift in Sources */,
+				93CE908D2AF7D5E60025FBB0 /* SettingsViewController.swift in Sources */,
+				93CE906B2AF7BA420025FBB0 /* HomeEntity.swift in Sources */,
 				933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */,
+				93CE90792AF7D5370025FBB0 /* CalendarRouter.swift in Sources */,
 				933780532ADA823D00103273 /* LoginViewController.swift in Sources */,
+				93CE907D2AF7D5460025FBB0 /* CalendarPresenter.swift in Sources */,
+				93CE90852AF7D5AF0025FBB0 /* VetMapRouter.swift in Sources */,
 				933780592ADA825200103273 /* LoginRouter.swift in Sources */,
+				93CE906F2AF7BA550025FBB0 /* HomeInteractor.swift in Sources */,
 				9337803E2ADA80FF00103273 /* Constants.swift in Sources */,
+				93CE906D2AF7BA4C0025FBB0 /* HomePresenter.swift in Sources */,
+				93CE90892AF7D5CC0025FBB0 /* VetMapPresenter.swift in Sources */,
+				93CE908F2AF7D5F50025FBB0 /* SettingsInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +758,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		93262B432AEBD1360047A79F /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		93262B442AEBD1360047A79F /* CombineCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93262B432AEBD1360047A79F /* XCRemoteSwiftPackageReference "CombineCocoa" */;
+			productName = CombineCocoa;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 933780062ADA7DA800103273 /* Project object */;
 }

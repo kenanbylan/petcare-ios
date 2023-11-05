@@ -6,32 +6,40 @@
 //
 
 import Foundation
+import UIKit
 
-protocol SplashInteractorInterface {
+protocol SplashInteractorProtocol: AnyObject{
     func checkInternetConnection()
-    func checkDeviceManager()
-    func checkUserLogin()
     func checkTheme()
     func checkLanguage()
+    func getData()
 }
 
-protocol SplashInteractorOutput {
+protocol SplashInteractorOutputProtocol {
     func internetConnectionStatus(_ status: Bool)
 }
 
-
-final class SplashInteractor {
-    var output: SplashInteractorOutput?
-     
-}
-
-extension SplashInteractor : SplashInteractorInterface {
+final class SplashInteractor: SplashInteractorProtocol {
+    var output: SplashInteractorOutputProtocol?
+    
+    //    private var networkManager: NetworkManager?
+    //    init(networkManager: NetworkManager<EndpointItem>) {
+    //        self.networkManager = networkManager
+    //    }
+    
     func checkInternetConnection() {
-        let internetStatus = true
-        self.output?.internetConnectionStatus(internetStatus)
+        let status = true
+        self.output?.internetConnectionStatus(status)
     }
-    func checkDeviceManager() { }
-    func checkUserLogin() { }
-    func checkTheme() { }
-    func checkLanguage() { }
+    
+    func checkTheme() {
+        
+    }
+    func checkLanguage() {
+        
+    }
+    
+    func getData() {
+        
+    }
 }
