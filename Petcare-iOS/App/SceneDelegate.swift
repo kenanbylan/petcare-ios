@@ -15,11 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        let view = OnboardingRouter.build(navigationController: UINavigationController())
+        let splash = SplashRouter.build(in: window)
+        window.makeKeyAndVisible()
+        window.rootViewController = splash
         self.window = window
-        self.window?.rootViewController = MainTabbar()
-        self.window?.makeKeyAndVisible()
-
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

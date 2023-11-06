@@ -9,7 +9,6 @@ import UIKit
 
 protocol OnboardingViewProtocol: AnyObject {
     func prepareUI()
-    
 }
 
 final class OnboardingViewController: UIViewController {
@@ -28,15 +27,15 @@ final class OnboardingViewController: UIViewController {
     //MARK: UIActions
     @IBAction func NextButtonTapped(_ sender: Any) {
         //MARK: NAVİGATE TO LOGİN OR REGİSTER
+        print("Next button clicked")
         presenter?.navigateToLogin()
-        
+
     }
     
 }
 
 extension OnboardingViewController: OnboardingViewProtocol {
     func prepareUI() {
-        view.backgroundColor = .red
+        view.backgroundColor = .systemGreen
     }
-
 }

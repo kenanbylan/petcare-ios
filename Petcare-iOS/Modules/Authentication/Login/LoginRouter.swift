@@ -9,25 +9,42 @@ import Foundation
 import UIKit.UINavigationController
 
 protocol LoginRouterProtocol: AnyObject {
-    
+    func navigateToMain() -> Void
+    func navigateToRegister() -> Void
 }
 
 final class LoginRouter: LoginRouterProtocol {
-//    var navigationController: UINavigationController?
-//    
-//    init(navigationController: UINavigationController?) {
-//        self.navigationController = navigationController
-//    }
+    var navigationController: UINavigationController?
+    var window: UIWindow?
     
-    static func build(navigationController: UINavigationController?) -> LoginViewController {
+    init(navigationController: UINavigationController?, window: UIWindow?) {
+        self.navigationController = navigationController
+        self.window = window
+    }
+    
+    static func build(navigationController: UINavigationController?,window: UIWindow?) -> LoginViewController {
         let storyboard = UIStoryboard(name: Constants.Storyboard.login, bundle: nil)
         let view = storyboard.instantiateViewController(identifier: Constants.Controller.login) as! LoginViewController
 
-        let router = LoginRouter()
+        let router = LoginRouter(navigationController: navigationController, window: window)
         let interactor = LoginInteractor()
         let presenter = LoginPresenter(view: view, router: router, interactor: interactor)
         view.presenter = presenter
         interactor.output = presenter
         return view
+    }
+    
+    
+    func navigateToMain() {
+        let main = MainTabbar()
+        
+        UIView.transition(with: window!, duration: 0.5, options: .layoutSubviews , animations: {
+            self.window?.rootViewController = main
+        }, completion: nil)
+    }
+
+    
+    func navigateToRegister() {
+        
     }
 }

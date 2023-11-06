@@ -36,18 +36,5 @@ enum Constants {
         static let vetmaps = "VetMapViewController"
 
     }
-    
-    enum Style {
-        static let brandNameSize: CGFloat = 20
-        static let addToCartRadius: CGFloat = 5
-        static let promotionListBoldFont: CGFloat = 15
-    }
-    
-    enum Image {
-        static let barImageName = "homekit"
-    }
-    
-    enum Text {
-        static let homeTitle = "Mobile Case"
-    }
 }
+

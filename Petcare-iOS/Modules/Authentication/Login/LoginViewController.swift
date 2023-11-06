@@ -13,11 +13,17 @@ protocol LoginViewControllerProtocol: AnyObject {
 
 class LoginViewController: UIViewController {
     var presenter: LoginPresenterProtocol?
-    @IBOutlet weak var loginButtonClicked: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = AppColors.primaryColor
         presenter?.load()
+    }
+    
+    @IBAction func LoginButtonClicked(_ sender: Any) {
+        print("Login button clicked")
+        presenter?.navigateMain()
+        ///MARK: if user data control is true Tabbar is wrong AlertView
     }
 }
 

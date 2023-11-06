@@ -1,15 +1,11 @@
-//
 //  HomeRouter.swift
 //  Petcare-iOS
-//
 //  Created by Kenan Baylan on 5.11.2023.
-//
 
 import Foundation
 import UIKit.UINavigationController
 
 protocol HomeRouterProtocol: AnyObject {
-    func navigateToOnbaording()
 }
 
 final class HomeRouter: HomeRouterProtocol {
@@ -32,8 +28,5 @@ final class HomeRouter: HomeRouterProtocol {
         return view
     }
     
-    func navigateToOnbaording() {
-        let onbaording = OnboardingRouter.build(navigationController: navigationController)
-        self.navigationController?.pushViewController(onbaording, animated: true)
-    }
+    
 }

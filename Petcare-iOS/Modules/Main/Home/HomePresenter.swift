@@ -8,7 +8,6 @@ import Foundation
 
 protocol HomePresenterProtocol {
     func viewDidLoad()
-    func navigatetoOnboarding()
 }
 
 final class HomePresenter {
@@ -25,13 +24,10 @@ final class HomePresenter {
 
 extension HomePresenter: HomePresenterProtocol {
     func viewDidLoad() {
-        
     }
-    func navigatetoOnboarding() {
-        router?.navigateToOnbaording()
-    }
+    
 }
 
 extension HomePresenter: HomeInteractorOutput {
-   
+    
 }

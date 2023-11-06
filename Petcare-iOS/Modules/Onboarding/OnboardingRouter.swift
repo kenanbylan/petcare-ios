@@ -13,19 +13,20 @@ protocol OnboardingRouterProtocol: AnyObject {
 }
 
 final class OnboardingRouter {
-    var navigationController: UINavigationController?
     
-    init(navigationController: UINavigationController? = nil) {
-        self.navigationController = navigationController
+    var window: UIWindow
+    
+    init(window: UIWindow) {
+        self.window = window
     }
     
-    static func build(navigationController: UINavigationController?) -> OnboardingViewController {
+    static func build(in window: UIWindow) -> OnboardingViewController {
         let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
         guard let view = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as? OnboardingViewController else {
             fatalError("Could not instantiate OnboardingViewController from storyboard.")
         }
         
-        let router = OnboardingRouter(navigationController: navigationController)
+        let router = OnboardingRouter(window: window)
         let interactor = OnboardingInteractor()
         let presenter = OnboardingPresenter(view: view, router: router, interactor: interactor)
         view.presenter = presenter
@@ -37,8 +38,8 @@ final class OnboardingRouter {
 
 extension OnboardingRouter: OnboardingRouterProtocol {
     func navigateToLogin() {
-        let loginView = LoginRouter.build(navigationController: navigationController)
-        self.navigationController?.pushViewController(loginView, animated: true)
-     //   navigationController?.show(loginView, sender: nil)
+        let loginVC = LoginRouter.build(navigationController: UINavigationController(), window: window)
+        let navigation = UINavigationController(rootViewController: loginVC)
+        window.rootViewController = navigation
     }
 }

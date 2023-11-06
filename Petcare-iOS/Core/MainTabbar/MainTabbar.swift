@@ -15,8 +15,8 @@ final class MainTabbar: UITabBarController {
         tabbarInitView()
         loadHomeTab()
         loadCalendarTab()
-        loadSettingsTab()
         loadVetMapTab()
+        loadSettingsTab()
     }
     
     private func tabbarInitView() {
@@ -24,14 +24,15 @@ final class MainTabbar: UITabBarController {
         tabBar.unselectedItemTintColor = .gray
         tabBar.barTintColor = .white
         tabBar.isTranslucent = true
+        tabBar.backgroundColor = .white
     }
     
     func loadHomeTab() {
         let navigationController = UINavigationController()
         let homeView = HomeRouter.build(navigationController: navigationController)
         navigationController.viewControllers.append(homeView)
-        navigationController.tabBarItem.image = UIImage(systemName: "house")
-        navigationController.tabBarItem.title = "Home"
+        navigationController.tabBarItem.image = UIImage(systemName: Tabbar.homeIcon)
+        navigationController.tabBarItem.title = Tabbar.homeText
         self.addChild(navigationController)
     }
     
@@ -39,8 +40,8 @@ final class MainTabbar: UITabBarController {
         let navigationController = UINavigationController()
         let calendarView = CalendarRouter.build(navigationController: navigationController)
         navigationController.viewControllers.append(calendarView)
-        navigationController.tabBarItem.image = UIImage(systemName: "house")
-        navigationController.tabBarItem.title = "Calendar"
+        navigationController.tabBarItem.image = UIImage(named: Tabbar.calendarIcon)
+        navigationController.tabBarItem.title = Tabbar.calendarText
         self.addChild(navigationController)
     }
     
@@ -49,8 +50,8 @@ final class MainTabbar: UITabBarController {
         let navigationController = UINavigationController()
         let mapsView = VetMapRouter.build(navigationController: navigationController)
         navigationController.viewControllers.append(mapsView)
-        navigationController.tabBarItem.image = UIImage(systemName: "house")
-        navigationController.tabBarItem.title = "Veterinary Map"
+        navigationController.tabBarItem.image = UIImage(named: Tabbar.mapIcon)
+        navigationController.tabBarItem.title = Tabbar.mapText
         self.addChild(navigationController)
     }
     
@@ -58,8 +59,8 @@ final class MainTabbar: UITabBarController {
         let navigationController = UINavigationController()
         let settings = SettingsRouter.build(navigationController: navigationController)
         navigationController.viewControllers.append(settings)
-        navigationController.tabBarItem.image = UIImage(systemName: "house")
-        navigationController.tabBarItem.title = "Settings"
+        navigationController.tabBarItem.image = UIImage(systemName: Tabbar.settingsIcon )
+        navigationController.tabBarItem.title = Tabbar.settingsText
         self.addChild(navigationController)
     }
 }

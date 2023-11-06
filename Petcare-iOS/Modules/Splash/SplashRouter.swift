@@ -13,23 +13,24 @@ protocol SplashRouterProtocol: AnyObject {
 }
 
 final class SplashRouter {
-    var navigationController: UINavigationController?
     
-    init(navigationController: UINavigationController?) {
-        self.navigationController = navigationController
+    var window: UIWindow
+    
+    init(window: UIWindow) {
+        self.window = window
     }
     
-    static func build(navigationController: UINavigationController?) -> SplashViewController {
+    static func build(in window: UIWindow) -> SplashViewController {
         let storyboard = UIStoryboard(name: "Splash", bundle: nil)
         guard let view = storyboard.instantiateViewController(withIdentifier: "SplashViewController") as? SplashViewController else {
             fatalError("Could not instantiate SplashViewController from storyboard.")
         }
         
-        let router = SplashRouter(navigationController: navigationController)
+        let router = SplashRouter(window: window)
 
         let interactor = SplashInteractor()
         let presenter = SplashPresenter(view: view, interactor: interactor, router: router)
-    
+        
         view.presenter = presenter
         interactor.output = presenter
         
@@ -39,7 +40,8 @@ final class SplashRouter {
 
 extension SplashRouter: SplashRouterProtocol {
     func navigateToOnboarding() {
-        let onboardingVC = OnboardingRouter.build(navigationController: UINavigationController())
-        self.navigationController?.pushViewController(onboardingVC, animated: true)
+        let onboardingVC = OnboardingRouter.build(in: window)
+        let navigationController = UINavigationController(rootViewController: onboardingVC)
+        window.rootViewController = navigationController
     }
 }
