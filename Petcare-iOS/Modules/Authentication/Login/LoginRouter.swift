@@ -10,7 +10,7 @@ import UIKit.UINavigationController
 
 protocol LoginRouterProtocol: AnyObject {
     func navigateToMain() -> Void
-    func navigateToRegister() -> Void
+    func navigateToSignUp() -> Void
 }
 
 final class LoginRouter: LoginRouterProtocol {
@@ -36,15 +36,15 @@ final class LoginRouter: LoginRouterProtocol {
     
     
     func navigateToMain() {
-        let main = MainTabbar()
-        
         UIView.transition(with: window!, duration: 0.5, options: .layoutSubviews , animations: {
-            self.window?.rootViewController = main
+            self.window?.rootViewController = MainTabbar()
         }, completion: nil)
     }
 
-    
-    func navigateToRegister() {
-        
+    func navigateToSignUp() {
+//        let artistPage = ArtistListPageRouter.createModule(navigationController: navigationController,
+//                                                           genreID: id,
+//                                                           genreName: genreName)
+//        self.navigationController?.pushViewController(artistPage, animated: true)
     }
 }

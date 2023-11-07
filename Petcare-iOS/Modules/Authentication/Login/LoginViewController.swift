@@ -25,6 +25,11 @@ class LoginViewController: UIViewController {
         presenter?.navigateMain()
         ///MARK: if user data control is true Tabbar is wrong AlertView
     }
+    
+    @IBAction func SignUpButtonClicked(_ sender: Any) {
+        presenter?.navigateSignUp()
+    }
+    
 }
 
 

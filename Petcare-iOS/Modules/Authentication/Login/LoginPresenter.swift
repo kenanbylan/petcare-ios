@@ -7,6 +7,7 @@ import Foundation
 protocol LoginPresenterProtocol {
     func load() -> Void
     func navigateMain() -> Void
+    func navigateSignUp() -> Void
 }
 
 final class LoginPresenter {
@@ -27,6 +28,10 @@ extension LoginPresenter: LoginPresenterProtocol {
     
     func navigateMain() {
         router?.navigateToMain()
+    }
+    
+    func navigateSignUp() {
+        router?.navigateToSignUp()
     }
 }
 
