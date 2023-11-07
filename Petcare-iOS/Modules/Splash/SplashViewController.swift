@@ -12,15 +12,13 @@ protocol SplashViewProtocol: AnyObject {
     func prepareUI()
 }
 
-class SplashViewController: UIViewController {
+final class SplashViewController: UIViewController {
     var presenter: SplashPresenter! //will be changes SplashPresenterProtocol
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
-        //presenter.navigateToOnboarding(navigationController: self.navigationController)
      }
-    
 }
 
 extension SplashViewController: SplashViewProtocol {
@@ -28,7 +26,7 @@ extension SplashViewController: SplashViewProtocol {
     func noInternetConnection() { }
     
     func prepareUI() {
-        view.backgroundColor = .yellow
+        
     }
 }
 
