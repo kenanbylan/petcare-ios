@@ -36,6 +36,7 @@ final class OnboardingRouter {
     }
 }
 
+
 extension OnboardingRouter: OnboardingRouterProtocol {
     func navigateToLogin() {
         let loginVC = LoginRouter.build(navigationController: UINavigationController(), window: window)
