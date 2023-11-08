@@ -39,6 +39,20 @@
 		93822B322AF9672400989255 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B312AF9672400989255 /* AppColors.swift */; };
 		93822B352AF9698500989255 /* SecurityTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B342AF9698500989255 /* SecurityTextfield.swift */; };
 		93822B372AF96C3700989255 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B362AF96C3700989255 /* ControlView.swift */; };
+		93822B392AF9886B00989255 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93822B382AF9886B00989255 /* Register.storyboard */; };
+		93822B3B2AF9887300989255 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B3A2AF9887300989255 /* RegisterViewController.swift */; };
+		93822B3D2AF9887C00989255 /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B3C2AF9887C00989255 /* RegisterInteractor.swift */; };
+		93822B3F2AF9888600989255 /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B3E2AF9888600989255 /* RegisterPresenter.swift */; };
+		93822B412AF9888B00989255 /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B402AF9888B00989255 /* RegisterRouter.swift */; };
+		93822B432AFA85B500989255 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93822B422AFA85B500989255 /* ForgotPassword.storyboard */; };
+		93822B452AFA85BF00989255 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B442AFA85BF00989255 /* ForgotPasswordViewController.swift */; };
+		93822B472AFA85C800989255 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B462AFA85C800989255 /* ForgotPasswordPresenter.swift */; };
+		93822B492AFA85DE00989255 /* ForgotPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B482AFA85DE00989255 /* ForgotPasswordInteractor.swift */; };
+		93822B4B2AFA85E500989255 /* ForgotPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B4A2AFA85E500989255 /* ForgotPasswordRouter.swift */; };
+		93822B4D2AFAC2EA00989255 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B4C2AFAC2EA00989255 /* AppButton.swift */; };
+		93822B512AFAD1C700989255 /* CustomButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B502AFAD1C600989255 /* CustomButtonTheme.swift */; };
+		93822B532AFAD2A300989255 /* CustomButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B522AFAD2A300989255 /* CustomButtonFactory.swift */; };
+		93822B552AFAD2C800989255 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B542AFAD2C800989255 /* CustomButton.swift */; };
 		93CE90672AF7BA2E0025FBB0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93CE90662AF7BA2E0025FBB0 /* Home.storyboard */; };
 		93CE90692AF7BA380025FBB0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90682AF7BA380025FBB0 /* HomeViewController.swift */; };
 		93CE906B2AF7BA420025FBB0 /* HomeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE906A2AF7BA420025FBB0 /* HomeEntity.swift */; };
@@ -107,6 +121,20 @@
 		93822B312AF9672400989255 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		93822B342AF9698500989255 /* SecurityTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityTextfield.swift; sourceTree = "<group>"; };
 		93822B362AF96C3700989255 /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
+		93822B382AF9886B00989255 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		93822B3A2AF9887300989255 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		93822B3C2AF9887C00989255 /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
+		93822B3E2AF9888600989255 /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
+		93822B402AF9888B00989255 /* RegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
+		93822B422AFA85B500989255 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
+		93822B442AFA85BF00989255 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		93822B462AFA85C800989255 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
+		93822B482AFA85DE00989255 /* ForgotPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordInteractor.swift; sourceTree = "<group>"; };
+		93822B4A2AFA85E500989255 /* ForgotPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRouter.swift; sourceTree = "<group>"; };
+		93822B4C2AFAC2EA00989255 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		93822B502AFAD1C600989255 /* CustomButtonTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonTheme.swift; sourceTree = "<group>"; };
+		93822B522AFAD2A300989255 /* CustomButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonFactory.swift; sourceTree = "<group>"; };
+		93822B542AFAD2C800989255 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		93CE90662AF7BA2E0025FBB0 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		93CE90682AF7BA380025FBB0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		93CE906A2AF7BA420025FBB0 /* HomeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEntity.swift; sourceTree = "<group>"; };
@@ -208,6 +236,7 @@
 		933780292ADA7E2700103273 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				93822B4E2AFAD1A300989255 /* Factory */,
 				9337802B2ADA7E3600103273 /* Constants */,
 				9337802A2ADA7E2C00103273 /* Extensions */,
 			);
@@ -273,7 +302,6 @@
 			children = (
 				933780392ADA7F2900103273 /* Login */,
 				9337803C2ADA7F4000103273 /* ForgotPassword */,
-				9337803B2ADA7F3800103273 /* SmsOtp */,
 				9337803A2ADA7F2F00103273 /* Register */,
 			);
 			path = Authentication;
@@ -373,21 +401,24 @@
 		9337803A2ADA7F2F00103273 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				93822B402AF9888B00989255 /* RegisterRouter.swift */,
+				93822B3C2AF9887C00989255 /* RegisterInteractor.swift */,
+				93822B3E2AF9888600989255 /* RegisterPresenter.swift */,
+				93822B3A2AF9887300989255 /* RegisterViewController.swift */,
+				93822B382AF9886B00989255 /* Register.storyboard */,
 			);
 			name = Register;
 			path = "Regşster";
 			sourceTree = "<group>";
 		};
-		9337803B2ADA7F3800103273 /* SmsOtp */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SmsOtp;
-			sourceTree = "<group>";
-		};
 		9337803C2ADA7F4000103273 /* ForgotPassword */ = {
 			isa = PBXGroup;
 			children = (
+				93822B4A2AFA85E500989255 /* ForgotPasswordRouter.swift */,
+				93822B482AFA85DE00989255 /* ForgotPasswordInteractor.swift */,
+				93822B462AFA85C800989255 /* ForgotPasswordPresenter.swift */,
+				93822B442AFA85BF00989255 /* ForgotPasswordViewController.swift */,
+				93822B422AFA85B500989255 /* ForgotPassword.storyboard */,
 			);
 			path = ForgotPassword;
 			sourceTree = "<group>";
@@ -408,6 +439,7 @@
 				93822B2F2AF9665800989255 /* TextButton.swift */,
 				93822B342AF9698500989255 /* SecurityTextfield.swift */,
 				93822B362AF96C3700989255 /* ControlView.swift */,
+				93822B4C2AFAC2EA00989255 /* AppButton.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -432,6 +464,24 @@
 				93822B2B2AF8B9FB00989255 /* HeaderView.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		93822B4E2AFAD1A300989255 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				93822B4F2AFAD1B500989255 /* CustomButton */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		93822B4F2AFAD1B500989255 /* CustomButton */ = {
+			isa = PBXGroup;
+			children = (
+				93822B502AFAD1C600989255 /* CustomButtonTheme.swift */,
+				93822B522AFAD2A300989255 /* CustomButtonFactory.swift */,
+				93822B542AFAD2C800989255 /* CustomButton.swift */,
+			);
+			path = CustomButton;
 			sourceTree = "<group>";
 		};
 		93CE90962AF7E4950025FBB0 /* SearchTextfield */ = {
@@ -518,8 +568,10 @@
 				9337801E2ADA7DAA00103273 /* LaunchScreen.storyboard in Resources */,
 				9337801B2ADA7DAA00103273 /* Assets.xcassets in Resources */,
 				933780192ADA7DA800103273 /* Main.storyboard in Resources */,
+				93822B432AFA85B500989255 /* ForgotPassword.storyboard in Resources */,
 				93CE90752AF7D51C0025FBB0 /* Calendar.storyboard in Resources */,
 				933780512ADA823300103273 /* Login.storyboard in Resources */,
+				93822B392AF9886B00989255 /* Register.storyboard in Resources */,
 				93CE90812AF7D57F0025FBB0 /* VetMap.storyboard in Resources */,
 				933780432ADA815400103273 /* Onboarding.storyboard in Resources */,
 				930CB6C02AF18F4F00E632A7 /* Splash.storyboard in Resources */,
@@ -537,12 +589,18 @@
 				933780472ADA816F00103273 /* OnboardingViewController.swift in Sources */,
 				93822B322AF9672400989255 /* AppColors.swift in Sources */,
 				9348B4532AE05DAE00F7185A /* SwipeCollectionViewCell.swift in Sources */,
+				93822B3D2AF9887C00989255 /* RegisterInteractor.swift in Sources */,
+				93822B552AFAD2C800989255 /* CustomButton.swift in Sources */,
+				93822B532AFAD2A300989255 /* CustomButtonFactory.swift in Sources */,
 				933780412ADA814400103273 /* OnboardingModel.swift in Sources */,
 				933780122ADA7DA800103273 /* AppDelegate.swift in Sources */,
 				93CE90832AF7D5980025FBB0 /* VetMapViewController.swift in Sources */,
 				933780552ADA824500103273 /* LoginPresenter.swift in Sources */,
 				933780492ADA81A100103273 /* OnboardingPresenter.swift in Sources */,
+				93822B3F2AF9888600989255 /* RegisterPresenter.swift in Sources */,
 				9337805B2ADA826B00103273 /* User.swift in Sources */,
+				93822B452AFA85BF00989255 /* ForgotPasswordViewController.swift in Sources */,
+				93822B512AFAD1C700989255 /* CustomButtonTheme.swift in Sources */,
 				9337804D2ADA81AF00103273 /* OnboardingInteractor.swift in Sources */,
 				93CE907B2AF7D53F0025FBB0 /* CalendarInteractor.swift in Sources */,
 				93CE90772AF7D5260025FBB0 /* CalendarViewController.swift in Sources */,
@@ -553,6 +611,7 @@
 				933780652ADC0DF000103273 /* SplashRouter.swift in Sources */,
 				933780602ADC0DC000103273 /* SplashViewController.swift in Sources */,
 				93CE90912AF7D5FA0025FBB0 /* SettingsPresenter.swift in Sources */,
+				93822B412AF9888B00989255 /* RegisterRouter.swift in Sources */,
 				93822B2E2AF963C500989255 /* ControlLabel.swift in Sources */,
 				933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */,
 				9348B45E2AE0631E00F7185A /* AppFonts.swift in Sources */,
@@ -563,20 +622,25 @@
 				93CE907F2AF7D5580025FBB0 /* CalendarModel.swift in Sources */,
 				93CE90692AF7BA380025FBB0 /* HomeViewController.swift in Sources */,
 				93CE908D2AF7D5E60025FBB0 /* SettingsViewController.swift in Sources */,
+				93822B3B2AF9887300989255 /* RegisterViewController.swift in Sources */,
 				93822B302AF9665800989255 /* TextButton.swift in Sources */,
 				93CE906B2AF7BA420025FBB0 /* HomeEntity.swift in Sources */,
+				93822B472AFA85C800989255 /* ForgotPasswordPresenter.swift in Sources */,
 				933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */,
 				93CE90792AF7D5370025FBB0 /* CalendarRouter.swift in Sources */,
 				933780532ADA823D00103273 /* LoginViewController.swift in Sources */,
 				93CE90982AF7E4A30025FBB0 /* SearchTextfield.swift in Sources */,
+				93822B492AFA85DE00989255 /* ForgotPasswordInteractor.swift in Sources */,
 				93CE907D2AF7D5460025FBB0 /* CalendarPresenter.swift in Sources */,
 				93822B2C2AF8B9FB00989255 /* HeaderView.swift in Sources */,
+				93822B4D2AFAC2EA00989255 /* AppButton.swift in Sources */,
 				93CE90852AF7D5AF0025FBB0 /* VetMapRouter.swift in Sources */,
 				933780592ADA825200103273 /* LoginRouter.swift in Sources */,
 				93CE906F2AF7BA550025FBB0 /* HomeInteractor.swift in Sources */,
 				9337803E2ADA80FF00103273 /* Constants.swift in Sources */,
 				93CE906D2AF7BA4C0025FBB0 /* HomePresenter.swift in Sources */,
 				93822B352AF9698500989255 /* SecurityTextfield.swift in Sources */,
+				93822B4B2AFA85E500989255 /* ForgotPasswordRouter.swift in Sources */,
 				93CE90892AF7D5CC0025FBB0 /* VetMapPresenter.swift in Sources */,
 				93822B372AF96C3700989255 /* ControlView.swift in Sources */,
 				93CE908F2AF7D5F50025FBB0 /* SettingsInteractor.swift in Sources */,
