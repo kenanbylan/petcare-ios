@@ -12,7 +12,6 @@ protocol SplashPresenterProtocol: AnyObject {
 }
 
 final class SplashPresenter: SplashPresenterProtocol {
-        
     private weak var view: SplashViewProtocol?
     private let interactor: SplashInteractorProtocol
     private var router: SplashRouterProtocol?

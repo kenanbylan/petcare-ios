@@ -13,7 +13,7 @@ protocol SplashViewProtocol: AnyObject {
 }
 
 final class SplashViewController: UIViewController {
-    var presenter: SplashPresenter! //will be changes SplashPresenterProtocol
+    var presenter: SplashPresenterProtocol! //will be changes SplashPresenterProtocol
     
     override func viewDidLoad() {
         super.viewDidLoad()
