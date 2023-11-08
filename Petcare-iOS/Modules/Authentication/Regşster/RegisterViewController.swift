@@ -12,8 +12,17 @@ protocol RegisterViewProtocol: AnyObject {
 }
 
 final class RegisterViewController: UIViewController {
+    
+    var presenter: RegisterPresenterProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.viewDidLoad()
+    }
+    
+    
+    @IBAction func ForgotPasswordButtonClicked(_ sender: Any) {
+        presenter?.navigateToForgotPassword()
     }
 }
 
