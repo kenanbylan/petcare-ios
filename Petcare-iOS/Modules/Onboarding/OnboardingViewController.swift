@@ -12,16 +12,22 @@ protocol OnboardingViewProtocol: AnyObject {
 }
 
 final class OnboardingViewController: UIViewController {
+    @IBOutlet weak var custombuttonContainer: UIView!
     
     //MARK: - UIProperty
     @IBOutlet weak var nextButton: UIButton!
     var presenter: OnboardingPresenter?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         nextButton.setTitle("Next to Login Pages", for: .normal)
+        
+        let primaryButtonTheme = PrimaryCustomButtonTheme(title: "next login")
+        let primaryButton = CustomButtonFactory.createButton(theme: primaryButtonTheme)
+        
+        primaryButton.frame = CGRect(x: 0, y: 0, width: 200, height: 40)
+        custombuttonContainer.addSubview(primaryButton)
     }
     
     //MARK: UIActions
@@ -29,7 +35,12 @@ final class OnboardingViewController: UIViewController {
         //MARK: NAVİGATE TO LOGİN OR REGİSTER
         print("Next button clicked")
         presenter?.navigateToLogin()
-
+    }
+    
+    @IBAction func getStartedButton(_ sender: Any) {
+        //MARK: NAVİGATE TO LOGİN OR REGİSTER
+        print("Next button clicked")
+        presenter?.navigateToLogin()
     }
     
 }
