@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol LoginViewControllerProtocol: AnyObject {
+protocol LoginViewProtocol: AnyObject {
     func loginUserControl()
 }
 
@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
 }
 
 
-extension LoginViewController: LoginViewControllerProtocol {
+extension LoginViewController: LoginViewProtocol {
     func loginUserControl() {
         
     }

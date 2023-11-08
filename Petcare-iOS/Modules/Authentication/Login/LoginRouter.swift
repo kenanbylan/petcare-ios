@@ -14,6 +14,7 @@ protocol LoginRouterProtocol: AnyObject {
 }
 
 final class LoginRouter: LoginRouterProtocol {
+    
     var navigationController: UINavigationController?
     var window: UIWindow?
     
@@ -40,11 +41,9 @@ final class LoginRouter: LoginRouterProtocol {
             self.window?.rootViewController = MainTabbar()
         }, completion: nil)
     }
-
+ 
     func navigateToSignUp() {
-//        let artistPage = ArtistListPageRouter.createModule(navigationController: navigationController,
-//                                                           genreID: id,
-//                                                           genreName: genreName)
-//        self.navigationController?.pushViewController(artistPage, animated: true)
+        let register = RegisterRouter.build(navigationController: navigationController, window: window)
+        self.navigationController?.pushViewController(register, animated: true)
     }
 }
