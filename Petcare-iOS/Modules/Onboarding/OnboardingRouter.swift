@@ -22,17 +22,23 @@ final class OnboardingRouter {
     
     static func build(in window: UIWindow) -> OnboardingViewController {
         let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
-        guard let view = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as? OnboardingViewController else {
-            fatalError("Could not instantiate OnboardingViewController from storyboard.")
-        }
+
+        let view = OnboardingView(frame: UIScreen.main.bounds)
         
+        let viewVC = OnboardingViewController(uiView: view)
+
+        viewVC.view = view
+        viewVC.viewDelegate = view
+      
         let router = OnboardingRouter(window: window)
         let interactor = OnboardingInteractor()
-        let presenter = OnboardingPresenter(view: view, router: router, interactor: interactor)
-        view.presenter = presenter
+        let presenter = OnboardingPresenter(view: viewVC, router: router, interactor: interactor)
+        
+        viewVC.presenter = presenter
+        view.controller = viewVC
         interactor.output = presenter
         
-        return view
+        return viewVC
     }
 }
 

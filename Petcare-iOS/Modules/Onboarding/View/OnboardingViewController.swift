@@ -9,44 +9,89 @@ import UIKit
 
 protocol OnboardingViewProtocol: AnyObject {
     func prepareUI()
+    func showOnboarding()
+    func setup(buttonTitle: String)
+    func getPage() -> Int
+    func displayScreen(at index: Int)
+    func isPossibleNext(_ newState: Bool)
+    func showPrevButton()
+    func hidePrevButton()
+}
+
+protocol OnboardingControlling {
+    func capturedAction(direction: OnboardingViewRoute)
+    func getCellViewModel(at row: Int) -> OnboardingModel
 }
 
 final class OnboardingViewController: UIViewController {
-    @IBOutlet weak var custombuttonContainer: UIView!
+    var presenter: OnboardingPresenterProtocol?
+    var viewDelegate: OnboardingViewDelegate?
     
-    //MARK: - UIProperty
-    @IBOutlet weak var nextButton: UIButton!
-    var presenter: OnboardingPresenter?
+    init(uiView: UIView, presenter: OnboardingPresenter? = nil, viewDelegate: OnboardingViewDelegate? = nil) {
+        self.presenter = presenter
+        self.viewDelegate = viewDelegate
+        super.init(nibName: nil, bundle: nil)
+        self.view = uiView
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
-        nextButton.setTitle("Next to Login Pages", for: .normal)
-        
-        let primaryButtonTheme = PrimaryCustomButtonTheme(title: "next login")
-        let primaryButton = CustomButtonFactory.createButton(theme: primaryButtonTheme)
-        
-        primaryButton.frame = CGRect(x: 0, y: 0, width: 200, height: 40)
-        custombuttonContainer.addSubview(primaryButton)
     }
     
-    //MARK: UIActions
-    @IBAction func NextButtonTapped(_ sender: Any) {
-        //MARK: NAVİGATE TO LOGİN OR REGİSTER
-        print("Next button clicked")
-        presenter?.navigateToLogin()
-    }
     
-    @IBAction func getStartedButton(_ sender: Any) {
-        //MARK: NAVİGATE TO LOGİN OR REGİSTER
-        print("Next button clicked")
-        presenter?.navigateToLogin()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.showOnboardingIfNeeded()
     }
-    
 }
 
+extension OnboardingViewController: OnboardingControlling {
+    func capturedAction(direction: OnboardingViewRoute) {
+        presenter?.verifyCapturedAction(direction: direction)
+    }
+    
+    func getCellViewModel(at row: Int) -> OnboardingModel {
+        presenter?.getCellData(row: row) ?? OnboardingModel(image: "", title: "ewopıapod", subtitle: "daspokdpaos")
+    }
+    
+    
+}
 extension OnboardingViewController: OnboardingViewProtocol {
+    
     func prepareUI() {
         view.backgroundColor = .systemGreen
     }
+    func showOnboarding() {
+        viewDelegate?.showOnboarding()
+    }
+    
+    func setup(buttonTitle: String) {
+        viewDelegate?.setup(buttonTitle: buttonTitle)
+    }
+    
+    func getPage() -> Int {
+        viewDelegate?.getPage() ?? 3
+    }
+    
+    func displayScreen(at index: Int) {
+        viewDelegate?.displayScreen(at: index)
+    }
+    
+    func isPossibleNext(_ newState: Bool) {
+        viewDelegate?.isPossibleNext(newState)
+    }
+    
+    func showPrevButton() {
+        viewDelegate?.showPrevButton()
+    }
+    
+    func hidePrevButton() {
+        viewDelegate?.hidePrevButton()
+    }
+   
 }
