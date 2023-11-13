@@ -17,6 +17,7 @@ enum Constants {
         static let calendar = "Calendar"
         static let vetmap = "VetMap"
         static let settings = "Settings"
+        static let forgotPassword = "ForgotPassword"
     }
     
     enum Controller {

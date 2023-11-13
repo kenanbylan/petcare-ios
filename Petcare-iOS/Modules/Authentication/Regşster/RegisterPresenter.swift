@@ -12,6 +12,8 @@ protocol RegisterPresenterProtocol {
     func viewDidLoad() -> Void
     func navigateMain() -> Void
     func navigateToLogin() -> Void
+    func navigateToForgotPassword() -> Void
+    
 }
 
 final class RegisterPresenter {
@@ -36,6 +38,10 @@ extension RegisterPresenter: RegisterPresenterProtocol {
     
     func navigateToLogin() {
         router?.backToLogin()
+    }
+    
+    func navigateToForgotPassword() {
+        router?.navigateToForgot()
     }
 }
 

@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 protocol LoginInteractorProtocol {
     func checkUserLogin(email: String, password: String)
 }
@@ -25,4 +24,3 @@ final class LoginInteractor : LoginInteractorProtocol {
     }
     
 }
-

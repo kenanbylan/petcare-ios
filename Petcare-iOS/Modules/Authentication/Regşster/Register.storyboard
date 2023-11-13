@@ -16,8 +16,31 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register VC " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lL5-fb-5DN">
+                                <rect key="frame" x="149.66666666666666" y="415.66666666666669" width="94" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdy-2c-NhR">
+                                <rect key="frame" x="89" y="576" width="215" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Next To Forgot Password"/>
+                                <connections>
+                                    <action selector="ForgotPasswordButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="kdF-gF-1Az"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lL5-fb-5DN" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="KfQ-dZ-TSK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Pdy-2c-NhR" secondAttribute="bottom" constant="207" id="Qam-VR-2FO"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Pdy-2c-NhR" secondAttribute="trailing" constant="89" id="RTn-RM-1wY"/>
+                            <constraint firstItem="lL5-fb-5DN" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="gOL-4p-4tO"/>
+                            <constraint firstItem="Pdy-2c-NhR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="89" id="paJ-ja-f3h"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

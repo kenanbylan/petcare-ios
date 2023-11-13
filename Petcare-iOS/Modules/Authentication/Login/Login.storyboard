@@ -63,9 +63,20 @@
                                             <fontDescription key="titleFontDescription" name="Kanit-Medium" family="Kanit" pointSize="14"/>
                                         </buttonConfiguration>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bf-7O-QWd">
-                                        <rect key="frame" x="144" y="389" width="118" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoK-RQ-bP6" customClass="TextButton" customModule="Petcare_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="88" y="435" width="219" height="56"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Forgot password?"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Don't have an account? Sign up">
+                                            <fontDescription key="titleFontDescription" name="Kanit-Medium" family="Kanit" pointSize="14"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="SignUpButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PTI-7e-EYr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bf-7O-QWd">
+                                        <rect key="frame" x="137.66666666666666" y="370.66666666666669" width="117.66666666666666" height="34.333333333333314"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Main Tabbar"/>
                                         <connections>
@@ -76,14 +87,20 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="D0I-ee-rLm" firstAttribute="leading" secondItem="EcC-0k-gMS" secondAttribute="leading" constant="76" id="7E7-n0-wFx"/>
+                                    <constraint firstAttribute="trailing" secondItem="aoK-RQ-bP6" secondAttribute="trailing" constant="86" id="7dg-Hq-vb2"/>
                                     <constraint firstItem="dlC-ty-AOH" firstAttribute="leading" secondItem="EcC-0k-gMS" secondAttribute="leading" constant="48" id="B6X-df-oBh"/>
                                     <constraint firstItem="D0I-ee-rLm" firstAttribute="top" secondItem="EcC-0k-gMS" secondAttribute="top" constant="60" id="Erm-Ym-cZR"/>
                                     <constraint firstAttribute="trailing" secondItem="dlC-ty-AOH" secondAttribute="trailing" constant="48" id="P3A-2r-P7e"/>
                                     <constraint firstAttribute="trailing" secondItem="UPV-1B-1Bd" secondAttribute="trailing" constant="48" id="QCI-MW-Q2U"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Bf-7O-QWd" secondAttribute="trailing" constant="137.66999999999999" id="WGm-8u-uW9"/>
                                     <constraint firstAttribute="trailing" secondItem="D0I-ee-rLm" secondAttribute="trailing" constant="75.670000000000002" id="YbI-83-TCZ"/>
                                     <constraint firstItem="UPV-1B-1Bd" firstAttribute="top" secondItem="dlC-ty-AOH" secondAttribute="bottom" constant="6" id="bbR-VN-Dfr"/>
+                                    <constraint firstItem="1Bf-7O-QWd" firstAttribute="top" secondItem="UPV-1B-1Bd" secondAttribute="bottom" constant="55" id="ccG-Fw-OHT"/>
                                     <constraint firstItem="dlC-ty-AOH" firstAttribute="centerX" secondItem="EcC-0k-gMS" secondAttribute="centerX" id="dqv-I0-36p"/>
                                     <constraint firstItem="dlC-ty-AOH" firstAttribute="top" secondItem="D0I-ee-rLm" secondAttribute="bottom" constant="48" id="fZ2-SU-OKw"/>
+                                    <constraint firstItem="aoK-RQ-bP6" firstAttribute="leading" secondItem="EcC-0k-gMS" secondAttribute="leading" constant="88" id="qlv-eF-hgH"/>
+                                    <constraint firstItem="1Bf-7O-QWd" firstAttribute="leading" secondItem="EcC-0k-gMS" secondAttribute="leading" constant="137.66999999999999" id="w2O-lQ-cNh"/>
+                                    <constraint firstItem="aoK-RQ-bP6" firstAttribute="top" secondItem="1Bf-7O-QWd" secondAttribute="bottom" constant="30" id="y1A-i4-oFm"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_transparent" translatesAutoresizingMaskIntoConstraints="NO" id="gco-Gj-cVl">

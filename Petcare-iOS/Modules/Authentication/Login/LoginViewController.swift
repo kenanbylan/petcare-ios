@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol LoginViewControllerProtocol: AnyObject {
+protocol LoginViewProtocol: AnyObject {
     func loginUserControl()
 }
 
@@ -25,10 +25,15 @@ class LoginViewController: UIViewController {
         presenter?.navigateMain()
         ///MARK: if user data control is true Tabbar is wrong AlertView
     }
+    
+    @IBAction func SignUpButtonClicked(_ sender: Any) {
+        presenter?.navigateSignUp()
+    }
+    
 }
 
 
-extension LoginViewController: LoginViewControllerProtocol {
+extension LoginViewController: LoginViewProtocol {
     func loginUserControl() {
         
     }
