@@ -11,6 +11,7 @@ import UIKit.UINavigationController
 protocol LoginRouterProtocol: AnyObject {
     func navigateToMain() -> Void
     func navigateToSignUp() -> Void
+    func navigateToForgotPassword() -> Void
 }
 
 final class LoginRouter: LoginRouterProtocol {
@@ -45,5 +46,10 @@ final class LoginRouter: LoginRouterProtocol {
     func navigateToSignUp() {
         let register = RegisterRouter.build(navigationController: navigationController, window: window)
         self.navigationController?.pushViewController(register, animated: true)
+    }
+    
+    func navigateToForgotPassword() {
+        let forgotPassword = ForgotPasswordRouter.build(navigationController: navigationController, window: window)
+        self.navigationController?.pushViewController(forgotPassword, animated: true)
     }
 }

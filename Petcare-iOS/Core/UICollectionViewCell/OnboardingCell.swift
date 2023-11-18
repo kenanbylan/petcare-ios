@@ -16,6 +16,7 @@ final class OnboardingCell: UICollectionViewCell {
                 guard let self else { return }
                 self.title.text = self.model.title
                 self.subtitle.text = self.model.subtitle
+                self.imageView.image = UIImage(named: self.model.image)
             }
         }
     }
@@ -32,7 +33,7 @@ final class OnboardingCell: UICollectionViewCell {
     private lazy var title: UILabel = {
         var label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = AppFonts.font(for: .bold, size: 24)
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = AppColors.customDarkGray
@@ -42,7 +43,7 @@ final class OnboardingCell: UICollectionViewCell {
     private lazy var subtitle: UILabel = {
         var label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = AppFonts.font(for: .medium, size: 17)
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = AppColors.customDarkGray

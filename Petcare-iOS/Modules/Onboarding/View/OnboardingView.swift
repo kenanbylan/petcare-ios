@@ -22,7 +22,6 @@ protocol OnboardingViewDelegate: AnyObject {
     func showPrevButton()
 }
 
-
 final class OnboardingView: UIView {
     private var isPossibleNext = true
     var controller: OnboardingControlling?
@@ -70,8 +69,6 @@ final class OnboardingView: UIView {
        let button = UICustomButton()
         button.setupButton(title: "Get Started", font: (size: 16, weight: .semibold))
         button.addTarget(self, action: #selector(nexButtonTapped), for: .touchUpInside)
-        
-
         return button
     }()
     
@@ -79,6 +76,7 @@ final class OnboardingView: UIView {
         let button = UIButton(frame: .zero)
         button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         button.setTitle("Önceki", for: .normal)
+        button.titleLabel?.font = AppFonts.font(for: .medium, size: 17)
         button.backgroundColor = .systemBackground
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(toPrevButtonTapped), for: .touchUpInside)
@@ -241,7 +239,6 @@ extension OnboardingView: ViewCoding {
         ]
         views.forEach { self.addSubview($0) }
     }
-    
     
     func setupConstraints() {
         NSLayoutConstraint.activate([

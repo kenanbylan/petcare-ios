@@ -1,9 +1,10 @@
 //
-//  ControlLabel.swift
+//  CustomLabel.swift
 //  Petcare-iOS
 //
-//  Created by Kenan Baylan on 6.11.2023.
+//  Created by Kenan Baylan on 15.11.2023.
 
+import Foundation
 import UIKit
 
 enum labelTypeEnum {
@@ -33,11 +34,12 @@ class ControlLabel: UILabel {
         self.configureLabelColor()
         self.configureLabelColor()
         
-        self.translatesAutoresizingMaskIntoConstraints = false //For AutoLayout
+        self.translatesAutoresizingMaskIntoConstraints = false
         let attributedString = NSMutableAttributedString(string: labelText)
-        self.attributedText = attributedString //Setup Label to AttributedString for custom font
+        self.attributedText = attributedString
     }
     
+    @available(*,unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -58,15 +60,11 @@ class ControlLabel: UILabel {
     private func configureLabelStyle() {
         switch labelType {
         case .h1:
-            self.font = UIFont(name: "Poppins-Bold", size: 24)
+            self.font = AppFonts.font(for: .medium, size: 18)
         case .h2:
-            self.font = UIFont(name: "Poppins-Bold", size: 16)
+            self.font = AppFonts.font(for: .semibold, size: 21)
         case .h3:
-            self.font = UIFont(name: "Poppins-Bold", size: 12)
-            
+            self.font = AppFonts.font(for: .bold, size: 24)
         }
     }
-    
 }
-
-
