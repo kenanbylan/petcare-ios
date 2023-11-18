@@ -13,33 +13,36 @@ protocol OnboardingRouterProtocol: AnyObject {
 }
 
 final class OnboardingRouter {
-    
     var window: UIWindow
-    
     init(window: UIWindow) {
         self.window = window
     }
     
     static func build(in window: UIWindow) -> OnboardingViewController {
-        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
-        guard let view = storyboard.instantiateViewController(withIdentifier: "OnboardingViewController") as? OnboardingViewController else {
-            fatalError("Could not instantiate OnboardingViewController from storyboard.")
-        }
-        
+        let storyboard = UIStoryboard(name: Constants.Storyboard.onboarding, bundle: nil)
+        let view = OnboardingView(frame: UIScreen.main.bounds)
+        let viewController = OnboardingViewController(uiView: view)
+
+        viewController.view = view
+        viewController.viewDelegate = view
+      
         let router = OnboardingRouter(window: window)
         let interactor = OnboardingInteractor()
-        let presenter = OnboardingPresenter(view: view, router: router, interactor: interactor)
-        view.presenter = presenter
+        let presenter = OnboardingPresenter(view: viewController, router: router, interactor: interactor)
+        
+        viewController.presenter = presenter
+        view.controller = viewController
         interactor.output = presenter
         
-        return view
+        return viewController
     }
 }
 
 extension OnboardingRouter: OnboardingRouterProtocol {
     func navigateToLogin() {
-        let loginVC = LoginRouter.build(navigationController: UINavigationController(), window: window)
-        let navigation = UINavigationController(rootViewController: loginVC)
-        window.rootViewController = navigation
+        let navigationController = UINavigationController()
+        let loginVC = LoginRouter.build(navigationController: navigationController , window: window)
+        navigationController.viewControllers.append(loginVC)
+        window.rootViewController = navigationController
     }
 }

@@ -8,6 +8,8 @@
 		<string>Kanit-Black.ttf</string>
 		<string>Kanit-Bold.ttf</string>
 		<string>Kanit-Light.ttf</string>
+		<string>Kanit-SemiBold.ttf</string>
+		<string>Kanit-Thin.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

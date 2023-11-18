@@ -13,6 +13,7 @@ protocol SplashInteractorProtocol: AnyObject{
     func checkTheme()
     func checkLanguage()
     func getData()
+    func userAlreadyExists() -> Bool
 }
 
 protocol SplashInteractorOutputProtocol {
@@ -41,5 +42,9 @@ final class SplashInteractor: SplashInteractorProtocol {
     
     func getData() {
         
+    }
+    
+    func userAlreadyExists() -> Bool {
+        return false
     }
 }

@@ -5,16 +5,18 @@
 import Foundation
 
 protocol LoginPresenterProtocol {
-    func load() -> Void
+    func viewDidload() -> Void
     func navigateMain() -> Void
+    func navigateSignUp() -> Void
+    func navigateForgotPassword() -> Void
 }
 
 final class LoginPresenter {
-    private weak var view : LoginViewControllerProtocol?
+    private weak var view : LoginViewProtocol?
     let router: LoginRouterProtocol?
     let interactor: LoginInteractorProtocol?
     
-    init(view: LoginViewControllerProtocol? , router: LoginRouterProtocol?, interactor: LoginInteractorProtocol?) {
+    init(view: LoginViewProtocol? , router: LoginRouterProtocol?, interactor: LoginInteractorProtocol?) {
         self.view = view
         self.router = router
         self.interactor = interactor
@@ -23,15 +25,25 @@ final class LoginPresenter {
 
 extension LoginPresenter: LoginPresenterProtocol {
     
-    func load() { }
+    func viewDidload() {
+        print("Login presenter connected.")
+    }
     
     func navigateMain() {
         router?.navigateToMain()
+    }
+    
+    func navigateSignUp() {
+        router?.navigateToSignUp()
+    }
+    
+    func navigateForgotPassword() {
+        router?.navigateToForgotPassword()
     }
 }
 
 extension LoginPresenter: LoginInteractorOutput {
     func internetConnectionStatus(_ status: Bool) {
-        print("data sett loginn")
+        
     }
 }
