@@ -5,9 +5,10 @@
 import Foundation
 
 protocol LoginPresenterProtocol {
-    func load() -> Void
+    func viewDidload() -> Void
     func navigateMain() -> Void
     func navigateSignUp() -> Void
+    func navigateForgotPassword() -> Void
 }
 
 final class LoginPresenter {
@@ -24,7 +25,9 @@ final class LoginPresenter {
 
 extension LoginPresenter: LoginPresenterProtocol {
     
-    func load() { }
+    func viewDidload() {
+        print("Login presenter connected.")
+    }
     
     func navigateMain() {
         router?.navigateToMain()
@@ -33,10 +36,14 @@ extension LoginPresenter: LoginPresenterProtocol {
     func navigateSignUp() {
         router?.navigateToSignUp()
     }
+    
+    func navigateForgotPassword() {
+        router?.navigateToForgotPassword()
+    }
 }
 
 extension LoginPresenter: LoginInteractorOutput {
     func internetConnectionStatus(_ status: Bool) {
-        print("data sett loginn")
+        
     }
 }
