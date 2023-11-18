@@ -13,32 +13,28 @@ protocol OnboardingRouterProtocol: AnyObject {
 }
 
 final class OnboardingRouter {
-    
     var window: UIWindow
-    
     init(window: UIWindow) {
         self.window = window
     }
     
     static func build(in window: UIWindow) -> OnboardingViewController {
-        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
-
+        let storyboard = UIStoryboard(name: Constants.Storyboard.onboarding, bundle: nil)
         let view = OnboardingView(frame: UIScreen.main.bounds)
-        
-        let viewVC = OnboardingViewController(uiView: view)
+        let viewController = OnboardingViewController(uiView: view)
 
-        viewVC.view = view
-        viewVC.viewDelegate = view
+        viewController.view = view
+        viewController.viewDelegate = view
       
         let router = OnboardingRouter(window: window)
         let interactor = OnboardingInteractor()
-        let presenter = OnboardingPresenter(view: viewVC, router: router, interactor: interactor)
+        let presenter = OnboardingPresenter(view: viewController, router: router, interactor: interactor)
         
-        viewVC.presenter = presenter
-        view.controller = viewVC
+        viewController.presenter = presenter
+        view.controller = viewController
         interactor.output = presenter
         
-        return viewVC
+        return viewController
     }
 }
 

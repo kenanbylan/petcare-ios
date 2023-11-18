@@ -9,7 +9,6 @@ import Foundation
 
 protocol OnboardingInteractorProtocol: AnyObject {
     var data: [OnboardingModel]? { get }
-    func getData()
     func userAlreadyExists() -> Bool
 }
 
@@ -20,11 +19,6 @@ protocol OnboardingInteractorOutputProtocol {
 final class OnboardingInteractor: OnboardingInteractorProtocol {
     var output: OnboardingInteractorOutputProtocol?
     var data: [OnboardingModel]?
-    
-
-    func getData() {
-        
-    }
     
     func userAlreadyExists() -> Bool {
 //        do {

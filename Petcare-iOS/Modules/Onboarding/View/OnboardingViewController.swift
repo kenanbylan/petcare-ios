@@ -50,22 +50,23 @@ final class OnboardingViewController: UIViewController {
     }
 }
 
+
+///MARK: data,  viewController -> view
 extension OnboardingViewController: OnboardingControlling {
     func capturedAction(direction: OnboardingViewRoute) {
         presenter?.verifyCapturedAction(direction: direction)
     }
     
     func getCellViewModel(at row: Int) -> OnboardingModel {
-        presenter?.getCellData(row: row) ?? OnboardingModel(image: "", title: "ewopıapod", subtitle: "daspokdpaos")
+        presenter?.getCellData(row: row) ?? OnboardingModel(image: "", title: "", subtitle: "")
     }
-    
-    
 }
+
 extension OnboardingViewController: OnboardingViewProtocol {
-    
     func prepareUI() {
         view.backgroundColor = .systemGreen
     }
+    
     func showOnboarding() {
         viewDelegate?.showOnboarding()
     }
@@ -93,5 +94,4 @@ extension OnboardingViewController: OnboardingViewProtocol {
     func hidePrevButton() {
         viewDelegate?.hidePrevButton()
     }
-   
 }
