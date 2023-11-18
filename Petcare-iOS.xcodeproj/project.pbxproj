@@ -13,7 +13,6 @@
 		931144EC2AFC1DC000F6365E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931144EB2AFC1DC000F6365E /* OnboardingView.swift */; };
 		931144F42B02B6DA00F6365E /* Petcare_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931144F32B02B6DA00F6365E /* Petcare_iOSTests.swift */; };
 		931145012B02B79900F6365E /* OnboardingViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931145002B02B79900F6365E /* OnboardingViewMock.swift */; };
-		93262B452AEBD1360047A79F /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 93262B442AEBD1360047A79F /* CombineCocoa */; };
 		933780122ADA7DA800103273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780112ADA7DA800103273 /* AppDelegate.swift */; };
 		933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780132ADA7DA800103273 /* SceneDelegate.swift */; };
 		933780192ADA7DA800103273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933780172ADA7DA800103273 /* Main.storyboard */; };
@@ -38,8 +37,6 @@
 		933780692ADC0DFF00103273 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780682ADC0DFF00103273 /* SplashInteractor.swift */; };
 		9348B45E2AE0631E00F7185A /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9348B45D2AE0631E00F7185A /* AppFonts.swift */; };
 		93822B2C2AF8B9FB00989255 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B2B2AF8B9FB00989255 /* HeaderView.swift */; };
-		93822B2E2AF963C500989255 /* ControlLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B2D2AF963C500989255 /* ControlLabel.swift */; };
-		93822B302AF9665800989255 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B2F2AF9665800989255 /* TextButton.swift */; };
 		93822B322AF9672400989255 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B312AF9672400989255 /* AppColors.swift */; };
 		93822B352AF9698500989255 /* SecurityTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B342AF9698500989255 /* SecurityTextfield.swift */; };
 		93822B372AF96C3700989255 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B362AF96C3700989255 /* ControlView.swift */; };
@@ -53,10 +50,31 @@
 		93822B472AFA85C800989255 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B462AFA85C800989255 /* ForgotPasswordPresenter.swift */; };
 		93822B492AFA85DE00989255 /* ForgotPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B482AFA85DE00989255 /* ForgotPasswordInteractor.swift */; };
 		93822B4B2AFA85E500989255 /* ForgotPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B4A2AFA85E500989255 /* ForgotPasswordRouter.swift */; };
-		93822B4D2AFAC2EA00989255 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B4C2AFAC2EA00989255 /* AppButton.swift */; };
+		93822B4D2AFAC2EA00989255 /* UICustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B4C2AFAC2EA00989255 /* UICustomButton.swift */; };
 		93822B512AFAD1C700989255 /* CustomButtonTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B502AFAD1C600989255 /* CustomButtonTheme.swift */; };
 		93822B532AFAD2A300989255 /* CustomButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B522AFAD2A300989255 /* CustomButtonFactory.swift */; };
 		93822B552AFAD2C800989255 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B542AFAD2C800989255 /* CustomButton.swift */; };
+		93C46DFA2B040C540055BA0F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46DF92B040C540055BA0F /* CustomTextField.swift */; };
+		93C46DFB2B0413E30055BA0F /* Kanit-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9348B4572AE0620400F7185A /* Kanit-Black.ttf */; };
+		93C46DFC2B0413E70055BA0F /* Kanit-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9348B4572AE0620400F7185A /* Kanit-Black.ttf */; };
+		93C46DFD2B0413EA0055BA0F /* Kanit-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9348B4592AE0620400F7185A /* Kanit-Bold.ttf */; };
+		93C46DFE2B0413EB0055BA0F /* Kanit-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9348B4592AE0620400F7185A /* Kanit-Bold.ttf */; };
+		93C46DFF2B0413F00055BA0F /* Kanit-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9348B4562AE0620400F7185A /* Kanit-Thin.ttf */; };
+		93C46E002B0413F00055BA0F /* Kanit-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9348B45B2AE0620400F7185A /* Kanit-ExtraBold.ttf */; };
+		93C46E012B0413F00055BA0F /* Kanit-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9348B45C2AE0620400F7185A /* Kanit-Light.ttf */; };
+		93C46E022B0413F00055BA0F /* Kanit-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9348B45A2AE0620400F7185A /* Kanit-Medium.ttf */; };
+		93C46E032B0413F00055BA0F /* Kanit-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9348B4582AE0620400F7185A /* Kanit-SemiBold.ttf */; };
+		93C46E042B0413F00055BA0F /* Kanit-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9348B4562AE0620400F7185A /* Kanit-Thin.ttf */; };
+		93C46E052B0413F00055BA0F /* Kanit-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9348B45B2AE0620400F7185A /* Kanit-ExtraBold.ttf */; };
+		93C46E062B0413F00055BA0F /* Kanit-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9348B45C2AE0620400F7185A /* Kanit-Light.ttf */; };
+		93C46E072B0413F00055BA0F /* Kanit-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9348B45A2AE0620400F7185A /* Kanit-Medium.ttf */; };
+		93C46E082B0413F00055BA0F /* Kanit-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9348B4582AE0620400F7185A /* Kanit-SemiBold.ttf */; };
+		93C46E0A2B04C7AF0055BA0F /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E092B04C7AF0055BA0F /* LoginButton.swift */; };
+		93C46E0C2B04CB620055BA0F /* GoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E0B2B04CB620055BA0F /* GoogleButton.swift */; };
+		93C46E0E2B04EB310055BA0F /* UINavigationController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E0D2B04EB310055BA0F /* UINavigationController + Extension.swift */; };
+		93C46E132B0509DD0055BA0F /* Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C46E122B0509DD0055BA0F /* Combine.framework */; };
+		93C46E162B0542B30055BA0F /* ControlLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E152B0542B30055BA0F /* ControlLabel.swift */; };
+		93C46E182B0548B00055BA0F /* PatiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E172B0548B00055BA0F /* PatiButton.swift */; };
 		93CE90672AF7BA2E0025FBB0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93CE90662AF7BA2E0025FBB0 /* Home.storyboard */; };
 		93CE90692AF7BA380025FBB0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90682AF7BA380025FBB0 /* HomeViewController.swift */; };
 		93CE906B2AF7BA420025FBB0 /* HomeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE906A2AF7BA420025FBB0 /* HomeEntity.swift */; };
@@ -102,7 +120,7 @@
 		931144F12B02B6D900F6365E /* Petcare-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Petcare-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		931144F32B02B6DA00F6365E /* Petcare_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petcare_iOSTests.swift; sourceTree = "<group>"; };
 		931145002B02B79900F6365E /* OnboardingViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewMock.swift; sourceTree = "<group>"; };
-		9337800E2ADA7DA800103273 /* Petcare-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Petcare-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9337800E2ADA7DA800103273 /* Petcare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petcare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		933780112ADA7DA800103273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		933780132ADA7DA800103273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		933780182ADA7DA800103273 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -135,8 +153,6 @@
 		9348B45C2AE0620400F7185A /* Kanit-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Light.ttf"; sourceTree = "<group>"; };
 		9348B45D2AE0631E00F7185A /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		93822B2B2AF8B9FB00989255 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		93822B2D2AF963C500989255 /* ControlLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlLabel.swift; sourceTree = "<group>"; };
-		93822B2F2AF9665800989255 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		93822B312AF9672400989255 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		93822B342AF9698500989255 /* SecurityTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityTextfield.swift; sourceTree = "<group>"; };
 		93822B362AF96C3700989255 /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
@@ -150,10 +166,17 @@
 		93822B462AFA85C800989255 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
 		93822B482AFA85DE00989255 /* ForgotPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordInteractor.swift; sourceTree = "<group>"; };
 		93822B4A2AFA85E500989255 /* ForgotPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRouter.swift; sourceTree = "<group>"; };
-		93822B4C2AFAC2EA00989255 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		93822B4C2AFAC2EA00989255 /* UICustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomButton.swift; sourceTree = "<group>"; };
 		93822B502AFAD1C600989255 /* CustomButtonTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonTheme.swift; sourceTree = "<group>"; };
 		93822B522AFAD2A300989255 /* CustomButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonFactory.swift; sourceTree = "<group>"; };
 		93822B542AFAD2C800989255 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		93C46DF92B040C540055BA0F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		93C46E092B04C7AF0055BA0F /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		93C46E0B2B04CB620055BA0F /* GoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleButton.swift; sourceTree = "<group>"; };
+		93C46E0D2B04EB310055BA0F /* UINavigationController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController + Extension.swift"; sourceTree = "<group>"; };
+		93C46E122B0509DD0055BA0F /* Combine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Combine.framework; path = System/Library/Frameworks/Combine.framework; sourceTree = SDKROOT; };
+		93C46E152B0542B30055BA0F /* ControlLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlLabel.swift; sourceTree = "<group>"; };
+		93C46E172B0548B00055BA0F /* PatiButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatiButton.swift; sourceTree = "<group>"; };
 		93CE90662AF7BA2E0025FBB0 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		93CE90682AF7BA380025FBB0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		93CE906A2AF7BA420025FBB0 /* HomeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEntity.swift; sourceTree = "<group>"; };
@@ -193,7 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93262B452AEBD1360047A79F /* CombineCocoa in Frameworks */,
+				93C46E132B0509DD0055BA0F /* Combine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +226,8 @@
 		931144E42AFC178500F6365E /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				931144E52AFC179500F6365E /* OnboardingCell.swift */,
+				93C46E142B05429B0055BA0F /* CustomLabel */,
+				93C46E102B0509000055BA0F /* Buttons */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -264,13 +288,14 @@
 				933780102ADA7DA800103273 /* Petcare-iOS */,
 				931144F22B02B6DA00F6365E /* Petcare-iOSTests */,
 				9337800F2ADA7DA800103273 /* Products */,
+				93C46E112B0509DC0055BA0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		9337800F2ADA7DA800103273 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9337800E2ADA7DA800103273 /* Petcare-iOS.app */,
+				9337800E2ADA7DA800103273 /* Petcare.app */,
 				931144F12B02B6D900F6365E /* Petcare-iOSTests.xctest */,
 			);
 			name = Products;
@@ -312,8 +337,8 @@
 		933780282ADA7E2200103273 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				93C46E0F2B0508F30055BA0F /* UICollectionViewCell */,
 				931144E42AFC178500F6365E /* UIComponents */,
-				93E0D78A2ADF0FB80087979F /* CustomViews */,
 				933780352ADA7E9100103273 /* MainTabbar */,
 			);
 			path = Core;
@@ -322,6 +347,7 @@
 		9337802A2ADA7E2C00103273 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				93C46E0D2B04EB310055BA0F /* UINavigationController + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -363,8 +389,8 @@
 		9337802E2ADA7E5400103273 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				931144EA2AFC1DA800F6365E /* View */,
 				933780402ADA814400103273 /* OnboardingModel.swift */,
+				931144EA2AFC1DA800F6365E /* View */,
 				9337804A2ADA81A700103273 /* OnboardingRouter.swift */,
 				9337804C2ADA81AF00103273 /* OnboardingInteractor.swift */,
 				933780482ADA81A100103273 /* OnboardingPresenter.swift */,
@@ -455,13 +481,12 @@
 		933780382ADA7F1300103273 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				93822B4C2AFAC2EA00989255 /* AppButton.swift */,
+				93822B4C2AFAC2EA00989255 /* UICustomButton.swift */,
 				93822B362AF96C3700989255 /* ControlView.swift */,
 				93822B342AF9698500989255 /* SecurityTextfield.swift */,
-				93822B2F2AF9665800989255 /* TextButton.swift */,
-				93822B2D2AF963C500989255 /* ControlLabel.swift */,
 				93822B2A2AF8B9F200989255 /* Header */,
 				93CE90962AF7E4950025FBB0 /* SearchTextfield */,
+				93C46DF92B040C540055BA0F /* CustomTextField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -507,11 +532,11 @@
 		9348B4542AE061EA00F7185A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9348B4552AE061F500F7185A /* Fonts */,
 				9337802A2ADA7E2C00103273 /* Extensions */,
 				93822B4E2AFAD1A300989255 /* Factory */,
 				9337802B2ADA7E3600103273 /* Constants */,
 				931144E72AFC1A7700F6365E /* Protocols */,
-				9348B4552AE061F500F7185A /* Fonts */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -556,19 +581,46 @@
 			path = CustomButton;
 			sourceTree = "<group>";
 		};
+		93C46E0F2B0508F30055BA0F /* UICollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				931144E52AFC179500F6365E /* OnboardingCell.swift */,
+			);
+			path = UICollectionViewCell;
+			sourceTree = "<group>";
+		};
+		93C46E102B0509000055BA0F /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				93C46E172B0548B00055BA0F /* PatiButton.swift */,
+				93C46E092B04C7AF0055BA0F /* LoginButton.swift */,
+				93C46E0B2B04CB620055BA0F /* GoogleButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		93C46E112B0509DC0055BA0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93C46E122B0509DD0055BA0F /* Combine.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93C46E142B05429B0055BA0F /* CustomLabel */ = {
+			isa = PBXGroup;
+			children = (
+				93C46E152B0542B30055BA0F /* ControlLabel.swift */,
+			);
+			path = CustomLabel;
+			sourceTree = "<group>";
+		};
 		93CE90962AF7E4950025FBB0 /* SearchTextfield */ = {
 			isa = PBXGroup;
 			children = (
 				93CE90972AF7E4A30025FBB0 /* SearchTextfield.swift */,
 			);
 			path = SearchTextfield;
-			sourceTree = "<group>";
-		};
-		93E0D78A2ADF0FB80087979F /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -606,10 +658,9 @@
 			);
 			name = "Petcare-iOS";
 			packageProductDependencies = (
-				93262B442AEBD1360047A79F /* CombineCocoa */,
 			);
 			productName = "Petcare-iOS";
-			productReference = 9337800E2ADA7DA800103273 /* Petcare-iOS.app */;
+			productReference = 9337800E2ADA7DA800103273 /* Petcare.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -658,6 +709,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C46E052B0413F00055BA0F /* Kanit-ExtraBold.ttf in Resources */,
+				93C46E072B0413F00055BA0F /* Kanit-Medium.ttf in Resources */,
+				93C46DFC2B0413E70055BA0F /* Kanit-Black.ttf in Resources */,
+				93C46DFE2B0413EB0055BA0F /* Kanit-Bold.ttf in Resources */,
+				93C46E082B0413F00055BA0F /* Kanit-SemiBold.ttf in Resources */,
+				93C46E062B0413F00055BA0F /* Kanit-Light.ttf in Resources */,
+				93C46E042B0413F00055BA0F /* Kanit-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,17 +724,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				93CE90672AF7BA2E0025FBB0 /* Home.storyboard in Resources */,
+				93C46DFD2B0413EA0055BA0F /* Kanit-Bold.ttf in Resources */,
 				9337801E2ADA7DAA00103273 /* LaunchScreen.storyboard in Resources */,
 				9337801B2ADA7DAA00103273 /* Assets.xcassets in Resources */,
+				93C46DFB2B0413E30055BA0F /* Kanit-Black.ttf in Resources */,
 				933780192ADA7DA800103273 /* Main.storyboard in Resources */,
+				93C46E032B0413F00055BA0F /* Kanit-SemiBold.ttf in Resources */,
 				93822B432AFA85B500989255 /* ForgotPassword.storyboard in Resources */,
+				93C46E022B0413F00055BA0F /* Kanit-Medium.ttf in Resources */,
 				93CE90752AF7D51C0025FBB0 /* Calendar.storyboard in Resources */,
+				93C46E012B0413F00055BA0F /* Kanit-Light.ttf in Resources */,
+				93C46E002B0413F00055BA0F /* Kanit-ExtraBold.ttf in Resources */,
 				933780512ADA823300103273 /* Login.storyboard in Resources */,
 				93822B392AF9886B00989255 /* Register.storyboard in Resources */,
 				93CE90812AF7D57F0025FBB0 /* VetMap.storyboard in Resources */,
 				933780432ADA815400103273 /* Onboarding.storyboard in Resources */,
 				930CB6C02AF18F4F00E632A7 /* Splash.storyboard in Resources */,
 				93CE908B2AF7D5E00025FBB0 /* Settings.storyboard in Resources */,
+				93C46DFF2B0413F00055BA0F /* Kanit-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,8 +768,10 @@
 				93822B532AFAD2A300989255 /* CustomButtonFactory.swift in Sources */,
 				933780412ADA814400103273 /* OnboardingModel.swift in Sources */,
 				933780122ADA7DA800103273 /* AppDelegate.swift in Sources */,
+				93C46E162B0542B30055BA0F /* ControlLabel.swift in Sources */,
 				93CE90832AF7D5980025FBB0 /* VetMapViewController.swift in Sources */,
 				933780552ADA824500103273 /* LoginPresenter.swift in Sources */,
+				93C46DFA2B040C540055BA0F /* CustomTextField.swift in Sources */,
 				933780492ADA81A100103273 /* OnboardingPresenter.swift in Sources */,
 				93822B3F2AF9888600989255 /* RegisterPresenter.swift in Sources */,
 				9337805B2ADA826B00103273 /* User.swift in Sources */,
@@ -722,7 +789,7 @@
 				933780602ADC0DC000103273 /* SplashViewController.swift in Sources */,
 				93CE90912AF7D5FA0025FBB0 /* SettingsPresenter.swift in Sources */,
 				93822B412AF9888B00989255 /* RegisterRouter.swift in Sources */,
-				93822B2E2AF963C500989255 /* ControlLabel.swift in Sources */,
+				93C46E0E2B04EB310055BA0F /* UINavigationController + Extension.swift in Sources */,
 				933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */,
 				9348B45E2AE0631E00F7185A /* AppFonts.swift in Sources */,
 				931144E62AFC179500F6365E /* OnboardingCell.swift in Sources */,
@@ -735,17 +802,19 @@
 				93CE90692AF7BA380025FBB0 /* HomeViewController.swift in Sources */,
 				93CE908D2AF7D5E60025FBB0 /* SettingsViewController.swift in Sources */,
 				93822B3B2AF9887300989255 /* RegisterViewController.swift in Sources */,
-				93822B302AF9665800989255 /* TextButton.swift in Sources */,
 				93CE906B2AF7BA420025FBB0 /* HomeEntity.swift in Sources */,
 				93822B472AFA85C800989255 /* ForgotPasswordPresenter.swift in Sources */,
 				933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */,
 				93CE90792AF7D5370025FBB0 /* CalendarRouter.swift in Sources */,
+				93C46E0A2B04C7AF0055BA0F /* LoginButton.swift in Sources */,
 				933780532ADA823D00103273 /* LoginViewController.swift in Sources */,
+				93C46E0C2B04CB620055BA0F /* GoogleButton.swift in Sources */,
 				93CE90982AF7E4A30025FBB0 /* SearchTextfield.swift in Sources */,
 				93822B492AFA85DE00989255 /* ForgotPasswordInteractor.swift in Sources */,
 				93CE907D2AF7D5460025FBB0 /* CalendarPresenter.swift in Sources */,
 				93822B2C2AF8B9FB00989255 /* HeaderView.swift in Sources */,
-				93822B4D2AFAC2EA00989255 /* AppButton.swift in Sources */,
+				93822B4D2AFAC2EA00989255 /* UICustomButton.swift in Sources */,
+				93C46E182B0548B00055BA0F /* PatiButton.swift in Sources */,
 				93CE90852AF7D5AF0025FBB0 /* VetMapRouter.swift in Sources */,
 				933780592ADA825200103273 /* LoginRouter.swift in Sources */,
 				93CE906F2AF7BA550025FBB0 /* HomeInteractor.swift in Sources */,
@@ -958,8 +1027,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -967,7 +1036,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "kenanbaylan.Petcare-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Petcare;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -988,8 +1057,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -997,7 +1066,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "kenanbaylan.Petcare-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Petcare;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1046,14 +1115,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		93262B442AEBD1360047A79F /* CombineCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 93262B432AEBD1360047A79F /* XCRemoteSwiftPackageReference "CombineCocoa" */;
-			productName = CombineCocoa;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 933780062ADA7DA800103273 /* Project object */;
 }
