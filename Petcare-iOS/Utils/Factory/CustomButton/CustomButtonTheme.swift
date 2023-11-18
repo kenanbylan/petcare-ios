@@ -21,7 +21,7 @@ struct PrimaryCustomButtonTheme: CustomButtonTheme {
     var image: UIImage?
     var backgroundColor: UIColor = AppColors.primaryColor
     var tintColor: UIColor = AppColors.customWhite
-    var textFont: UIFont? = AppFonts.kanitMedium
+    var textFont: UIFont? = AppFonts.font(for: .bold, size: 24)
 }
 
 struct RedCustomButtonTheme: CustomButtonTheme {
@@ -29,6 +29,6 @@ struct RedCustomButtonTheme: CustomButtonTheme {
     var image: UIImage?
     var backgroundColor: UIColor = AppColors.customRed
     var tintColor: UIColor = AppColors.customWhite
-    var textFont: UIFont? = AppFonts.kanitBold
+    var textFont: UIFont? = AppFonts.font(for: .bold, size: 24)
     
 }
