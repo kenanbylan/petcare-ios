@@ -25,7 +25,9 @@ class SecurityTextField: UITextField {
     }
 
     private func commonInit() {
-        self.frame.size.height = 55 // Yükseklik ayarı
+        showPasswordImage?.withTintColor(.systemOrange)
+        hidePasswordImage?.withTintColor(.systemOrange)
+        self.frame.size.height = 50 // Yükseklik ayarı
         self.borderStyle = .none
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.white.cgColor
