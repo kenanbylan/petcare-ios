@@ -6,11 +6,32 @@
 //
 
 import UIKit
+enum Fonts {
+    case bold
+    case medium
+    case semibold
+    case thin
+    case light
+}
 
 struct AppFonts {
-    static let kanitBold = UIFont(name: "Kanit-Bold", size: 14)
-    static let kanitMedium = UIFont(name: "Kanit-Medium", size: 14)
-    static let kanitLight = UIFont(name: "Kanit-Light", size: 14)
-    static let kanitSemiBold = UIFont(name: "Kanit-Light", size: 14)
-    static let kanitThin = UIFont(name: "Kanit-Thin", size: 14)
+    
+    static func font(for style: Fonts, size: CGFloat) -> UIFont? {
+        var fontName: String
+        
+        switch style {
+        case .bold:
+            fontName = "Kanit-Bold"
+        case .medium:
+            fontName = "Kanit-Medium"
+        case .semibold:
+            fontName = "Kanit-SemiBold"
+        case .thin:
+            fontName = "Kanit-Thin"
+        case .light:
+            fontName = "Kanit-Light"
+        }
+        
+        return UIFont(name: fontName, size: size)
+    }
 }
