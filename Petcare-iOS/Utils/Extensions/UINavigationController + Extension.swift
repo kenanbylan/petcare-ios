@@ -10,7 +10,7 @@ extension UINavigationController {
     func customizeNavigationBar(titleColor: UIColor, titleFont: UIFont, backButtonColor: UIColor) {
         navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: titleColor,
-            NSAttributedString.Key.font: AppFonts.font(for: .medium, size: 19)
+            NSAttributedString.Key.font: AppFonts.medium.font(size: 19)
         ]
         
         navigationBar.tintColor = backButtonColor
