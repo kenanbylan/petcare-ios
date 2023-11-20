@@ -20,11 +20,11 @@ final class MainTabbar: UITabBarController {
     }
     
     private func tabbarInitView() {
-        tabBar.tintColor = .orange
+        tabBar.tintColor = AppColors.primaryColor
         tabBar.unselectedItemTintColor = .gray
         tabBar.barTintColor = .white
         tabBar.isTranslucent = true
-        tabBar.backgroundColor = .white
+        
     }
     
     func loadHomeTab() {
@@ -40,7 +40,7 @@ final class MainTabbar: UITabBarController {
         let navigationController = UINavigationController()
         let calendarView = CalendarRouter.build(navigationController: navigationController)
         navigationController.viewControllers.append(calendarView)
-        navigationController.tabBarItem.image = UIImage(named: Tabbar.calendarIcon)
+        navigationController.tabBarItem.image = UIImage(systemName: Tabbar.calendarIcon)
         navigationController.tabBarItem.title = Tabbar.calendarText
         self.addChild(navigationController)
     }
@@ -50,7 +50,7 @@ final class MainTabbar: UITabBarController {
         let navigationController = UINavigationController()
         let mapsView = VetMapRouter.build(navigationController: navigationController)
         navigationController.viewControllers.append(mapsView)
-        navigationController.tabBarItem.image = UIImage(named: Tabbar.mapIcon)
+        navigationController.tabBarItem.image = UIImage(systemName: Tabbar.mapIcon)
         navigationController.tabBarItem.title = Tabbar.mapText
         self.addChild(navigationController)
     }
