@@ -2,21 +2,20 @@ import Foundation
 import UIKit
 
 class GoogleLoginButton: UIButton {
-
+    
     // İlkleme (Initialization) işlemleri burada yapılabilir
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButton()
     }
-
-    // for Storyboard or XIB use
+    
+    ///MARK:  for Storyboard or XIB use
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupButton()
     }
-
+    
     private func setupButton() {
-
         setTitle("Google ile Giriş Yap", for: .normal)
         setTitleColor(AppColors.primaryColor, for: .normal)
         
@@ -29,8 +28,8 @@ class GoogleLoginButton: UIButton {
         
         imageView?.contentMode = .scaleAspectFit
         backgroundColor = AppColors.bgColor
-        titleLabel?.font = AppFonts.font(for: .light, size: 14)
-
+        titleLabel?.font = AppFonts.medium.font(size: 14)
+        
         layer.cornerRadius = 20
         layer.shadowColor = UIColor.gray.cgColor
         layer.shadowRadius = 1
@@ -39,7 +38,7 @@ class GoogleLoginButton: UIButton {
         
         addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
-
+    
     @objc private func buttonTapped() {
         print("Google ile giriş yap düğmesine tıklandı.")
     }
