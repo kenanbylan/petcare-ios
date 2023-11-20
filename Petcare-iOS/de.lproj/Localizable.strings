@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  Petcare-iOS
+
+  Created by Kenan Baylan on 19.11.2023.
+*/
+
+"ONBOARDING_BUTTON_PREVIUS" = "Zurück";
+
+"ONBOARDING_TITLE_LABEL" = "Stellen Sie sicher, immer ein perfekter Elternteil für Ihre Haustiere zu sein";
+"ONBOARDING_SUBTITLE_LABEL" = "Markieren Sie Ihre Lieblingsveterinäre und erstellen Sie Ihren eigenen Führer für Tierärzte";
+
+"ONBOARDING_TITLE_LABEL_2" = "Wir helfen Ihnen dabei, die beste Tierklinik in Ihrer Nähe schnell zu finden";
+"ONBOARDING_SUBTITLE_LABEL_2" = "Suchen und lokalisieren Sie Ihre Lieblingsklinik auf der Karte";
+
+"ONBOARDING_TITLE_LABEL_3" = "Beratung rund um die Uhr per Anruf/Chat";
+"ONBOARDING_SUBTITLE_LABEL_3" = "Finden Sie Tierärzte, die  von Ihren Freunden geteilt wurden.";
+
+"ONBOARDING_BUTTON_GET_STARTED" = "Loslegen";
+"ONBOARDING_BUTTON_LOGIN" = "Anmelden";
+"ONBOARDING_BUTTON_NEXT" = "Weiter";
+

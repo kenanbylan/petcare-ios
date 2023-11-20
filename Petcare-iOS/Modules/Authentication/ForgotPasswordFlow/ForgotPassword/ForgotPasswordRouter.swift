@@ -21,9 +21,10 @@ final class ForgotPasswordRouter: ForgotPasswordRouterProtocol {
     }
     
     static func build(navigationController: UINavigationController?, window: UIWindow?) -> ForgotPasswordViewController {
-        let storyboard = UIStoryboard(name: Constants.Storyboard.forgotPassword, bundle: nil)
-        let view = storyboard.instantiateViewController(identifier: Constants.Controller.forgotpassword) as! ForgotPasswordViewController
+        //let storyboard = UIStoryboard(name: Constants.Storyboard.forgotPassword, bundle: nil)
+        //let view = storyboard.instantiateViewController(identifier: Constants.Controller.forgotpassword) as! ForgotPasswordViewController
 
+        let view = ForgotPasswordViewController()
         let router = ForgotPasswordRouter(navigationController: navigationController, window: window)
         let interactor = ForgotPasswordInteractor()
         let presenter = ForgotPasswordPresenter(view: view, router: router, interactor: interactor)

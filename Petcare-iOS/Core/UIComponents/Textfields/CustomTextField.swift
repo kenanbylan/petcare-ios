@@ -12,12 +12,10 @@ import UIKit
 final class CustomTextField: UITextField {
     
     //MARK: - Private Property
-    private let padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 40)
-     var placeholderName: String!
+    private let padding = UIEdgeInsets(top: 0, left: 5.wPercent, bottom: 0, right: 10.wPercent)
     private var isSecureTextEntryToggle = false
 
-    
-    //MARK: - Initializers
+    ///MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +27,7 @@ final class CustomTextField: UITextField {
         setupTextField()
     }
     
-    //MARK: - Override Methods
+    ///MARK: - Override Methods
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         bounds.inset(by: padding)
     }
@@ -42,7 +40,7 @@ final class CustomTextField: UITextField {
         bounds.inset(by: padding)
     }
     
-    //MARK: - Private Methods
+    ///MARK: - Private Methods
     private func setupTextField() {
         self.isSecureTextEntry = isSecureTextEntryToggle
         layer.cornerRadius = 20
@@ -50,8 +48,8 @@ final class CustomTextField: UITextField {
         layer.shadowRadius = 1
         layer.shadowOpacity = 0.2
         layer.shadowOffset = CGSize(width: 3, height: 3)
-        font = AppFonts.font(for: .medium, size: 17)
+        font = AppFonts.medium.font(size: 14)
         borderStyle = .roundedRect
-        
+        tintColor = AppColors.primaryColor
     }
 }

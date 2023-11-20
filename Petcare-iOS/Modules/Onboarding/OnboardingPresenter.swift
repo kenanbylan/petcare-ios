@@ -52,13 +52,13 @@ extension OnboardingPresenter {
     func getCellData(row: Int) -> OnboardingModel {
         switch row {
         case 0:
-            return  OnboardingModel(image: "onboard1", title: "Make sure always be perfect parent to your pets", subtitle: "Pin your favorite restaurants and create your own food guide")
+            return  OnboardingModel(image: "onboard1", title: "ONBOARDING_TITLE_LABEL".localized() , subtitle: "ONBOARDING_SUBTITLE_LABEL".localized())
             
         case 1:
-            return OnboardingModel(image: "onboard2", title: "SHOW YOU THE LOCATION", subtitle: "Search and locate your favourite restaurant on Maps")
+            return OnboardingModel(image: "onboard2", title: "ONBOARDING_TITLE_LABEL_2".localized(), subtitle: "ONBOARDING_SUBTITLE_LABEL_2".localized())
             
         case 2:
-            return OnboardingModel(image: "onboard3", title: "DISCOVER GREAT RESTAURANTS", subtitle: "Find restaurants shared by your friends and other foodies")
+            return OnboardingModel(image: "onboard3", title: "ONBOARDING_TITLE_LABEL_3".localized(), subtitle: "ONBOARDING_SUBTITLE_LABEL_3".localized())
         default:
             return OnboardingModel(image: "", title: "", subtitle: "")
         }
@@ -73,27 +73,27 @@ extension OnboardingPresenter {
             view?.hidePrevButton()
         case .second:
             view?.showPrevButton()
-            view?.setup(buttonTitle: "Next")
+            view?.setup(buttonTitle: "ONBOARDING_BUTTON_NEXT".localized())
             switch direction {
             case .next:
                 view?.displayScreen(at: 2)
-                view?.setup(buttonTitle: "Login")
+                view?.setup(buttonTitle: "ONBOARDING_BUTTON_LOGIN".localized())
                 view?.showPrevButton()
             case .prev:
                 view?.displayScreen(at: 0)
                 view?.hidePrevButton()
-                view?.setup(buttonTitle: "Get Started")
+                view?.setup(buttonTitle: "ONBOARDING_BUTTON_GET_STARTED".localized())
             case .stop:
                 print("show alert")
             }
         case .thirdy:
-            view?.setup(buttonTitle: "Login")
+            view?.setup(buttonTitle: "ONBOARDING_BUTTON_LOGIN".localized())
             switch direction {
             case .next:
                 router?.navigateToLogin()
             case .prev:
                 view?.displayScreen(at: 1)
-                view?.setup(buttonTitle: "Next")
+                view?.setup(buttonTitle: "ONBOARDING_BUTTON_NEXT".localized())
             case .stop:
                 print("show alert")
             }

@@ -10,8 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Kanit-SemiBold.ttf">
-            <string>Kanit-SemiBold</string>
+        <array key="Poppins-Bold.ttf">
+            <string>Poppins-Bold</string>
         </array>
     </customFonts>
     <scenes>
@@ -27,16 +27,16 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GCc-m9-9LT">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="770.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="764.33333333333337"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back to Petcare!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03L-rq-D5N">
-                                                <rect key="frame" x="55" y="50" width="283" height="75"/>
-                                                <fontDescription key="fontDescription" name="Kanit-SemiBold" family="Kanit" pointSize="25"/>
+                                                <rect key="frame" x="55" y="50" width="283" height="70"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="25"/>
                                                 <color key="textColor" name="primaryColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gAo-Pu-giN" customClass="CustomTextField" customModule="Petcare" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="175" width="313" height="50"/>
+                                                <rect key="frame" x="40" y="170" width="313" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="yhB-W6-I7w"/>
                                                 </constraints>
@@ -44,7 +44,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUc-Tg-WQu" customClass="CustomTextField" customModule="Petcare" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="249" width="313" height="50"/>
+                                                <rect key="frame" x="40" y="244" width="313" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="9wv-tt-nA5"/>
                                                 </constraints>
@@ -52,10 +52,10 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x19-UR-Mr7">
-                                                <rect key="frame" x="217.66666666666663" y="311" width="135.33333333333337" height="35"/>
+                                                <rect key="frame" x="204.33333333333337" y="306" width="148.66666666666663" height="33.666666666666686"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Forgot password?">
-                                                    <fontDescription key="titleFontDescription" name="Kanit-Medium" family="Kanit" pointSize="14"/>
+                                                    <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                     <color key="baseForegroundColor" name="primaryColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -63,7 +63,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zq5-DM-jzd">
-                                                <rect key="frame" x="40" y="396" width="313" height="110"/>
+                                                <rect key="frame" x="40" y="389.66666666666669" width="313" height="110"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zV-CU-gfd" customClass="LoginButton" customModule="Petcare" customModuleProvider="target">
                                                         <rect key="frame" x="81.666666666666686" y="0.0" width="150" height="45"/>
@@ -82,10 +82,10 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29Y-bi-mLo">
-                                                        <rect key="frame" x="46.333333333333329" y="65" width="220.66666666666669" height="45"/>
+                                                        <rect key="frame" x="33.666666666666671" y="64.999999999999943" width="245.66666666666663" height="45"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Don't have an account? Sign up">
-                                                            <fontDescription key="titleFontDescription" name="Kanit-Medium" family="Kanit" pointSize="14"/>
+                                                            <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                                             <color key="baseForegroundColor" name="primaryColor"/>
                                                         </buttonConfiguration>
                                                         <connections>
@@ -95,7 +95,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aw2-Nq-7e3" customClass="GoogleLoginButton" customModule="Petcare" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="576" width="313" height="45"/>
+                                                <rect key="frame" x="40" y="569.66666666666663" width="313" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="fc3-Eu-R1E"/>
                                                 </constraints>
@@ -107,7 +107,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="03L-rq-D5N" firstAttribute="leading" secondItem="GCc-m9-9LT" secondAttribute="leading" constant="55" id="0d5-sQ-sAt"/>
                                             <constraint firstAttribute="bottom" secondItem="Aw2-Nq-7e3" secondAttribute="bottom" constant="149.66999999999999" id="3gN-76-uXS"/>
@@ -130,7 +130,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="GCc-m9-9LT" firstAttribute="top" secondItem="PKo-Yk-X9m" secondAttribute="top" id="1DW-DW-maJ"/>
                                     <constraint firstItem="GCc-m9-9LT" firstAttribute="leading" secondItem="PKo-Yk-X9m" secondAttribute="leading" id="Ec8-2B-xYL"/>
@@ -143,7 +143,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="K1J-wv-Uft"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
                             <constraint firstItem="k0C-1P-dym" firstAttribute="leading" secondItem="K1J-wv-Uft" secondAttribute="leading" id="4Kd-R3-u9U"/>
                             <constraint firstItem="k0C-1P-dym" firstAttribute="bottom" secondItem="K1J-wv-Uft" secondAttribute="bottom" id="E5W-eS-7rp"/>
@@ -168,15 +168,15 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="backgroundColor">
+            <color red="0.99215686274509807" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="bgColor">
             <color red="0.99215686274509807" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="primaryColor">
             <color red="1" green="0.51372549019607838" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
