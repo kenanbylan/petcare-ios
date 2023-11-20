@@ -33,9 +33,11 @@ class LoginViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         
-        emailTextfield.placeholderName = "email"
-        passwordTextfield.placeholderName = "password"
+        emailTextfield.placeholder = "email"
+        passwordTextfield.placeholder = "password"
         passwordTextfield.isSecureTextEntry = true
+        
+        view.backgroundColor = AppColors.bgColor
     }
  
     @IBAction func forgotPasswordTapped(_ sender: Any) {
