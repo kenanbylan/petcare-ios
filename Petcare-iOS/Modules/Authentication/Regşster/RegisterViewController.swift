@@ -15,6 +15,7 @@ final class RegisterViewController: UIViewController {
     var presenter: RegisterPresenterProtocol!
     var isExpand: Bool = false
     
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.addSubview(stackView)
@@ -29,7 +30,7 @@ final class RegisterViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Welcome to Petcare!"
         label.textColor = AppColors.primaryColor
-        label.font = AppFonts.font(for: .semibold, size: 25)
+        label.font = AppFonts.semibold.font(size: 25)
         label.textAlignment = .center
         return label
     }()
@@ -65,6 +66,13 @@ final class RegisterViewController: UIViewController {
         return textfield
     }()
     
+    private lazy var emailTextfield: CustomTextField = {
+        let textfield = CustomTextField()
+        textfield.placeholder = "email address"
+        textfield.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        return textfield
+    }()
+    
     private lazy var passwordTextfield: CustomTextField = {
         let textfield = CustomTextField()
         textfield.placeholder = "password"
@@ -81,7 +89,7 @@ final class RegisterViewController: UIViewController {
     
     private lazy var createAccountButton: UICustomButton = {
         let button = UICustomButton()
-        button.setupButton(title: "Create Account", font: (size: 16, weight: .semibold))
+        button.setupButton(title: "Create Account", textSize: .small)
         button.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -144,7 +152,7 @@ extension RegisterViewController: ViewCoding {
         view.addSubview(scrollView)
         scrollView.addSubview(headerLabel)
         //        view.addSubview(headerLabel)
-        let stackViewElements = [nameTextfield, lastTextfield, phoneTextfield, passwordTextfield, confirmPasswordTextfield]
+        let stackViewElements = [nameTextfield, lastTextfield, emailTextfield, phoneTextfield, passwordTextfield, confirmPasswordTextfield]
         
         for i in stackViewElements {
             stackView.addArrangedSubview(i)
@@ -181,7 +189,6 @@ extension RegisterViewController: ViewCoding {
             createAccountButton.heightAnchor.constraint(equalTo: createAccountButton.widthAnchor, multiplier: 0.2),
             createAccountButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50),
         ])
-        
     }
 }
 

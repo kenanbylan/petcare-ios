@@ -24,32 +24,22 @@ final class OnboardingCell: UICollectionViewCell {
     lazy var imageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "onboard1"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = .clear
         imageView.contentMode = .scaleAspectFit
-        
         return imageView
     }()
-        
-    private lazy var title: UILabel = {
-        var label = UILabel(frame: .zero)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = AppFonts.font(for: .bold, size: 24)
+    
+    private lazy var title: CustomLabel = {
+        let label = CustomLabel(text: "", fontSize: 21, fontType: .bold, textColor: AppColors.labelColor)
         label.numberOfLines = 0
-        label.textAlignment = .center
-        label.textColor = AppColors.customDarkGray
         return label
     }()
     
-    private lazy var subtitle: UILabel = {
-        var label = UILabel(frame: .zero)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = AppFonts.font(for: .medium, size: 17)
+    private lazy var subtitle: CustomLabel = {
+        let label = CustomLabel(text: "", fontSize: 17, fontType: .medium, textColor: AppColors.customLightGray)
         label.numberOfLines = 0
-        label.textAlignment = .center
-        label.textColor = AppColors.customDarkGray
         return label
     }()
-   
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         buildLayout()
@@ -59,7 +49,6 @@ final class OnboardingCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 extension OnboardingCell: ViewCoding {
@@ -83,7 +72,7 @@ extension OnboardingCell: ViewCoding {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: self.topAnchor),
             imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            imageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5),
+            imageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7),
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
             
             title.topAnchor.constraint(equalToSystemSpacingBelow: imageView.bottomAnchor, multiplier: 5),

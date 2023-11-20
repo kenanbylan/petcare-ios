@@ -67,7 +67,7 @@ final class OnboardingView: UIView {
     
     private lazy var nextButton: UICustomButton = {
        let button = UICustomButton()
-        button.setupButton(title: "Get Started", font: (size: 16, weight: .semibold))
+        button.setupButton(title: "ONBOARDING_BUTTON_GET_STARTED".localized(), textSize: .medium)
         button.addTarget(self, action: #selector(nexButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -75,8 +75,8 @@ final class OnboardingView: UIView {
     private lazy var prevButton: UIButton = {
         let button = UIButton(frame: .zero)
         button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        button.setTitle("Önceki", for: .normal)
-        button.titleLabel?.font = AppFonts.font(for: .medium, size: 17)
+        button.setTitle("ONBOARDING_BUTTON_PREVIUS".localized(), for: .normal)
+        button.titleLabel?.font = AppFonts.medium.font(size: 17)
         button.backgroundColor = .systemBackground
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(toPrevButtonTapped), for: .touchUpInside)
@@ -228,7 +228,7 @@ extension OnboardingView: UICollectionViewDataSource {
 }
 extension OnboardingView: ViewCoding {
     func setupView() {
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = AppColors.bgColor
     }
     
     func setupHierarchy() {

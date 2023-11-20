@@ -12,43 +12,12 @@
         <!--Home View Controller-->
         <scene sceneID="33z-FX-6v5">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WLr-w0-pJN" customClass="HomeViewController" customModule="Petcare_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WLr-w0-pJN" customClass="HomeViewController" customModule="Petcare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oE0-Bn-0Bb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMy-lR-voT">
-                                <rect key="frame" x="0.0" y="59" width="393" height="60"/>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="GjI-AJ-bVj"/>
-                                </constraints>
-                            </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wJK-mc-ki1">
-                                <rect key="frame" x="0.0" y="119" width="393" height="699"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dc0-yL-goS">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="699"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="dc0-yL-goS" firstAttribute="height" secondItem="wJK-mc-ki1" secondAttribute="height" priority="250" id="X06-tz-otG"/>
-                                    <constraint firstItem="dc0-yL-goS" firstAttribute="width" secondItem="wJK-mc-ki1" secondAttribute="width" id="coM-SI-Rzj"/>
-                                </constraints>
-                            </scrollView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vP3-uR-kF5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="vP3-uR-kF5" firstAttribute="trailing" secondItem="pMy-lR-voT" secondAttribute="trailing" id="FeS-KN-vah"/>
-                            <constraint firstItem="vP3-uR-kF5" firstAttribute="bottom" secondItem="wJK-mc-ki1" secondAttribute="bottom" id="H63-Ma-8Sz"/>
-                            <constraint firstItem="wJK-mc-ki1" firstAttribute="top" secondItem="pMy-lR-voT" secondAttribute="bottom" id="PjS-Hp-zrE"/>
-                            <constraint firstItem="wJK-mc-ki1" firstAttribute="leading" secondItem="vP3-uR-kF5" secondAttribute="leading" id="Yc6-OL-dcM"/>
-                            <constraint firstItem="pMy-lR-voT" firstAttribute="top" secondItem="vP3-uR-kF5" secondAttribute="top" id="Yrp-na-AdJ"/>
-                            <constraint firstItem="vP3-uR-kF5" firstAttribute="trailing" secondItem="wJK-mc-ki1" secondAttribute="trailing" id="vl8-c5-Q0B"/>
-                            <constraint firstItem="pMy-lR-voT" firstAttribute="leading" secondItem="vP3-uR-kF5" secondAttribute="leading" id="z9K-ZH-JiI"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5N-tR-IBh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -59,9 +28,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.18823529410000001" green="0.69019607839999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

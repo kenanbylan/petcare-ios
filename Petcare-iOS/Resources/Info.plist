@@ -4,12 +4,12 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Kanit-Medium.ttf</string>
-		<string>Kanit-Black.ttf</string>
-		<string>Kanit-Bold.ttf</string>
-		<string>Kanit-Light.ttf</string>
-		<string>Kanit-SemiBold.ttf</string>
-		<string>Kanit-Thin.ttf</string>
+		<string>Poppins-Black.ttf</string>
+		<string>Poppins-Bold.ttf</string>
+		<string>Poppins-Medium.ttf</string>
+		<string>Poppins-Regular.ttf</string>
+		<string>Poppins-SemiBold.ttf</string>
+		<string>Poppins-Thin.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

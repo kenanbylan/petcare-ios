@@ -10,7 +10,6 @@ import UIKit
 
 class LoginButton: UIButton {
 
-    // İlkleme (Initialization) işlemleri burada yapılabilir
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButton()
@@ -24,7 +23,7 @@ class LoginButton: UIButton {
 
     private func setupButton() {
         setTitle("Login", for: .normal)
-        titleLabel?.font = AppFonts.font(for: .medium, size: 19)
+        titleLabel?.font = AppFonts.medium.font(size: 19)
         backgroundColor = AppColors.primaryColor
         tintColor = UIColor.darkText
         layer.cornerRadius = 20

@@ -64,7 +64,7 @@ extension OnboardingViewController: OnboardingControlling {
 
 extension OnboardingViewController: OnboardingViewProtocol {
     func prepareUI() {
-        view.backgroundColor = .systemGreen
+        view.backgroundColor = AppColors.bgColor
     }
     
     func showOnboarding() {

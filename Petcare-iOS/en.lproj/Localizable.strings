@@ -1,0 +1,23 @@
+/*
+ Localizable.strings
+ Petcare-iOS
+ Created by Kenan Baylan on 19.11.2023.
+ */
+ 
+
+///MARK: Onboarding ViewController
+
+"ONBOARDING_BUTTON_PREVIUS" = "Previous";
+
+"ONBOARDING_TITLE_LABEL" = "Make sure always be perfect parent to your pets";
+"ONBOARDING_SUBTITLE_LABEL" = "Pin your favorite restaurants and create your own food guide";
+
+"ONBOARDING_TITLE_LABEL_2" = "We help you quickly find the best vet our veterinary clinic neares";
+"ONBOARDING_SUBTITLE_LABEL_2" = "Search and locate your favourite clinic on Maps";
+
+"ONBOARDING_TITLE_LABEL_3" = "7/24 consultation on call/ chat";
+"ONBOARDING_SUBTITLE_LABEL_3" = "Find veterinary shared by your friends.";
+
+"ONBOARDING_BUTTON_GET_STARTED" = "Get Started";
+"ONBOARDING_BUTTON_LOGIN" = "Login";
+"ONBOARDING_BUTTON_NEXT" = "Next";
