@@ -14,7 +14,7 @@ enum Tabbar {
     static let calendarIcon = "calendar"
     static let calendarText = "Calendar"
         
-    static let mapIcon = "mapIcon"
+    static let mapIcon = "map.fill"
     static let mapText = "Vet Map"
     
     static let settingsIcon = "gearshape"
