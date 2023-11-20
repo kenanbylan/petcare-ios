@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  Petcare-iOS
+
+  Created by Kenan Baylan on 19.11.2023.
+  
+*/
+
+/*
+ Biz localize edilecek metin içerisine integer bir sayı gömmek istediğimiz içi tanımlamamızı %d ile yapmamız gerekiyor. Eğer string kullanacaksanız buraya %@ yazabilirsiniz. İşte iki dil için tanım da aşağıdaki şekilde.
+
+ */
+
+
+"ONBOARDING_BUTTON_PREVIUS" = "Önceki";
+
+"ONBOARDING_TITLE_LABEL" = "Her zaman mükemmel bir ebeveyn olmak için emin olun";
+"ONBOARDING_SUBTITLE_LABEL" = "Favori veterinerlerinizi favoriye ekle ve kendi rehberinizi oluşturun";
+
+"ONBOARDING_TITLE_LABEL_2" = "En yakın veteriner kliniğimizi hızlı bir şekilde bulmanıza yardımcı oluyoruz";
+"ONBOARDING_SUBTITLE_LABEL_2" = "Favori kliniğinizi Haritalar üzerinde arayın ve bulun";
+
+"ONBOARDING_TITLE_LABEL_3" = "7/24 çağrı/sohbet üzerinden danışmanlık yapıyoruz";
+"ONBOARDING_SUBTITLE_LABEL_3" = "Arkadaşlarınız tarafından paylaşılan veterinerleri bulun.";
+
+"ONBOARDING_BUTTON_GET_STARTED" = "Başlarken";
+"ONBOARDING_BUTTON_LOGIN" = "Giriş";
+"ONBOARDING_BUTTON_NEXT" = "İleri";
