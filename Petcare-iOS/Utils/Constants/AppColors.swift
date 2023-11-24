@@ -9,7 +9,7 @@ import UIKit
 
 struct AppColors {
     static let primaryColor = UIColor(named: "primaryColor")!
-    static let bgColor = UIColor.systemBackground
+    static let bgColor = UIColor(named: "bgColor")
     static let labelColor = UIColor.label
     static let customRed = UIColor.systemRed
     static let customBlue = UIColor.systemBlue
@@ -17,4 +17,5 @@ struct AppColors {
     static let customDarkGray = UIColor.darkGray
     static let customGray = UIColor.gray
     static let customWhite = UIColor.white
+    static let borderColor = UIColor(named: "borderColor")
 }
