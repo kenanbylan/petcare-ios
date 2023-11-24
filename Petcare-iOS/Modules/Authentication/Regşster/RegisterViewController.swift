@@ -14,8 +14,6 @@ protocol RegisterViewProtocol: AnyObject {
 final class RegisterViewController: UIViewController {
     var presenter: RegisterPresenterProtocol!
     var isExpand: Bool = false
-    
-    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.addSubview(stackView)
@@ -54,46 +52,33 @@ final class RegisterViewController: UIViewController {
     private lazy var lastTextfield: CustomTextField = {
         let textfield = CustomTextField()
         textfield.placeholder = "lastname"
-        textfield.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        return textfield
-    }()
-    
-    private lazy var phoneTextfield: CustomTextField = {
-        let textfield = CustomTextField()
-        textfield.placeholder = "phone number"
-        textfield.heightAnchor.constraint(equalToConstant: 50).isActive = true
         return textfield
     }()
     
     private lazy var emailTextfield: CustomTextField = {
         let textfield = CustomTextField()
         textfield.placeholder = "email address"
-        textfield.heightAnchor.constraint(equalToConstant: 50).isActive = true
         return textfield
     }()
     
     private lazy var passwordTextfield: CustomTextField = {
         let textfield = CustomTextField()
         textfield.placeholder = "password"
-        textfield.heightAnchor.constraint(equalToConstant: 50).isActive = true
         return textfield
     }()
     
     private lazy var confirmPasswordTextfield: CustomTextField = {
         let textfield = CustomTextField()
         textfield.placeholder = "confirm password"
-        textfield.heightAnchor.constraint(equalToConstant: 50).isActive = true
         return textfield
     }()
     
-    private lazy var createAccountButton: UICustomButton = {
-        let button = UICustomButton()
+    private lazy var createAccountButton: LoadingUICustomButton = {
+        let button = LoadingUICustomButton()
         button.setupButton(title: "Create Account", textSize: .small)
         button.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
         return button
     }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,6 +90,7 @@ final class RegisterViewController: UIViewController {
         
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
+        
     }
     
     @objc func createButtonTapped() {
@@ -142,9 +128,9 @@ extension RegisterViewController {
 
 extension RegisterViewController: ViewCoding {
     func setupView() {
-        navigationController?.customizeNavigationBar(titleColor: AppColors.primaryColor, titleFont: UIFont.systemFont(ofSize: 21) , backButtonColor: AppColors.primaryColor)
+        navigationController?.customizeNavigationBar()
         self.title =  "Create an account"
-        self.view.backgroundColor = .systemBackground
+        self.view.backgroundColor = AppColors.bgColor
     }
     
     func setupHierarchy() {
@@ -152,14 +138,14 @@ extension RegisterViewController: ViewCoding {
         view.addSubview(scrollView)
         scrollView.addSubview(headerLabel)
         //        view.addSubview(headerLabel)
-        let stackViewElements = [nameTextfield, lastTextfield, emailTextfield, phoneTextfield, passwordTextfield, confirmPasswordTextfield]
+        let stackViewElements = [nameTextfield, lastTextfield, emailTextfield, passwordTextfield, confirmPasswordTextfield]
         
         for i in stackViewElements {
             stackView.addArrangedSubview(i)
         }
+        
         scrollView.addSubview(stackView)
         scrollView.addSubview(createAccountButton)
-        
     }
     
     func setupConstraints() {
@@ -175,7 +161,7 @@ extension RegisterViewController: ViewCoding {
             headerLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 30),
             headerLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
             headerLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
-            
+    
             ///Mark: StackView Label
             stackView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 30),
             stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),

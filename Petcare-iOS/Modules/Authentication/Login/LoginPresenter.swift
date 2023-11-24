@@ -3,7 +3,14 @@
 //  Created by Kenan Baylan on 14.10.2023.
 
 import Foundation
+import Combine
 
+enum LoginState {
+    case loading
+    case success
+    case failed
+    case none
+}
 protocol LoginPresenterProtocol {
     func viewDidload() -> Void
     func navigateMain() -> Void
@@ -16,10 +23,22 @@ final class LoginPresenter {
     let router: LoginRouterProtocol?
     let interactor: LoginInteractorProtocol?
     
+    @Published var email = ""
+    @Published var password = ""
+    @Published var state: LoginState = .none
+    
     init(view: LoginViewProtocol? , router: LoginRouterProtocol?, interactor: LoginInteractorProtocol?) {
         self.view = view
         self.router = router
         self.interactor = interactor
+    }
+    
+    var isValidEmailPublisher: AnyPublisher<Bool, Never> {
+        $email
+            .map { email in
+                return ValidationControl(email, validationType: .email)
+            }
+            .eraseToAnyPublisher()
     }
 }
 

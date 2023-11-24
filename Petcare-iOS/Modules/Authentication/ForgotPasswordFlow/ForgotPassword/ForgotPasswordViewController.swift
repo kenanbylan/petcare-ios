@@ -11,7 +11,6 @@ protocol ForgotPasswordViewProtocol: AnyObject {
     func forgotPasswordReset()
 }
 
-
 final class ForgotPasswordViewController: UIViewController,UITextFieldDelegate  {
     var presenter: ForgotPasswordPresenterProtocol?
 
@@ -42,14 +41,12 @@ final class ForgotPasswordViewController: UIViewController,UITextFieldDelegate  
     
     private lazy var emailTextfield: CustomTextField = {
         let textfield = CustomTextField()
-        textfield.placeholder = "Email "
-        textfield.delegate = self
+        textfield.placeholder = "Email"
         return textfield
     }()
     
-    private lazy var sendCodeButton: UICustomButton = {
-        let button = UICustomButton()
-//        button.setupButton(title: "Send Code", font: (size: 16, weight: .semibold))
+    private lazy var sendCodeButton: LoadingUICustomButton = {
+        let button = LoadingUICustomButton()
         button.setupButton(title: "Send Code", textSize: LabelSize.small)
         button.addTarget(self, action: #selector(sendCodeButtonClicked), for: .touchUpInside)
         return button
@@ -106,7 +103,7 @@ extension ForgotPasswordViewController: ViewCoding {
             sendCodeButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 40),
             sendCodeButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -40),
             sendCodeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -50),
-            sendCodeButton.heightAnchor.constraint(equalToConstant: 50)
+            
         ])
     }
 }
