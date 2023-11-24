@@ -9,46 +9,26 @@ import UIKit
 
 class SmsOtpViewController: UIViewController, UITextFieldDelegate {
     
-    private lazy var stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.spacing = 20
-        stack.alignment = .fill
-        stack.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var stackView: UICustomStackView = {
+        let stack = UICustomStackView()
         return stack
     }()
     
-    private lazy var headerLabel: UILabel = {
-        let label = UILabel()
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Please Check your Email"
-        label.textColor = AppColors.primaryColor
-        label.font = AppFonts.semibold.font(size: 21)
-        label.textAlignment = .center
+    
+    private lazy var headerLabel: CustomLabel = {
+        let label = CustomLabel(text: "SMS_OTP_HEADER_LABEL".localized(), fontSize: 21, fontType: .semibold, textColor: AppColors.primaryColor)
         return label
     }()
     
-    private lazy var subTitleLabel: UILabel = {
-        let label = UILabel()
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "We have sent to kenan.baylan4654@gmail.com"
-        label.tintColor = AppColors.labelColor
-        label.font = AppFonts.semibold.font(size: 17)
+    private lazy var subTitleLabel: CustomLabel = {
+        let label = CustomLabel(text: "SMS_OTP_SUBTITLE_LABEL".localized("kenan.baylan@gmail.com"), fontSize: 17, fontType: .semibold, textColor: AppColors.labelColor)
         label.textAlignment = .justified
-        
         return label
     }()
     
-    private lazy var timerLabel: UILabel = {
-        let label = UILabel()
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "00:54"
-        label.tintColor = AppColors.labelColor
-        label.font = AppFonts.semibold.font(size: 17)
-        
+    private lazy var timerLabel: CustomLabel = {
+        let label = CustomLabel(text: "00:45", fontSize: 17, fontType: .semibold, textColor: AppColors.labelColor)
+        label.textAlignment = .justified
         return label
     }()
     
@@ -56,34 +36,43 @@ class SmsOtpViewController: UIViewController, UITextFieldDelegate {
     private lazy var resendCodeButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(AppColors.primaryColor, for: .normal)
-        button.setTitle("Send code again", for: .normal)
+        button.setTitle("SMS_OTP_RESEND_CODE_BUTTON".localized(), for: .normal)
         button.addTarget(self, action: #selector(resendButtonClicked), for: .touchUpInside)
         return button
     }()
     
-    
     private lazy var verificationTextfield: CustomTextField = {
         let textfield = CustomTextField()
-        textfield.placeholder = "Please entry code"
+        textfield.placeholder = "SMS_OTP_VERIFICATION_TEXTFIELD".localized()
         textfield.delegate = self
         return textfield
     }()
     
-    private lazy var verificationButton: UICustomButton = {
-        let button = UICustomButton()
-        button.setupButton(title: "Verification", textSize: .medium)
+    
+    private lazy var verificationButton: LoadingUICustomButton = {
+        let button = LoadingUICustomButton()
+        button.setupButton(title: "SMS_OTP_VERIFICATION_BUTTON".localized())
         button.addTarget(self, action: #selector(verificationButtonClicked), for: .touchUpInside)
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         buildLayout()
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
+        
     }
     
     @objc func verificationButtonClicked() {
+        print("verificationButtonClicked")
+//        let loadingButton = view.subviews.compactMap { $0 as? LoadingButton }.first
+        verificationButton.loadIndicator(true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.verificationButton.loadIndicator(false)
+            self.present(NewPasswordViewController(), animated: true)
+        }
+        
         
     }
     
@@ -116,14 +105,12 @@ extension SmsOtpViewController: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            
             headerLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             headerLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant:20),
             
             subTitleLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 10),
             subTitleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant:20),
             subTitleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            
             
             verificationTextfield.heightAnchor.constraint(equalToConstant: 50),
             verificationTextfield.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 15),
@@ -137,8 +124,6 @@ extension SmsOtpViewController: ViewCoding {
             verificationButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 40),
             verificationButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -40),
             verificationButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -50),
-            verificationButton.heightAnchor.constraint(equalToConstant: 50)
-            
         ])
     }
 }

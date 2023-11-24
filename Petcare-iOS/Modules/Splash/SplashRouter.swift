@@ -14,7 +14,6 @@ protocol SplashRouterProtocol: AnyObject {
 }
 
 final class SplashRouter {
-    
     var window: UIWindow
     
     init(window: UIWindow) {
@@ -22,16 +21,13 @@ final class SplashRouter {
     }
     
     static func build(in window: UIWindow) -> SplashViewController {
-        let storyboard = UIStoryboard(name: "Splash", bundle: nil)
-        guard let view = storyboard.instantiateViewController(withIdentifier: "SplashViewController") as? SplashViewController else {
+        let storyboard = UIStoryboard(name: Constants.Storyboard.splash, bundle: nil)
+        guard let view = storyboard.instantiateViewController(withIdentifier: Constants.Controller.splash) as? SplashViewController else {
             fatalError("Could not instantiate SplashViewController from storyboard.")
         }
-        
         let router = SplashRouter(window: window)
-
         let interactor = SplashInteractor()
         let presenter = SplashPresenter(view: view, interactor: interactor, router: router)
-        
         view.presenter = presenter
         interactor.output = presenter
         

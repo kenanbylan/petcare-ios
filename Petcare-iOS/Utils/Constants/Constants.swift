@@ -21,6 +21,7 @@ enum Constants {
     }
     
     enum Controller {
+        //Starting
         static let splash = "SplashViewController"
         static let onboarding = "OnboardingViewController"
         
@@ -35,7 +36,12 @@ enum Constants {
         static let calender = "CalendarViewController"
         static let settings = "SettingsViewController"
         static let vetmaps = "VetMapViewController"
-
+    }
+    
+    enum CollectionViewCell {
+        static let onboardingCell = "OnboardingCell"
     }
 }
+
+
 

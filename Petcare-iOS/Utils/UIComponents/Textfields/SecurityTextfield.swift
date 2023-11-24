@@ -42,10 +42,10 @@ class SecurityTextField: UITextField {
 
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.lightGray,
-            .font: UIFont(name: "Kanit", size: 16) ?? UIFont.systemFont(ofSize: 16)
+            .font: AppFonts.medium.font(size: .medium)!
         ]
 
-        self.attributedPlaceholder = NSAttributedString(string: "Placeholder Text", attributes: placeholderAttributes)
+        self.attributedPlaceholder = NSAttributedString(string: "Placeholder", attributes: placeholderAttributes)
 
         let togglePasswordButton = UIButton(type: .custom)
         togglePasswordButton.frame = CGRect(x: 0, y: 0, width: 30, height: self.frame.height)

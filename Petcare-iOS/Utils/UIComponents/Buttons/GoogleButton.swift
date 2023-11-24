@@ -17,7 +17,7 @@ class GoogleLoginButton: UIButton {
     
     private func setupButton() {
         setTitle("Google ile Giriş Yap", for: .normal)
-        setTitleColor(AppColors.primaryColor, for: .normal)
+        setTitleColor(AppColors.labelColor, for: .normal)
         
         if let image = UIImage(named: "google_icon") {
             image.withTintColor(AppColors.primaryColor)
@@ -30,7 +30,7 @@ class GoogleLoginButton: UIButton {
         backgroundColor = AppColors.bgColor
         titleLabel?.font = AppFonts.medium.font(size: 14)
         
-        layer.cornerRadius = 20
+        layer.cornerRadius = 14
         layer.shadowColor = UIColor.gray.cgColor
         layer.shadowRadius = 1
         layer.shadowOpacity = 0.2

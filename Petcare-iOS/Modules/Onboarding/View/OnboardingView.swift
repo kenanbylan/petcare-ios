@@ -41,7 +41,7 @@ final class OnboardingView: UIView {
         layout.minimumLineSpacing = 0
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(OnboardingCell.self, forCellWithReuseIdentifier: "OnboardingCell")
+        collectionView.register(OnboardingCell.self, forCellWithReuseIdentifier: Constants.CollectionViewCell.onboardingCell)
         collectionView.backgroundColor = .clear
         collectionView.isUserInteractionEnabled = false
         collectionView.delegate = self
@@ -64,10 +64,10 @@ final class OnboardingView: UIView {
         return control
     }()
     
-    
-    private lazy var nextButton: UICustomButton = {
-       let button = UICustomButton()
-        button.setupButton(title: "ONBOARDING_BUTTON_GET_STARTED".localized(), textSize: .medium)
+
+    private lazy var nextButton: LoadingUICustomButton = {
+       let button = LoadingUICustomButton()
+        button.setupButton(title: "ONBOARDING_BUTTON_GET_STARTED".localized())
         button.addTarget(self, action: #selector(nexButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -76,16 +76,14 @@ final class OnboardingView: UIView {
         let button = UIButton(frame: .zero)
         button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         button.setTitle("ONBOARDING_BUTTON_PREVIUS".localized(), for: .normal)
-        button.titleLabel?.font = AppFonts.medium.font(size: 17)
-        button.backgroundColor = .systemBackground
+        button.titleLabel?.font = AppFonts.medium.font(size: .medium)
+        button.tintColor = AppColors.primaryColor
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(toPrevButtonTapped), for: .touchUpInside)
         button.layer.cornerRadius = 10
         button.setTitleColor(.tintColor, for: .normal)
-
         return button
     }()
-    
     
     init(frame: CGRect, controller: OnboardingControlling? = nil) {
         self.controller = controller
@@ -157,7 +155,6 @@ extension OnboardingView: OnboardingViewDelegate {
 
 private extension OnboardingView {
     func navigateToCorrectScreen(at index: Int) {
-      
         let indexPath = IndexPath(item: index, section: 0)
         carouselCollection.isPagingEnabled = false
         carouselCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
@@ -192,7 +189,6 @@ private extension OnboardingView {
 
     func failureAnimateButton() {
         makeHaptic()
-
         UIView.animate(withDuration: 0.1, animations: { }, completion: { _ in
             UIView.animate(withDuration: 0.1, animations: {
                 self.nextButton.frame.origin.x += 10
@@ -219,7 +215,7 @@ extension OnboardingView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OnboardingCell", for: indexPath) as? OnboardingCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionViewCell.onboardingCell, for: indexPath) as? OnboardingCell else {
             return UICollectionViewCell() }
         
         cell.model = controller?.getCellViewModel(at: indexPath.row) ?? .init(image: "", title: "", subtitle: "")
@@ -246,15 +242,16 @@ extension OnboardingView: ViewCoding {
             carouselCollection.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
             carouselCollection.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             carouselCollection.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            
-            
-            nextButton.bottomAnchor.constraint( equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: self.frame.width*(-1)/10),
-            nextButton.widthAnchor.constraint(equalTo: self.widthAnchor,multiplier: 0.8),
-            nextButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            nextButton.heightAnchor.constraint(equalTo: nextButton.widthAnchor, multiplier: 0.2),
 
-            pageControl.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -10),
-            pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            pageControl.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -16),
+            pageControl.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            pageControl.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+
+            nextButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            nextButton.bottomAnchor.constraint( equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10.wPercent),
+            nextButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,constant: 20),
+            nextButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,constant: -20)
         ])
     }
     

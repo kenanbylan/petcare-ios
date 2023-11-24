@@ -50,7 +50,6 @@ final class OnboardingViewController: UIViewController {
     }
 }
 
-
 ///MARK: data,  viewController -> view
 extension OnboardingViewController: OnboardingControlling {
     func capturedAction(direction: OnboardingViewRoute) {

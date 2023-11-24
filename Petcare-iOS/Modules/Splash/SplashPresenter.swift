@@ -26,7 +26,6 @@ final class SplashPresenter: SplashPresenterProtocol {
         interactor.checkInternetConnection()
         view?.prepareUI()
     }
-
 }
 
 extension SplashPresenter: SplashInteractorOutputProtocol {
@@ -37,7 +36,7 @@ extension SplashPresenter: SplashInteractorOutputProtocol {
                 self.router?.navigateToOnboarding()
             }
         } else {
-            print("STATUS is nil ")
+            print("STATUS is false")
         }
     }
 }

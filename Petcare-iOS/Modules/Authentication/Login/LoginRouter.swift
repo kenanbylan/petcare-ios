@@ -15,7 +15,6 @@ protocol LoginRouterProtocol: AnyObject {
 }
 
 final class LoginRouter: LoginRouterProtocol {
-    
     var navigationController: UINavigationController?
     var window: UIWindow?
     
@@ -27,7 +26,7 @@ final class LoginRouter: LoginRouterProtocol {
     static func build(navigationController: UINavigationController?,window: UIWindow?) -> LoginViewController {
         let storyboard = UIStoryboard(name: Constants.Storyboard.login, bundle: nil)
         let view = storyboard.instantiateViewController(identifier: Constants.Controller.login) as! LoginViewController
-
+        
         let router = LoginRouter(navigationController: navigationController, window: window)
         let interactor = LoginInteractor()
         let presenter = LoginPresenter(view: view, router: router, interactor: interactor)
@@ -36,11 +35,11 @@ final class LoginRouter: LoginRouterProtocol {
         return view
     }
     
-    
     func navigateToMain() {
-        UIView.transition(with: window!, duration: 0.5, options: .layoutSubviews , animations: {
-            self.window?.rootViewController = MainTabbar()
-        }, completion: nil)
+
+        UIView.animate(withDuration: 0.5, animations: {
+                self.window?.rootViewController = MainTabbar()
+            }, completion: nil)
     }
  
     func navigateToSignUp() {

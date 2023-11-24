@@ -14,6 +14,7 @@ protocol SplashInteractorProtocol: AnyObject{
     func checkLanguage()
     func getData()
     func userAlreadyExists() -> Bool
+    func getLocationCity() -> Void
 }
 
 protocol SplashInteractorOutputProtocol {
@@ -27,6 +28,10 @@ final class SplashInteractor: SplashInteractorProtocol {
     //    init(networkManager: NetworkManager<EndpointItem>) {
     //        self.networkManager = networkManager
     //    }
+
+    func getLocationCity() {
+        
+    }
     
     func checkInternetConnection() {
         let status = true

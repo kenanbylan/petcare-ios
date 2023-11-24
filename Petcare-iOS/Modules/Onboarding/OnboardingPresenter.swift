@@ -72,13 +72,12 @@ extension OnboardingPresenter {
             view?.displayScreen(at: 1)
             view?.hidePrevButton()
         case .second:
-            view?.showPrevButton()
             view?.setup(buttonTitle: "ONBOARDING_BUTTON_NEXT".localized())
+            view?.showPrevButton()
             switch direction {
             case .next:
                 view?.displayScreen(at: 2)
                 view?.setup(buttonTitle: "ONBOARDING_BUTTON_LOGIN".localized())
-                view?.showPrevButton()
             case .prev:
                 view?.displayScreen(at: 0)
                 view?.hidePrevButton()
@@ -92,7 +91,7 @@ extension OnboardingPresenter {
             case .next:
                 router?.navigateToLogin()
             case .prev:
-                view?.displayScreen(at: 1)
+                view?.displayScreen(at: 2)
                 view?.setup(buttonTitle: "ONBOARDING_BUTTON_NEXT".localized())
             case .stop:
                 print("show alert")

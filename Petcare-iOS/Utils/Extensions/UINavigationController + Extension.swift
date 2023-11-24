@@ -7,13 +7,12 @@
 import UIKit
 
 extension UINavigationController {
-    func customizeNavigationBar(titleColor: UIColor, titleFont: UIFont, backButtonColor: UIColor) {
+    func customizeNavigationBar() {
         navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: titleColor,
-            NSAttributedString.Key.font: AppFonts.medium.font(size: 19)
+            NSAttributedString.Key.foregroundColor: AppColors.primaryColor,
+            NSAttributedString.Key.font: AppFonts.medium.font(size: .medium)
         ]
-        
-        navigationBar.tintColor = backButtonColor
-        navigationItem.backBarButtonItem?.tintColor = backButtonColor
+        navigationBar.tintColor = AppColors.primaryColor
+        navigationItem.backBarButtonItem?.tintColor = AppColors.primaryColor
     }
 }
