@@ -49,7 +49,7 @@ class UICustomButton: UIButton {
     init(title: String = "Get Started", radius: CGFloat = 10, font: UIFont? = nil, background: UIColor = AppColors.customDarkGray) {
         self.title = title
         self.radius = radius
-        self.font = font
+        self.font = AppFonts.medium.font(size: .medium)
         self.background = background
         super.init(frame: .zero)
     }
