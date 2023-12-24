@@ -7,13 +7,12 @@
 
 import Foundation
 
-
 protocol RegisterPresenterProtocol {
     func viewDidLoad() -> Void
     func navigateMain() -> Void
     func navigateToLogin() -> Void
     func navigateToForgotPassword() -> Void
-    
+    func validateFields(name: String?, last: String?, email: String?, password: String?, confirmPassword: String?)
 }
 
 final class RegisterPresenter {
@@ -29,8 +28,9 @@ final class RegisterPresenter {
 }
 
 extension RegisterPresenter: RegisterPresenterProtocol {
-    
-    func viewDidLoad() { }
+    func viewDidLoad() {
+        
+    }
     
     func navigateMain() {
         router?.navigateToMain()
@@ -43,11 +43,14 @@ extension RegisterPresenter: RegisterPresenterProtocol {
     func navigateToForgotPassword() {
         router?.navigateToForgot()
     }
+    
+    func validateFields(name: String?, last: String?, email: String?, password: String?, confirmPassword: String?) {
+        
+    }
 }
 
 extension RegisterPresenter: RegisterInteractorOutput {
     func internetConnectionStatus(_ status: Bool) {
-        
+     
     }
-    
 }

@@ -8,12 +8,16 @@
 import UIKit
 
 protocol RegisterViewProtocol: AnyObject {
-    func createAccountUserControl() -> Void
+    func updateCreateButtonState(isEnabled: Bool, color: UIColor)
 }
 
 final class RegisterViewController: UIViewController {
+    
+    //MARK: Variable's
     var presenter: RegisterPresenterProtocol!
     var isExpand: Bool = false
+    
+    //MARK: SETUP UI Property
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.addSubview(stackView)
@@ -22,60 +26,53 @@ final class RegisterViewController: UIViewController {
         return scrollView
     }()
     
-    private lazy var headerLabel: UILabel = {
-        let label = UILabel()
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Welcome to Petcare!"
-        label.textColor = AppColors.primaryColor
-        label.font = AppFonts.semibold.font(size: 25)
-        label.textAlignment = .center
+    private lazy var headerLabel: CustomLabel = {
+        let label = CustomLabel(text:"REGISTER_HEADER_LABEL".localized(), fontSize: 27, fontType: .semibold, textColor: AppColors.primaryColor)
         return label
     }()
     
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 20
-        stackView.alignment = .fill
-        return stackView
+    private lazy var stackView: UICustomStackView = {
+        let stack = UICustomStackView()
+        stack.axis = .vertical
+        return stack
     }()
     
     private lazy var nameTextfield: CustomTextField = {
         let textfield = CustomTextField()
-        textfield.placeholder = "name"
-        textfield.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        textfield.placeholder = "REGISTER_NAME_PLACEHOLDER".localized()
+        
         return textfield
     }()
     
+    
     private lazy var lastTextfield: CustomTextField = {
         let textfield = CustomTextField()
-        textfield.placeholder = "lastname"
+        textfield.placeholder = "REGISTER_LASTNAME_PLACEHOLDER".localized()
         return textfield
     }()
     
     private lazy var emailTextfield: CustomTextField = {
         let textfield = CustomTextField()
-        textfield.placeholder = "email address"
+        textfield.placeholder = "REGISTER_EMAIL_PLACEHOLDER".localized()
         return textfield
     }()
     
     private lazy var passwordTextfield: CustomTextField = {
         let textfield = CustomTextField()
-        textfield.placeholder = "password"
+        textfield.isSecureTextEntryToggle = true
+        textfield.placeholder = "REGISTER_PASSWORD_PLACEHOLDER".localized()
         return textfield
     }()
     
     private lazy var confirmPasswordTextfield: CustomTextField = {
         let textfield = CustomTextField()
-        textfield.placeholder = "confirm password"
+        textfield.placeholder = "REGISTER_CONFIRM_PLACEHOLDER".localized()
         return textfield
     }()
     
     private lazy var createAccountButton: LoadingUICustomButton = {
         let button = LoadingUICustomButton()
-        button.setupButton(title: "Create Account", textSize: .small)
+        button.setupButton(title: "REGISTER_CREATE_BUTTON".localized() , textSize: .medium)
         button.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -91,14 +88,33 @@ final class RegisterViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         
+        setupTextfieldObservers()
     }
     
-    @objc func createButtonTapped() {
-        print("Create an account button clicked.")
-    }
+    @objc func createButtonTapped() { }
+    
 }
 
 extension RegisterViewController {
+    private func setupTextfieldObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(textfieldDidChange(_:)), name: UITextField.textDidChangeNotification, object: nameTextfield)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(textfieldDidChange(_:)), name: UITextField.textDidChangeNotification, object: lastTextfield)
+    }
+    
+    @objc func textfieldDidChange(_ notification: Notification) {
+        guard let textField = notification.object as? UITextField else {
+            return
+        }
+    }
+    
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Uyarı", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     @objc func keyboardAppear(notification: Notification) {
         guard !self.isExpand, let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
@@ -129,15 +145,13 @@ extension RegisterViewController {
 extension RegisterViewController: ViewCoding {
     func setupView() {
         navigationController?.customizeNavigationBar()
-        self.title =  "Create an account"
+        self.title =  "REGISTER_HEADER".localized()
         self.view.backgroundColor = AppColors.bgColor
     }
     
     func setupHierarchy() {
-        
         view.addSubview(scrollView)
         scrollView.addSubview(headerLabel)
-        //        view.addSubview(headerLabel)
         let stackViewElements = [nameTextfield, lastTextfield, emailTextfield, passwordTextfield, confirmPasswordTextfield]
         
         for i in stackViewElements {
@@ -151,24 +165,24 @@ extension RegisterViewController: ViewCoding {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             
-            ///Mark: ScrollView
+            ///MARK: ScrollView
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            ///Mark: HeaderLabel
+            ///MARK: HeaderLabel
             headerLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 30),
             headerLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
             headerLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
-    
-            ///Mark: StackView Label
+            
+            ///MARK: StackView Label
             stackView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 30),
             stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 50),
             stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -50),
             
-            ///Mark: Create Account Button
+            ///MARK: Create Account Button
             stackView.bottomAnchor.constraint(equalTo: createAccountButton.topAnchor, constant: -30),
             createAccountButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 70),
             createAccountButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -70),
@@ -179,7 +193,8 @@ extension RegisterViewController: ViewCoding {
 }
 
 extension RegisterViewController: RegisterViewProtocol {
-    func createAccountUserControl() {
-        
+    func updateCreateButtonState(isEnabled: Bool, color: UIColor) {
+        createAccountButton.isEnabled = isEnabled
+        createAccountButton.backgroundColor = color
     }
 }

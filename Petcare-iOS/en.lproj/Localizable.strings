@@ -42,3 +42,14 @@
 //MARK: Login ViewController
 "LOGIN_EMAIL_PLACEHOLDER" = "Email";
 "LOGIN_PASSWORD_PLACEHOLDER" = "Password";
+
+
+//MARK: Register ViewController
+"REGISTER_HEADER" = "Create an account";
+"REGISTER_HEADER_LABEL" = "Welcome to Petcare";
+"REGISTER_NAME_PLACEHOLDER" = "Name";
+"REGISTER_LASTNAME_PLACEHOLDER" = "Lastname";
+"REGISTER_EMAIL_PLACEHOLDER" = "Email address";
+"REGISTER_PASSWORD_PLACEHOLDER" = "Password";
+"REGISTER_CONFIRM_PLACEHOLDER" = "Confirm password";
+"REGISTER_CREATE_BUTTON" = "Create Account";

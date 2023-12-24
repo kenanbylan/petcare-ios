@@ -54,6 +54,9 @@
 		934702112B0FF8910033C7CE /* CustomTextfieldBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934702102B0FF8910033C7CE /* CustomTextfieldBase.swift */; };
 		934702142B10F6260033C7CE /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934702132B10F6260033C7CE /* Validations.swift */; };
 		9348B45E2AE0631E00F7185A /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9348B45D2AE0631E00F7185A /* AppFonts.swift */; };
+		93732DF22B16598900DE636E /* CustomSecurityPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93732DF12B16598900DE636E /* CustomSecurityPassword.swift */; };
+		93732DF62B166D9E00DE636E /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 93732DF52B166D9E00DE636E /* Network */; };
+		93732DF92B16701E00DE636E /* UserSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93732DF82B16701E00DE636E /* UserSignUp.swift */; };
 		93822B322AF9672400989255 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B312AF9672400989255 /* AppColors.swift */; };
 		93822B352AF9698500989255 /* SecurityTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B342AF9698500989255 /* SecurityTextfield.swift */; };
 		93822B392AF9886B00989255 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93822B382AF9886B00989255 /* Register.storyboard */; };
@@ -166,6 +169,9 @@
 		934702102B0FF8910033C7CE /* CustomTextfieldBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldBase.swift; sourceTree = "<group>"; };
 		934702132B10F6260033C7CE /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		9348B45D2AE0631E00F7185A /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
+		93732DF12B16598900DE636E /* CustomSecurityPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecurityPassword.swift; sourceTree = "<group>"; };
+		93732DF42B166A4C00DE636E /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Network; sourceTree = "<group>"; };
+		93732DF82B16701E00DE636E /* UserSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignUp.swift; sourceTree = "<group>"; };
 		93822B312AF9672400989255 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		93822B342AF9698500989255 /* SecurityTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityTextfield.swift; sourceTree = "<group>"; };
 		93822B382AF9886B00989255 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
@@ -226,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93C46E132B0509DD0055BA0F /* Combine.framework in Frameworks */,
+				93732DF62B166D9E00DE636E /* Network in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +343,7 @@
 		933780052ADA7DA800103273 = {
 			isa = PBXGroup;
 			children = (
+				93732DF42B166A4C00DE636E /* Network */,
 				933780102ADA7DA800103273 /* Petcare-iOS */,
 				931144F22B02B6DA00F6365E /* Petcare-iOSTests */,
 				9337800F2ADA7DA800103273 /* Products */,
@@ -547,6 +555,7 @@
 		9337803A2ADA7F2F00103273 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				93732DF72B16700F00DE636E /* Entity */,
 				93822B402AF9888B00989255 /* RegisterRouter.swift */,
 				93822B3C2AF9887C00989255 /* RegisterInteractor.swift */,
 				93822B3E2AF9888600989255 /* RegisterPresenter.swift */,
@@ -580,6 +589,7 @@
 			children = (
 				93C46DF92B040C540055BA0F /* CustomTextField.swift */,
 				934702102B0FF8910033C7CE /* CustomTextfieldBase.swift */,
+				93732DF12B16598900DE636E /* CustomSecurityPassword.swift */,
 			);
 			path = FactoryTextfield;
 			sourceTree = "<group>";
@@ -616,6 +626,14 @@
 				93048F012B0966DB000BD03A /* Poppins-Thin.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		93732DF72B16700F00DE636E /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				93732DF82B16701E00DE636E /* UserSignUp.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		93C46E0F2B0508F30055BA0F /* UICollectionViewCell */ = {
@@ -697,6 +715,7 @@
 			);
 			name = "Petcare-iOS";
 			packageProductDependencies = (
+				93732DF52B166D9E00DE636E /* Network */,
 			);
 			productName = "Petcare-iOS";
 			productReference = 9337800E2ADA7DA800103273 /* Petcare.app */;
@@ -814,6 +833,7 @@
 				9337804D2ADA81AF00103273 /* OnboardingInteractor.swift in Sources */,
 				93CE907B2AF7D53F0025FBB0 /* CalendarInteractor.swift in Sources */,
 				93CE90772AF7D5260025FBB0 /* CalendarViewController.swift in Sources */,
+				93732DF22B16598900DE636E /* CustomSecurityPassword.swift in Sources */,
 				9337804B2ADA81A700103273 /* OnboardingRouter.swift in Sources */,
 				93CE90872AF7D5C40025FBB0 /* VetMapInteractor.swift in Sources */,
 				931144E92AFC1B0900F6365E /* ViewCoding.swift in Sources */,
@@ -858,6 +878,7 @@
 				93048EE12B0950C2000BD03A /* NewPasswordViewController.swift in Sources */,
 				9337803E2ADA80FF00103273 /* Constants.swift in Sources */,
 				93CE906D2AF7BA4C0025FBB0 /* HomePresenter.swift in Sources */,
+				93732DF92B16701E00DE636E /* UserSignUp.swift in Sources */,
 				93822B352AF9698500989255 /* SecurityTextfield.swift in Sources */,
 				93048F1C2B0AA4DD000BD03A /* String + Extension.swift in Sources */,
 				934702032B0E6BE70033C7CE /* PasswordValidationView.swift in Sources */,
@@ -1082,6 +1103,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1112,6 +1134,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1169,6 +1192,13 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		93732DF52B166D9E00DE636E /* Network */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Network;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 933780062ADA7DA800103273 /* Project object */;
 }

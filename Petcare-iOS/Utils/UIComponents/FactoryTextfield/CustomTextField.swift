@@ -10,5 +10,9 @@ import UIKit
 
 ///MARK: - Custom Textfields
 class CustomTextField: CustomTextFieldBase {
-   
+    
+    func validate() -> Bool {
+        let text = self.text ?? ""
+        return !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
 }

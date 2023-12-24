@@ -12,6 +12,7 @@ protocol ForgotPasswordInteractorProtocol {
 }
 
 protocol ForgotPasswordInteractorOutput {
+    
 }
 
 
