@@ -14,14 +14,27 @@ class CustomTextFieldBase: UITextField, UITextFieldDelegate {
         return UIEdgeInsets(top: 0, left: 5.wPercent, bottom: 0, right: 10.wPercent)
     }
     
-    var isSecureTextEntryToggle = false
+    private var securityToggleButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "eye"), for: .normal)
+        button.setImage(UIImage(systemName: "eye.fill"), for: .selected)
+        return button
+    }()
+    
+    var isSecureTextEntryToggle = false {
+        didSet {
+            updateSecurityVisibility()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         setupTextField()
         delegate = self
+        print("isSecureTextEntryToggle : ", isSecureTextEntryToggle)
     }
+    
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -50,6 +63,19 @@ class CustomTextFieldBase: UITextField, UITextFieldDelegate {
         layer.cornerRadius = 14.0
         layer.borderColor = AppColors.borderColor?.cgColor
         heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        isPasswordTextfield()
+    }
+    
+    private func isPasswordTextfield() {
+        if isSecureTextEntryToggle {
+            securityToggleButton.addTarget(self, action: #selector(toggleSecurity), for: .touchUpInside)
+            rightView = securityToggleButton
+            rightViewMode = .always
+        } else {
+            rightView = nil
+            rightViewMode = .never
+        }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -62,6 +88,15 @@ class CustomTextFieldBase: UITextField, UITextFieldDelegate {
             print("User Interface Style Changed")
             layer.borderColor = AppColors.borderColor?.cgColor
         }
+    }
+    
+    @objc private func toggleSecurity() {
+        isSecureTextEntryToggle.toggle()
+    }
+    
+    private func updateSecurityVisibility() {
+        self.isSecureTextEntry = !isSecureTextEntryToggle
+        securityToggleButton.isSelected = isSecureTextEntryToggle
     }
 }
 

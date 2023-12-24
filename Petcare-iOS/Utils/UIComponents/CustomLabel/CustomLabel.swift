@@ -25,5 +25,6 @@ class CustomLabel: UILabel {
         adjustsFontSizeToFitWidth = true
         translatesAutoresizingMaskIntoConstraints = false
         textAlignment = .center
+        numberOfLines = 0
     }
 }
