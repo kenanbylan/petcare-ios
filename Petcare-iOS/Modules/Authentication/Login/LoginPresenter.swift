@@ -18,27 +18,16 @@ protocol LoginPresenterProtocol {
     func navigateForgotPassword() -> Void
 }
 
-final class LoginPresenter {
+final class LoginPresenter: ObservableObject {
     private weak var view : LoginViewProtocol?
     let router: LoginRouterProtocol?
     let interactor: LoginInteractorProtocol?
     
-    @Published var email = ""
-    @Published var password = ""
-    @Published var state: LoginState = .none
     
     init(view: LoginViewProtocol? , router: LoginRouterProtocol?, interactor: LoginInteractorProtocol?) {
         self.view = view
         self.router = router
         self.interactor = interactor
-    }
-    
-    var isValidEmailPublisher: AnyPublisher<Bool, Never> {
-        $email
-            .map { email in
-                return ValidationControl(email, validationType: .email)
-            }
-            .eraseToAnyPublisher()
     }
 }
 

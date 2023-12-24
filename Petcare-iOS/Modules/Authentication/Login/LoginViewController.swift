@@ -19,7 +19,6 @@ class LoginViewController: UIViewController {
     //MARK: Variable's
     var isExpand: Bool = false
     var presenter: LoginPresenterProtocol?
-    var cancellables = Set<AnyCancellable>()
     
     
     // MARK: - Common cycle
@@ -36,7 +35,7 @@ class LoginViewController: UIViewController {
         emailTextfield.placeholder = "LOGIN_EMAIL_PLACEHOLDER".localized()
         emailTextfield.keyboardType = .emailAddress
         passwordTextfield.placeholder = "LOGIN_PASSWORD_PLACEHOLDER".localized()
-        passwordTextfield.isSecureTextEntry = true
+        passwordTextfield.isSecureTextEntryToggle = true
     }
     
     private func prepareKeyboard() {
@@ -72,7 +71,7 @@ extension LoginViewController {
     }
     
     func setupPublishers() {
-        // Setup Combine publishers if needed
+    
     }
     
 }
