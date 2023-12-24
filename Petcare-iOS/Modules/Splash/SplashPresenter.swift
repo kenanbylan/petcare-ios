@@ -33,7 +33,7 @@ extension SplashPresenter: SplashInteractorOutputProtocol {
         if status {
             print("STATUS is true")
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.router?.navigateToOnboarding()
+                self.router?.navigateToLogin()
             }
         } else {
             print("STATUS is false")
