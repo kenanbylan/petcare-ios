@@ -11,6 +11,7 @@ import UIKit
 protocol SplashRouterProtocol: AnyObject {
     func navigateToOnboarding() -> Void
     func navigateToLogin() -> Void
+    func navigateToHome() -> Void
 }
 
 final class SplashRouter {
@@ -46,6 +47,14 @@ extension SplashRouter: SplashRouterProtocol {
         let navigationController = UINavigationController()
         let loginVC = LoginRouter.build(navigationController: navigationController , window: window)
         navigationController.viewControllers.append(loginVC)
+        window.rootViewController = navigationController
+    }
+    
+    func navigateToHome() {
+        let navigationController = UINavigationController()
+//        let loginVC = HomeRouter.build(navigationController: navigationController , window: window)
+        let homeVC = HomeRouter.build(navigationController: navigationController)
+        navigationController.viewControllers.append(homeVC)
         window.rootViewController = navigationController
     }
 }
