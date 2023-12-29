@@ -19,6 +19,11 @@
 		93048F0D2B0A9164000BD03A /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93048F0C2B0A9164000BD03A /* Size.swift */; };
 		93048F162B0AA08B000BD03A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93048F182B0AA08B000BD03A /* Localizable.strings */; };
 		93048F1C2B0AA4DD000BD03A /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93048F1B2B0AA4DD000BD03A /* String + Extension.swift */; };
+		9309ADEF2B389DCC001BC2B0 /* PetAvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309ADEE2B389DCC001BC2B0 /* PetAvatarCell.swift */; };
+		9309ADF22B389E39001BC2B0 /* PetAvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309ADF12B389E39001BC2B0 /* PetAvatarModel.swift */; };
+		9309ADF42B3B6E4F001BC2B0 /* SeeAllButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309ADF32B3B6E4F001BC2B0 /* SeeAllButton.swift */; };
+		9309ADF62B3CA127001BC2B0 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309ADF52B3CA127001BC2B0 /* UIImage + Extension.swift */; };
+		9309ADF82B3CAB4B001BC2B0 /* UIScreen + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309ADF72B3CAB4B001BC2B0 /* UIScreen + Extension.swift */; };
 		930CB6C02AF18F4F00E632A7 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 930CB6BF2AF18F4F00E632A7 /* Splash.storyboard */; };
 		931144E62AFC179500F6365E /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931144E52AFC179500F6365E /* OnboardingCell.swift */; };
 		931144E92AFC1B0900F6365E /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931144E82AFC1B0900F6365E /* ViewCoding.swift */; };
@@ -131,6 +136,11 @@
 		93048F192B0AA08E000BD03A /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		93048F1A2B0AA09E000BD03A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		93048F1B2B0AA4DD000BD03A /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		9309ADEE2B389DCC001BC2B0 /* PetAvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAvatarCell.swift; sourceTree = "<group>"; };
+		9309ADF12B389E39001BC2B0 /* PetAvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAvatarModel.swift; sourceTree = "<group>"; };
+		9309ADF32B3B6E4F001BC2B0 /* SeeAllButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllButton.swift; sourceTree = "<group>"; };
+		9309ADF52B3CA127001BC2B0 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
+		9309ADF72B3CAB4B001BC2B0 /* UIScreen + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen + Extension.swift"; sourceTree = "<group>"; };
 		930CB6BF2AF18F4F00E632A7 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		931144E52AFC179500F6365E /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
 		931144E82AFC1B0900F6365E /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
@@ -275,6 +285,15 @@
 			path = Textfields;
 			sourceTree = "<group>";
 		};
+		9309ADF02B389E1D001BC2B0 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				93CE906A2AF7BA420025FBB0 /* HomeEntity.swift */,
+				9309ADF12B389E39001BC2B0 /* PetAvatarModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		931144E42AFC178500F6365E /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,10 +424,12 @@
 		9337802A2ADA7E2C00103273 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9309ADF72B3CAB4B001BC2B0 /* UIScreen + Extension.swift */,
 				93C46E0D2B04EB310055BA0F /* UINavigationController + Extension.swift */,
 				93048F082B0A8F8F000BD03A /* Int + Extension.swift */,
 				93048F1B2B0AA4DD000BD03A /* String + Extension.swift */,
 				934702062B0E84C40033C7CE /* UIColor + Extension.swift */,
+				9309ADF52B3CA127001BC2B0 /* UIImage + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -496,7 +517,7 @@
 		933780332ADA7E7B00103273 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				93CE906A2AF7BA420025FBB0 /* HomeEntity.swift */,
+				9309ADF02B389E1D001BC2B0 /* Entity */,
 				93CE90702AF7BA5C0025FBB0 /* HomeRouter.swift */,
 				93CE906E2AF7BA550025FBB0 /* HomeInteractor.swift */,
 				93CE906C2AF7BA4C0025FBB0 /* HomePresenter.swift */,
@@ -640,6 +661,7 @@
 			isa = PBXGroup;
 			children = (
 				931144E52AFC179500F6365E /* OnboardingCell.swift */,
+				9309ADEE2B389DCC001BC2B0 /* PetAvatarCell.swift */,
 			);
 			path = UICollectionViewCell;
 			sourceTree = "<group>";
@@ -652,6 +674,7 @@
 				93C46E092B04C7AF0055BA0F /* LoginButton.swift */,
 				93C46E0B2B04CB620055BA0F /* GoogleButton.swift */,
 				934702042B0E78680033C7CE /* LoadingUICustomButton.swift */,
+				9309ADF32B3B6E4F001BC2B0 /* SeeAllButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -822,6 +845,7 @@
 				933780412ADA814400103273 /* OnboardingModel.swift in Sources */,
 				933780122ADA7DA800103273 /* AppDelegate.swift in Sources */,
 				93C46E162B0542B30055BA0F /* CustomLabel.swift in Sources */,
+				9309ADEF2B389DCC001BC2B0 /* PetAvatarCell.swift in Sources */,
 				93CE90832AF7D5980025FBB0 /* VetMapViewController.swift in Sources */,
 				933780552ADA824500103273 /* LoginPresenter.swift in Sources */,
 				934702052B0E78680033C7CE /* LoadingUICustomButton.swift in Sources */,
@@ -838,12 +862,14 @@
 				93CE90872AF7D5C40025FBB0 /* VetMapInteractor.swift in Sources */,
 				931144E92AFC1B0900F6365E /* ViewCoding.swift in Sources */,
 				93CE90952AF7E1C60025FBB0 /* Tabbar.swift in Sources */,
+				9309ADF62B3CA127001BC2B0 /* UIImage + Extension.swift in Sources */,
 				93CE90732AF7BA910025FBB0 /* MainTabbar.swift in Sources */,
 				933780652ADC0DF000103273 /* SplashRouter.swift in Sources */,
 				933780602ADC0DC000103273 /* SplashViewController.swift in Sources */,
 				93CE90912AF7D5FA0025FBB0 /* SettingsPresenter.swift in Sources */,
 				93822B412AF9888B00989255 /* RegisterRouter.swift in Sources */,
 				93C46E0E2B04EB310055BA0F /* UINavigationController + Extension.swift in Sources */,
+				9309ADF42B3B6E4F001BC2B0 /* SeeAllButton.swift in Sources */,
 				933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */,
 				9348B45E2AE0631E00F7185A /* AppFonts.swift in Sources */,
 				931144E62AFC179500F6365E /* OnboardingCell.swift in Sources */,
@@ -861,11 +887,13 @@
 				93048EDF2B095096000BD03A /* SmsOtpViewController.swift in Sources */,
 				93822B472AFA85C800989255 /* ForgotPasswordPresenter.swift in Sources */,
 				933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */,
+				9309ADF22B389E39001BC2B0 /* PetAvatarModel.swift in Sources */,
 				93CE90792AF7D5370025FBB0 /* CalendarRouter.swift in Sources */,
 				934702072B0E84C40033C7CE /* UIColor + Extension.swift in Sources */,
 				93C46E0A2B04C7AF0055BA0F /* LoginButton.swift in Sources */,
 				933780532ADA823D00103273 /* LoginViewController.swift in Sources */,
 				93C46E0C2B04CB620055BA0F /* GoogleButton.swift in Sources */,
+				9309ADF82B3CAB4B001BC2B0 /* UIScreen + Extension.swift in Sources */,
 				93822B492AFA85DE00989255 /* ForgotPasswordInteractor.swift in Sources */,
 				9347020A2B0FEB8E0033C7CE /* CustomCollectionView.swift in Sources */,
 				93048F0D2B0A9164000BD03A /* Size.swift in Sources */,

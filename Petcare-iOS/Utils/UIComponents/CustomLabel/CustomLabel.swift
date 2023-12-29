@@ -28,3 +28,4 @@ class CustomLabel: UILabel {
         numberOfLines = 0
     }
 }
+

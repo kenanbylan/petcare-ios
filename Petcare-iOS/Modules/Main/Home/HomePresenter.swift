@@ -24,8 +24,8 @@ final class HomePresenter {
 
 extension HomePresenter: HomePresenterProtocol {
     func viewDidLoad() {
+        view?.prepareUI()
     }
-    
 }
 
 extension HomePresenter: HomeInteractorOutput {
