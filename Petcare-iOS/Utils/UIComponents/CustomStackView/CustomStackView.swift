@@ -10,10 +10,9 @@ import UIKit
 
 class UICustomStackView: UIStackView {
 
-    init(axis: NSLayoutConstraint.Axis = .horizontal, spacing: CGFloat = 20, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill) {
+    init(axis: NSLayoutConstraint.Axis = .horizontal, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill) {
         super.init(frame: .zero)
         self.axis = axis
-        self.spacing = spacing
         self.alignment = alignment
         self.distribution = distribution
         translatesAutoresizingMaskIntoConstraints = false

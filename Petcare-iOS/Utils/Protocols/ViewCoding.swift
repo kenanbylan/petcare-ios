@@ -9,8 +9,8 @@ import Foundation
 
 protocol ViewCoding {
     func setupView()
-    func setupConstraints()
     func setupHierarchy()
+    func setupConstraints()
 }
 
 extension ViewCoding {
