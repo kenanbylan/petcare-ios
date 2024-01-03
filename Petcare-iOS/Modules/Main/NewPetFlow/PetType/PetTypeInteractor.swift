@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+protocol PetTypeInteractorProtocol {
+    //TODO:
+}
+
+
+protocol PetTypeInteractorOutput {
+    //TODO:
+}
+
+final class PetTypeInteractor: PetTypeInteractorProtocol {
+    
+    var output: PetTypeInteractorOutput?
+}
