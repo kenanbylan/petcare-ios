@@ -57,17 +57,17 @@ final class PetAvatarCell: UICollectionViewCell {
     private func setupAvatarStyle() {
         contentView.layer.cornerRadius = 20
         contentView.layer.masksToBounds = true
-        contentView.backgroundColor = .red
-        backgroundView?.backgroundColor = .green
-        // ImageView'in köşelerini yuvarla
-        imageView.layer.cornerRadius = 20
-//        imageView.frame.size = CGSize(width: 50, height: 50)
-        imageView.clipsToBounds = true
 
-        contentView.layer.shadowColor = UIColor.gray.cgColor
-        contentView.layer.shadowOpacity = 0.8 // Increase opacity for a more pronounced shadow
-        contentView.layer.shadowOffset = CGSize(width: 0, height: 4) // Adjust the offset for a higher lift
-        contentView.layer.shadowRadius = 20 // Increase the radius for a softer shadow
+        imageView.layer.cornerRadius = 20
+        imageView.clipsToBounds = true
+        
+        layer.shadowColor = AppColors.labelColor.cgColor
+        layer.shadowOpacity = 0.2
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 4
+        layer.cornerRadius = 20
+        
+        backgroundColor = AppColors.bgColor2
     }
     
     required init?(coder: NSCoder) {

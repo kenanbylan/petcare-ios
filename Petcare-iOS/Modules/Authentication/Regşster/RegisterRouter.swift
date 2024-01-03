@@ -28,9 +28,6 @@ final class RegisterRouter: RegisterRouterProtocol {
     }
     
     static func build(navigationController: UINavigationController?, window: UIWindow?) -> RegisterViewController {
-        //let storyboard = UIStoryboard(name: Constants.Storyboard.register, bundle: nil)
-        //let view = storyboard.instantiateViewController(identifier: Constants.Controller.register) as! RegisterViewController
-        
         let view = RegisterViewController()
         
         let router = RegisterRouter(navigationController: navigationController, window: window)
@@ -56,9 +53,6 @@ final class RegisterRouter: RegisterRouterProtocol {
     }
     
     func backToLogin() {
-        //        let artistPage = ArtistListPageRouter.createModule(navigationController: navigationController,
-        //                                                           genreID: id,
-        //                                                           genreName: genreName)
-        //        self.navigationController?.pushViewController(artistPage, animated: true)
+      
     }
 }

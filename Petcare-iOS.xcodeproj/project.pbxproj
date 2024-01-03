@@ -51,6 +51,18 @@
 		933780652ADC0DF000103273 /* SplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780642ADC0DF000103273 /* SplashRouter.swift */; };
 		933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780662ADC0DF900103273 /* SplashPresenter.swift */; };
 		933780692ADC0DFF00103273 /* SplashInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780682ADC0DFF00103273 /* SplashInteractor.swift */; };
+		933A220D2B45D84300854DB0 /* PetInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A220C2B45D84300854DB0 /* PetInfoRouter.swift */; };
+		933A220F2B45D85500854DB0 /* PetInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A220E2B45D85500854DB0 /* PetInfoInteractor.swift */; };
+		933A22112B45D85B00854DB0 /* PetInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A22102B45D85B00854DB0 /* PetInfoPresenter.swift */; };
+		933A22132B45D86500854DB0 /* PetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A22122B45D86500854DB0 /* PetInfoViewController.swift */; };
+		933A22152B45E83D00854DB0 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A22142B45E83D00854DB0 /* UILabel + Extension.swift */; };
+		933A22172B45EADB00854DB0 /* CustomStackViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A22162B45EADB00854DB0 /* CustomStackViewBuilder.swift */; };
+		933A221A2B45F15400854DB0 /* PetImageRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A22192B45F15400854DB0 /* PetImageRouter.swift */; };
+		933A221C2B45F15E00854DB0 /* PetImageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A221B2B45F15E00854DB0 /* PetImageInteractor.swift */; };
+		933A221E2B45F16400854DB0 /* PetImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A221D2B45F16400854DB0 /* PetImagePresenter.swift */; };
+		933A22202B45F16C00854DB0 /* PetImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A221F2B45F16C00854DB0 /* PetImageViewController.swift */; };
+		933A22232B45F6F100854DB0 /* SeeAllButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A22222B45F6F100854DB0 /* SeeAllButtonBuilder.swift */; };
+		93450D612B44883200ADDADD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93450D602B44883200ADDADD /* LocationManager.swift */; };
 		934702032B0E6BE70033C7CE /* PasswordValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934702022B0E6BE70033C7CE /* PasswordValidationView.swift */; };
 		934702052B0E78680033C7CE /* LoadingUICustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934702042B0E78680033C7CE /* LoadingUICustomButton.swift */; };
 		934702072B0E84C40033C7CE /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934702062B0E84C40033C7CE /* UIColor + Extension.swift */; };
@@ -106,6 +118,16 @@
 		93CE90912AF7D5FA0025FBB0 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90902AF7D5FA0025FBB0 /* SettingsPresenter.swift */; };
 		93CE90932AF7D6000025FBB0 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90922AF7D6000025FBB0 /* SettingsRouter.swift */; };
 		93CE90952AF7E1C60025FBB0 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90942AF7E1C60025FBB0 /* Tabbar.swift */; };
+		93DD5ABB2B4035AB00BDE0A9 /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5ABA2B4035AB00BDE0A9 /* UIStackView + Extension.swift */; };
+		93DD5ABE2B403AF100BDE0A9 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5ABD2B403AF100BDE0A9 /* ShadowView.swift */; };
+		93DD5AC12B4044C000BDE0A9 /* UpcomingVeterinary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5AC02B4044C000BDE0A9 /* UpcomingVeterinary.swift */; };
+		93DD5AC42B4065FC00BDE0A9 /* PetAvatarCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5AC32B4065FC00BDE0A9 /* PetAvatarCellHeader.swift */; };
+		93DD5AC82B418E7D00BDE0A9 /* PetTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5AC72B418E7D00BDE0A9 /* PetTypeController.swift */; };
+		93DD5ACC2B41976300BDE0A9 /* PetTypeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5ACB2B41976300BDE0A9 /* PetTypeRouter.swift */; };
+		93DD5ACE2B4198CC00BDE0A9 /* PetTypeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5ACD2B4198CC00BDE0A9 /* PetTypeInteractor.swift */; };
+		93DD5AD02B41993B00BDE0A9 /* PetTypePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5ACF2B41993B00BDE0A9 /* PetTypePresenter.swift */; };
+		93DD5AD32B4316E100BDE0A9 /* SelectPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5AD22B4316E100BDE0A9 /* SelectPetView.swift */; };
+		93DD5AD52B43182100BDE0A9 /* Notification + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5AD42B43182100BDE0A9 /* Notification + Extension.swift */; };
 		93F0CE432B0CE62E00D5BAD7 /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0CE422B0CE62E00D5BAD7 /* CustomStackView.swift */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +193,18 @@
 		933780642ADC0DF000103273 /* SplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRouter.swift; sourceTree = "<group>"; };
 		933780662ADC0DF900103273 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		933780682ADC0DFF00103273 /* SplashInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashInteractor.swift; sourceTree = "<group>"; };
+		933A220C2B45D84300854DB0 /* PetInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfoRouter.swift; sourceTree = "<group>"; };
+		933A220E2B45D85500854DB0 /* PetInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfoInteractor.swift; sourceTree = "<group>"; };
+		933A22102B45D85B00854DB0 /* PetInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfoPresenter.swift; sourceTree = "<group>"; };
+		933A22122B45D86500854DB0 /* PetInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfoViewController.swift; sourceTree = "<group>"; };
+		933A22142B45E83D00854DB0 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
+		933A22162B45EADB00854DB0 /* CustomStackViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackViewBuilder.swift; sourceTree = "<group>"; };
+		933A22192B45F15400854DB0 /* PetImageRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetImageRouter.swift; sourceTree = "<group>"; };
+		933A221B2B45F15E00854DB0 /* PetImageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetImageInteractor.swift; sourceTree = "<group>"; };
+		933A221D2B45F16400854DB0 /* PetImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetImagePresenter.swift; sourceTree = "<group>"; };
+		933A221F2B45F16C00854DB0 /* PetImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetImageViewController.swift; sourceTree = "<group>"; };
+		933A22222B45F6F100854DB0 /* SeeAllButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllButtonBuilder.swift; sourceTree = "<group>"; };
+		93450D602B44883200ADDADD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		934702022B0E6BE70033C7CE /* PasswordValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidationView.swift; sourceTree = "<group>"; };
 		934702042B0E78680033C7CE /* LoadingUICustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingUICustomButton.swift; sourceTree = "<group>"; };
 		934702062B0E84C40033C7CE /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
@@ -226,6 +260,16 @@
 		93CE90902AF7D5FA0025FBB0 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		93CE90922AF7D6000025FBB0 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		93CE90942AF7E1C60025FBB0 /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
+		93DD5ABA2B4035AB00BDE0A9 /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
+		93DD5ABD2B403AF100BDE0A9 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		93DD5AC02B4044C000BDE0A9 /* UpcomingVeterinary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingVeterinary.swift; sourceTree = "<group>"; };
+		93DD5AC32B4065FC00BDE0A9 /* PetAvatarCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAvatarCellHeader.swift; sourceTree = "<group>"; };
+		93DD5AC72B418E7D00BDE0A9 /* PetTypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTypeController.swift; sourceTree = "<group>"; };
+		93DD5ACB2B41976300BDE0A9 /* PetTypeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTypeRouter.swift; sourceTree = "<group>"; };
+		93DD5ACD2B4198CC00BDE0A9 /* PetTypeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTypeInteractor.swift; sourceTree = "<group>"; };
+		93DD5ACF2B41993B00BDE0A9 /* PetTypePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTypePresenter.swift; sourceTree = "<group>"; };
+		93DD5AD22B4316E100BDE0A9 /* SelectPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPetView.swift; sourceTree = "<group>"; };
+		93DD5AD42B43182100BDE0A9 /* Notification + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification + Extension.swift"; sourceTree = "<group>"; };
 		93F0CE422B0CE62E00D5BAD7 /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -294,9 +338,11 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		931144E42AFC178500F6365E /* UIComponents */ = {
+		931144E42AFC178500F6365E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				93DD5ABF2B4044B400BDE0A9 /* UpcomingVeterinary */,
+				93DD5ABC2B403AD500BDE0A9 /* ShadowView */,
 				9347020D2B0FF6DE0033C7CE /* FactoryTextfield */,
 				934702082B0FEB7E0033C7CE /* CustomCollectionView */,
 				93F0CE412B0CE62000D5BAD7 /* CustomStackView */,
@@ -305,7 +351,7 @@
 				93C46E102B0509000055BA0F /* Buttons */,
 				934702022B0E6BE70033C7CE /* PasswordValidationView.swift */,
 			);
-			path = UIComponents;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		931144E72AFC1A7700F6365E /* Protocols */ = {
@@ -415,8 +461,11 @@
 		933780282ADA7E2200103273 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				931144E42AFC178500F6365E /* Components */,
+				931144E72AFC1A7700F6365E /* Protocols */,
 				93C46E0F2B0508F30055BA0F /* UICollectionViewCell */,
 				933780352ADA7E9100103273 /* MainTabbar */,
+				93450D602B44883200ADDADD /* LocationManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -430,6 +479,9 @@
 				93048F1B2B0AA4DD000BD03A /* String + Extension.swift */,
 				934702062B0E84C40033C7CE /* UIColor + Extension.swift */,
 				9309ADF52B3CA127001BC2B0 /* UIImage + Extension.swift */,
+				93DD5ABA2B4035AB00BDE0A9 /* UIStackView + Extension.swift */,
+				93DD5AD42B43182100BDE0A9 /* Notification + Extension.swift */,
+				933A22142B45E83D00854DB0 /* UILabel + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -494,10 +546,8 @@
 		933780302ADA7E6600103273 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				933780332ADA7E7B00103273 /* Home */,
-				933780372ADA7EA900103273 /* Calendar */,
-				933780322ADA7E7200103273 /* VetMaps */,
-				933780362ADA7E9600103273 /* Settings */,
+				93DD5AC62B418E5900BDE0A9 /* NewPetFlow */,
+				93DD5AC52B418E4300BDE0A9 /* Tabbar */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -597,6 +647,37 @@
 			path = ForgotPasswordFlow;
 			sourceTree = "<group>";
 		};
+		933A220B2B45D82400854DB0 /* PetInfo */ = {
+			isa = PBXGroup;
+			children = (
+				933A220C2B45D84300854DB0 /* PetInfoRouter.swift */,
+				933A220E2B45D85500854DB0 /* PetInfoInteractor.swift */,
+				933A22102B45D85B00854DB0 /* PetInfoPresenter.swift */,
+				933A22122B45D86500854DB0 /* PetInfoViewController.swift */,
+			);
+			path = PetInfo;
+			sourceTree = "<group>";
+		};
+		933A22182B45F13F00854DB0 /* PetImage */ = {
+			isa = PBXGroup;
+			children = (
+				933A22192B45F15400854DB0 /* PetImageRouter.swift */,
+				933A221B2B45F15E00854DB0 /* PetImageInteractor.swift */,
+				933A221D2B45F16400854DB0 /* PetImagePresenter.swift */,
+				933A221F2B45F16C00854DB0 /* PetImageViewController.swift */,
+			);
+			path = PetImage;
+			sourceTree = "<group>";
+		};
+		933A22212B45F6DD00854DB0 /* SeeAllButton */ = {
+			isa = PBXGroup;
+			children = (
+				933A22222B45F6F100854DB0 /* SeeAllButtonBuilder.swift */,
+				9309ADF32B3B6E4F001BC2B0 /* SeeAllButton.swift */,
+			);
+			path = SeeAllButton;
+			sourceTree = "<group>";
+		};
 		934702082B0FEB7E0033C7CE /* CustomCollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -627,11 +708,9 @@
 			isa = PBXGroup;
 			children = (
 				934702122B10F61C0033C7CE /* Functions */,
-				931144E42AFC178500F6365E /* UIComponents */,
 				9348B4552AE061F500F7185A /* Fonts */,
 				9337802A2ADA7E2C00103273 /* Extensions */,
 				9337802B2ADA7E3600103273 /* Constants */,
-				931144E72AFC1A7700F6365E /* Protocols */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -660,8 +739,8 @@
 		93C46E0F2B0508F30055BA0F /* UICollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				93DD5AC22B4065EA00BDE0A9 /* PetList */,
 				931144E52AFC179500F6365E /* OnboardingCell.swift */,
-				9309ADEE2B389DCC001BC2B0 /* PetAvatarCell.swift */,
 			);
 			path = UICollectionViewCell;
 			sourceTree = "<group>";
@@ -669,12 +748,12 @@
 		93C46E102B0509000055BA0F /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				933A22212B45F6DD00854DB0 /* SeeAllButton */,
 				93822B4C2AFAC2EA00989255 /* UICustomButton.swift */,
 				93C46E172B0548B00055BA0F /* PatiButton.swift */,
 				93C46E092B04C7AF0055BA0F /* LoginButton.swift */,
 				93C46E0B2B04CB620055BA0F /* GoogleButton.swift */,
 				934702042B0E78680033C7CE /* LoadingUICustomButton.swift */,
-				9309ADF32B3B6E4F001BC2B0 /* SeeAllButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -695,10 +774,85 @@
 			path = CustomLabel;
 			sourceTree = "<group>";
 		};
+		93DD5ABC2B403AD500BDE0A9 /* ShadowView */ = {
+			isa = PBXGroup;
+			children = (
+				93DD5ABD2B403AF100BDE0A9 /* ShadowView.swift */,
+			);
+			path = ShadowView;
+			sourceTree = "<group>";
+		};
+		93DD5ABF2B4044B400BDE0A9 /* UpcomingVeterinary */ = {
+			isa = PBXGroup;
+			children = (
+				93DD5AC02B4044C000BDE0A9 /* UpcomingVeterinary.swift */,
+			);
+			path = UpcomingVeterinary;
+			sourceTree = "<group>";
+		};
+		93DD5AC22B4065EA00BDE0A9 /* PetList */ = {
+			isa = PBXGroup;
+			children = (
+				9309ADEE2B389DCC001BC2B0 /* PetAvatarCell.swift */,
+				93DD5AC32B4065FC00BDE0A9 /* PetAvatarCellHeader.swift */,
+			);
+			path = PetList;
+			sourceTree = "<group>";
+		};
+		93DD5AC52B418E4300BDE0A9 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				933780362ADA7E9600103273 /* Settings */,
+				933780322ADA7E7200103273 /* VetMaps */,
+				933780372ADA7EA900103273 /* Calendar */,
+				933780332ADA7E7B00103273 /* Home */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		93DD5AC62B418E5900BDE0A9 /* NewPetFlow */ = {
+			isa = PBXGroup;
+			children = (
+				933A22182B45F13F00854DB0 /* PetImage */,
+				933A220B2B45D82400854DB0 /* PetInfo */,
+				93DD5ACA2B418F1900BDE0A9 /* PetType */,
+			);
+			path = NewPetFlow;
+			sourceTree = "<group>";
+		};
+		93DD5AC92B418EFE00BDE0A9 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		93DD5ACA2B418F1900BDE0A9 /* PetType */ = {
+			isa = PBXGroup;
+			children = (
+				93DD5AD12B4316D200BDE0A9 /* View */,
+				93DD5AC92B418EFE00BDE0A9 /* Entity */,
+				93DD5AC72B418E7D00BDE0A9 /* PetTypeController.swift */,
+				93DD5ACB2B41976300BDE0A9 /* PetTypeRouter.swift */,
+				93DD5ACD2B4198CC00BDE0A9 /* PetTypeInteractor.swift */,
+				93DD5ACF2B41993B00BDE0A9 /* PetTypePresenter.swift */,
+			);
+			path = PetType;
+			sourceTree = "<group>";
+		};
+		93DD5AD12B4316D200BDE0A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				93DD5AD22B4316E100BDE0A9 /* SelectPetView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		93F0CE412B0CE62000D5BAD7 /* CustomStackView */ = {
 			isa = PBXGroup;
 			children = (
 				93F0CE422B0CE62E00D5BAD7 /* CustomStackView.swift */,
+				933A22162B45EADB00854DB0 /* CustomStackViewBuilder.swift */,
 			);
 			path = CustomStackView;
 			sourceTree = "<group>";
@@ -841,30 +995,41 @@
 				933780472ADA816F00103273 /* OnboardingViewController.swift in Sources */,
 				93822B322AF9672400989255 /* AppColors.swift in Sources */,
 				93822B3D2AF9887C00989255 /* RegisterInteractor.swift in Sources */,
+				93DD5ACE2B4198CC00BDE0A9 /* PetTypeInteractor.swift in Sources */,
 				93048F092B0A8F8F000BD03A /* Int + Extension.swift in Sources */,
 				933780412ADA814400103273 /* OnboardingModel.swift in Sources */,
+				933A221E2B45F16400854DB0 /* PetImagePresenter.swift in Sources */,
 				933780122ADA7DA800103273 /* AppDelegate.swift in Sources */,
 				93C46E162B0542B30055BA0F /* CustomLabel.swift in Sources */,
 				9309ADEF2B389DCC001BC2B0 /* PetAvatarCell.swift in Sources */,
 				93CE90832AF7D5980025FBB0 /* VetMapViewController.swift in Sources */,
 				933780552ADA824500103273 /* LoginPresenter.swift in Sources */,
+				93DD5AC42B4065FC00BDE0A9 /* PetAvatarCellHeader.swift in Sources */,
 				934702052B0E78680033C7CE /* LoadingUICustomButton.swift in Sources */,
 				93C46DFA2B040C540055BA0F /* CustomTextField.swift in Sources */,
+				933A22152B45E83D00854DB0 /* UILabel + Extension.swift in Sources */,
 				933780492ADA81A100103273 /* OnboardingPresenter.swift in Sources */,
 				93822B3F2AF9888600989255 /* RegisterPresenter.swift in Sources */,
+				93DD5ABB2B4035AB00BDE0A9 /* UIStackView + Extension.swift in Sources */,
 				9337805B2ADA826B00103273 /* User.swift in Sources */,
+				933A22172B45EADB00854DB0 /* CustomStackViewBuilder.swift in Sources */,
 				93822B452AFA85BF00989255 /* ForgotPasswordViewController.swift in Sources */,
 				9337804D2ADA81AF00103273 /* OnboardingInteractor.swift in Sources */,
 				93CE907B2AF7D53F0025FBB0 /* CalendarInteractor.swift in Sources */,
 				93CE90772AF7D5260025FBB0 /* CalendarViewController.swift in Sources */,
 				93732DF22B16598900DE636E /* CustomSecurityPassword.swift in Sources */,
+				933A221C2B45F15E00854DB0 /* PetImageInteractor.swift in Sources */,
+				93DD5ABE2B403AF100BDE0A9 /* ShadowView.swift in Sources */,
 				9337804B2ADA81A700103273 /* OnboardingRouter.swift in Sources */,
 				93CE90872AF7D5C40025FBB0 /* VetMapInteractor.swift in Sources */,
 				931144E92AFC1B0900F6365E /* ViewCoding.swift in Sources */,
 				93CE90952AF7E1C60025FBB0 /* Tabbar.swift in Sources */,
+				93DD5AD52B43182100BDE0A9 /* Notification + Extension.swift in Sources */,
 				9309ADF62B3CA127001BC2B0 /* UIImage + Extension.swift in Sources */,
 				93CE90732AF7BA910025FBB0 /* MainTabbar.swift in Sources */,
+				933A22202B45F16C00854DB0 /* PetImageViewController.swift in Sources */,
 				933780652ADC0DF000103273 /* SplashRouter.swift in Sources */,
+				93DD5AD32B4316E100BDE0A9 /* SelectPetView.swift in Sources */,
 				933780602ADC0DC000103273 /* SplashViewController.swift in Sources */,
 				93CE90912AF7D5FA0025FBB0 /* SettingsPresenter.swift in Sources */,
 				93822B412AF9888B00989255 /* RegisterRouter.swift in Sources */,
@@ -872,17 +1037,23 @@
 				9309ADF42B3B6E4F001BC2B0 /* SeeAllButton.swift in Sources */,
 				933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */,
 				9348B45E2AE0631E00F7185A /* AppFonts.swift in Sources */,
+				933A22232B45F6F100854DB0 /* SeeAllButtonBuilder.swift in Sources */,
 				931144E62AFC179500F6365E /* OnboardingCell.swift in Sources */,
 				93CE90712AF7BA5C0025FBB0 /* HomeRouter.swift in Sources */,
 				933780572ADA824D00103273 /* LoginInteractor.swift in Sources */,
 				934702142B10F6260033C7CE /* Validations.swift in Sources */,
+				933A22112B45D85B00854DB0 /* PetInfoPresenter.swift in Sources */,
 				93CE90932AF7D6000025FBB0 /* SettingsRouter.swift in Sources */,
 				931144EC2AFC1DC000F6365E /* OnboardingView.swift in Sources */,
 				933780692ADC0DFF00103273 /* SplashInteractor.swift in Sources */,
+				933A220F2B45D85500854DB0 /* PetInfoInteractor.swift in Sources */,
 				93CE907F2AF7D5580025FBB0 /* CalendarModel.swift in Sources */,
 				93CE90692AF7BA380025FBB0 /* HomeViewController.swift in Sources */,
+				93DD5AC12B4044C000BDE0A9 /* UpcomingVeterinary.swift in Sources */,
 				93CE908D2AF7D5E60025FBB0 /* SettingsViewController.swift in Sources */,
+				93DD5AC82B418E7D00BDE0A9 /* PetTypeController.swift in Sources */,
 				93822B3B2AF9887300989255 /* RegisterViewController.swift in Sources */,
+				933A221A2B45F15400854DB0 /* PetImageRouter.swift in Sources */,
 				93CE906B2AF7BA420025FBB0 /* HomeEntity.swift in Sources */,
 				93048EDF2B095096000BD03A /* SmsOtpViewController.swift in Sources */,
 				93822B472AFA85C800989255 /* ForgotPasswordPresenter.swift in Sources */,
@@ -890,6 +1061,7 @@
 				9309ADF22B389E39001BC2B0 /* PetAvatarModel.swift in Sources */,
 				93CE90792AF7D5370025FBB0 /* CalendarRouter.swift in Sources */,
 				934702072B0E84C40033C7CE /* UIColor + Extension.swift in Sources */,
+				93DD5ACC2B41976300BDE0A9 /* PetTypeRouter.swift in Sources */,
 				93C46E0A2B04C7AF0055BA0F /* LoginButton.swift in Sources */,
 				933780532ADA823D00103273 /* LoginViewController.swift in Sources */,
 				93C46E0C2B04CB620055BA0F /* GoogleButton.swift in Sources */,
@@ -898,15 +1070,19 @@
 				9347020A2B0FEB8E0033C7CE /* CustomCollectionView.swift in Sources */,
 				93048F0D2B0A9164000BD03A /* Size.swift in Sources */,
 				93CE907D2AF7D5460025FBB0 /* CalendarPresenter.swift in Sources */,
+				93450D612B44883200ADDADD /* LocationManager.swift in Sources */,
 				93822B4D2AFAC2EA00989255 /* UICustomButton.swift in Sources */,
+				933A220D2B45D84300854DB0 /* PetInfoRouter.swift in Sources */,
 				93C46E182B0548B00055BA0F /* PatiButton.swift in Sources */,
 				93CE90852AF7D5AF0025FBB0 /* VetMapRouter.swift in Sources */,
+				93DD5AD02B41993B00BDE0A9 /* PetTypePresenter.swift in Sources */,
 				933780592ADA825200103273 /* LoginRouter.swift in Sources */,
 				93CE906F2AF7BA550025FBB0 /* HomeInteractor.swift in Sources */,
 				93048EE12B0950C2000BD03A /* NewPasswordViewController.swift in Sources */,
 				9337803E2ADA80FF00103273 /* Constants.swift in Sources */,
 				93CE906D2AF7BA4C0025FBB0 /* HomePresenter.swift in Sources */,
 				93732DF92B16701E00DE636E /* UserSignUp.swift in Sources */,
+				933A22132B45D86500854DB0 /* PetInfoViewController.swift in Sources */,
 				93822B352AF9698500989255 /* SecurityTextfield.swift in Sources */,
 				93048F1C2B0AA4DD000BD03A /* String + Extension.swift in Sources */,
 				934702032B0E6BE70033C7CE /* PasswordValidationView.swift in Sources */,
@@ -1127,12 +1303,15 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Petcare-iOS/Resources/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "NearMe requires locations so it can offer nearby points of interest";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "NearMe requires locations so it can offer nearby points of interest";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1158,12 +1337,15 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Petcare-iOS/Resources/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "NearMe requires locations so it can offer nearby points of interest";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "NearMe requires locations so it can offer nearby points of interest";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

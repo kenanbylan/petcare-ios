@@ -19,7 +19,7 @@ final class OnboardingRouter {
     }
     
     static func build(in window: UIWindow) -> OnboardingViewController {
-        let storyboard = UIStoryboard(name: Constants.Storyboard.onboarding, bundle: nil)
+        _ = UIStoryboard(name: Constants.Storyboard.onboarding, bundle: nil)
         let view = OnboardingView(frame: UIScreen.main.bounds)
         let viewController = OnboardingViewController(uiView: view)
 

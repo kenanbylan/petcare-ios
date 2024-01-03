@@ -30,43 +30,14 @@ final class HomeViewController: UIViewController {
         return button
     }()
     
-    private lazy var titleNameLabel: CustomLabel = {
-        let titleName = CustomLabel(text: "Hello, Kenan Baylan", fontSize: 24, fontType: .bold, textColor: AppColors.primaryColor)
-        return titleName
-    }()
-    
     private lazy var upComingVeterinary: CustomLabel = {
-        let upcoming = CustomLabel(text: "Upcoming Veterinarty", fontSize: 14, fontType: .medium, textColor: .black)
+        let upcoming = CustomLabel(text: "Upcoming Veterinary", fontSize: 14, fontType: .medium, textColor: .black)
         return upcoming
     }()
  
-    private lazy var notificationButton: UIButton = {
-        let button = UIButton()
-//        if let originalImage = {
-//            let aspectRatio = originalImage.size.width / originalImage.size.height
-//            let targetHeight: CGFloat = 30.0
-//            let targetWidth = targetHeight * aspectRatio
-//            let resizedImage = originalImage.resized(to: CGSize(width: targetWidth, height: targetHeight))
-//            button.tintColor = .blue
-//        }
-//
-        
-        if let currentImage = button.currentImage {
-            let resizedImage = currentImage.resized(to: CGSize(width: 40, height: 40))
-            button.setImage(resizedImage, for: .normal)
-        }
 
-        //button.setImage(UIImage(systemName: "bell.circle.fill"), for: .normal)
-        //button.currentImage?.resized(to: CGSize(width: 40, height: 40))
-        button.setTitleColor(.red, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector((notificationButtonClicked)), for: .touchUpInside)
-        button.setTitleColor(.tintColor, for: .normal)
-        return button
-    }()
-
-    fileprivate lazy var sectionStackView: UICustomStackView = {
-        let stack = UICustomStackView()
+    fileprivate lazy var sectionStackView: CustomStackView = {
+        let stack = CustomStackView()
         stack.axis = .horizontal
         stack.alignment = .fill
         stack.distribution = .fill
@@ -84,30 +55,47 @@ final class HomeViewController: UIViewController {
         return collectionView
     }()
     
-    fileprivate lazy var topStackView: UICustomStackView = {
-        let stack = UICustomStackView()
-        stack.axis = .horizontal
-        stack.alignment = .center
-        stack.distribution = .fill
-        return stack
+    
+    private lazy var upComingVeterinaryView: UpcomingVeterinary = {
+        let view = UpcomingVeterinary()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return  view
     }()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let titleLabel = UILabel()
+        titleLabel.text = "Pet Care"
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.font = AppFonts.bold.font(size: 24)
+        titleLabel.textColor = AppColors.primaryColor
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleLabel)
+        
+        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus.circle.fill"),
+                                        style: .plain,
+                                        target: self,
+                                        action: #selector(addButtonTapped))
+        addButton.tintColor = AppColors.primaryColor
+        navigationItem.rightBarButtonItem = addButton
+        
+
         presenter?.viewDidLoad()
         setupConstraints()
-        
+        collectionView.register(PetAvatarCellHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PetAvatarCellHeader")
+
         collectionView.delegate = self
         collectionView.dataSource = self
+        
     }
     
-    @objc func notificationButtonClicked() {
-        print("notificationButtonClicked    ")
+    @objc func addButtonTapped() {
+        presenter?.navigateToPetType()
     }
 }
 
-extension HomeViewController: UICollectionViewDataSource , UICollectionViewDelegate{
+extension HomeViewController: UICollectionViewDataSource , UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 16
     }
@@ -118,6 +106,10 @@ extension HomeViewController: UICollectionViewDataSource , UICollectionViewDeleg
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)  // İstediğiniz boşluğu burada belirleyebilirsiniz
+    }
+    
 }
 
 extension HomeViewController: HomeViewProtocol {
@@ -125,14 +117,10 @@ extension HomeViewController: HomeViewProtocol {
     func prepareUI() {
         view.backgroundColor = AppColors.bgColor
         
-        view.addSubview(topStackView)
-        view.addSubview(collectionView)
         view.addSubview(sectionStackView)
+        view.addSubview(collectionView)
         view.addSubview(upComingVeterinary)
-
-        topStackView.addArrangedSubview(titleNameLabel)
-        topStackView.addArrangedSubview(UIView())
-        topStackView.addArrangedSubview(notificationButton)
+        view.addSubview(upComingVeterinaryView)
         
         sectionStackView.addArrangedSubview(managePetsSectionLabel)
         sectionStackView.addArrangedSubview(UIView())
@@ -143,21 +131,23 @@ extension HomeViewController: HomeViewProtocol {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            topStackView.topAnchor.constraint(equalTo: view.topAnchor,constant: 60),
-            topStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16),
-            topStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -16),
-            
-            sectionStackView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 40),
+
+            sectionStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 30),
             sectionStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             sectionStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
 
             collectionView.topAnchor.constraint(equalTo: sectionStackView.bottomAnchor,constant: 0),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -16),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 0),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: 0),
             collectionView.heightAnchor.constraint(equalToConstant: view.frame.width / 3),
             
             upComingVeterinary.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 16),
             upComingVeterinary.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            
+            upComingVeterinaryView.topAnchor.constraint(equalTo: upComingVeterinary.bottomAnchor, constant: 16),
+            upComingVeterinaryView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            upComingVeterinaryView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            upComingVeterinaryView.heightAnchor.constraint(equalToConstant: 100),
         ])
     }
     

@@ -9,8 +9,8 @@ import UIKit
 
 class NewPasswordViewController: UIViewController, UITextFieldDelegate {
     
-    private lazy var stackView: UICustomStackView = {
-        let stack = UICustomStackView()
+    private lazy var stackView: CustomStackView = {
+        let stack = CustomStackView()
         stack.axis = .vertical
         stack.alignment = .fill
         return stack
