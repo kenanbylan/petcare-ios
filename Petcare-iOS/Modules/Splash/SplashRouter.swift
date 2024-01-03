@@ -51,10 +51,6 @@ extension SplashRouter: SplashRouterProtocol {
     }
     
     func navigateToHome() {
-        let navigationController = UINavigationController()
-//        let loginVC = HomeRouter.build(navigationController: navigationController , window: window)
-        let homeVC = HomeRouter.build(navigationController: navigationController)
-        navigationController.viewControllers.append(homeVC)
-        window.rootViewController = navigationController
+        self.window.rootViewController = MainTabbar()
     }
 }
