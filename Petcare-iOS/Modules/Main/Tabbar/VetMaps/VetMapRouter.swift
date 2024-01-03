@@ -20,9 +20,10 @@ final class VetMapRouter: VetMapRouterProtocol {
     }
     
     static func build(navigationController: UINavigationController?) -> VetMapViewController {
-        let storyboard = UIStoryboard(name: Constants.Storyboard.vetmap, bundle: nil)
-        let view = storyboard.instantiateViewController(identifier: Constants.Controller.vetmaps) as! VetMapViewController
+//        let storyboard = UIStoryboard(name: Constants.Storyboard.vetmap, bundle: nil)
+//        let view = storyboard.instantiateViewController(identifier: Constants.Controller.vetmaps) as! VetMapViewController
         
+        let view = VetMapViewController()
         let router = VetMapRouter(navigationController: navigationController)
         let interactor = VetMapInteractor()
         let presenter = VetMapPresenter(view: view, router: router, interactor: interactor)
