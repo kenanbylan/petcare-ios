@@ -7,23 +7,40 @@
 
 import UIKit
 
-class PetInfoViewController: UIViewController {
 
+protocol PetInfoViewProtocol: AnyObject {
+    func prepareUI()
+}
+
+final class PetInfoViewController: UIViewController {
+    var presenter: PetInfoPresenterProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter?.viewDidLoad()
+        buildLayout()
+        prepareTitleLabel()
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension PetInfoViewController: PetInfoViewProtocol {
+    func prepareUI() {
+        view.backgroundColor = AppColors.bgColor
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func prepareTitleLabel() {
+        let titleLabel = UILabel()
+        titleLabel.configurationTitleLabel(withText: "Great!", fontSize: 17, textColor: AppColors.primaryColor)
+        navigationItem.titleView = titleLabel
     }
-    */
-
 }
+
+extension PetInfoViewController: ViewCoding {
+    func setupView() { }
+    
+    func setupHierarchy() { }
+    
+    func setupConstraints() { }
+}
+
