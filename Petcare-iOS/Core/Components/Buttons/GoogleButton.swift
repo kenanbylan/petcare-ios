@@ -23,7 +23,6 @@ class GoogleLoginButton: UIButton {
             image.withTintColor(AppColors.primaryColor)
             let scaledImage = image.resizableImage(withCapInsets: .zero, resizingMode: .tile)
             setImage(scaledImage, for: .normal)
-            imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
         }
         
         imageView?.contentMode = .scaleAspectFit

@@ -23,7 +23,7 @@ final class SeeAllButton: UIButton {
     }
     private func setupButtonViews() {
         
-        if let originalImage = UIImage(named: "pati") {
+        if let originalImage = UIImage(named: "patiShape") {
             let aspectRatio = originalImage.size.width / originalImage.size.height
             let targetHeight: CGFloat = 20.0 // Set your desired height
             
@@ -38,7 +38,7 @@ final class SeeAllButton: UIButton {
             
             imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 4)
             titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            
+
             // Add action for button tap
             addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         }
