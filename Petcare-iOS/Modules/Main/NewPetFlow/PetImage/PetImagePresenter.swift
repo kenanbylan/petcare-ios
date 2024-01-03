@@ -6,3 +6,35 @@
 //
 
 import Foundation
+
+protocol PetImagePresenterProtocol {
+    func viewDidLoad() -> Void
+    func dismissScreen() -> Void
+}
+
+final class PetImagePresenter {
+    private weak var view: PetImageViewProtocol?
+    let router: PetImageRouterProtocol?
+    let interactor: PetImageInteractorProtocol?
+    
+    init(view: PetImageViewProtocol?, router: PetImageRouterProtocol?, interactor: PetImageInteractorProtocol?) {
+        self.view = view
+        self.router = router
+        self.interactor = interactor
+    }
+}
+
+
+extension PetImagePresenter: PetImagePresenterProtocol {
+    func viewDidLoad() {
+        view?.prepareUI()
+    }
+    
+    func dismissScreen() {
+        
+    }
+}
+
+extension PetImagePresenter: PetImageInteractorOutput {
+    
+}

@@ -7,23 +7,48 @@
 
 import UIKit
 
-class PetImageViewController: UIViewController {
+protocol PetImageViewProtocol: AnyObject {
+    func prepareUI()
+    func getImage()
+    func dismissScreen()
+}
 
+final class PetImageViewController: UIViewController {
+    
+    var presenter: PetImagePresenterProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter?.viewDidLoad()
+        
+        buildLayout()
+        prepareTitleLabel()
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension PetImageViewController: PetImageViewProtocol {
+    func dismissScreen() {
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func prepareUI() {
+        view.backgroundColor = .systemGreen
     }
-    */
 
+    func getImage() { }
+    
+    private func prepareTitleLabel() {
+        let titleLabel = UILabel()
+        titleLabel.configurationTitleLabel(withText: "Wow! Clips Image", fontSize: 17, textColor: AppColors.primaryColor)
+        navigationItem.titleView = titleLabel
+    }
+}
+
+extension PetImageViewController: ViewCoding {
+    func setupView() { }
+    
+    func setupHierarchy() { }
+    
+    func setupConstraints() { }
+    
 }

@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+
+protocol PetImageInteractorProtocol {
+    //TODO:
+}
+
+
+protocol PetImageInteractorOutput {
+    //TODO:
+}
+
+final class PetImageInteractor: PetImageInteractorProtocol {
+    
+    var output: PetImageInteractorOutput?
+}
