@@ -6,6 +6,7 @@ import Foundation
 import UIKit.UINavigationController
 
 protocol HomeRouterProtocol: AnyObject {
+    func navigateToPetType()
 }
 
 final class HomeRouter: HomeRouterProtocol {
@@ -26,6 +27,13 @@ final class HomeRouter: HomeRouterProtocol {
         interactor.output = presenter
         
         return view
+    }
+    
+    
+    func navigateToPetType() {
+        let petType = PetTypeRouter.build(navigationController: navigationController)
+        
+        self.navigationController?.pushViewController(petType, animated: true)
     }
     
     

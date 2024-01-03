@@ -36,8 +36,8 @@ final class HomeViewController: UIViewController {
     }()
  
 
-    fileprivate lazy var sectionStackView: UICustomStackView = {
-        let stack = UICustomStackView()
+    fileprivate lazy var sectionStackView: CustomStackView = {
+        let stack = CustomStackView()
         stack.axis = .horizontal
         stack.alignment = .fill
         stack.distribution = .fill
@@ -73,19 +73,6 @@ final class HomeViewController: UIViewController {
         titleLabel.textColor = AppColors.primaryColor
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleLabel)
         
-        // Navigation bar'ın genel görünümünü ayarlayalım
-        let appearance = UINavigationBarAppearance()
-        appearance.largeTitleTextAttributes = [
-            .foregroundColor: AppColors.primaryColor,
-            .font: AppFonts.bold.font(size: 24)
-        ]
-        
-        navigationController?.navigationBar.standardAppearance = appearance
-        
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Hello, Kenan"
-        
-        // Sağ tarafta plus.circle.fill butonu ekleyelim
         let addButton = UIBarButtonItem(image: UIImage(systemName: "plus.circle.fill"),
                                         style: .plain,
                                         target: self,
@@ -104,7 +91,7 @@ final class HomeViewController: UIViewController {
     }
     
     @objc func addButtonTapped() {
-        print("addButtonTapped")
+        presenter?.navigateToPetType()
     }
 }
 

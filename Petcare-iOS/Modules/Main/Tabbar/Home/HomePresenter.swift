@@ -8,6 +8,7 @@ import Foundation
 
 protocol HomePresenterProtocol {
     func viewDidLoad()
+    func navigateToPetType()
 }
 
 final class HomePresenter {
@@ -23,6 +24,10 @@ final class HomePresenter {
 }
 
 extension HomePresenter: HomePresenterProtocol {
+    func navigateToPetType() {
+        router?.navigateToPetType()
+    }
+    
     func viewDidLoad() {
         view?.prepareUI()
     }
