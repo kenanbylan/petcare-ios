@@ -9,8 +9,8 @@ import UIKit
 
 class SmsOtpViewController: UIViewController, UITextFieldDelegate {
     
-    private lazy var stackView: UICustomStackView = {
-        let stack = UICustomStackView()
+    private lazy var stackView: CustomStackView = {
+        let stack = CustomStackView()
         return stack
     }()
     

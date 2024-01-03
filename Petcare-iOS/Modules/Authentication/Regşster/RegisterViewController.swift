@@ -31,8 +31,8 @@ final class RegisterViewController: UIViewController {
         return label
     }()
     
-    private lazy var stackView: UICustomStackView = {
-        let stack = UICustomStackView()
+    private lazy var stackView: CustomStackView = {
+        let stack = CustomStackView()
         stack.axis = .vertical
         return stack
     }()
@@ -91,7 +91,9 @@ final class RegisterViewController: UIViewController {
         setupTextfieldObservers()
     }
     
-    @objc func createButtonTapped() { }
+    @objc func createButtonTapped() {
+        
+    }
     
 }
 
