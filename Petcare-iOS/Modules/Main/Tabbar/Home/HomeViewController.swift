@@ -80,11 +80,10 @@ final class HomeViewController: UIViewController {
         addButton.tintColor = AppColors.primaryColor
         navigationItem.rightBarButtonItem = addButton
         
-
         presenter?.viewDidLoad()
         setupConstraints()
-        collectionView.register(PetAvatarCellHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PetAvatarCellHeader")
-
+        setNavigationBar()
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -92,6 +91,11 @@ final class HomeViewController: UIViewController {
     
     @objc func addButtonTapped() {
         presenter?.navigateToPetType()
+    }
+    
+    private func setNavigationBar() {
+        navigationItem.setCustomBackButtonTitle("Back", color: AppColors.primaryColor)
+        navigationController?.navigationBar.tintColor = AppColors.primaryColor
     }
 }
 
