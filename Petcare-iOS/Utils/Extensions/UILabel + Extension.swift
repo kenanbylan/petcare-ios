@@ -7,12 +7,14 @@
 
 import UIKit
 
-extension UILabel {
-    func configurationTitleLabel(withText: String, fontSize: CGFloat, textColor: UIColor) {
-        self.text = text
-        self.font = AppFonts.bold.font(size: fontSize)
-        self.textColor = textColor
-        self.adjustsFontSizeToFitWidth = true
-        self.sizeToFit()
+final class TitleLabel {
+    static func configurationTitleLabel(withText: String, fontSize: CGFloat, textColor: UIColor) -> UILabel {
+        let titleLabel = UILabel()
+        titleLabel.text = withText
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.font = AppFonts.bold.font(size: 17)
+        titleLabel.textColor = AppColors.primaryColor
+        titleLabel.sizeToFit()
+        return titleLabel
     }
 }
