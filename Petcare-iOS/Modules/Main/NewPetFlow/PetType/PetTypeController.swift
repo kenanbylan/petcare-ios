@@ -33,6 +33,7 @@ final class PetTypeController: UIViewController {
             .withAxis(.horizontal)
             .withShadow(color: AppColors.customDarkGray.cgColor, opacity: 0.4, offset: CGSize(width: 0, height: 4), radius: 4)
             .withLayoutMargins(top: 0, left: 12, bottom: 0, right: 12)
+            .withBackgroundColor(AppColors.customBlue ?? .black)
             .build()
     }()
     
@@ -74,11 +75,9 @@ final class PetTypeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        
         prepareTitleLabel()
         buildLayout()
+        setNavigationBar()
     }
     
     private func setupPetTypes() {
@@ -97,9 +96,13 @@ final class PetTypeController: UIViewController {
     }
     
     private func prepareTitleLabel() {
-        let titleLabel = UILabel()
-        titleLabel.configurationTitleLabel(withText: "Hello my friend!", fontSize: 17, textColor: AppColors.primaryColor)
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: "Hello my friend", fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
+    }
+    
+    private func setNavigationBar() {
+        navigationItem.setCustomBackButtonTitle("Back", color: AppColors.primaryColor)
+        navigationController?.navigationBar.tintColor = AppColors.primaryColor
     }
 }
 
