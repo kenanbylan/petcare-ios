@@ -15,6 +15,11 @@ final class CustomStackViewBuilder {
         return self
     }
     
+    func withBackgroundColor(_ color: UIColor) -> CustomStackViewBuilder {
+        stackView.backgroundColor = color
+        return self
+    }
+    
     func withAxis(_ axis: NSLayoutConstraint.Axis) -> CustomStackViewBuilder {
         stackView.axis = axis
         return self

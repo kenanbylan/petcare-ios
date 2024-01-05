@@ -62,6 +62,8 @@
 		933A221E2B45F16400854DB0 /* PetImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A221D2B45F16400854DB0 /* PetImagePresenter.swift */; };
 		933A22202B45F16C00854DB0 /* PetImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A221F2B45F16C00854DB0 /* PetImageViewController.swift */; };
 		933A22232B45F6F100854DB0 /* SeeAllButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A22222B45F6F100854DB0 /* SeeAllButtonBuilder.swift */; };
+		933A22252B4729AF00854DB0 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A22242B4729AF00854DB0 /* UITextField + Extension.swift */; };
+		933A22272B473C2700854DB0 /* UINavigationItem + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A22262B473C2700854DB0 /* UINavigationItem + Extension.swift */; };
 		93450D612B44883200ADDADD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93450D602B44883200ADDADD /* LocationManager.swift */; };
 		934702032B0E6BE70033C7CE /* PasswordValidationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934702022B0E6BE70033C7CE /* PasswordValidationView.swift */; };
 		934702052B0E78680033C7CE /* LoadingUICustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934702042B0E78680033C7CE /* LoadingUICustomButton.swift */; };
@@ -204,6 +206,9 @@
 		933A221D2B45F16400854DB0 /* PetImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetImagePresenter.swift; sourceTree = "<group>"; };
 		933A221F2B45F16C00854DB0 /* PetImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetImageViewController.swift; sourceTree = "<group>"; };
 		933A22222B45F6F100854DB0 /* SeeAllButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllButtonBuilder.swift; sourceTree = "<group>"; };
+		933A22242B4729AF00854DB0 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
+		933A22262B473C2700854DB0 /* UINavigationItem + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem + Extension.swift"; sourceTree = "<group>"; };
+		933A222A2B47452B00854DB0 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		93450D602B44883200ADDADD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		934702022B0E6BE70033C7CE /* PasswordValidationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidationView.swift; sourceTree = "<group>"; };
 		934702042B0E78680033C7CE /* LoadingUICustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingUICustomButton.swift; sourceTree = "<group>"; };
@@ -428,6 +433,7 @@
 		933780102ADA7DA800103273 /* Petcare-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				933A22282B4744FD00854DB0 /* New Group */,
 				933780252ADA7E0400103273 /* App */,
 				9348B4542AE061EA00F7185A /* Utils */,
 				933780282ADA7E2200103273 /* Core */,
@@ -450,6 +456,7 @@
 		933780262ADA7E1300103273 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				933A22292B47450800854DB0 /* SecureAPIKeys */,
 				9337801C2ADA7DAA00103273 /* LaunchScreen.storyboard */,
 				9337801F2ADA7DAA00103273 /* Info.plist */,
 				9337801A2ADA7DAA00103273 /* Assets.xcassets */,
@@ -482,6 +489,8 @@
 				93DD5ABA2B4035AB00BDE0A9 /* UIStackView + Extension.swift */,
 				93DD5AD42B43182100BDE0A9 /* Notification + Extension.swift */,
 				933A22142B45E83D00854DB0 /* UILabel + Extension.swift */,
+				933A22242B4729AF00854DB0 /* UITextField + Extension.swift */,
+				933A22262B473C2700854DB0 /* UINavigationItem + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -676,6 +685,21 @@
 				9309ADF32B3B6E4F001BC2B0 /* SeeAllButton.swift */,
 			);
 			path = SeeAllButton;
+			sourceTree = "<group>";
+		};
+		933A22282B4744FD00854DB0 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		933A22292B47450800854DB0 /* SecureAPIKeys */ = {
+			isa = PBXGroup;
+			children = (
+				933A222A2B47452B00854DB0 /* Secrets.xcconfig */,
+			);
+			path = SecureAPIKeys;
 			sourceTree = "<group>";
 		};
 		934702082B0FEB7E0033C7CE /* CustomCollectionView */ = {
@@ -1036,6 +1060,7 @@
 				93C46E0E2B04EB310055BA0F /* UINavigationController + Extension.swift in Sources */,
 				9309ADF42B3B6E4F001BC2B0 /* SeeAllButton.swift in Sources */,
 				933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */,
+				933A22272B473C2700854DB0 /* UINavigationItem + Extension.swift in Sources */,
 				9348B45E2AE0631E00F7185A /* AppFonts.swift in Sources */,
 				933A22232B45F6F100854DB0 /* SeeAllButtonBuilder.swift in Sources */,
 				931144E62AFC179500F6365E /* OnboardingCell.swift in Sources */,
@@ -1082,6 +1107,7 @@
 				9337803E2ADA80FF00103273 /* Constants.swift in Sources */,
 				93CE906D2AF7BA4C0025FBB0 /* HomePresenter.swift in Sources */,
 				93732DF92B16701E00DE636E /* UserSignUp.swift in Sources */,
+				933A22252B4729AF00854DB0 /* UITextField + Extension.swift in Sources */,
 				933A22132B45D86500854DB0 /* PetInfoViewController.swift in Sources */,
 				93822B352AF9698500989255 /* SecurityTextfield.swift in Sources */,
 				93048F1C2B0AA4DD000BD03A /* String + Extension.swift in Sources */,
@@ -1294,6 +1320,7 @@
 		};
 		933780232ADA7DAA00103273 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 933A222A2B47452B00854DB0 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1328,6 +1355,7 @@
 		};
 		933780242ADA7DAA00103273 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 933A222A2B47452B00854DB0 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

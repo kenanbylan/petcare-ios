@@ -38,9 +38,9 @@ extension PetImageViewController: PetImageViewProtocol {
     func getImage() { }
     
     private func prepareTitleLabel() {
-        let titleLabel = UILabel()
-        titleLabel.configurationTitleLabel(withText: "Wow! Clips Image", fontSize: 17, textColor: AppColors.primaryColor)
-        navigationItem.titleView = titleLabel
+       // let titleLabel = UILabel()
+//        titleLabel.configurationTitleLabel(withText: "Wow! Clips Image", fontSize: 17, textColor: AppColors.primaryColor)
+        //navigationItem.titleView = titleLabel
     }
 }
 
