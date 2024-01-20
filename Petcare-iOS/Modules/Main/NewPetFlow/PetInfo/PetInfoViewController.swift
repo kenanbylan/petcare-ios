@@ -14,6 +14,18 @@ protocol PetInfoViewProtocol: AnyObject {
 final class PetInfoViewController: UIViewController {
     var presenter: PetInfoPresenterProtocol?
 
+    //MARK: UI Properties
+    private let scrollView: UIScrollView = {
+        let srollView = UIScrollView()
+        srollView.translatesAutoresizingMaskIntoConstraints = false
+        return srollView
+    }()
+    
+    private let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     //MARK: AllStackView
     fileprivate lazy var allStackView: CustomStackView = {
@@ -63,7 +75,7 @@ final class PetInfoViewController: UIViewController {
     
     let weightSlider: UISlider = {
         let slider = UISlider()
-        slider.minimumValue = 0 
+        slider.minimumValue = 0
         slider.maximumValue = 150
         slider.value = 70 // Default to 70 kg
         slider.translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +91,6 @@ final class PetInfoViewController: UIViewController {
         slider.translatesAutoresizingMaskIntoConstraints = false
         return slider
     }()
-    
     
     private lazy var weightTextField: CustomTextField = {
         let textfield = CustomTextField()
@@ -129,39 +140,46 @@ extension PetInfoViewController: PetInfoViewProtocol {
 
 extension PetInfoViewController: ViewCoding {
     func setupView() {
-        view.addSubview(petsNameTextfield)
-        view.addSubview(allStackView)
+        scrollView.backgroundColor = .systemRed
+        contentView.backgroundColor = .systemGreen
     }
     
     func setupHierarchy() {
+        self.view.addSubview(scrollView)
+        self.scrollView.addSubview(contentView)
+        
+        let hConst = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        hConst.isActive = true
+        hConst.priority = UILayoutPriority(50)
+        
+        contentView.addSubview(allStackView)
+        
         allStackView.addArrangedSubview(petsNameLabel)
         allStackView.addArrangedSubview(petsNameTextfield)
-        allStackView.addArrangedSubview(dateBirthLabel)
-        allStackView.addArrangedSubview(dateBirthTextfield)
-        allStackView.addArrangedSubview(genderSegmentedControl)
         
-        allStackView.addArrangedSubview(weightSlider)
-        allStackView.addArrangedSubview(heightSlider)
-        allStackView.addArrangedSubview(weightTextField)
-        allStackView.addArrangedSubview(heightTextField)
+//        allStackView.addArrangedSubview(dateBirthLabel)
+//        allStackView.addArrangedSubview(dateBirthTextfield)
+//        allStackView.addArrangedSubview(genderSegmentedControl)
+//        
+//        allStackView.addArrangedSubview(weightSlider)
+//        allStackView.addArrangedSubview(heightSlider)
+//        allStackView.addArrangedSubview(weightTextField)
+//        allStackView.addArrangedSubview(heightTextField)
     }
     
     func setupConstraints() {
-        
         NSLayoutConstraint.activate([
-//            dateBirthTextfield.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 30),
-//            dateBirthTextfield.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-//            dateBirthTextfield.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-//            dateBirthTextfield.heightAnchor.constraint(equalToConstant: 44)
+            scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            scrollView.topAnchor.constraint(equalTo: self.view.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             
-            genderSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            genderSegmentedControl.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
-            allStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 24),
-            allStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            allStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            
-        
+            contentView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor),
+
         ])
     }
 }
