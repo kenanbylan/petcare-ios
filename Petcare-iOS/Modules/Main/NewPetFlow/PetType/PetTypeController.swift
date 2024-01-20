@@ -26,7 +26,6 @@ final class PetTypeController: UIViewController {
         return view
     }()
     
-    
     private lazy var topStackView: CustomStackView = {
         return CustomStackViewBuilder()
             .withCornerRadius(12)
@@ -130,7 +129,6 @@ extension PetTypeController: ViewCoding {
         setupPetTypes()
         
         contentView.addSubview(patiButton)
-        
     }
     
     func setupConstraints() {
@@ -145,7 +143,6 @@ extension PetTypeController: ViewCoding {
             contentView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor),
-            
             
             topStackView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 24),
             topStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 24),
