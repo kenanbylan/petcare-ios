@@ -33,11 +33,20 @@ final class PatiButton: UIButton {
         layer.shadowOffset = CGSize(width: 0, height: 4)
         layer.shadowRadius = 4
         clipsToBounds = false
+        
+        setConstraints()
     }
-
+    
+    private func setConstraints() {
+        translatesAutoresizingMaskIntoConstraints = false
+        widthAnchor.constraint(equalToConstant: 60).isActive = true
+        heightAnchor.constraint(equalToConstant: 60).isActive = true
+    }
+        
     @objc private func buttonClicked() {
         delegate?.patiButtonClicked(self)
     }
+
     
     override var isHighlighted: Bool {
         didSet {
