@@ -62,7 +62,6 @@ final class PetTypeController: UIViewController {
     
     private lazy var patiButton: PatiButton = {
         let patiButton = PatiButton()
-        patiButton.translatesAutoresizingMaskIntoConstraints = false
         patiButton.delegate = self
         return patiButton
     }()
@@ -156,8 +155,6 @@ extension PetTypeController: ViewCoding {
             
             patiButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 60),
             patiButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            patiButton.widthAnchor.constraint(equalToConstant: 60),
-            patiButton.heightAnchor.constraint(equalToConstant: 60),
         ])
     }
 }

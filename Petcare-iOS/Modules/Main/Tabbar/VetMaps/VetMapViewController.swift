@@ -74,7 +74,7 @@ final class VetMapViewController: UIViewController {
         ])
     }
     
-    private func setupSearchBar() {
+        private func setupSearchBar() {
         searchBar.delegate = self
         navigationItem.titleView = searchBar
     }
