@@ -160,7 +160,6 @@ extension PetImageViewController: ViewCoding {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             petsNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            
             petsNameLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
             petsNameLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20),
             
@@ -173,8 +172,7 @@ extension PetImageViewController: ViewCoding {
             petImages.widthAnchor.constraint(equalTo: petImages.heightAnchor, multiplier: 3.0 / 4.0),
             
             patiButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
-            patiButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            
+            patiButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
         ])
     }
 }

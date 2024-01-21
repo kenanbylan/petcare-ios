@@ -10,7 +10,6 @@ import UIKit
 protocol PetImageRouterProtocol {
     func navigateToResultPage() -> Void
     func navigateToMainTabbar() -> Void
-    
 }
 
 final class PetImageRouter {
@@ -35,7 +34,7 @@ final class PetImageRouter {
 
 extension PetImageRouter: PetImageRouterProtocol {
     func navigateToMainTabbar() {
-//        navigationController?.didMove(toParent: )
+        
     }
     
     func navigateToResultPage() {
