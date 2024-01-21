@@ -80,6 +80,9 @@
 		938102342B5C38D300BF21AD /* ScrollViewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938102332B5C38D300BF21AD /* ScrollViewConstraints.swift */; };
 		938102362B5C3A8E00BF21AD /* ConstraintsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938102352B5C3A8E00BF21AD /* ConstraintsBuilder.swift */; };
 		938102392B5C6F2900BF21AD /* PetResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938102382B5C6F2900BF21AD /* PetResultViewController.swift */; };
+		9381023B2B5D5F2600BF21AD /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381023A2B5D5F2600BF21AD /* SettingTableViewCell.swift */; };
+		9381023E2B5D630700BF21AD /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381023D2B5D630600BF21AD /* SwitchTableViewCell.swift */; };
+		938102402B5D636D00BF21AD /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381023F2B5D636D00BF21AD /* SettingsModel.swift */; };
 		93822B322AF9672400989255 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B312AF9672400989255 /* AppColors.swift */; };
 		93822B352AF9698500989255 /* SecurityTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B342AF9698500989255 /* SecurityTextfield.swift */; };
 		93822B392AF9886B00989255 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93822B382AF9886B00989255 /* Register.storyboard */; };
@@ -229,6 +232,9 @@
 		938102332B5C38D300BF21AD /* ScrollViewConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewConstraints.swift; sourceTree = "<group>"; };
 		938102352B5C3A8E00BF21AD /* ConstraintsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsBuilder.swift; sourceTree = "<group>"; };
 		938102382B5C6F2900BF21AD /* PetResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetResultViewController.swift; sourceTree = "<group>"; };
+		9381023A2B5D5F2600BF21AD /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		9381023D2B5D630600BF21AD /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		9381023F2B5D636D00BF21AD /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		93822B312AF9672400989255 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		93822B342AF9698500989255 /* SecurityTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityTextfield.swift; sourceTree = "<group>"; };
 		93822B382AF9886B00989255 /* Register.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
@@ -604,6 +610,7 @@
 		933780362ADA7E9600103273 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				9381023C2B5D62F100BF21AD /* SettingsView */,
 				93CE90922AF7D6000025FBB0 /* SettingsRouter.swift */,
 				93CE908E2AF7D5F50025FBB0 /* SettingsInteractor.swift */,
 				93CE90902AF7D5FA0025FBB0 /* SettingsPresenter.swift */,
@@ -777,6 +784,16 @@
 				938102382B5C6F2900BF21AD /* PetResultViewController.swift */,
 			);
 			path = PetResultView;
+			sourceTree = "<group>";
+		};
+		9381023C2B5D62F100BF21AD /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				9381023F2B5D636D00BF21AD /* SettingsModel.swift */,
+				9381023A2B5D5F2600BF21AD /* SettingTableViewCell.swift */,
+				9381023D2B5D630600BF21AD /* SwitchTableViewCell.swift */,
+			);
+			path = SettingsView;
 			sourceTree = "<group>";
 		};
 		93C46E0F2B0508F30055BA0F /* UICollectionViewCell */ = {
@@ -1095,16 +1112,19 @@
 				933A220F2B45D85500854DB0 /* PetInfoInteractor.swift in Sources */,
 				93CE907F2AF7D5580025FBB0 /* CalendarModel.swift in Sources */,
 				93CE90692AF7BA380025FBB0 /* HomeViewController.swift in Sources */,
+				9381023E2B5D630700BF21AD /* SwitchTableViewCell.swift in Sources */,
 				938102342B5C38D300BF21AD /* ScrollViewConstraints.swift in Sources */,
 				93DD5AC12B4044C000BDE0A9 /* UpcomingVeterinary.swift in Sources */,
 				93CE908D2AF7D5E60025FBB0 /* SettingsViewController.swift in Sources */,
 				93DD5AC82B418E7D00BDE0A9 /* PetTypeController.swift in Sources */,
+				9381023B2B5D5F2600BF21AD /* SettingTableViewCell.swift in Sources */,
 				93822B3B2AF9887300989255 /* RegisterViewController.swift in Sources */,
 				933A221A2B45F15400854DB0 /* PetImageRouter.swift in Sources */,
 				93CE906B2AF7BA420025FBB0 /* HomeEntity.swift in Sources */,
 				93048EDF2B095096000BD03A /* SmsOtpViewController.swift in Sources */,
 				93822B472AFA85C800989255 /* ForgotPasswordPresenter.swift in Sources */,
 				933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */,
+				938102402B5D636D00BF21AD /* SettingsModel.swift in Sources */,
 				9309ADF22B389E39001BC2B0 /* PetAvatarModel.swift in Sources */,
 				93CE90792AF7D5370025FBB0 /* CalendarRouter.swift in Sources */,
 				934702072B0E84C40033C7CE /* UIColor + Extension.swift in Sources */,
