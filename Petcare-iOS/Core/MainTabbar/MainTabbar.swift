@@ -45,7 +45,6 @@ final class MainTabbar: UITabBarController {
         self.addChild(navigationController)
     }
     
-    
     func loadVetMapTab() {
         let navigationController = UINavigationController()
         let mapsView = VetMapRouter.build(navigationController: navigationController)
