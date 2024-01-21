@@ -10,6 +10,7 @@ import Foundation
 protocol PetImagePresenterProtocol {
     func viewDidLoad() -> Void
     func dismissScreen() -> Void
+    func navigateMainPage() -> Void
 }
 
 final class PetImagePresenter {
@@ -26,6 +27,10 @@ final class PetImagePresenter {
 
 
 extension PetImagePresenter: PetImagePresenterProtocol {
+    func navigateMainPage() {
+        router?.navigateToMainTabbar()
+    }
+    
     func viewDidLoad() {
         view?.prepareUI()
     }
