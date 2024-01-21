@@ -37,6 +37,7 @@ extension PetInfoRouter: PetInfoRouterProtocol {
     }
     
     func navigateSelectPetImage() {
-        
+        let petSelectImageVC = PetImageRouter.build(navigationController: navigationController)
+        navigationController?.pushViewController(petSelectImageVC, animated: true)
     }
 }

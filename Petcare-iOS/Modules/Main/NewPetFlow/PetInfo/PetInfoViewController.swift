@@ -33,6 +33,17 @@ final class PetInfoViewController: UIViewController {
         stack.axis = .vertical
         stack.alignment = .fill
         stack.distribution = .fill
+        stack.spacing = 20
+        return stack
+    }()
+    
+    //MARK: HStackView
+    fileprivate lazy var hStackView: CustomStackView = {
+        let stack = CustomStackView()
+        stack.axis = .horizontal
+        stack.alignment = .fill
+        stack.distribution = .fillEqually
+        stack.spacing = 20
         return stack
     }()
     
@@ -73,25 +84,6 @@ final class PetInfoViewController: UIViewController {
         return segmentedControl
     }()
     
-    let weightSlider: UISlider = {
-        let slider = UISlider()
-        slider.minimumValue = 0
-        slider.maximumValue = 150
-        slider.value = 70 // Default to 70 kg
-        slider.translatesAutoresizingMaskIntoConstraints = false
-        return slider
-    }()
-
-    let heightSlider: UISlider = {
-        let slider = UISlider()
-        slider.largeContentTitle = "Height"
-        slider.minimumValue = 100
-        slider.maximumValue = 220
-        slider.value = 170 // Default to 170 cm
-        slider.translatesAutoresizingMaskIntoConstraints = false
-        return slider
-    }()
-    
     private lazy var weightTextField: CustomTextField = {
         let textfield = CustomTextField()
         textfield.placeholder = "Weight (kg)"
@@ -107,6 +99,12 @@ final class PetInfoViewController: UIViewController {
         textfield.keyboardType = .numberPad
         return textfield
     }()
+    
+    private lazy var patiButton: PatiButton = {
+        let patiButton = PatiButton()
+        patiButton.delegate = self
+        return patiButton
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,20 +112,22 @@ final class PetInfoViewController: UIViewController {
         buildLayout()
         prepareTitleLabel()
         
-        self.dateBirthTextfield.setInputViewDatePicker(targer: self, selector: #selector(tapDone))
+        self.dateBirthTextfield.setInputViewDatePicker(target: self, selector: #selector(tapDone))
     }
     
     @objc func tapDone() {
-        if let datePicker = self.dateBirthTextfield.inputView as? UIDatePicker {
-            let dateformatter = DateFormatter()
-            dateformatter.dateStyle = .medium
-            self.dateBirthTextfield.text = dateformatter.string(from: datePicker.date)
+        let datePicker = self.dateBirthTextfield.inputView as? UIDatePicker
+        let dateformatter = DateFormatter()
+        dateformatter.dateStyle = .full
+    
+        if let selectedDate = datePicker?.date {
+            self.dateBirthTextfield.text = dateformatter.string(from: selectedDate)
         }
         self.dateBirthTextfield.resignFirstResponder()
     }
 }
 
-extension PetInfoViewController: PetInfoViewProtocol {
+extension PetInfoViewController: PetInfoViewProtocol, PatiButtonDelegate {
     func prepareUI() {
         view.backgroundColor = AppColors.bgColor
     }
@@ -136,50 +136,50 @@ extension PetInfoViewController: PetInfoViewProtocol {
         let titleLabel = TitleLabel.configurationTitleLabel(withText: "Almost Done", fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
     }
+    
+    func patiButtonClicked(_ sender: PatiButton) {
+        presenter?.navigateSelectPetImage()
+    }
 }
 
 extension PetInfoViewController: ViewCoding {
-    func setupView() {
-        scrollView.backgroundColor = .systemRed
-        contentView.backgroundColor = .systemGreen
-    }
+    func setupView() { }
     
     func setupHierarchy() {
         self.view.addSubview(scrollView)
         self.scrollView.addSubview(contentView)
+        self.contentView.addSubview(allStackView)
+        self.contentView.addSubview(patiButton)
         
-        let hConst = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
-        hConst.isActive = true
-        hConst.priority = UILayoutPriority(50)
+        let views: [UIView] = [genderSegmentedControl,petsNameLabel,petsNameTextfield,dateBirthLabel,dateBirthTextfield,hStackView]
+        for i in views { allStackView.addArrangedSubview(i) }
         
-        contentView.addSubview(allStackView)
-        
-        allStackView.addArrangedSubview(petsNameLabel)
-        allStackView.addArrangedSubview(petsNameTextfield)
-        
-//        allStackView.addArrangedSubview(dateBirthLabel)
-//        allStackView.addArrangedSubview(dateBirthTextfield)
-//        allStackView.addArrangedSubview(genderSegmentedControl)
-//        
-//        allStackView.addArrangedSubview(weightSlider)
-//        allStackView.addArrangedSubview(heightSlider)
-//        allStackView.addArrangedSubview(weightTextField)
-//        allStackView.addArrangedSubview(heightTextField)
+        hStackView.addArrangedSubview(weightTextField)
+        hStackView.addArrangedSubview(heightTextField)
     }
     
     func setupConstraints() {
+        scrollView.applyConstraints( builder: { builder in
+            builder.setTargetView(self.view)
+                .addAnchor(.top, .left, .right, .bottom)
+                .addConstant(20)
+                .build()
+        })
+        
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            scrollView.topAnchor.constraint(equalTo: self.view.bottomAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            
             contentView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
             contentView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor),
-
+            contentView.heightAnchor.constraint(greaterThanOrEqualTo: self.scrollView.heightAnchor),
+            
+            allStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 20),
+            allStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20),
+            allStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20),
+            
+            patiButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -200),
+            patiButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
     }
 }

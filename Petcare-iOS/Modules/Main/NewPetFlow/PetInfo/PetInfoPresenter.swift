@@ -10,6 +10,8 @@ import Foundation
 
 protocol PetInfoPresenterProtocol {
     func viewDidLoad()
+    func navigateSelectPetImage()
+
 }
 
 final class PetInfoPresenter {
@@ -26,6 +28,10 @@ final class PetInfoPresenter {
 
 
 extension PetInfoPresenter: PetInfoPresenterProtocol {
+    func navigateSelectPetImage() {
+        router?.navigateSelectPetImage()
+    }
+    
     func viewDidLoad() {
         view?.prepareUI()
     }

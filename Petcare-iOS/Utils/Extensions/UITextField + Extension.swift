@@ -9,33 +9,39 @@ import UIKit
 
 
 extension UITextField {
-    func setInputViewDatePicker(targer: Any, selector: Selector) {
+    func setInputViewDatePicker(target: Any, selector: Selector) {
         
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: UIScreen.screenHeight / 3))
         datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .inline
+        datePicker.maximumDate = Date()
         
-        datePicker.preferredDatePickerStyle = .wheels
         datePicker.sizeToFit()
         
         
         self.inputView = datePicker
         
         //CreateToolbar
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 45))
+        toolbar.barStyle = .default
+        toolbar.isTranslucent = true
+        toolbar.tintColor = AppColors.primaryColor
+        toolbar.sizeToFit()
+        toolbar.sizeToFit()
         
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 44))
         let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
         let cancel = UIBarButtonItem(title: "Cancel", style: .done, target: nil, action: #selector(tapCancel))
         let barButton = UIBarButtonItem(title: "Done", style: .done, target: nil, action: selector)
         
+        toolbar.isUserInteractionEnabled = true
         toolbar.setItems([cancel,flexible,barButton], animated: true)
+        
         self.inputAccessoryView = toolbar
     }
     
     @objc func tapCancel() {
         self.resignFirstResponder()
     }
-
-    
 }
 
