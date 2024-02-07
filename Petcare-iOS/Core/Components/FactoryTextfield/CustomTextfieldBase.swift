@@ -59,10 +59,16 @@ class CustomTextFieldBase: UITextField, UITextFieldDelegate {
         font = AppFonts.medium.font(size: .small)
         tintColor = AppColors.primaryColor
         borderStyle = .none
-        layer.borderWidth = 1.0
-        layer.cornerRadius = 14.0
-        layer.borderColor = AppColors.borderColor?.cgColor
         heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        layer.borderColor = AppColors.borderColor?.cgColor
+        layer.borderWidth = 1.0
+        layer.cornerRadius = 12
+        layer.shadowColor = AppColors.customDarkGray.cgColor
+        layer.shadowOpacity = 0.4
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 4
+
         
         isPasswordTextfield()
     }

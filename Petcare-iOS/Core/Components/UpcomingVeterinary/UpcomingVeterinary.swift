@@ -13,6 +13,7 @@ class UpcomingVeterinary: UIView {
         imageView.image = UIImage(named: "bird")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
+        
         return imageView
     }()
     
@@ -72,12 +73,25 @@ class UpcomingVeterinary: UIView {
     }
     
     private func prepareVeterinaryViews() {
-        backgroundColor = AppColors.customBlue
-        layer.cornerRadius = 20
-    
         veterinaryAvatar.clipsToBounds = true
         veterinaryAvatar.layer.cornerRadius = 20
         dateStackView.layer.cornerRadius = 8
+        
+        backgroundColor = AppColors.customBlue
+        
+        layer.cornerRadius = 12
+        layer.shadowColor = AppColors.customDarkGray.cgColor
+        layer.shadowOpacity = 0.4
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowRadius = 4
+        
+        veterinaryAvatar.layer.borderColor = AppColors.borderColor?.cgColor
+        veterinaryAvatar.layer.cornerRadius = 12
+        veterinaryAvatar.layer.shadowColor = AppColors.customWhite.cgColor
+        veterinaryAvatar.layer.shadowOpacity = 0.4
+        veterinaryAvatar.layer.shadowOffset = CGSize(width: 0, height: 2)
+        veterinaryAvatar.layer.shadowRadius = 4
+        veterinaryAvatar.backgroundColor = AppColors.customBlue
     }
 }
 

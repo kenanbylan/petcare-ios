@@ -83,8 +83,6 @@ final class SelectPetView: UIView {
         setSelection(selected: true)
     }
 
-
-
     private func updateAppearance() {
         if isSelected {
             backgroundColor = AppColors.primaryColor

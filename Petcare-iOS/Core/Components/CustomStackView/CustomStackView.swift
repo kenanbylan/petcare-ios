@@ -9,11 +9,12 @@ import UIKit
 
 final class CustomStackView: UIStackView {
     
-    init(axis: NSLayoutConstraint.Axis = .horizontal, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill) {
+    init(axis: NSLayoutConstraint.Axis = .horizontal, alignment: UIStackView.Alignment = .fill, distribution: UIStackView.Distribution = .fill, spacing: CGFloat = 16) {
         super.init(frame: .zero)
         self.axis = axis
         self.alignment = alignment
         self.distribution = distribution
+        self.spacing = spacing
         translatesAutoresizingMaskIntoConstraints = false
     }
 

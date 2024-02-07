@@ -34,7 +34,9 @@ final class LoginPresenter: ObservableObject {
 extension LoginPresenter: LoginPresenterProtocol {
     
     func viewDidload() {
-        print("Login presenter connected.")
+        interactor?.checkUserLogin(onCompletion: { status in
+            print("STATUSSS: \(status)")
+        })
     }
     
     func navigateMain() {
