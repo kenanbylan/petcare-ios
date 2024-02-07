@@ -7,15 +7,17 @@
 
 import Foundation
 
-enum ErrorHTTPCode: Int {
-    case apiError = 400
-    case invalidEndpoint = 404
-    case invalidResponse = 500
-    case noData = 204
-    case serializationError = 422
+enum APIError: Error {
+    case apiError
+    case invalidEndpoint
+    case invalidRespons
+    case noData
+    case serializationError
+    case requestFailed(String)
 }
 
 enum ErrorResponse {
+    
     case apiError
     case invalidEndpoint
     case invalidResponse
