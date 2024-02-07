@@ -91,11 +91,11 @@ final class NetworkManager: NetworkService {
             }
             .mapError { error -> APIError in
                 if error is DecodingError {
-                    return APIError.apiError
+                    return APIError.requestFailed(error.localizedDescription)
                 } else if let apiError = error as? APIError {
                     return apiError
                 } else {
-                    return APIError.requestFailed("An unknown error occurred.")
+                    return APIError.requestFailed("twoo " + error.localizedDescription)
                 }
             }
             .eraseToAnyPublisher()

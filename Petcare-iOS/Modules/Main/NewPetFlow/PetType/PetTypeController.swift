@@ -50,13 +50,9 @@ final class PetTypeController: UIViewController {
         return image
     }()
     
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.alignment = .fill
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 24
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+
+    private lazy var stackView: CustomStackView = {
+        let stackView = CustomStackView(axis: .vertical,alignment: .fill,distribution: .equalSpacing,spacing: 24)
         return stackView
     }()
     
@@ -89,9 +85,7 @@ final class PetTypeController: UIViewController {
         }
     }
     
-    @objc func nextButtonClicked() {
-        
-    }
+    @objc func nextButtonClicked() { }
     
     private func prepareTitleLabel() {
         let titleLabel = TitleLabel.configurationTitleLabel(withText: "Hello my friend", fontSize: 17, textColor: AppColors.primaryColor)

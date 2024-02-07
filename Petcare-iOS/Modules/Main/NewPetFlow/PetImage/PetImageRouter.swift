@@ -3,14 +3,12 @@
 //  Petcare-iOS
 //
 //  Created by Kenan Baylan on 3.01.2024.
-//
 
 import UIKit
 
 protocol PetImageRouterProtocol {
     func navigateToResultPage() -> Void
     func navigateToMainTabbar() -> Void
-    
 }
 
 final class PetImageRouter {
@@ -35,7 +33,17 @@ final class PetImageRouter {
 
 extension PetImageRouter: PetImageRouterProtocol {
     func navigateToMainTabbar() {
-//        navigationController?.didMove(toParent: )
+            if let tabbarController = navigationController?.tabBarController {
+                tabbarController.selectedIndex = 0
+                if let navController = tabbarController.viewControllers?[0] as? UINavigationController {
+                    print("tabbarController.viewControllers", tabbarController.viewControllers)
+                    navController.popViewController(animated: true)
+                }
+            } else {
+                let tabBarController = MainTabbar()
+                tabBarController.selectedIndex = 0
+                navigationController?.setViewControllers([tabBarController], animated: true)
+            }
     }
     
     func navigateToResultPage() {

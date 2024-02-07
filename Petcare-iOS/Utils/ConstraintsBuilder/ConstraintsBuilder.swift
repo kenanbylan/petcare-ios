@@ -7,10 +7,17 @@
 import UIKit
 
 enum AnchorType {
-    case top, left, right, bottom, width, height, heightGreaterThanOrEqualTo, centerX, centerY
+    case top, leading, trailing, bottom, width, height, centerX, centerY
 }
 
-class ConstraintsBuilder {
+//scrollView.applyConstraints { builder in
+//    builder.setTargetView(view)
+//        .addAnchor(.left,)
+//        .addConstant(20)
+//}
+
+final class ConstraintsBuilder {
+    
     private var view: UIView
     private var targetView: UIView?
     private var anchors: [AnchorType] = []
@@ -32,12 +39,6 @@ class ConstraintsBuilder {
         return self
     }
     
-    func addOneAnchor(_ anchor: AnchorType, constant: CGFloat?) -> ConstraintsBuilder {
-        self.anchor = anchor
-        self.constant = constant
-        return self
-    }
-    
     func addConstant(_ constant: CGFloat) -> ConstraintsBuilder {
         self.constant = constant
         return self
@@ -55,19 +56,17 @@ class ConstraintsBuilder {
         for anchor in anchors {
             switch anchor {
             case .top:
-                view.topAnchor.constraint(equalTo: target.topAnchor, constant: constants.top).isActive = true
-            case .left:
-                view.leftAnchor.constraint(equalTo: target.leftAnchor, constant: constants.left).isActive = true
-            case .right:
-                view.rightAnchor.constraint(equalTo: target.rightAnchor, constant: constants.right).isActive = true
+                view.topAnchor.constraint(equalTo: target.topAnchor, constant: constant ?? 0).isActive = true
+            case .leading:
+                view.leadingAnchor.constraint(equalTo: target.leadingAnchor, constant: constant ?? 0).isActive = true
+            case .trailing:
+                view.trailingAnchor.constraint(equalTo: target.trailingAnchor, constant: -constant! ).isActive = true
             case .bottom:
-                view.bottomAnchor.constraint(equalTo: target.bottomAnchor, constant: constants.bottom).isActive = true
+                view.bottomAnchor.constraint(equalTo: target.bottomAnchor, constant: -constant!).isActive = true
             case .width:
                 view.widthAnchor.constraint(equalTo: target.widthAnchor, constant:  constants.left + constants.right).isActive = true
             case .height:
                 view.heightAnchor.constraint(equalTo: target.heightAnchor, constant: constants.top + constants.bottom).isActive = true
-            case .heightGreaterThanOrEqualTo:
-                view.heightAnchor.constraint(greaterThanOrEqualTo: target.heightAnchor, constant: constants.top + constants.bottom).isActive = true
             case .centerX:
                 view.centerXAnchor.constraint(equalTo: target.centerXAnchor).isActive = true
             case .centerY:
