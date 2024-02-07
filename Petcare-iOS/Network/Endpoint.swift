@@ -20,7 +20,7 @@ enum Endpoint {
         switch self {
             
         case .signIn:
-            return "example/api/signIn"
+            return "https://jsonplaceholder.typicode.com/todos/1"
         case .signUp:
             return "example/api/signUp"
         case .forgotPassword:

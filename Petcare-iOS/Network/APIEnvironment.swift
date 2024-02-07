@@ -24,3 +24,8 @@ enum APIEnvironment {
         }
     }
 }
+
+
+//let endPoint: Endpoint = Endpoint.signIn
+//print(endPoint.path) // prints "/api/postOne"
+//print(endPoint.httpMethod) // .post
