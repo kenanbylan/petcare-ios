@@ -120,7 +120,6 @@ extension HomeViewController: HomeViewProtocol {
     
     func prepareUI() {
         view.backgroundColor = AppColors.bgColor
-        
         view.addSubview(sectionStackView)
         view.addSubview(collectionView)
         view.addSubview(upComingVeterinary)

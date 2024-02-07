@@ -32,10 +32,12 @@ final class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Settings"
         presenter.viewDidLoad()
         prepareTableView()
         configure()
+        view.backgroundColor = AppColors.bgColor
+        navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = "Settings"
     }
     
     private func prepareTableView() {
@@ -51,18 +53,17 @@ final class SettingsViewController: UIViewController {
         tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
     }
     
-    
     private func configure() {
         //MARK: Switch Configuration
         
         models.append(Section(title: "General", options: [
             .switchCell(model: SwitchSettingsModel(title: "Dark mode", icon: UIImage(named: "cat") , iconBackgroundColor: AppColors.primaryColor, handler: {
-                //MARK: Switch actions code
+                
             }, isOn: false))
         ]))
         
         models.append(Section(title: "General", options: [
-            .staticCell(model: SettingsModel(title: "Password Information", icon: UIImage(named: "dog"), iconBackgroundColor: AppColors.primaryColor, handler: {
+            .staticCell(model: SettingsModel(title: "Personal Information", icon: UIImage(named: "dog"), iconBackgroundColor: AppColors.primaryColor, handler: {
                 //MARK: password is required navigate
             })),
             .staticCell(model: SettingsModel(title: "Manage Notifications", icon: UIImage(named: "bird"), iconBackgroundColor: AppColors.bgColor2!, handler: {
@@ -73,8 +74,8 @@ final class SettingsViewController: UIViewController {
             }))
         ]))
         
-        models.append(Section(title: "Buy A Coffea", options: [
-            .staticCell(model: SettingsModel(title: "Donate Us", icon: UIImage(named: "pati"), iconBackgroundColor: .bgColor2, handler: {
+        models.append(Section(title: "Donate", options: [
+            .staticCell(model: SettingsModel(title: "Buy a coffee", icon: UIImage(named: "pati"), iconBackgroundColor: .bgColor2, handler: {
                 // MARK: Donate Us
             }))
         ]))
@@ -127,7 +128,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footer = UIView()
-        footer.frame = CGRect(x: 0, y: 0, width: 540, height: 55)
+        footer.frame = CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 70)
         if (section == models.count - 1){
             footer.backgroundColor = .clear
             let lbl = UILabel()
@@ -145,9 +146,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             lbl2.numberOfLines = 1
             footer.addSubview(lbl2)
             self.tableView.tableFooterView = footer
-
         }
-            return footer
+        return footer
     }
-
 }
