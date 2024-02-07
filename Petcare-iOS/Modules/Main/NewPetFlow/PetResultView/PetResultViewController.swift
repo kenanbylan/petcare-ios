@@ -13,5 +13,4 @@ class PetResultViewController: UIViewController {
         super.viewDidLoad()
         
     }
-    
 }

@@ -17,6 +17,7 @@ final class PetInfoViewController: UIViewController {
     //MARK: UI Properties
     private let scrollView: UIScrollView = {
         let srollView = UIScrollView()
+        srollView.showsVerticalScrollIndicator = false
         srollView.translatesAutoresizingMaskIntoConstraints = false
         return srollView
     }()
@@ -56,7 +57,7 @@ final class PetInfoViewController: UIViewController {
     
     private lazy var petsNameTextfield: CustomTextField = {
         let textfield = CustomTextField()
-        textfield.placeholder = "entery name :)"
+        textfield.placeholder = "Entry Name :)"
         textfield.tintColor = AppColors.primaryColor
         return textfield
     }()
@@ -81,6 +82,8 @@ final class PetInfoViewController: UIViewController {
         let segmentedControl = UISegmentedControl(items: items)
         segmentedControl.selectedSegmentIndex = 0 // Default to Male
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.tintColor = AppColors.primaryColor
+        segmentedControl.backgroundColor = AppColors.bgColor2
         return segmentedControl
     }()
     
@@ -161,7 +164,7 @@ extension PetInfoViewController: ViewCoding {
     func setupConstraints() {
         scrollView.applyConstraints( builder: { builder in
             builder.setTargetView(self.view)
-                .addAnchor(.top, .left, .right, .bottom)
+                .addAnchor(.top, .leading, .trailing, .bottom)
                 .addConstant(20)
                 .build()
         })
