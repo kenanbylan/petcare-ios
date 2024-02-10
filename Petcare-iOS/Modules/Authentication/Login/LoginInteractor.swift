@@ -7,10 +7,9 @@
 
 import Foundation
 import Combine
-import Network
 
 protocol LoginInteractorProtocol {
-    func checkUserLogin(onCompletion: @escaping(Bool) -> ())    
+  //  func checkUserLogin(onCompletion: @escaping(Bool) -> ())    
 }
 
 protocol LoginInteractorOutput {
@@ -19,7 +18,7 @@ protocol LoginInteractorOutput {
 
 final class LoginInteractor: LoginInteractorProtocol, ObservableObject {
     var output: LoginInteractorOutput?
-    
+    /*
     private let networkService: NetworkService
     private var cancellables: Set<AnyCancellable> = []
     
@@ -45,4 +44,5 @@ final class LoginInteractor: LoginInteractorProtocol, ObservableObject {
             }
             .store(in: &cancellables)
     }
+     */
 }

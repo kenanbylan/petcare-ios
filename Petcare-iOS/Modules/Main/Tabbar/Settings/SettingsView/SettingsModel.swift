@@ -12,13 +12,13 @@ struct SettingsModel {
     let title : String
     let icon : UIImage?
     let iconBackgroundColor : UIColor
-    let handler : (() -> Void)
+    let router: Router
 }
 
-struct SwitchSettingsModel {
-    let title : String
-    let icon : UIImage?
-    let iconBackgroundColor : UIColor
-    let handler : (() -> Void)
-    var isOn : Bool
+enum Router {
+    case donateRouter
+    case apperance
+    case manageNotification
+    case privacyPolicy
+    case personInformation
 }
