@@ -10,7 +10,7 @@ protocol PetTypeViewProtocol: AnyObject {
     func prepareUI()
 }
 
-final class PetTypeController: UIViewController {
+final class PetTypeViewController: UIViewController {
     var presenter: PetTypePresenterProtocol?
     
     //MARK: UI Properties
@@ -98,7 +98,7 @@ final class PetTypeController: UIViewController {
     }
 }
 
-extension PetTypeController: ViewCoding {
+extension PetTypeViewController: ViewCoding {
     func setupView() {
         scrollView.backgroundColor = AppColors.bgColor
         contentView.backgroundColor = AppColors.bgColor
@@ -154,7 +154,7 @@ extension PetTypeController: ViewCoding {
 }
 
 
-extension PetTypeController: PetTypeViewProtocol, PetTypeDelegate, PatiButtonDelegate {
+extension PetTypeViewController: PetTypeViewProtocol, PetTypeDelegate, PatiButtonDelegate {
     func patiButtonClicked(_ sender: PatiButton) {
         if selectItem?.isEmpty == true {
             patiButton.isEnabled = false
