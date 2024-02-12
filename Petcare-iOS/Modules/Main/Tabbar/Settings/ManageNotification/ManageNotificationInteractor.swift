@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+protocol ManageNotificationInteractorProtocol { }
+
+protocol ManageNotificationInteractorOutput {
+    
+}
+
+final class ManageNotificationInteractor: ManageNotificationInteractorProtocol {
+    var output: ManageNotificationInteractorOutput?
+    
+}
