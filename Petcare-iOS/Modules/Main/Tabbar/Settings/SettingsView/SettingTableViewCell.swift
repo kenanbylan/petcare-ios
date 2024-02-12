@@ -12,25 +12,15 @@ final class SettingTableViewCell: UITableViewCell {
     
     private var iconContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemPink
         view.clipsToBounds = true
         view.layer.cornerRadius = 12
         view.layer.masksToBounds = true
         return view
     }()
     
-    private lazy var stackView: CustomStackView = {
-        return CustomStackViewBuilder()
-            .withAxis(.horizontal)
-            .withLayoutMargins(top: 0, left: 12, bottom: 0, right: 12)
-            .withBackgroundColor(.systemRed)
-            .build()
-    }()
-    
     private var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = AppColors.primaryColor
         return imageView
     }()
     

@@ -18,7 +18,6 @@ enum SettingsOptionType {
 
 protocol SettingsViewProtocol: AnyObject {
     func updateTableView(with sections: [Section])
-    
 }
 
 final class SettingsViewController: UIViewController {
