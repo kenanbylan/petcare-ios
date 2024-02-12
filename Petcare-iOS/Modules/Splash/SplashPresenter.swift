@@ -24,7 +24,6 @@ final class SplashPresenter: SplashPresenterProtocol {
     
     func viewDidLoad() {
         interactor.checkInternetConnection()
-        view?.prepareUI()
     }
 }
 
