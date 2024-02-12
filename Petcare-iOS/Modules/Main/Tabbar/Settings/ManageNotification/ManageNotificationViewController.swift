@@ -7,23 +7,21 @@
 
 import UIKit
 
-class ManageNotificationViewController: UIViewController {
+protocol ManageNotificationViewProtocol: AnyObject { }
+
+
+final class ManageNotificationViewController: UIViewController {
+    var presenter: ManageNotificationPresenterProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        presenter.viewDidLoad()
+        prepareTitle()
+        view.backgroundColor = AppColors.bgColor
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func prepareTitle() {
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: presenter.setTitle() , fontSize: 17, textColor: AppColors.primaryColor)
+        navigationItem.titleView = titleLabel
     }
-    */
-
 }

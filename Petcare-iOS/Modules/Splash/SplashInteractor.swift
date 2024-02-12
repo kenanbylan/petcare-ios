@@ -22,8 +22,7 @@ protocol SplashInteractorOutputProtocol {
 }
 
 final class SplashInteractor: SplashInteractorProtocol {
-    var output: SplashInteractorOutputProtocol?
-    
+    var output: SplashInteractorOutputProtocol?    
     //    private var networkManager: NetworkManager?
     //    init(networkManager: NetworkManager<EndpointItem>) {
     //        self.networkManager = networkManager

@@ -10,12 +10,16 @@ import Foundation
 protocol PersonInformationPresenterProtocol {
     func viewDidload()
     func viewWillAppear()
+    func setTitle() -> String
 }
 
 final class PersonInformationPresenter {
     private weak var viewController: PersonInformationViewController?
     let router: PersonInformationRouterProtocol?
     let interactor: PersonInformationInteractorProtocol?
+
+    //MARK: Variable's
+    var title:String = "Personal Information"
     
     init(view: PersonInformationViewController? = nil, router: PersonInformationRouterProtocol?, interactor: PersonInformationInteractorProtocol?) {
         self.viewController = view
@@ -25,11 +29,12 @@ final class PersonInformationPresenter {
 }
 
 extension PersonInformationPresenter: PersonInformationPresenterProtocol {
+    func setTitle() -> String {
+        return title
+    }
+    
     func viewDidload() { }
     func viewWillAppear() { }
-    func navigatePersonInfo() {
-        
-    }
 }
 
 extension PersonInformationPresenter: PersonInformationInteractorOutput {

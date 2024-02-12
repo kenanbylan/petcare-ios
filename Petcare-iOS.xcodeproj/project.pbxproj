@@ -25,6 +25,11 @@
 		9309ADF62B3CA127001BC2B0 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309ADF52B3CA127001BC2B0 /* UIImage + Extension.swift */; };
 		9309ADF82B3CAB4B001BC2B0 /* UIScreen + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309ADF72B3CAB4B001BC2B0 /* UIScreen + Extension.swift */; };
 		930CB6C02AF18F4F00E632A7 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 930CB6BF2AF18F4F00E632A7 /* Splash.storyboard */; };
+		930EEEC92B7828DD0008D051 /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930EEEC82B7828DD0008D051 /* AppearanceViewController.swift */; };
+		930EEECB2B7828E60008D051 /* AppearancePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930EEECA2B7828E60008D051 /* AppearancePresenter.swift */; };
+		930EEECD2B7829510008D051 /* AppearanceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930EEECC2B7829510008D051 /* AppearanceInteractor.swift */; };
+		930EEECF2B7829560008D051 /* AppearanceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930EEECE2B7829560008D051 /* AppearanceRouter.swift */; };
+		930EEED12B782B4F0008D051 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930EEED02B782B4F0008D051 /* BaseViewController.swift */; };
 		931144E62AFC179500F6365E /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931144E52AFC179500F6365E /* OnboardingCell.swift */; };
 		931144E92AFC1B0900F6365E /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931144E82AFC1B0900F6365E /* ViewCoding.swift */; };
 		931144EC2AFC1DC000F6365E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931144EB2AFC1DC000F6365E /* OnboardingView.swift */; };
@@ -187,6 +192,11 @@
 		9309ADF52B3CA127001BC2B0 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		9309ADF72B3CAB4B001BC2B0 /* UIScreen + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen + Extension.swift"; sourceTree = "<group>"; };
 		930CB6BF2AF18F4F00E632A7 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		930EEEC82B7828DD0008D051 /* AppearanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceViewController.swift; sourceTree = "<group>"; };
+		930EEECA2B7828E60008D051 /* AppearancePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearancePresenter.swift; sourceTree = "<group>"; };
+		930EEECC2B7829510008D051 /* AppearanceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceInteractor.swift; sourceTree = "<group>"; };
+		930EEECE2B7829560008D051 /* AppearanceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceRouter.swift; sourceTree = "<group>"; };
+		930EEED02B782B4F0008D051 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		931144E52AFC179500F6365E /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
 		931144E82AFC1B0900F6365E /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
 		931144EB2AFC1DC000F6365E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -384,6 +394,17 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		930EEEC72B7828C80008D051 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				930EEEC82B7828DD0008D051 /* AppearanceViewController.swift */,
+				930EEECA2B7828E60008D051 /* AppearancePresenter.swift */,
+				930EEECC2B7829510008D051 /* AppearanceInteractor.swift */,
+				930EEECE2B7829560008D051 /* AppearanceRouter.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
 		931144E42AFC178500F6365E /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,6 +533,7 @@
 				93C46E0F2B0508F30055BA0F /* UICollectionViewCell */,
 				933780352ADA7E9100103273 /* MainTabbar */,
 				93450D602B44883200ADDADD /* LocationManager.swift */,
+				930EEED02B782B4F0008D051 /* BaseViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -636,6 +658,7 @@
 		933780362ADA7E9600103273 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				930EEEC72B7828C80008D051 /* Appearance */,
 				93E1FDAB2B77A74600BD72E1 /* PrivacyPolicy */,
 				93E1FDAA2B77A73500BD72E1 /* Donate */,
 				93E1FDA92B77A72700BD72E1 /* ManageNotification */,
@@ -1125,6 +1148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93E1FDB32B77A78E00BD72E1 /* PersonInformationPresenter.swift in Sources */,
+				930EEECB2B7828E60008D051 /* AppearancePresenter.swift in Sources */,
 				93F0CE432B0CE62E00D5BAD7 /* CustomStackView.swift in Sources */,
 				933780472ADA816F00103273 /* OnboardingViewController.swift in Sources */,
 				93822B322AF9672400989255 /* AppColors.swift in Sources */,
@@ -1168,6 +1192,7 @@
 				93E1FDBB2B77A7C800BD72E1 /* ManageNotificationPresenter.swift in Sources */,
 				933A22202B45F16C00854DB0 /* PetImageViewController.swift in Sources */,
 				933780652ADC0DF000103273 /* SplashRouter.swift in Sources */,
+				930EEED12B782B4F0008D051 /* BaseViewController.swift in Sources */,
 				93DD5AD32B4316E100BDE0A9 /* SelectPetView.swift in Sources */,
 				933780602ADC0DC000103273 /* SplashViewController.swift in Sources */,
 				93CE90912AF7D5FA0025FBB0 /* SettingsPresenter.swift in Sources */,
@@ -1187,6 +1212,7 @@
 				933A22112B45D85B00854DB0 /* PetInfoPresenter.swift in Sources */,
 				93E1FDB12B77A78800BD72E1 /* PersonInformationInteractor.swift in Sources */,
 				93CE90932AF7D6000025FBB0 /* SettingsRouter.swift in Sources */,
+				930EEECD2B7829510008D051 /* AppearanceInteractor.swift in Sources */,
 				931144EC2AFC1DC000F6365E /* OnboardingView.swift in Sources */,
 				933780692ADC0DFF00103273 /* SplashInteractor.swift in Sources */,
 				933A220F2B45D85500854DB0 /* PetInfoInteractor.swift in Sources */,
@@ -1230,6 +1256,7 @@
 				93E1FDAD2B77A76D00BD72E1 /* PersonInformationViewController.swift in Sources */,
 				93CE906F2AF7BA550025FBB0 /* HomeInteractor.swift in Sources */,
 				93048EE12B0950C2000BD03A /* NewPasswordViewController.swift in Sources */,
+				930EEEC92B7828DD0008D051 /* AppearanceViewController.swift in Sources */,
 				9337803E2ADA80FF00103273 /* Constants.swift in Sources */,
 				93CE906D2AF7BA4C0025FBB0 /* HomePresenter.swift in Sources */,
 				93732DF92B16701E00DE636E /* UserSignUp.swift in Sources */,
@@ -1241,6 +1268,7 @@
 				93E1FDB72B77A7B000BD72E1 /* ManageNotificationRouter.swift in Sources */,
 				93E1FDBD2B77A7DA00BD72E1 /* DonateViewController.swift in Sources */,
 				93048F1C2B0AA4DD000BD03A /* String + Extension.swift in Sources */,
+				930EEECF2B7829560008D051 /* AppearanceRouter.swift in Sources */,
 				938102362B5C3A8E00BF21AD /* ConstraintsBuilder.swift in Sources */,
 				934702032B0E6BE70033C7CE /* PasswordValidationView.swift in Sources */,
 				93822B4B2AFA85E500989255 /* ForgotPasswordRouter.swift in Sources */,

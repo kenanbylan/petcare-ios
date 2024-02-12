@@ -36,10 +36,22 @@ extension SettingsRouter: SettingsRouterProtocol {
     func navigateToDetail(detail: SettingsModel) {
         
         switch detail.router {
-        case .apperance: break
-        case .donateRouter: break
-        case .manageNotification: break
-        case .privacyPolicy: break
+        case .apperance:
+            let vc = AppearanceRouter.build(navigationController: navigationController)
+            navigationController?.pushViewController(vc, animated: true)
+            
+        case .donateRouter:
+            let vc = DonateRouter.build(navigationController: navigationController)
+            navigationController?.pushViewController(vc, animated: true)
+            
+        case .manageNotification:
+            let vc = ManageNotificationRouter.build(navigationController: navigationController)
+            navigationController?.pushViewController(vc, animated: true)
+            
+        case .privacyPolicy:
+            let vc = PrivacyPolicyRouter.build(navigationController: navigationController)
+            navigationController?.pushViewController(vc, animated: true)
+            
         case .personInformation:
             let vc = PersonInformationRouter.build(navigationController: navigationController)
             navigationController?.pushViewController(vc, animated: true)

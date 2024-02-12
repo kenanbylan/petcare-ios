@@ -1,16 +1,17 @@
 //
-//  PrivacyPolicyViewController.swift
+//  AppearanceViewController.swift
 //  Petcare-iOS
 //
-//  Created by Kenan Baylan on 10.02.2024.
+//  Created by Kenan Baylan on 11.02.2024.
 //
 
 import UIKit
 
-protocol PrivacyPolicyViewProtocol: AnyObject { }
+protocol ApperanceViewProtocol: AnyObject { }
 
-class PrivacyPolicyViewController: UIViewController {
-    var presenter: PrivacyPolicyPresenterProtocol!
+
+final class AppearanceViewController: BaseViewController {
+    var presenter: ApperancePresenterProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +19,10 @@ class PrivacyPolicyViewController: UIViewController {
         prepareTitle()
         view.backgroundColor = AppColors.bgColor
     }
-    
+
     private func prepareTitle() {
         let titleLabel = TitleLabel.configurationTitleLabel(withText: presenter.setTitle() , fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
     }
+
 }
