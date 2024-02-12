@@ -7,23 +7,13 @@
 
 import UIKit
 
-class DonateViewController: UIViewController {
+protocol DonateViewProtocol: AnyObject { }
+
+final class DonateViewController: UIViewController {
+    var presenter: DonatePresenterProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = AppColors.bgColor
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

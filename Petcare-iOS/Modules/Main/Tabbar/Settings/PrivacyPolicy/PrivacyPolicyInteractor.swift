@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+protocol PrivacyPolicyInteractorProtocol { }
+
+protocol PrivacyPolicyInteractorOutput {
+    
+}
+
+final class PrivacyPolicyInteractor: PrivacyPolicyInteractorProtocol {
+    var output: PrivacyPolicyInteractorOutput?
+    
+}
+

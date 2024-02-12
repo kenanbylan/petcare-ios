@@ -42,7 +42,6 @@ extension SettingsPresenter: SettingsPresenterProtocol {
     func navigateDetail(detail: SettingsModel) {
         router?.navigateToDetail(detail: detail)
     }
-    
 }
 
 extension SettingsPresenter: SettingsInteractorOutput {

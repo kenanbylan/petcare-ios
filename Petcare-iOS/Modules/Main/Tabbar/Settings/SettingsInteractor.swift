@@ -18,12 +18,9 @@ final class SettingsInteractor: SettingsInteractorProtocol {
     func fetchSettingsSections() {
         let generalOptions: [SettingsOptionType] = [
             .staticCell(model: SettingsModel(title: "Apperance", icon: UIImage(named: "apperance"), iconBackgroundColor: AppColors.bgColor2!, router: .apperance)),
-            
-                .staticCell(model: SettingsModel(title: "Personal Information", icon: UIImage(named: "person-info"), iconBackgroundColor: AppColors.bgColor2!, router: .personInformation )),
-            
-                .staticCell(model: SettingsModel(title: "Manage Notifications", icon: UIImage(named: "notify"), iconBackgroundColor: AppColors.bgColor2!,router: .manageNotification)),
-            
-                .staticCell(model: SettingsModel(title: "Privacy Policy", icon: UIImage(named: "privacy"), iconBackgroundColor: .bgColor2, router: .privacyPolicy))
+            .staticCell(model: SettingsModel(title: "Personal Information", icon: UIImage(named: "person-info"), iconBackgroundColor: AppColors.bgColor2!, router: .personInformation )),
+            .staticCell(model: SettingsModel(title: "Manage Notifications", icon: UIImage(named: "notify"), iconBackgroundColor: AppColors.bgColor2!,router: .manageNotification)),
+            .staticCell(model: SettingsModel(title: "Privacy Policy", icon: UIImage(named: "privacy"), iconBackgroundColor: .bgColor2, router: .privacyPolicy))
         ]
         
         let donateOptions: [SettingsOptionType] = [
@@ -36,4 +33,3 @@ final class SettingsInteractor: SettingsInteractorProtocol {
         output?.settingsSectionsFetched([generalSection, donateSection])
     }
 }
-

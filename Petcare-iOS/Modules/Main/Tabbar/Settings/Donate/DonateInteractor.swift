@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+protocol DonateInteractorProtocol { }
+
+protocol DonateInteractorOutput {
+    
+}
+
+final class DonateInteractor: DonateInteractorProtocol {
+    var output: DonateInteractorOutput?
+    
+}
