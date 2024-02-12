@@ -7,17 +7,20 @@
 
 import UIKit
 
-protocol PersonInformationViewProtocol: AnyObject {
-    
-}
+protocol PersonInformationViewProtocol: AnyObject { }
 
-class PersonInformationViewController: UIViewController {
+final class PersonInformationViewController: UIViewController {
     var presenter: PersonInformationPresenterProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "Personel Information"
+        presenter.viewDidload()
+        prepareSetup()
+        view.backgroundColor = AppColors.bgColor
     }
     
+    private func prepareSetup() {
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: presenter.setTitle() , fontSize: 17, textColor: AppColors.primaryColor)
+        navigationItem.titleView = titleLabel
+    }
 }

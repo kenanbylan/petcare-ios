@@ -6,9 +6,7 @@
 
 import UIKit
 
-protocol PersonInformationRouterProtocol: AnyObject {
-    
-}
+protocol PersonInformationRouterProtocol: AnyObject { }
 
 final class PersonInformationRouter: PersonInformationRouterProtocol {
     var navigationController: UINavigationController?
@@ -17,9 +15,7 @@ final class PersonInformationRouter: PersonInformationRouterProtocol {
         self.navigationController = navigationController
     }
     
-    
     static func build(navigationController: UINavigationController?) -> PersonInformationViewController {
-
         let view = PersonInformationViewController()
         let router = PersonInformationRouter(navigationController: navigationController)
         
@@ -31,5 +27,4 @@ final class PersonInformationRouter: PersonInformationRouterProtocol {
         
         return view
     }
-    
 }
