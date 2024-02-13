@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+protocol PetDetailInteractorProtocol {
+    //MARK: TODO
+}
+
+protocol PetDetailInteractorOutput {
+    //MARK: TODO
+}
+
+
+final class PetDetailInteractor: PetDetailInteractorProtocol {
+    var output: PetDetailInteractorOutput?
+    
+}

@@ -7,23 +7,22 @@
 
 import UIKit
 
-class PetDetailViewController: UIViewController {
+
+protocol PetDetailViewProtocol: AnyObject {
+    func setupUI()
+}
+
+class PetDetailViewController: BaseViewController {
+    var presenter: PetDetailPresenterProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        presenter?.viewDidLoad()
+        view.backgroundColor = AppColors.primaryColor
     }
+}
+
+extension PetDetailViewController: PetDetailViewProtocol {
+    func setupUI() { }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
