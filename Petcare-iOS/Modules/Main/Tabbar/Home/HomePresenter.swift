@@ -9,6 +9,7 @@ import Foundation
 protocol HomePresenterProtocol {
     func viewDidLoad()
     func navigateToPetType()
+    func navigateToPetDetail()
 }
 
 final class HomePresenter {
@@ -26,6 +27,10 @@ final class HomePresenter {
 extension HomePresenter: HomePresenterProtocol {
     func navigateToPetType() {
         router?.navigateToPetType()
+    }
+    
+    func navigateToPetDetail() {
+        router?.navigateToPetDetail()
     }
     
     func viewDidLoad() {

@@ -7,6 +7,7 @@ import UIKit.UINavigationController
 
 protocol HomeRouterProtocol: AnyObject {
     func navigateToPetType()
+    func navigateToPetDetail()
 }
 
 final class HomeRouter: HomeRouterProtocol {
@@ -32,9 +33,15 @@ final class HomeRouter: HomeRouterProtocol {
     
     func navigateToPetType() {
         let petType = PetTypeRouter.build(navigationController: navigationController)
-        
         self.navigationController?.pushViewController(petType, animated: true)
     }
+    
+    func navigateToPetDetail() {
+        let detail = PetDetailRouter.build(navigationController: navigationController)
+        self.navigationController?.present(detail, animated: true)
+    }
+    
+    
     
     
 }

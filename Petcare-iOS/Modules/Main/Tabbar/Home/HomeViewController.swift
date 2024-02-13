@@ -13,7 +13,7 @@ protocol HomeViewProtocol: AnyObject {
     func getPets()
 }
 
-final class HomeViewController: UIViewController {
+final class HomeViewController: BaseViewController {
     var presenter: HomePresenterProtocol?
     
     private lazy var managePetsSectionLabel: CustomLabel = {
@@ -34,8 +34,7 @@ final class HomeViewController: UIViewController {
         let upcoming = CustomLabel(text: "Upcoming Veterinary", fontSize: 14, fontType: .medium, textColor: .black)
         return upcoming
     }()
- 
-
+    
     fileprivate lazy var sectionStackView: CustomStackView = {
         let stack = CustomStackView()
         stack.axis = .horizontal
@@ -108,6 +107,10 @@ extension HomeViewController: UICollectionViewDataSource , UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PetAvatarCell", for: indexPath)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter?.navigateToPetDetail()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

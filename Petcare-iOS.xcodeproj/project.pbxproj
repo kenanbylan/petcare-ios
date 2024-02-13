@@ -35,6 +35,10 @@
 		931144EC2AFC1DC000F6365E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931144EB2AFC1DC000F6365E /* OnboardingView.swift */; };
 		931144F42B02B6DA00F6365E /* Petcare_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931144F32B02B6DA00F6365E /* Petcare_iOSTests.swift */; };
 		931145012B02B79900F6365E /* OnboardingViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931145002B02B79900F6365E /* OnboardingViewMock.swift */; };
+		932D25532B7BFF9300B99FA3 /* PetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25522B7BFF9300B99FA3 /* PetDetailViewController.swift */; };
+		932D25552B7BFFC000B99FA3 /* PetDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25542B7BFFC000B99FA3 /* PetDetailInteractor.swift */; };
+		932D25572B7BFFC600B99FA3 /* PetDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25562B7BFFC600B99FA3 /* PetDetailPresenter.swift */; };
+		932D25592B7BFFCD00B99FA3 /* PetDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25582B7BFFCD00B99FA3 /* PetDetailRouter.swift */; };
 		933780122ADA7DA800103273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780112ADA7DA800103273 /* AppDelegate.swift */; };
 		933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780132ADA7DA800103273 /* SceneDelegate.swift */; };
 		933780192ADA7DA800103273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933780172ADA7DA800103273 /* Main.storyboard */; };
@@ -203,6 +207,10 @@
 		931144F12B02B6D900F6365E /* Petcare-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Petcare-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		931144F32B02B6DA00F6365E /* Petcare_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petcare_iOSTests.swift; sourceTree = "<group>"; };
 		931145002B02B79900F6365E /* OnboardingViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewMock.swift; sourceTree = "<group>"; };
+		932D25522B7BFF9300B99FA3 /* PetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailViewController.swift; sourceTree = "<group>"; };
+		932D25542B7BFFC000B99FA3 /* PetDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailInteractor.swift; sourceTree = "<group>"; };
+		932D25562B7BFFC600B99FA3 /* PetDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailPresenter.swift; sourceTree = "<group>"; };
+		932D25582B7BFFCD00B99FA3 /* PetDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailRouter.swift; sourceTree = "<group>"; };
 		9337800E2ADA7DA800103273 /* Petcare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petcare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		933780112ADA7DA800103273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		933780132ADA7DA800103273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -470,6 +478,17 @@
 				931145002B02B79900F6365E /* OnboardingViewMock.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		932D25512B7BFF6200B99FA3 /* PetDetail */ = {
+			isa = PBXGroup;
+			children = (
+				932D25522B7BFF9300B99FA3 /* PetDetailViewController.swift */,
+				932D25542B7BFFC000B99FA3 /* PetDetailInteractor.swift */,
+				932D25562B7BFFC600B99FA3 /* PetDetailPresenter.swift */,
+				932D25582B7BFFCD00B99FA3 /* PetDetailRouter.swift */,
+			);
+			path = PetDetail;
 			sourceTree = "<group>";
 		};
 		933780052ADA7DA800103273 = {
@@ -925,6 +944,7 @@
 		93DD5AC62B418E5900BDE0A9 /* NewPetFlow */ = {
 			isa = PBXGroup;
 			children = (
+				932D25512B7BFF6200B99FA3 /* PetDetail */,
 				938102372B5C6F1000BF21AD /* PetResultView */,
 				933A22182B45F13F00854DB0 /* PetImage */,
 				933A220B2B45D82400854DB0 /* PetInfo */,
@@ -1156,6 +1176,7 @@
 				93DD5ACE2B4198CC00BDE0A9 /* PetTypeInteractor.swift in Sources */,
 				93048F092B0A8F8F000BD03A /* Int + Extension.swift in Sources */,
 				933780412ADA814400103273 /* OnboardingModel.swift in Sources */,
+				932D25552B7BFFC000B99FA3 /* PetDetailInteractor.swift in Sources */,
 				938102392B5C6F2900BF21AD /* PetResultViewController.swift in Sources */,
 				933A221E2B45F16400854DB0 /* PetImagePresenter.swift in Sources */,
 				933780122ADA7DA800103273 /* AppDelegate.swift in Sources */,
@@ -1201,6 +1222,7 @@
 				93C46E0E2B04EB310055BA0F /* UINavigationController + Extension.swift in Sources */,
 				9309ADF42B3B6E4F001BC2B0 /* SeeAllButton.swift in Sources */,
 				933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */,
+				932D25572B7BFFC600B99FA3 /* PetDetailPresenter.swift in Sources */,
 				933A22272B473C2700854DB0 /* UINavigationItem + Extension.swift in Sources */,
 				9348B45E2AE0631E00F7185A /* AppFonts.swift in Sources */,
 				933A22232B45F6F100854DB0 /* SeeAllButtonBuilder.swift in Sources */,
@@ -1255,6 +1277,7 @@
 				933780592ADA825200103273 /* LoginRouter.swift in Sources */,
 				93E1FDAD2B77A76D00BD72E1 /* PersonInformationViewController.swift in Sources */,
 				93CE906F2AF7BA550025FBB0 /* HomeInteractor.swift in Sources */,
+				932D25532B7BFF9300B99FA3 /* PetDetailViewController.swift in Sources */,
 				93048EE12B0950C2000BD03A /* NewPasswordViewController.swift in Sources */,
 				930EEEC92B7828DD0008D051 /* AppearanceViewController.swift in Sources */,
 				9337803E2ADA80FF00103273 /* Constants.swift in Sources */,
@@ -1273,6 +1296,7 @@
 				934702032B0E6BE70033C7CE /* PasswordValidationView.swift in Sources */,
 				93822B4B2AFA85E500989255 /* ForgotPasswordRouter.swift in Sources */,
 				93CE90892AF7D5CC0025FBB0 /* VetMapPresenter.swift in Sources */,
+				932D25592B7BFFCD00B99FA3 /* PetDetailRouter.swift in Sources */,
 				93CE908F2AF7D5F50025FBB0 /* SettingsInteractor.swift in Sources */,
 				934702112B0FF8910033C7CE /* CustomTextfieldBase.swift in Sources */,
 			);
@@ -1497,7 +1521,6 @@
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1532,7 +1555,6 @@
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
