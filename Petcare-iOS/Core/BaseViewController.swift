@@ -9,8 +9,8 @@ import UIKit
 
 
 class BaseViewController: UIViewController {
+
     
-    // Alt sınıfların bu metodu override edebilmesi için open olarak işaretlendi
     open override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBar()
@@ -20,4 +20,5 @@ class BaseViewController: UIViewController {
         navigationItem.setCustomBackButtonTitle("Back", color: AppColors.primaryColor)
         navigationController?.navigationBar.tintColor = AppColors.primaryColor
     }
+    
 }
