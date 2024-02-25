@@ -29,8 +29,7 @@ final class NetworkManager {
         
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { data, response in
-                guard let httpResponse = re    var subscriptions = Set<AnyCancellable>()
-sponse as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
+                guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
                     throw NetworkError.invalidResponse
                 }
                 return data

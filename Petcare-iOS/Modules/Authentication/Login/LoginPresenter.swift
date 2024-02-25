@@ -69,7 +69,13 @@ extension LoginPresenter: LoginPresenterProtocol {
 }
 
 extension LoginPresenter: LoginInteractorOutput {
-    func internetConnectionStatus(_ status: Bool) {
-        
+    func registrationSuccess() {
+            
     }
+    
+    func registrationFailure(error: Error) {
+            
+    }
+    
+
 }
