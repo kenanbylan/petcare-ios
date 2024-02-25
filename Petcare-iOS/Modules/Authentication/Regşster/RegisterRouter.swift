@@ -29,10 +29,9 @@ final class RegisterRouter: RegisterRouterProtocol {
     
     static func build(navigationController: UINavigationController?, window: UIWindow?) -> RegisterViewController {
         let view = RegisterViewController()
-        
         let router = RegisterRouter(navigationController: navigationController, window: window)
         
-        let interactor = RegisterInteractor()
+        let interactor = RegisterInteractor(networkManager: NetworkManager())
         let presenter = RegisterPresenter(view: view, router: router, interactor: interactor)
         
         view.presenter = presenter

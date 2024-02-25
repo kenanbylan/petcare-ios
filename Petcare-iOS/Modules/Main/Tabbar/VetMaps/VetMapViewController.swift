@@ -26,6 +26,13 @@ final class VetMapViewController: UIViewController {
 //        return manager
 //    }()
     
+    let customBackView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGreen
+
+        return view
+    }()
+    
     let mapView: MKMapView = {
         let map = MKMapView()
         map.overrideUserInterfaceStyle = .dark
@@ -36,6 +43,7 @@ final class VetMapViewController: UIViewController {
     let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.tintColor = AppColors.primaryColor
+        searchBar.backgroundColor = .systemRed
         searchBar.placeholder = "Search for vets"
         return searchBar
     }()
@@ -129,7 +137,7 @@ extension VetMapViewController: CLLocationManagerDelegate {
 
 extension VetMapViewController {
     func updateMap(with coordinate: CLLocationCoordinate2D) {
-        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 750, longitudinalMeters: 750)
+        let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
         performLocalSearch(for: "Vets")
     }
@@ -165,5 +173,19 @@ extension VetMapViewController {
 
 extension VetMapViewController: MKMapViewDelegate {
     
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let annotation = view.annotation as? MKPointAnnotation {
+            let mapDetail = MapDetailView()
+            mapDetail.translatesAutoresizingMaskIntoConstraints = false
+            mapView.addSubview(mapDetail)
+            mapView.bringSubviewToFront(mapDetail)
+
+            NSLayoutConstraint.activate([
+                 mapDetail.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                 mapDetail.bottomAnchor.constraint(equalTo: view.topAnchor, constant: -10),
+
+             ])
+        }
+    }
 }
-    
+

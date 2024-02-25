@@ -21,12 +21,16 @@ final class OnboardingInteractor: OnboardingInteractorProtocol {
     var data: [OnboardingModel]?
     
     func userAlreadyExists() -> Bool {
+        // Kullanıcı daha önceden appi kurduysa ve login olduysa bu ekran gösterilmez. Kontrolu yapılmalıdır.
+        
+        
 //        do {
 //            let user = try coreData.fetchUser()
 //            return user.count != 0
 //        } catch {
 //            return false
 //        }
+        
         return false
     }
 }

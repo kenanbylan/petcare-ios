@@ -3,7 +3,6 @@
 //  Petcare-iOS
 //
 //  Created by Kenan Baylan on 15.10.2023.
-//
 
 import Foundation
 import UIKit
@@ -22,12 +21,8 @@ protocol SplashInteractorOutputProtocol {
 }
 
 final class SplashInteractor: SplashInteractorProtocol {
-    var output: SplashInteractorOutputProtocol?    
-    //    private var networkManager: NetworkManager?
-    //    init(networkManager: NetworkManager<EndpointItem>) {
-    //        self.networkManager = networkManager
-    //    }
-
+    var output: SplashInteractorOutputProtocol?
+    
     func getLocationCity() {
         
     }

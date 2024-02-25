@@ -37,6 +37,8 @@ extension SettingsPresenter: SettingsPresenterProtocol {
     
     func viewDidLoad() {
         interactor?.fetchSettingsSections()
+        view?.prepareSetup()
+        view?.prepareTableView()
     }
     
     func navigateDetail(detail: SettingsModel) {

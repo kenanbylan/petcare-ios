@@ -55,5 +55,6 @@ enum Constants {
     enum CollectionViewCell {
         static let onboardingCell = "OnboardingCell"
         static let settingsTableViewCell = "SettingTableViewCell"
+        static let slideCell = "SlideCell"
     }
 }
