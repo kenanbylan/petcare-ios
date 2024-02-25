@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum LabelSize: CGFloat {
     case small = 14
     case medium = 17
