@@ -28,7 +28,7 @@ final class LoginRouter: LoginRouterProtocol {
         let view = storyboard.instantiateViewController(identifier: Constants.Controller.login) as! LoginViewController
         
         let router = LoginRouter(navigationController: navigationController, window: window)
-        let interactor = LoginInteractor()
+        let interactor = LoginInteractor(networkManager: NetworkManager())
         let presenter = LoginPresenter(view: view, router: router, interactor: interactor)
         view.presenter = presenter
         interactor.output = presenter

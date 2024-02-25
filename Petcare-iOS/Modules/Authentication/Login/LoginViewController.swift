@@ -5,7 +5,8 @@ protocol LoginViewProtocol: AnyObject {
     func loginUserControl()
 }
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseViewController {
+    
     //MARK: UI Property
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var header: UILabel!
@@ -27,7 +28,7 @@ class LoginViewController: UIViewController {
         presenter?.viewDidload()
         setupPublishers()
         prepareInitViews()
-        prepareTextfields()
+        //prepareTextfields()
         prepareKeyboard()
     }
     
@@ -71,7 +72,7 @@ extension LoginViewController {
     }
     
     func setupPublishers() {
-    
+        
     }
     
 }
@@ -98,6 +99,6 @@ extension LoginViewController {
     }
     
     @IBAction func signInWithGoogleTapped(_ sender: Any) {
-        
+        presenter?.controlGoogleWithSignIn(myself: LoginViewController())
     }
 }

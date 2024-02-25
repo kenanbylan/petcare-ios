@@ -9,40 +9,49 @@ import Foundation
 import Combine
 
 protocol LoginInteractorProtocol {
-  //  func checkUserLogin(onCompletion: @escaping(Bool) -> ())    
+    func login(email: String, password: String) -> Void
 }
 
 protocol LoginInteractorOutput {
-    func internetConnectionStatus(_ status: Bool)
+    func registrationSuccess()
+    func registrationFailure(error: Error)
 }
 
 final class LoginInteractor: LoginInteractorProtocol, ObservableObject {
     var output: LoginInteractorOutput?
-    /*
-    private let networkService: NetworkService
-    private var cancellables: Set<AnyCancellable> = []
+    let networkManager: NetworkManager
     
-    init(networkService: NetworkService = NetworkManager()) {
-        self.networkService = networkService
+    var subscriptions = Set<AnyCancellable>()
+    
+    init(networkManager: NetworkManager) {
+        self.networkManager = networkManager
     }
     
-    func checkUserLogin(onCompletion: @escaping(Bool) -> ()) {
-        let response: AnyPublisher<UserModel,APIError> = networkService.request(.signIn, headers: nil, parameters: nil)
-        response
-            .sink { completion in
-                switch completion {
-                case .finished:
-                    print("Compoetion: \(completion)")
-                    
-                case .failure(let error):
-                    print("Error: \(error)")
-                    onCompletion(false)
+    func login(email: String, password: String) {
+        let requestData: [String: Any] = ["email": email, "password": password]
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: requestData)
+            networkManager.request(type: User.self , router: .login, method: .post, requestData: jsonData)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        break
+                    case .failure(let error):
+                        self.output?.registrationFailure(error: error)
+                    }
+                } receiveValue: { response in
+                    print("Response: \(response)")
+                    self.output?.registrationSuccess()
                 }
-                
-            } receiveValue: { response in
-                print("response : \(response)")
-            }
-            .store(in: &cancellables)
+                .store(in: &subscriptions)
+            
+        } catch {
+            
+        }
+        
+        
+        
     }
-     */
+    
 }

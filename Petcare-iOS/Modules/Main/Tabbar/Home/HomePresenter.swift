@@ -13,7 +13,7 @@ protocol HomePresenterProtocol {
 }
 
 final class HomePresenter {
-    private weak var view : HomeViewProtocol?
+    private weak var view: HomeViewProtocol?
     let router: HomeRouterProtocol?
     let interactor: HomeInteractorProtocol?
     

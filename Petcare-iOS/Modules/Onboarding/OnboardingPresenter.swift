@@ -31,7 +31,6 @@ final class OnboardingPresenter: OnboardingPresenterProtocol {
     }
     
     func viewDidLoad() {
-        
         view?.prepareUI()
     }
     

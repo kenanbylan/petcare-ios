@@ -18,6 +18,8 @@ enum SettingsOptionType {
 
 protocol SettingsViewProtocol: AnyObject {
     func updateTableView(with sections: [Section])
+    func prepareTableView()
+    func prepareSetup()
 }
 
 final class SettingsViewController: UIViewController {
@@ -33,16 +35,22 @@ final class SettingsViewController: UIViewController {
         super.viewDidLoad()
         presenter.viewDidLoad()
         prepareTableView()
-        prepareSetup()
+    }
+}
+
+extension SettingsViewController: SettingsViewProtocol {
+    func updateTableView(with sections: [Section]) {
+        self.models = sections
+        self.tableView.reloadData()
     }
     
-    private func prepareSetup() {
-        view.backgroundColor = AppColors.bgColor
+    func prepareSetup() {
+        view.backgroundColor = AppColors.customRed
         let titleLabel = TitleLabel.configurationTitleLabel(withText: presenter.setTitle() , fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
     }
     
-    private func prepareTableView() {
+    func prepareTableView() {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
@@ -51,13 +59,6 @@ final class SettingsViewController: UIViewController {
         tableView.layer.cornerRadius = 10
         tableView.layer.masksToBounds = true
         tableView.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.identifier)
-    }
-}
-
-extension SettingsViewController: SettingsViewProtocol {
-    func updateTableView(with sections: [Section]) {
-        self.models = sections
-        self.tableView.reloadData()
     }
 }
 
