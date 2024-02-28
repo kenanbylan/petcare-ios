@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension Int {
+extension Double {
     var wPercent: CGFloat {
         let screenWidth = UIScreen.main.bounds.width
         return CGFloat(self) * screenWidth / 100.0

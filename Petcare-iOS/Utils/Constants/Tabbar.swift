@@ -8,15 +8,15 @@
 import Foundation
 
 enum Tabbar {
-    static let homeIcon = "house"
+    static let homeIcon = "house.fill"
     static let homeText = "Home"
     
-    static let calendarIcon = "calendar"
-    static let calendarText = "Calendar"
+    static let calendarIcon = "calendar.badge.plus"
+    static let calendarText = "Rezervation"
         
-    static let mapIcon = "map.fill"
-    static let mapText = "Vet Map"
+    static let mapIcon = "mappin.and.ellipse.circle"
+    static let mapText = "Map"
     
-    static let settingsIcon = "gearshape"
+    static let settingsIcon = "gearshape.circle"
     static let settingsText = "Settings"
 }
