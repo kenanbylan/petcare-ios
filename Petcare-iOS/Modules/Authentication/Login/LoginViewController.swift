@@ -28,7 +28,7 @@ class LoginViewController: BaseViewController {
         presenter?.viewDidload()
         setupPublishers()
         prepareInitViews()
-        //prepareTextfields()
+        prepareTextfields()
         prepareKeyboard()
     }
     
