@@ -49,7 +49,7 @@ class LoadingUICustomButton: UIButton {
         }
     }
     
-    init(title: String = "Get Started", radius: CGFloat = 10, font: UIFont? = nil, background: UIColor = AppColors.primaryColor) {
+    init(title: String = "Get Started", radius: CGFloat = 20, font: UIFont? = nil, background: UIColor = AppColors.primaryColor) {
         self.title = title
         self.radius = radius
         self.font = font ?? AppFonts.medium.font(size: .medium)
@@ -64,15 +64,9 @@ class LoadingUICustomButton: UIButton {
     
     func configureButton() {
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.heightAnchor.constraint(equalToConstant: 12.wPercent).isActive = true
+        self.heightAnchor.constraint(equalToConstant: 13.wPercent).isActive = true
         self.layer.cornerCurve = .circular
         self.clipsToBounds = true
-        
-//        if self.isEnabled {
-//            self.backgroundColor = AppColors.customDarkGray
-//        } else {
-//            self.backgroundColor = AppColors.customLightGray
-//        }
     }
     
     func loadIndicator(_ shouldShow: Bool) {
@@ -126,9 +120,9 @@ class LoadingUICustomButton: UIButton {
 extension LoadingUICustomButton {
     func setupButton(
          title: String,
-         radius: CGFloat = 10,
+         radius: CGFloat = 20,
          font: UIFont? = nil,
-         textSize: LabelSize = .medium,
+         textSize: LabelSize = .small,
          background: UIColor = AppColors.primaryColor
      ) {
          self.title = title
