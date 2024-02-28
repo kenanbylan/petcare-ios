@@ -12,6 +12,8 @@ enum URLRouter {
     case login
     case register
     case jsonfake
+    case new_pet
+    case users
     
     var path: String {
         switch self {
@@ -23,6 +25,10 @@ enum URLRouter {
             return "register"
         case .jsonfake:
             return "todos"
+        case .new_pet:
+            return "new_pati"
+        case .users:
+            return "users"
         }
     }
 }
