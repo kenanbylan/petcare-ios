@@ -31,7 +31,6 @@ final class RegisterPresenter {
 extension RegisterPresenter: RegisterPresenterProtocol {
     func registerUser(name: String, surname: String, email: String, password: String) {
         //MARK: - Öncelikle validation yapılacaktır.
-        
         interactor?.registerUser(name: name, surname: surname, email: email, password: password)
     }
     
