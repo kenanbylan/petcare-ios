@@ -13,18 +13,6 @@ protocol ForgotPasswordViewProtocol: AnyObject {
 
 final class ForgotPasswordViewController: UIViewController,UITextFieldDelegate  {
     var presenter: ForgotPasswordPresenterProtocol?
-
-    private lazy var headerLabel: UILabel = {
-        let label = UILabel()
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Forgot Password"
-        label.textColor = AppColors.primaryColor
-        label.font = AppFonts.semibold.font(size: 21)
-        
-        label.textAlignment = .center
-        return label
-    }()
     
     private lazy var subTitleLabel: UILabel = {
         let label = UILabel()
@@ -52,11 +40,17 @@ final class ForgotPasswordViewController: UIViewController,UITextFieldDelegate  
         return button
     }()
     
+    private func prepareTitleLabel() {
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: "Forgot Password", fontSize: 17, textColor: AppColors.primaryColor)
+        navigationItem.titleView = titleLabel
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         buildLayout()
-
+        prepareTitleLabel()
+        
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }
@@ -79,7 +73,7 @@ extension ForgotPasswordViewController: ViewCoding {
     }
    
     func setupHierarchy() {
-        let myViews = [headerLabel, subTitleLabel, emailTextfield, sendCodeButton]
+        let myViews = [subTitleLabel, emailTextfield, sendCodeButton]
         for i in myViews {
             view.addSubview(i)
         }
@@ -87,21 +81,16 @@ extension ForgotPasswordViewController: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            headerLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            headerLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant:20),
-            
-            subTitleLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 10),
+            subTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             subTitleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant:20),
             subTitleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            
-            
-            emailTextfield.heightAnchor.constraint(equalToConstant: 50),
+
             emailTextfield.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 15),
             emailTextfield.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             emailTextfield.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             
-            sendCodeButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 40),
-            sendCodeButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -40),
+            sendCodeButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            sendCodeButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -20),
             sendCodeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -50),
             
         ])
@@ -109,7 +98,5 @@ extension ForgotPasswordViewController: ViewCoding {
 }
 
 extension ForgotPasswordViewController: ForgotPasswordViewProtocol {
-    func forgotPasswordReset() {
-        
-    }
+    func forgotPasswordReset() { }
 }

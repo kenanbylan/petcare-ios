@@ -43,7 +43,7 @@ final class OnboardingView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(OnboardingCell.self, forCellWithReuseIdentifier: Constants.CollectionViewCell.onboardingCell)
         collectionView.backgroundColor = .clear
-        collectionView.isUserInteractionEnabled = false
+        collectionView.isUserInteractionEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -58,7 +58,7 @@ final class OnboardingView: UIView {
         control.translatesAutoresizingMaskIntoConstraints = false
         control.numberOfPages = 3
         control.currentPage = 0
-        control.isUserInteractionEnabled = false
+        control.isUserInteractionEnabled = true
         control.pageIndicatorTintColor = .gray
         control.currentPageIndicatorTintColor = AppColors.primaryColor
         return control
@@ -203,6 +203,13 @@ private extension OnboardingView {
 
 extension OnboardingView: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scrollPosition = scrollView.contentOffset.x / self.frame.width
+        pageControl.currentPage = Int(scrollPosition)
+    }
+}
+
+extension OnboardingView {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let scrollPosition = scrollView.contentOffset.x / self.frame.width
         pageControl.currentPage = Int(scrollPosition)
     }

@@ -22,7 +22,7 @@ protocol SettingsViewProtocol: AnyObject {
     func prepareSetup()
 }
 
-final class SettingsViewController: UIViewController {
+final class SettingsViewController: BaseViewController {
     var presenter: SettingsPresenterProtocol!
     var models = [Section]()
     

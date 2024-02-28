@@ -23,19 +23,19 @@ class LoginButton: UIButton {
 
     private func setupButton() {
         setTitle("Login", for: .normal)
-        titleLabel?.font = AppFonts.medium.font(size: 19)
+        titleLabel?.font = AppFonts.medium.font(size: 17)
         backgroundColor = AppColors.primaryColor
         tintColor = UIColor.darkText
+        
         layer.cornerRadius = 14
         layer.shadowColor = UIColor.gray.cgColor
         layer.shadowRadius = 1
         layer.shadowOpacity = 0.2
         layer.shadowOffset = CGSize(width: 3, height: 3)
-        
         addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
 
     @objc private func buttonTapped() {
-        print("Login düğmesine tıklandı.")
+        
     }
 }
