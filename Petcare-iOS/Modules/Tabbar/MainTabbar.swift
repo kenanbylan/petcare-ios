@@ -21,10 +21,9 @@ final class MainTabbar: UITabBarController {
     
     private func tabbarInitView() {
         tabBar.tintColor = AppColors.primaryColor
-        tabBar.unselectedItemTintColor = .gray
-        tabBar.barTintColor = .white
+        tabBar.backgroundColor = AppColors.bgColor
+        tabBar.unselectedItemTintColor = .lightGray
         tabBar.isTranslucent = true
-        
     }
     
     func loadHomeTab() {

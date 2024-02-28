@@ -8,7 +8,7 @@
 import Foundation
 
 public final class NetworkConstants {
-    static let https = "https://"
-    static let baseURL = "192.168.01.12/api/v1/"
+    static let https = "http://"
+    static let baseURL = "10.125.17.55:8081/api/v1/"
     static let testURL = "jsonplaceholder.typicode.com/" //-> todos/1
 }

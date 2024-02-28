@@ -30,18 +30,21 @@ final class RegisterInteractor : RegisterInteractorProtocol {
     
     func registerUser(name: String, surname: String, email: String, password: String) {
         do {
-            let requestData: [String: Any] = ["name": name, "surname": surname, "email": email,"password": password]
-            let jsonData = try JSONSerialization.data(withJSONObject: requestData)
-            networkManager.request(type: UserRegister.self , router: .register, method: .post, requestData: jsonData)
+            let userRegister = ["name": name , "surname": surname, "email": email, "password": password]
+            print("Request data: \(userRegister)")
+            let jsonData = try JSONSerialization.data(withJSONObject: userRegister, options: .prettyPrinted)
+
+            networkManager.request(type: UserRegisterResponse.self , router: .users, method: .post, requestData: jsonData)
                 .sink { completion in
                     switch completion {
                     case .finished:
-                        break
+                        print("finished")
                     case .failure(let error):
+                        print("error: :\(error.localizedDescription)")
                         self.output?.registrationFailure(error: error)
                     }
-                } receiveValue: { userData in
-                    print("User data: \(userData)")
+                } receiveValue: { response in
+                    print("User data: \(response)")
                     self.output?.registrationSuccess()
                 }
                 .store(in: &subscriptions)

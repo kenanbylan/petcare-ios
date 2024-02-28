@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,6 +12,9 @@
     <customFonts key="customFonts">
         <array key="Poppins-Bold.ttf">
             <string>Poppins-Bold</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -27,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GCc-m9-9LT">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="764.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="774.33333333333337"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back to Petcare!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03L-rq-D5N">
                                                 <rect key="frame" x="55" y="50" width="283" height="70"/>
@@ -36,7 +39,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gAo-Pu-giN" customClass="CustomTextField" customModule="Petcare" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="170" width="313" height="50"/>
+                                                <rect key="frame" x="20" y="170" width="353" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="yhB-W6-I7w"/>
                                                 </constraints>
@@ -44,7 +47,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUc-Tg-WQu" customClass="CustomTextField" customModule="Petcare" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="244" width="313" height="50"/>
+                                                <rect key="frame" x="20" y="244" width="353" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="9wv-tt-nA5"/>
                                                 </constraints>
@@ -52,7 +55,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x19-UR-Mr7">
-                                                <rect key="frame" x="204.33333333333337" y="306" width="148.66666666666663" height="33.666666666666686"/>
+                                                <rect key="frame" x="224.33333333333337" y="306" width="148.66666666666663" height="33.666666666666686"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Forgot password?">
                                                     <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
@@ -63,16 +66,16 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zq5-DM-jzd">
-                                                <rect key="frame" x="40" y="389.66666666666669" width="313" height="110"/>
+                                                <rect key="frame" x="40" y="371.66666666666669" width="313" height="120"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zV-CU-gfd" customClass="LoginButton" customModule="Petcare" customModuleProvider="target">
-                                                        <rect key="frame" x="81.666666666666686" y="0.0" width="150" height="45"/>
+                                                        <rect key="frame" x="81.666666666666686" y="0.0" width="150" height="50"/>
                                                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="150" id="IZl-3C-rPh"/>
-                                                            <constraint firstAttribute="height" constant="45" id="VkQ-mK-lWl"/>
+                                                            <constraint firstAttribute="height" constant="50" id="VkQ-mK-lWl"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Login">
                                                             <color key="titleColor" name="bgColor"/>
@@ -82,7 +85,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29Y-bi-mLo">
-                                                        <rect key="frame" x="33.666666666666671" y="64.999999999999943" width="245.66666666666663" height="45"/>
+                                                        <rect key="frame" x="33.666666666666671" y="70" width="245.66666666666663" height="50"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Don't have an account? Sign up">
                                                             <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
@@ -94,39 +97,67 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aw2-Nq-7e3" customClass="GoogleLoginButton" customModule="Petcare" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="569.66666666666663" width="313" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="fc3-Eu-R1E"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Sign in with Google"/>
-                                                <connections>
-                                                    <action selector="signInWithGoogleTapped:" destination="kCp-Ci-9Bf" eventType="touchUpInside" id="2l2-f9-fR5"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="kiF-DA-rpt">
+                                                <rect key="frame" x="70" y="541.66666666666663" width="253" height="45"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aw2-Nq-7e3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="136" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="fc3-Eu-R1E"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                        <color key="tintColor" name="primaryColor"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Sign in Google">
+                                                            <color key="titleColor" systemColor="labelColor"/>
+                                                        </state>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Sign in Google">
+                                                            <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="signInWithGoogleTapped:" destination="kCp-Ci-9Bf" eventType="touchUpInside" id="2l2-f9-fR5"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haL-Xa-Eke">
+                                                        <rect key="frame" x="152" y="0.0" width="101" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="xyY-v6-f7L"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                                        <color key="tintColor" name="primaryColor"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Sign in Apple">
+                                                            <color key="titleColor" name="primaryColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="signInWithGoogleTapped:" destination="kCp-Ci-9Bf" eventType="touchUpInside" id="DBK-WA-XqR"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="03L-rq-D5N" firstAttribute="leading" secondItem="GCc-m9-9LT" secondAttribute="leading" constant="55" id="0d5-sQ-sAt"/>
-                                            <constraint firstAttribute="bottom" secondItem="Aw2-Nq-7e3" secondAttribute="bottom" constant="149.66999999999999" id="3gN-76-uXS"/>
-                                            <constraint firstAttribute="trailing" secondItem="x19-UR-Mr7" secondAttribute="trailing" constant="40" id="4Bb-Wd-aiK"/>
-                                            <constraint firstItem="Zq5-DM-jzd" firstAttribute="top" secondItem="x19-UR-Mr7" secondAttribute="bottom" constant="50" id="6UC-S9-AQZ"/>
-                                            <constraint firstItem="Aw2-Nq-7e3" firstAttribute="leading" secondItem="GCc-m9-9LT" secondAttribute="leading" constant="40" id="GTI-4W-xEz"/>
+                                            <constraint firstAttribute="trailing" secondItem="x19-UR-Mr7" secondAttribute="trailing" constant="20" id="4Bb-Wd-aiK"/>
+                                            <constraint firstItem="Zq5-DM-jzd" firstAttribute="top" secondItem="x19-UR-Mr7" secondAttribute="bottom" constant="32" id="6UC-S9-AQZ"/>
+                                            <constraint firstItem="kiF-DA-rpt" firstAttribute="centerX" secondItem="GCc-m9-9LT" secondAttribute="centerX" id="LqA-aJ-yie"/>
+                                            <constraint firstAttribute="height" constant="774.33333333333337" id="O3c-X0-yGG"/>
                                             <constraint firstAttribute="trailing" secondItem="03L-rq-D5N" secondAttribute="trailing" constant="55" id="ODm-Cn-P6m"/>
+                                            <constraint firstItem="kiF-DA-rpt" firstAttribute="leading" secondItem="GCc-m9-9LT" secondAttribute="leading" constant="70" id="P8z-UH-bI2"/>
                                             <constraint firstItem="Zq5-DM-jzd" firstAttribute="leading" secondItem="GCc-m9-9LT" secondAttribute="leading" constant="40" id="PtO-3r-4rp"/>
                                             <constraint firstAttribute="trailing" secondItem="Zq5-DM-jzd" secondAttribute="trailing" constant="40" id="RBY-PB-A3J"/>
-                                            <constraint firstAttribute="trailing" secondItem="Aw2-Nq-7e3" secondAttribute="trailing" constant="40" id="RYl-Ia-4Wt"/>
-                                            <constraint firstItem="gAo-Pu-giN" firstAttribute="leading" secondItem="GCc-m9-9LT" secondAttribute="leading" constant="40" id="THB-iq-M48"/>
-                                            <constraint firstItem="Aw2-Nq-7e3" firstAttribute="top" secondItem="Zq5-DM-jzd" secondAttribute="bottom" constant="70" id="ZL1-Qe-8aH"/>
+                                            <constraint firstItem="gAo-Pu-giN" firstAttribute="leading" secondItem="GCc-m9-9LT" secondAttribute="leading" constant="20" id="THB-iq-M48"/>
                                             <constraint firstItem="gAo-Pu-giN" firstAttribute="top" secondItem="03L-rq-D5N" secondAttribute="bottom" constant="50" id="ase-0h-5Bf"/>
                                             <constraint firstItem="x19-UR-Mr7" firstAttribute="top" secondItem="fUc-Tg-WQu" secondAttribute="bottom" constant="12" id="cfD-lm-Jkd"/>
-                                            <constraint firstAttribute="trailing" secondItem="gAo-Pu-giN" secondAttribute="trailing" constant="40" id="eYd-lB-reS"/>
+                                            <constraint firstItem="kiF-DA-rpt" firstAttribute="top" secondItem="Zq5-DM-jzd" secondAttribute="bottom" constant="50" id="dHN-Kh-OaA"/>
+                                            <constraint firstAttribute="trailing" secondItem="gAo-Pu-giN" secondAttribute="trailing" constant="20" id="eYd-lB-reS"/>
                                             <constraint firstItem="03L-rq-D5N" firstAttribute="top" secondItem="GCc-m9-9LT" secondAttribute="top" constant="50" id="j7d-Jc-CZc"/>
-                                            <constraint firstItem="fUc-Tg-WQu" firstAttribute="leading" secondItem="GCc-m9-9LT" secondAttribute="leading" constant="40" id="kAb-6k-bch"/>
+                                            <constraint firstItem="fUc-Tg-WQu" firstAttribute="leading" secondItem="GCc-m9-9LT" secondAttribute="leading" constant="20" id="kAb-6k-bch"/>
                                             <constraint firstItem="fUc-Tg-WQu" firstAttribute="top" secondItem="gAo-Pu-giN" secondAttribute="bottom" constant="24" id="oHK-Sx-1Se"/>
-                                            <constraint firstAttribute="trailing" secondItem="fUc-Tg-WQu" secondAttribute="trailing" constant="40" id="qBs-SR-1WT"/>
+                                            <constraint firstAttribute="trailing" secondItem="fUc-Tg-WQu" secondAttribute="trailing" constant="20" id="qBs-SR-1WT"/>
+                                            <constraint firstAttribute="trailing" secondItem="kiF-DA-rpt" secondAttribute="trailing" constant="70" id="vog-3J-WAg"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -177,6 +208,9 @@
         <namedColor name="primaryColor">
             <color red="1" green="0.51372549019607838" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -24,7 +24,6 @@ class CustomLabel: UILabel {
     private func commonInit() {
         adjustsFontSizeToFitWidth = true
         translatesAutoresizingMaskIntoConstraints = false
-        textAlignment = .center
         numberOfLines = 0
     }
 }

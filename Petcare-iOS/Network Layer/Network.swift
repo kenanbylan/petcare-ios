@@ -15,11 +15,10 @@ final class NetworkManager {
         method: RequestMethod,
         parameters: [String: Any]? = nil,
         headers: [String: String]? = nil,
-        userID: String? = nil,
         requestData: Data? = nil // Yeni eklenen parametre
     ) -> AnyPublisher<T, Error> where T: Decodable {
         
-        var request = buildRequest(router: router, method: method, parameters: parameters, headers: headers, userID: userID)
+        var request = buildRequest(router: router, method: method, parameters: parameters, headers: headers)
         request.httpMethod = method.rawValue
         
         // Eğer requestData varsa, HTTP Body'e ekle
@@ -43,8 +42,7 @@ final class NetworkManager {
         router: URLRouter,
         method: RequestMethod,
         parameters: [String: Any]? = nil,
-        headers: [String: String]? = nil,
-        userID: String?
+        headers: [String: String]? = nil
     ) -> URLRequest {
         
         guard let baseURL = URL(string: NetworkConstants.https + NetworkConstants.baseURL) else {
@@ -66,12 +64,7 @@ final class NetworkManager {
         if let token = tokenManager.token, tokenManager.isTokenValid() {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
-        
-        // Append userID if available
-        if let userID = userID {
-            request.setValue(userID, forHTTPHeaderField: "UserID")
-        }
-        
+ 
         // Add other parameters if needed
         return request
     }

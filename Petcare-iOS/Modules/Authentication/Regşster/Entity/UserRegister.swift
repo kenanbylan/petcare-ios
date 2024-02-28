@@ -7,10 +7,18 @@
 
 import Foundation
 
-struct UserRegister: Codable {
-    var firstName: String
-    var lastname: String?
-    var email: String
-    var password: String
+struct UserRegisterRequest: Codable {
+    var name: String?
+    var surname: String?
+    var email: String?
+    var password: String?
+    
+    enum CodingKeys: CodingKey {
+        case name
+        case surname
+        case email
+        case password
+    }
+    
 }
 
