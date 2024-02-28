@@ -13,7 +13,7 @@ protocol VetMapViewProtocol: AnyObject {
     
 }
 
-final class VetMapViewController: UIViewController {
+final class VetMapViewController: BaseViewController {
     var presenter: VetMapPresenterProtocol?
     var locationManager: CLLocationManager?
     
@@ -25,7 +25,6 @@ final class VetMapViewController: UIViewController {
         map.showsUserLocation = true
         return map
     }()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,18 +34,16 @@ final class VetMapViewController: UIViewController {
         checkLocationServices()
         mapView.delegate = self
         
-        title = "Veteriner Klinikleri"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: presenter!.setTitle(), fontSize: 17, textColor: AppColors.primaryColor)
+        navigationItem.titleView = titleLabel
+        
     }
     
     private func setupViews() {
         view.addSubview(mapView)
-        
         mapView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
-
+            
             mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -123,7 +120,7 @@ final class VetMapViewController: UIViewController {
             }
         }
     }
-
+    
     
 }
 
@@ -141,10 +138,10 @@ extension VetMapViewController: CLLocationManagerDelegate {
 extension VetMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let annotation = view.annotation else { return }
-        
         let coordinate = annotation.coordinate
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-
+        let selectedPlace = MKMapItem(placemark: MKPlacemark(coordinate: coordinate))
+        
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(location) { [weak self] (placemarks, error) in
             guard let self = self else { return }
@@ -155,14 +152,12 @@ extension VetMapViewController: MKMapViewDelegate {
             }
             
             guard let placemark = placemarks?.first else {
-                // Handle empty response
                 print("No placemarks found")
                 return
             }
             
             let address = placemark.name ?? ""
             print("Reverse geocoded address: \(address)")
-            
             self.showClinicDetailsBottomSheet(with: address)
         }
     }
@@ -195,8 +190,8 @@ extension VetMapViewController: MKMapViewDelegate {
     }
     
     private func showClinicDetailsBottomSheet(with address: String) {
-        let bottomSheetVC = ClinicDetailsViewController(address: address)
-        bottomSheetVC.modalPresentationStyle = .formSheet
+        let bottomSheetVC = MapBottomSheetViewController()
+        bottomSheetVC.modalPresentationStyle = .overCurrentContext
         present(bottomSheetVC, animated: true, completion: nil)
     }
 }
