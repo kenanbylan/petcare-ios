@@ -80,17 +80,9 @@ class UpcomingVeterinary: UIView {
         backgroundColor = AppColors.customBlue
         
         layer.cornerRadius = 12
-        layer.shadowColor = AppColors.customDarkGray.cgColor
-        layer.shadowOpacity = 0.4
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        layer.shadowRadius = 4
-        
-        veterinaryAvatar.layer.borderColor = AppColors.borderColor?.cgColor
+
+        veterinaryAvatar.addShadow(shadowColor: AppColors.bgColor.cgColor)
         veterinaryAvatar.layer.cornerRadius = 12
-        veterinaryAvatar.layer.shadowColor = AppColors.customWhite.cgColor
-        veterinaryAvatar.layer.shadowOpacity = 0.4
-        veterinaryAvatar.layer.shadowOffset = CGSize(width: 0, height: 2)
-        veterinaryAvatar.layer.shadowRadius = 4
         veterinaryAvatar.backgroundColor = AppColors.customBlue
     }
 }
@@ -99,7 +91,7 @@ extension UpcomingVeterinary: ViewCoding {
     func setupView() {
         self.addSubview(outSideStackView)
         veterinaryAvatar.backgroundColor = AppColors.customBlue
-        dateStackView.backgroundColor = AppColors.customWhite.withAlphaComponent(0.6)
+        dateStackView.backgroundColor = AppColors.bgColor.withAlphaComponent(0.6)
     }
     
     func setupHierarchy() {
@@ -107,7 +99,6 @@ extension UpcomingVeterinary: ViewCoding {
         dateStackView.addArrangedSubview(veterinaryTimeLabel)
         
         informationStackView.addArrangedSubview(veterinaryName)
-//        informationStackView.addArrangedSubview(UIView())
         informationStackView.addArrangedSubview(dateStackView)
         
         outSideStackView.addArrangedSubview(veterinaryAvatar)

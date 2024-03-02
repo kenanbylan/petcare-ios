@@ -53,6 +53,7 @@
 		93364FCF2B8F3D2600C430DB /* NewPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FCE2B8F3D2600C430DB /* NewPasswordRouter.swift */; };
 		93364FD12B8F3D2C00C430DB /* NewPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD02B8F3D2C00C430DB /* NewPasswordInteractor.swift */; };
 		93364FD32B8F3D3600C430DB /* NewPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD22B8F3D3600C430DB /* NewPasswordPresenter.swift */; };
+		93364FD52B8F5ED300C430DB /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD42B8F5ED300C430DB /* UIView + Extension.swift */; };
 		933780122ADA7DA800103273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780112ADA7DA800103273 /* AppDelegate.swift */; };
 		933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780132ADA7DA800103273 /* SceneDelegate.swift */; };
 		933780192ADA7DA800103273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933780172ADA7DA800103273 /* Main.storyboard */; };
@@ -146,7 +147,6 @@
 		93CE90852AF7D5AF0025FBB0 /* VetMapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90842AF7D5AF0025FBB0 /* VetMapRouter.swift */; };
 		93CE90872AF7D5C40025FBB0 /* VetMapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90862AF7D5C40025FBB0 /* VetMapInteractor.swift */; };
 		93CE90892AF7D5CC0025FBB0 /* VetMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90882AF7D5CC0025FBB0 /* VetMapPresenter.swift */; };
-		93CE908B2AF7D5E00025FBB0 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93CE908A2AF7D5E00025FBB0 /* Settings.storyboard */; };
 		93CE908D2AF7D5E60025FBB0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE908C2AF7D5E60025FBB0 /* SettingsViewController.swift */; };
 		93CE908F2AF7D5F50025FBB0 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE908E2AF7D5F50025FBB0 /* SettingsInteractor.swift */; };
 		93CE90912AF7D5FA0025FBB0 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90902AF7D5FA0025FBB0 /* SettingsPresenter.swift */; };
@@ -242,6 +242,7 @@
 		93364FCE2B8F3D2600C430DB /* NewPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordRouter.swift; sourceTree = "<group>"; };
 		93364FD02B8F3D2C00C430DB /* NewPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordInteractor.swift; sourceTree = "<group>"; };
 		93364FD22B8F3D3600C430DB /* NewPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordPresenter.swift; sourceTree = "<group>"; };
+		93364FD42B8F5ED300C430DB /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		9337800E2ADA7DA800103273 /* Petcare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petcare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		933780112ADA7DA800103273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		933780132ADA7DA800103273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -338,7 +339,6 @@
 		93CE90842AF7D5AF0025FBB0 /* VetMapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetMapRouter.swift; sourceTree = "<group>"; };
 		93CE90862AF7D5C40025FBB0 /* VetMapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetMapInteractor.swift; sourceTree = "<group>"; };
 		93CE90882AF7D5CC0025FBB0 /* VetMapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetMapPresenter.swift; sourceTree = "<group>"; };
-		93CE908A2AF7D5E00025FBB0 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		93CE908C2AF7D5E60025FBB0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		93CE908E2AF7D5F50025FBB0 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		93CE90902AF7D5FA0025FBB0 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
@@ -703,6 +703,7 @@
 				933A22242B4729AF00854DB0 /* UITextField + Extension.swift */,
 				933A22262B473C2700854DB0 /* UINavigationItem + Extension.swift */,
 				932D25742B825D4800B99FA3 /* NSObject + Extension .swift */,
+				93364FD42B8F5ED300C430DB /* UIView + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -821,7 +822,6 @@
 				93CE908E2AF7D5F50025FBB0 /* SettingsInteractor.swift */,
 				93CE90902AF7D5FA0025FBB0 /* SettingsPresenter.swift */,
 				93CE908C2AF7D5E60025FBB0 /* SettingsViewController.swift */,
-				93CE908A2AF7D5E00025FBB0 /* Settings.storyboard */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1305,7 +1305,6 @@
 				93048F162B0AA08B000BD03A /* Localizable.strings in Resources */,
 				9347020C2B0FF0540033C7CE /* Onboarding.storyboard in Resources */,
 				930CB6C02AF18F4F00E632A7 /* Splash.storyboard in Resources */,
-				93CE908B2AF7D5E00025FBB0 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1348,6 +1347,7 @@
 				93C46DFA2B040C540055BA0F /* CustomTextField.swift in Sources */,
 				933A22152B45E83D00854DB0 /* UILabel + Extension.swift in Sources */,
 				933780492ADA81A100103273 /* OnboardingPresenter.swift in Sources */,
+				93364FD52B8F5ED300C430DB /* UIView + Extension.swift in Sources */,
 				932D257D2B827E1B00B99FA3 /* SlideCell.swift in Sources */,
 				93822B3F2AF9888600989255 /* RegisterPresenter.swift in Sources */,
 				93DD5ABB2B4035AB00BDE0A9 /* UIStackView + Extension.swift in Sources */,

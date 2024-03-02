@@ -62,7 +62,7 @@ class CustomTextFieldBase: UITextField, UITextFieldDelegate {
         heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         layer.borderColor = AppColors.borderColor?.cgColor
-        layer.borderWidth = 1.0
+        layer.borderWidth = 1.5
         layer.cornerRadius = 12
         layer.shadowColor = AppColors.customDarkGray.cgColor
         layer.shadowOpacity = 0.4
@@ -109,12 +109,12 @@ class CustomTextFieldBase: UITextField, UITextFieldDelegate {
 extension CustomTextFieldBase {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        layer.borderWidth = 1.0
+        layer.borderWidth = 1.5
         layer.borderColor = AppColors.primaryColor.cgColor
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        layer.borderWidth = 1.0
+        layer.borderWidth = 1.5
         layer.borderColor = AppColors.borderColor?.cgColor
     }
 }

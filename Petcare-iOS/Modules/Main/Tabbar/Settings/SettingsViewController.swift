@@ -45,7 +45,6 @@ extension SettingsViewController: SettingsViewProtocol {
     }
     
     func prepareSetup() {
-        view.backgroundColor = AppColors.customRed
         let titleLabel = TitleLabel.configurationTitleLabel(withText: presenter.setTitle() , fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
     }
@@ -54,7 +53,7 @@ extension SettingsViewController: SettingsViewProtocol {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .secondarySystemBackground
+        tableView.backgroundColor = AppColors.bgColor
         tableView.frame = view.bounds
         tableView.layer.cornerRadius = 10
         tableView.layer.masksToBounds = true

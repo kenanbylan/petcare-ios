@@ -76,14 +76,11 @@ final class PetInfoViewController: UIViewController {
         return textfield
     }()
     
-    
     let genderSegmentedControl: UISegmentedControl = {
         let items = ["Male", "Female"]
         let segmentedControl = UISegmentedControl(items: items)
         segmentedControl.selectedSegmentIndex = 0 // Default to Male
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        segmentedControl.tintColor = AppColors.primaryColor
-        segmentedControl.backgroundColor = AppColors.bgColor2
         return segmentedControl
     }()
     
@@ -105,6 +102,8 @@ final class PetInfoViewController: UIViewController {
     
     private lazy var patiButton: PatiButton = {
         let patiButton = PatiButton()
+        patiButton.title = "İlerle"
+        patiButton.image = UIImage(named: "coffee")?.resized(to: CGSize(width: 20, height: 20))
         patiButton.delegate = self
         return patiButton
     }()
@@ -152,9 +151,8 @@ extension PetInfoViewController: ViewCoding {
         self.view.addSubview(scrollView)
         self.scrollView.addSubview(contentView)
         self.contentView.addSubview(allStackView)
-        self.contentView.addSubview(patiButton)
         
-        let views: [UIView] = [genderSegmentedControl,petsNameLabel,petsNameTextfield,dateBirthLabel,dateBirthTextfield,hStackView]
+        let views: [UIView] = [genderSegmentedControl,petsNameLabel,petsNameTextfield,dateBirthLabel,dateBirthTextfield,hStackView, patiButton]
         for i in views { allStackView.addArrangedSubview(i) }
         
         hStackView.addArrangedSubview(weightTextField)
@@ -178,11 +176,9 @@ extension PetInfoViewController: ViewCoding {
             contentView.heightAnchor.constraint(greaterThanOrEqualTo: self.scrollView.heightAnchor),
             
             allStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 20),
-            allStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20),
-            allStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20),
-            
-            patiButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -200),
-            patiButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            allStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 12),
+            allStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -12),
+
         ])
     }
 }

@@ -27,6 +27,7 @@ class LoginButton: UIButton {
         backgroundColor = AppColors.primaryColor
         tintColor = UIColor.darkText
         
+        layer.cornerRadius = 20
         layer.cornerRadius = 14
         layer.shadowColor = UIColor.gray.cgColor
         layer.shadowRadius = 1

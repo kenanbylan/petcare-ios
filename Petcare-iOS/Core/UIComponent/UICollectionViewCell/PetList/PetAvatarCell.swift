@@ -42,8 +42,8 @@ final class PetAvatarCell: UICollectionViewCell {
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.alignment = .fill
         stackView.distribution  = .fill
+        stackView.alignment = .center
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -61,17 +61,25 @@ final class PetAvatarCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 20
         imageView.clipsToBounds = true
         
-        layer.shadowColor = AppColors.labelColor.cgColor
-        layer.shadowOpacity = 0.2
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        layer.shadowRadius = 4
+//        layer.shadowColor = AppColors.labelColor.cgColor
+//        layer.shadowOpacity = 0.2
+//        layer.shadowOffset = CGSize(width: 0, height: 2)
+//        layer.shadowRadius = 4
         layer.cornerRadius = 20
+        
+        
+        addShadow(shadowColor: AppColors.labelColor.cgColor)
         
         backgroundColor = AppColors.bgColor2
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        addShadow(shadowColor: AppColors.labelColor.cgColor)
+
     }
 }
 

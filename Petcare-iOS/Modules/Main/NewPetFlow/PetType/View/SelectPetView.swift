@@ -47,13 +47,8 @@ final class SelectPetView: UIView {
 
     private func setupView() {
         backgroundColor = AppColors.bgColor
-        
-        layer.cornerRadius = 12
-        layer.shadowColor = AppColors.customDarkGray.cgColor
-        layer.shadowOpacity = 0.4
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        layer.shadowRadius = 4
-        
+        layer.cornerRadius = 20
+        addShadow(shadowColor: AppColors.bgColor2!.cgColor)
         addSubview(label)
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: topAnchor),
@@ -89,7 +84,7 @@ final class SelectPetView: UIView {
             label.textColor = AppColors.customWhite
         } else {
             backgroundColor = AppColors.bgColor
-            label.textColor = .black
+            label.textColor = AppColors.labelColor
         }
     }
     
