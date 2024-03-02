@@ -24,8 +24,8 @@ class CalendarViewController: BaseViewController {
         
         sliderView = SlideView(pages: 3, delegate: self)
         sliderData.append(.init(image: UIImage(named: "dog"), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"))
-        sliderData.append(.init(image: UIImage(named: "dog"), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"))
-        sliderData.append(.init(image: UIImage(named: "dog"), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"))
+        sliderData.append(.init(image: UIImage(named: "pati"), text: "elit"))
+        sliderData.append(.init(image: UIImage(named: "cat"), text: "consectetur adipiscing elit"))
 
         prepareUI()
         

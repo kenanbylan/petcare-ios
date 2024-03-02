@@ -36,7 +36,11 @@ final class VetMapViewController: BaseViewController {
         
         let titleLabel = TitleLabel.configurationTitleLabel(withText: presenter!.setTitle(), fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        mapView.delegate = self
+        checkLocationServices()
     }
     
     private func setupViews() {
@@ -191,7 +195,7 @@ extension VetMapViewController: MKMapViewDelegate {
     
     private func showClinicDetailsBottomSheet(with address: String) {
         let bottomSheetVC = MapBottomSheetViewController()
-        bottomSheetVC.modalPresentationStyle = .overCurrentContext
+        bottomSheetVC.modalPresentationStyle = .pageSheet
         present(bottomSheetVC, animated: true, completion: nil)
     }
 }

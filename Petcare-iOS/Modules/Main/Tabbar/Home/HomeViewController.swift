@@ -31,7 +31,7 @@ final class HomeViewController: BaseViewController {
     }()
     
     private lazy var upComingVeterinary: CustomLabel = {
-        let upcoming = CustomLabel(text: "Upcoming Veterinary", fontSize: 14, fontType: .medium, textColor: .black)
+        let upcoming = CustomLabel(text: "Upcoming Veterinary", fontSize: 14, fontType: .medium, textColor: AppColors.labelColor)
         return upcoming
     }()
     
@@ -58,6 +58,7 @@ final class HomeViewController: BaseViewController {
     private lazy var upComingVeterinaryView: UpcomingVeterinary = {
         let view = UpcomingVeterinary()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.addShadow(shadowColor: AppColors.bgColor.cgColor)
         return  view
     }()
     

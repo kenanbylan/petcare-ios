@@ -14,6 +14,7 @@ protocol SlideViewProtocol {
 }
 
 final class SlideView: UIView {
+    private var timer: Timer?
     
     struct SlideData {
         let image: UIImage?
@@ -25,8 +26,8 @@ final class SlideView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .lightGray
-        collectionView.isUserInteractionEnabled = false
+        collectionView.backgroundColor = .clear
+        collectionView.isUserInteractionEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(SlideCell.self, forCellWithReuseIdentifier: Constants.CollectionViewCell.slideCell)
@@ -60,10 +61,30 @@ final class SlideView: UIView {
         self.delegate = delegate
         super.init(frame: .zero)
         setupUI()
+        startTimer()
     }
+    
+    deinit {
+         timer?.invalidate()
+     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func startTimer() {
+          timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(autoSlide), userInfo: nil, repeats: true)
+      }
+    
+    @objc private func autoSlide() {
+        let nextPage = (currentPage + 1) % pages
+        scrollToPage(nextPage)
+    }
+
+    private func scrollToPage(_ page: Int) {
+        let indexPath = IndexPath(item: page, section: 0)
+        carouselCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        currentPage = page
     }
 }
 
@@ -130,7 +151,7 @@ extension SlideView {
         let cellPadding = (frame.width - 300) / 2
         let carouselLayout = UICollectionViewFlowLayout()
         carouselLayout.scrollDirection = .horizontal
-        carouselLayout.itemSize = .init(width: 300, height: 400)
+        carouselLayout.itemSize = .init(width: (frame.width * 90) / 100  , height: (frame.width * 45) / 100)
         carouselLayout.sectionInset = .init(top: 0, left: cellPadding, bottom: 0, right: cellPadding)
         carouselLayout.minimumLineSpacing = cellPadding * 2
         carouselCollection.collectionViewLayout = carouselLayout
@@ -140,17 +161,14 @@ extension SlideView {
     }
     
     private func setupConstraints() {
-        
         NSLayoutConstraint.activate([
-            carouselCollection.topAnchor.constraint(equalTo: topAnchor),
-            carouselCollection.leadingAnchor.constraint(equalTo: leadingAnchor),
-            carouselCollection.trailingAnchor.constraint(equalTo: trailingAnchor),
-            carouselCollection.heightAnchor.constraint(equalToConstant: 450),
-            
-            pageControl.topAnchor.constraint(equalTo: carouselCollection.bottomAnchor, constant: 16),
+            carouselCollection.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            carouselCollection.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
+            carouselCollection.heightAnchor.constraint(equalToConstant: 40.wPercent),
+            pageControl.topAnchor.constraint(equalTo: carouselCollection.bottomAnchor, constant: 12),
             pageControl.centerXAnchor.constraint(equalTo: centerXAnchor),
-            pageControl.widthAnchor.constraint(equalToConstant: 150),
-            pageControl.heightAnchor.constraint(equalToConstant: 50),
+            pageControl.widthAnchor.constraint(equalToConstant: 120),
+            pageControl.heightAnchor.constraint(equalToConstant: 20),
         ])
     }
 }
