@@ -38,35 +38,35 @@ final class RegisterViewController: BaseViewController {
         return stack
     }()
     
-    private lazy var nameTextfield: CustomTextField = {
-        let textfield = CustomTextField()
+    private lazy var nameTextfield: MyTextField = {
+        let textfield = MyTextField()
         textfield.placeholder = "REGISTER_NAME_PLACEHOLDER".localized()
         
         return textfield
     }()
     
     
-    private lazy var lastTextfield: CustomTextField = {
-        let textfield = CustomTextField()
+    private lazy var lastTextfield: MyTextField = {
+        let textfield = MyTextField()
         textfield.placeholder = "REGISTER_LASTNAME_PLACEHOLDER".localized()
         return textfield
     }()
     
-    private lazy var emailTextfield: CustomTextField = {
-        let textfield = CustomTextField()
+    private lazy var emailTextfield: MyTextField = {
+        let textfield = MyTextField()
         textfield.placeholder = "REGISTER_EMAIL_PLACEHOLDER".localized()
         return textfield
     }()
     
-    private lazy var passwordTextfield: CustomTextField = {
-        let textfield = CustomTextField()
+    private lazy var passwordTextfield: MyTextField = {
+        let textfield = MyTextField()
         textfield.isSecureTextEntryToggle = true
         textfield.placeholder = "REGISTER_PASSWORD_PLACEHOLDER".localized()
         return textfield
     }()
     
-    private lazy var confirmPasswordTextfield: CustomTextField = {
-        let textfield = CustomTextField()
+    private lazy var confirmPasswordTextfield: MyTextField = {
+        let textfield = MyTextField()
         textfield.placeholder = "REGISTER_CONFIRM_PLACEHOLDER".localized()
         return textfield
     }()

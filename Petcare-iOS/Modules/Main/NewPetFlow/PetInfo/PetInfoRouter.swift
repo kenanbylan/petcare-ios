@@ -33,7 +33,7 @@ final class PetInfoRouter {
 
 extension PetInfoRouter: PetInfoRouterProtocol {
     func navigatePetFlowResult() {
-            
+        
     }
     
     func navigateSelectPetImage() {
