@@ -30,7 +30,6 @@ final class PetTypeViewController: UIViewController {
         return CustomStackViewBuilder()
             .withCornerRadius(12)
             .withAxis(.horizontal)
-            .withShadow(color: AppColors.customDarkGray.cgColor, opacity: 0.4, offset: CGSize(width: 0, height: 4), radius: 4)
             .withLayoutMargins(top: 0, left: 12, bottom: 0, right: 12)
             .withBackgroundColor(AppColors.customBlue ?? .black)
             .build()
@@ -103,6 +102,7 @@ extension PetTypeViewController: ViewCoding {
         scrollView.backgroundColor = AppColors.bgColor
         contentView.backgroundColor = AppColors.bgColor
         topStackView.backgroundColor = AppColors.customBlue
+        topStackView.addShadow(shadowColor: AppColors.bgColor.cgColor)
     }
     
     func setupHierarchy() {
@@ -121,6 +121,7 @@ extension PetTypeViewController: ViewCoding {
         contentView.addSubview(stackView)
         setupPetTypes()
         
+        print("width: ", view.frame.width)
         contentView.addSubview(patiButton)
     }
     
@@ -137,17 +138,17 @@ extension PetTypeViewController: ViewCoding {
             contentView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor),
             
-            topStackView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 24),
-            topStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 24),
-            topStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -24),
-            topStackView.heightAnchor.constraint(equalToConstant: UIScreen.screenWidth / 9),
+            topStackView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 5.wPercent),
+            topStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 5.wPercent),
+            topStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -5.wPercent),
+            topStackView.heightAnchor.constraint(equalToConstant: 12.wPercent),
             
             
-            stackView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 48),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            stackView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 10.wPercent),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5.wPercent),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5.wPercent),
             
-            patiButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 60),
+            patiButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 15.wPercent),
             patiButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
     }
