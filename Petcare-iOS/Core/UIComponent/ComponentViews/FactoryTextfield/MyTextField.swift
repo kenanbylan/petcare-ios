@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 ///MARK: - Custom Textfields
-class CustomTextField: CustomTextFieldBase {
+class MyTextField: CustomTextFieldBase {
     
     func validate() -> Bool {
         let text = self.text ?? ""

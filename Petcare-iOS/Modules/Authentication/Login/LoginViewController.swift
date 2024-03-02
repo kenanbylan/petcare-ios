@@ -10,8 +10,8 @@ class LoginViewController: BaseViewController {
     //MARK: UI Property
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var header: UILabel!
-    @IBOutlet weak var passwordTextfield: CustomTextField!
-    @IBOutlet weak var emailTextfield: CustomTextField!
+    @IBOutlet weak var passwordTextfield: MyTextField!
+    @IBOutlet weak var emailTextfield: MyTextField!
     @IBOutlet weak var forgotPassword: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!

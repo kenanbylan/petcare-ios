@@ -27,8 +27,8 @@ final class ForgotPasswordViewController: UIViewController,UITextFieldDelegate  
         return label
     }()
     
-    private lazy var emailTextfield: CustomTextField = {
-        let textfield = CustomTextField()
+    private lazy var emailTextfield: MyTextField = {
+        let textfield = MyTextField()
         textfield.placeholder = "Email"
         return textfield
     }()

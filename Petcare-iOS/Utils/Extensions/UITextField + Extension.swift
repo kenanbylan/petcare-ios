@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Combine
 
 extension UITextField {
     func setInputViewDatePicker(target: Any, selector: Selector) {
@@ -43,5 +43,13 @@ extension UITextField {
     @objc func tapCancel() {
         self.resignFirstResponder()
     }
+    
+    
+    //MARK: -for textfield
+    func textPublisher() -> AnyPublisher<String, Never> {
+        NotificationCenter.default
+            .publisher(for: UITextField.textDidChangeNotification, object: self)
+            .compactMap { ($0.object as? UITextField)?.text }
+            .eraseToAnyPublisher()
+    }
 }
-
