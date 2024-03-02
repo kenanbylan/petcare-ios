@@ -12,7 +12,8 @@ extension CustomTextField {
         case name
         case email
         case password
-        
+        case numberFloat
+        case numberInt
         func defaultPlaceholder() -> String {
             return "Enter your \(self.rawValue)..."
         }

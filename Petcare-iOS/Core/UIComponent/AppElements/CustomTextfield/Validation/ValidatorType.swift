@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+enum ValidatorType: String {
+    case email
+    case password
+    case name
+    case numbers
+}
