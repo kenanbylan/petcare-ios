@@ -54,6 +54,21 @@
 		93364FD12B8F3D2C00C430DB /* NewPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD02B8F3D2C00C430DB /* NewPasswordInteractor.swift */; };
 		93364FD32B8F3D3600C430DB /* NewPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD22B8F3D3600C430DB /* NewPasswordPresenter.swift */; };
 		93364FD52B8F5ED300C430DB /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD42B8F5ED300C430DB /* UIView + Extension.swift */; };
+		93364FD72B93369000C430DB /* ScrollableContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD62B93369000C430DB /* ScrollableContentViewController.swift */; };
+		93364FDA2B9350EE00C430DB /* Publisher + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD92B9350EE00C430DB /* Publisher + Extension.swift */; };
+		93364FDD2B93517700C430DB /* ValidationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FDC2B93517700C430DB /* ValidationState.swift */; };
+		93364FDF2B9351B300C430DB /* ValidatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FDE2B9351B300C430DB /* ValidatorType.swift */; };
+		93364FE12B9351F100C430DB /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FE02B9351F100C430DB /* Validatable.swift */; };
+		93364FE32B936F8400C430DB /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FE22B936F8400C430DB /* UIViewController + Extension.swift */; };
+		93364FE52B93707700C430DB /* ValidatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FE42B93707700C430DB /* ValidatorFactory.swift */; };
+		93364FE72B9370A700C430DB /* CustomValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FE62B9370A700C430DB /* CustomValidation.swift */; };
+		93364FE92B9370DA00C430DB /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FE82B9370DA00C430DB /* Validator.swift */; };
+		93364FEB2B9371A100C430DB /* CustomTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FEA2B9371A100C430DB /* CustomTextfield.swift */; };
+		93364FED2B9371D000C430DB /* CustomTextfieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FEC2B9371D000C430DB /* CustomTextfieldType.swift */; };
+		93364FEF2B93720000C430DB /* CustomTextfieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FEE2B93720000C430DB /* CustomTextfieldViewModel.swift */; };
+		93364FF12B93722800C430DB /* CustomTextfieldFocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FF02B93722800C430DB /* CustomTextfieldFocusState.swift */; };
+		93364FF32B9374D200C430DB /* PetInfoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FF22B9374D200C430DB /* PetInfoEnum.swift */; };
+		93364FF52B93846600C430DB /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FF42B93846600C430DB /* BaseTextField.swift */; };
 		933780122ADA7DA800103273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780112ADA7DA800103273 /* AppDelegate.swift */; };
 		933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780132ADA7DA800103273 /* SceneDelegate.swift */; };
 		933780192ADA7DA800103273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933780172ADA7DA800103273 /* Main.storyboard */; };
@@ -97,9 +112,6 @@
 		9367243E2B8E156400897112 /* UserRegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367243D2B8E156400897112 /* UserRegisterResponse.swift */; };
 		93732DF22B16598900DE636E /* CustomSecurityPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93732DF12B16598900DE636E /* CustomSecurityPassword.swift */; };
 		93732DF92B16701E00DE636E /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93732DF82B16701E00DE636E /* UserRegister.swift */; };
-		9381022E2B5C2AC600BF21AD /* PetInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381022D2B5C2AC600BF21AD /* PetInfoView.swift */; };
-		938102342B5C38D300BF21AD /* ScrollViewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938102332B5C38D300BF21AD /* ScrollViewConstraints.swift */; };
-		938102362B5C3A8E00BF21AD /* ConstraintsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938102352B5C3A8E00BF21AD /* ConstraintsBuilder.swift */; };
 		938102392B5C6F2900BF21AD /* PetResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938102382B5C6F2900BF21AD /* PetResultViewController.swift */; };
 		9381023B2B5D5F2600BF21AD /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381023A2B5D5F2600BF21AD /* SettingTableViewCell.swift */; };
 		938102402B5D636D00BF21AD /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381023F2B5D636D00BF21AD /* SettingsModel.swift */; };
@@ -122,13 +134,13 @@
 		93B004D82B8B31DD00302B3D /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B004D72B8B31DD00302B3D /* ErrorHandler.swift */; };
 		93B004DB2B8B353300302B3D /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B004DA2B8B353300302B3D /* TokenManager.swift */; };
 		93B004DD2B8B95B900302B3D /* ClinicDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B004DC2B8B95B900302B3D /* ClinicDetailsViewController.swift */; };
-		93C46DFA2B040C540055BA0F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46DF92B040C540055BA0F /* CustomTextField.swift */; };
+		93C46DFA2B040C540055BA0F /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46DF92B040C540055BA0F /* MyTextField.swift */; };
 		93C46E0A2B04C7AF0055BA0F /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E092B04C7AF0055BA0F /* LoginButton.swift */; };
 		93C46E0C2B04CB620055BA0F /* GoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E0B2B04CB620055BA0F /* GoogleButton.swift */; };
 		93C46E0E2B04EB310055BA0F /* UINavigationController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E0D2B04EB310055BA0F /* UINavigationController + Extension.swift */; };
 		93C46E132B0509DD0055BA0F /* Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C46E122B0509DD0055BA0F /* Combine.framework */; };
 		93C46E162B0542B30055BA0F /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E152B0542B30055BA0F /* CustomLabel.swift */; };
-		93C46E182B0548B00055BA0F /* PatiButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E172B0548B00055BA0F /* PatiButton.swift */; };
+		93C46E182B0548B00055BA0F /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E172B0548B00055BA0F /* AppButton.swift */; };
 		93CE90672AF7BA2E0025FBB0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93CE90662AF7BA2E0025FBB0 /* Home.storyboard */; };
 		93CE90692AF7BA380025FBB0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90682AF7BA380025FBB0 /* HomeViewController.swift */; };
 		93CE906B2AF7BA420025FBB0 /* HomeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE906A2AF7BA420025FBB0 /* HomeEntity.swift */; };
@@ -161,7 +173,6 @@
 		93DD5ACE2B4198CC00BDE0A9 /* PetTypeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5ACD2B4198CC00BDE0A9 /* PetTypeInteractor.swift */; };
 		93DD5AD02B41993B00BDE0A9 /* PetTypePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5ACF2B41993B00BDE0A9 /* PetTypePresenter.swift */; };
 		93DD5AD32B4316E100BDE0A9 /* SelectPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5AD22B4316E100BDE0A9 /* SelectPetView.swift */; };
-		93DD5AD52B43182100BDE0A9 /* Notification + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5AD42B43182100BDE0A9 /* Notification + Extension.swift */; };
 		93E1FDAD2B77A76D00BD72E1 /* PersonInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1FDAC2B77A76D00BD72E1 /* PersonInformationViewController.swift */; };
 		93E1FDAF2B77A77F00BD72E1 /* PersonInformationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1FDAE2B77A77F00BD72E1 /* PersonInformationRouter.swift */; };
 		93E1FDB12B77A78800BD72E1 /* PersonInformationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1FDB02B77A78800BD72E1 /* PersonInformationInteractor.swift */; };
@@ -243,6 +254,21 @@
 		93364FD02B8F3D2C00C430DB /* NewPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordInteractor.swift; sourceTree = "<group>"; };
 		93364FD22B8F3D3600C430DB /* NewPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordPresenter.swift; sourceTree = "<group>"; };
 		93364FD42B8F5ED300C430DB /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		93364FD62B93369000C430DB /* ScrollableContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableContentViewController.swift; sourceTree = "<group>"; };
+		93364FD92B9350EE00C430DB /* Publisher + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher + Extension.swift"; sourceTree = "<group>"; };
+		93364FDC2B93517700C430DB /* ValidationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationState.swift; sourceTree = "<group>"; };
+		93364FDE2B9351B300C430DB /* ValidatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorType.swift; sourceTree = "<group>"; };
+		93364FE02B9351F100C430DB /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
+		93364FE22B936F8400C430DB /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		93364FE42B93707700C430DB /* ValidatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorFactory.swift; sourceTree = "<group>"; };
+		93364FE62B9370A700C430DB /* CustomValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomValidation.swift; sourceTree = "<group>"; };
+		93364FE82B9370DA00C430DB /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		93364FEA2B9371A100C430DB /* CustomTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfield.swift; sourceTree = "<group>"; };
+		93364FEC2B9371D000C430DB /* CustomTextfieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldType.swift; sourceTree = "<group>"; };
+		93364FEE2B93720000C430DB /* CustomTextfieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldViewModel.swift; sourceTree = "<group>"; };
+		93364FF02B93722800C430DB /* CustomTextfieldFocusState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldFocusState.swift; sourceTree = "<group>"; };
+		93364FF22B9374D200C430DB /* PetInfoEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfoEnum.swift; sourceTree = "<group>"; };
+		93364FF42B93846600C430DB /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
 		9337800E2ADA7DA800103273 /* Petcare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petcare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		933780112ADA7DA800103273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		933780132ADA7DA800103273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -289,9 +315,6 @@
 		9367243D2B8E156400897112 /* UserRegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterResponse.swift; sourceTree = "<group>"; };
 		93732DF12B16598900DE636E /* CustomSecurityPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecurityPassword.swift; sourceTree = "<group>"; };
 		93732DF82B16701E00DE636E /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
-		9381022D2B5C2AC600BF21AD /* PetInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfoView.swift; sourceTree = "<group>"; };
-		938102332B5C38D300BF21AD /* ScrollViewConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewConstraints.swift; sourceTree = "<group>"; };
-		938102352B5C3A8E00BF21AD /* ConstraintsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsBuilder.swift; sourceTree = "<group>"; };
 		938102382B5C6F2900BF21AD /* PetResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetResultViewController.swift; sourceTree = "<group>"; };
 		9381023A2B5D5F2600BF21AD /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		9381023F2B5D636D00BF21AD /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
@@ -314,13 +337,13 @@
 		93B004D72B8B31DD00302B3D /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		93B004DA2B8B353300302B3D /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		93B004DC2B8B95B900302B3D /* ClinicDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicDetailsViewController.swift; sourceTree = "<group>"; };
-		93C46DF92B040C540055BA0F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		93C46DF92B040C540055BA0F /* MyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextField.swift; sourceTree = "<group>"; };
 		93C46E092B04C7AF0055BA0F /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		93C46E0B2B04CB620055BA0F /* GoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleButton.swift; sourceTree = "<group>"; };
 		93C46E0D2B04EB310055BA0F /* UINavigationController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController + Extension.swift"; sourceTree = "<group>"; };
 		93C46E122B0509DD0055BA0F /* Combine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Combine.framework; path = System/Library/Frameworks/Combine.framework; sourceTree = SDKROOT; };
 		93C46E152B0542B30055BA0F /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
-		93C46E172B0548B00055BA0F /* PatiButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatiButton.swift; sourceTree = "<group>"; };
+		93C46E172B0548B00055BA0F /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 		93CE90662AF7BA2E0025FBB0 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		93CE90682AF7BA380025FBB0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		93CE906A2AF7BA420025FBB0 /* HomeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEntity.swift; sourceTree = "<group>"; };
@@ -353,7 +376,6 @@
 		93DD5ACD2B4198CC00BDE0A9 /* PetTypeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTypeInteractor.swift; sourceTree = "<group>"; };
 		93DD5ACF2B41993B00BDE0A9 /* PetTypePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTypePresenter.swift; sourceTree = "<group>"; };
 		93DD5AD22B4316E100BDE0A9 /* SelectPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPetView.swift; sourceTree = "<group>"; };
-		93DD5AD42B43182100BDE0A9 /* Notification + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification + Extension.swift"; sourceTree = "<group>"; };
 		93E1FDAC2B77A76D00BD72E1 /* PersonInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInformationViewController.swift; sourceTree = "<group>"; };
 		93E1FDAE2B77A77F00BD72E1 /* PersonInformationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInformationRouter.swift; sourceTree = "<group>"; };
 		93E1FDB02B77A78800BD72E1 /* PersonInformationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInformationInteractor.swift; sourceTree = "<group>"; };
@@ -537,6 +559,7 @@
 		932D255E2B7FF89200B99FA3 /* AppElements */ = {
 			isa = PBXGroup;
 			children = (
+				93364FD82B93505F00C430DB /* CustomTextfield */,
 				932D256A2B80090700B99FA3 /* AlertView */,
 				93DD5ABC2B403AD500BDE0A9 /* ShadowView */,
 				93C46E142B05429B0055BA0F /* CustomLabel */,
@@ -559,6 +582,7 @@
 			isa = PBXGroup;
 			children = (
 				930EEED02B782B4F0008D051 /* BaseViewController.swift */,
+				93364FD62B93369000C430DB /* ScrollableContentViewController.swift */,
 			);
 			path = BaseViewController;
 			sourceTree = "<group>";
@@ -620,6 +644,32 @@
 				932D257F2B82851B00B99FA3 /* SlideView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		93364FD82B93505F00C430DB /* CustomTextfield */ = {
+			isa = PBXGroup;
+			children = (
+				93364FDB2B93516A00C430DB /* Validation */,
+				93364FEA2B9371A100C430DB /* CustomTextfield.swift */,
+				93364FEC2B9371D000C430DB /* CustomTextfieldType.swift */,
+				93364FEE2B93720000C430DB /* CustomTextfieldViewModel.swift */,
+				93364FF02B93722800C430DB /* CustomTextfieldFocusState.swift */,
+				93364FF42B93846600C430DB /* BaseTextField.swift */,
+			);
+			path = CustomTextfield;
+			sourceTree = "<group>";
+		};
+		93364FDB2B93516A00C430DB /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				93364FDC2B93517700C430DB /* ValidationState.swift */,
+				93364FDE2B9351B300C430DB /* ValidatorType.swift */,
+				93364FE02B9351F100C430DB /* Validatable.swift */,
+				93364FE42B93707700C430DB /* ValidatorFactory.swift */,
+				93364FE62B9370A700C430DB /* CustomValidation.swift */,
+				93364FE82B9370DA00C430DB /* Validator.swift */,
+			);
+			path = Validation;
 			sourceTree = "<group>";
 		};
 		933780052ADA7DA800103273 = {
@@ -698,12 +748,13 @@
 				934702062B0E84C40033C7CE /* UIColor + Extension.swift */,
 				9309ADF52B3CA127001BC2B0 /* UIImage + Extension.swift */,
 				93DD5ABA2B4035AB00BDE0A9 /* UIStackView + Extension.swift */,
-				93DD5AD42B43182100BDE0A9 /* Notification + Extension.swift */,
 				933A22142B45E83D00854DB0 /* UILabel + Extension.swift */,
 				933A22242B4729AF00854DB0 /* UITextField + Extension.swift */,
 				933A22262B473C2700854DB0 /* UINavigationItem + Extension.swift */,
 				932D25742B825D4800B99FA3 /* NSObject + Extension .swift */,
 				93364FD42B8F5ED300C430DB /* UIView + Extension.swift */,
+				93364FD92B9350EE00C430DB /* Publisher + Extension.swift */,
+				93364FE22B936F8400C430DB /* UIViewController + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -883,7 +934,7 @@
 				933A220E2B45D85500854DB0 /* PetInfoInteractor.swift */,
 				933A22102B45D85B00854DB0 /* PetInfoPresenter.swift */,
 				933A22122B45D86500854DB0 /* PetInfoViewController.swift */,
-				9381022D2B5C2AC600BF21AD /* PetInfoView.swift */,
+				93364FF22B9374D200C430DB /* PetInfoEnum.swift */,
 			);
 			path = PetInfo;
 			sourceTree = "<group>";
@@ -919,7 +970,7 @@
 		9347020D2B0FF6DE0033C7CE /* FactoryTextfield */ = {
 			isa = PBXGroup;
 			children = (
-				93C46DF92B040C540055BA0F /* CustomTextField.swift */,
+				93C46DF92B040C540055BA0F /* MyTextField.swift */,
 				934702102B0FF8910033C7CE /* CustomTextfieldBase.swift */,
 				93732DF12B16598900DE636E /* CustomSecurityPassword.swift */,
 			);
@@ -929,7 +980,6 @@
 		9348B4542AE061EA00F7185A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				938102322B5C389A00BF21AD /* ConstraintsBuilder */,
 				9348B4552AE061F500F7185A /* Fonts */,
 				9337802A2ADA7E2C00103273 /* Extensions */,
 				9337802B2ADA7E3600103273 /* Constants */,
@@ -957,15 +1007,6 @@
 				9367243D2B8E156400897112 /* UserRegisterResponse.swift */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		938102322B5C389A00BF21AD /* ConstraintsBuilder */ = {
-			isa = PBXGroup;
-			children = (
-				938102332B5C38D300BF21AD /* ScrollViewConstraints.swift */,
-				938102352B5C3A8E00BF21AD /* ConstraintsBuilder.swift */,
-			);
-			path = ConstraintsBuilder;
 			sourceTree = "<group>";
 		};
 		938102372B5C6F1000BF21AD /* PetResultView */ = {
@@ -1038,7 +1079,7 @@
 			children = (
 				933A22212B45F6DD00854DB0 /* SeeAllButton */,
 				93822B4C2AFAC2EA00989255 /* UICustomButton.swift */,
-				93C46E172B0548B00055BA0F /* PatiButton.swift */,
+				93C46E172B0548B00055BA0F /* AppButton.swift */,
 				93C46E092B04C7AF0055BA0F /* LoginButton.swift */,
 				93C46E0B2B04CB620055BA0F /* GoogleButton.swift */,
 				934702042B0E78680033C7CE /* LoadingUICustomButton.swift */,
@@ -1325,6 +1366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93E1FDB32B77A78E00BD72E1 /* PersonInformationPresenter.swift in Sources */,
+				93364FE12B9351F100C430DB /* Validatable.swift in Sources */,
 				930EEECB2B7828E60008D051 /* AppearancePresenter.swift in Sources */,
 				93F0CE432B0CE62E00D5BAD7 /* CustomStackView.swift in Sources */,
 				933780472ADA816F00103273 /* OnboardingViewController.swift in Sources */,
@@ -1332,6 +1374,7 @@
 				93822B3D2AF9887C00989255 /* RegisterInteractor.swift in Sources */,
 				93DD5ACE2B4198CC00BDE0A9 /* PetTypeInteractor.swift in Sources */,
 				93048F092B0A8F8F000BD03A /* Int + Extension.swift in Sources */,
+				93364FED2B9371D000C430DB /* CustomTextfieldType.swift in Sources */,
 				933780412ADA814400103273 /* OnboardingModel.swift in Sources */,
 				932D25552B7BFFC000B99FA3 /* PetDetailInteractor.swift in Sources */,
 				938102392B5C6F2900BF21AD /* PetResultViewController.swift in Sources */,
@@ -1343,8 +1386,9 @@
 				93CE90832AF7D5980025FBB0 /* VetMapViewController.swift in Sources */,
 				933780552ADA824500103273 /* LoginPresenter.swift in Sources */,
 				93DD5AC42B4065FC00BDE0A9 /* PetAvatarCellHeader.swift in Sources */,
+				93364FE92B9370DA00C430DB /* Validator.swift in Sources */,
 				934702052B0E78680033C7CE /* LoadingUICustomButton.swift in Sources */,
-				93C46DFA2B040C540055BA0F /* CustomTextField.swift in Sources */,
+				93C46DFA2B040C540055BA0F /* MyTextField.swift in Sources */,
 				933A22152B45E83D00854DB0 /* UILabel + Extension.swift in Sources */,
 				933780492ADA81A100103273 /* OnboardingPresenter.swift in Sources */,
 				93364FD52B8F5ED300C430DB /* UIView + Extension.swift in Sources */,
@@ -1369,9 +1413,10 @@
 				93CE90872AF7D5C40025FBB0 /* VetMapInteractor.swift in Sources */,
 				931144E92AFC1B0900F6365E /* ViewCoding.swift in Sources */,
 				93CE90952AF7E1C60025FBB0 /* Tabbar.swift in Sources */,
-				93DD5AD52B43182100BDE0A9 /* Notification + Extension.swift in Sources */,
 				9309ADF62B3CA127001BC2B0 /* UIImage + Extension.swift in Sources */,
+				93364FE72B9370A700C430DB /* CustomValidation.swift in Sources */,
 				93E1FDB52B77A7A700BD72E1 /* ManageNotificationViewController.swift in Sources */,
+				93364FF12B93722800C430DB /* CustomTextfieldFocusState.swift in Sources */,
 				93CE90732AF7BA910025FBB0 /* MainTabbar.swift in Sources */,
 				93E1FDBB2B77A7C800BD72E1 /* ManageNotificationPresenter.swift in Sources */,
 				933A22202B45F16C00854DB0 /* PetImageViewController.swift in Sources */,
@@ -1384,15 +1429,20 @@
 				93E1FDB92B77A7B900BD72E1 /* ManageNotificationInteractor.swift in Sources */,
 				93C46E0E2B04EB310055BA0F /* UINavigationController + Extension.swift in Sources */,
 				93B004CE2B8A689400302B3D /* NetworkConstants.swift in Sources */,
+				93364FEB2B9371A100C430DB /* CustomTextfield.swift in Sources */,
 				9309ADF42B3B6E4F001BC2B0 /* SeeAllButton.swift in Sources */,
 				933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */,
 				932D25572B7BFFC600B99FA3 /* PetDetailPresenter.swift in Sources */,
+				93364FDF2B9351B300C430DB /* ValidatorType.swift in Sources */,
 				933A22272B473C2700854DB0 /* UINavigationItem + Extension.swift in Sources */,
 				9348B45E2AE0631E00F7185A /* AppFonts.swift in Sources */,
+				93364FE32B936F8400C430DB /* UIViewController + Extension.swift in Sources */,
 				933A22232B45F6F100854DB0 /* SeeAllButtonBuilder.swift in Sources */,
 				931144E62AFC179500F6365E /* OnboardingCell.swift in Sources */,
+				93364FEF2B93720000C430DB /* CustomTextfieldViewModel.swift in Sources */,
 				93CE90712AF7BA5C0025FBB0 /* HomeRouter.swift in Sources */,
 				933780572ADA824D00103273 /* LoginInteractor.swift in Sources */,
+				93364FDA2B9350EE00C430DB /* Publisher + Extension.swift in Sources */,
 				93B004D32B8A715100302B3D /* Decoders.swift in Sources */,
 				93E1FDC72B77A80500BD72E1 /* PrivacyPolicyInteractor.swift in Sources */,
 				933A22112B45D85B00854DB0 /* PetInfoPresenter.swift in Sources */,
@@ -1405,7 +1455,6 @@
 				933A220F2B45D85500854DB0 /* PetInfoInteractor.swift in Sources */,
 				93CE907F2AF7D5580025FBB0 /* CalendarModel.swift in Sources */,
 				93CE90692AF7BA380025FBB0 /* HomeViewController.swift in Sources */,
-				938102342B5C38D300BF21AD /* ScrollViewConstraints.swift in Sources */,
 				93DD5AC12B4044C000BDE0A9 /* UpcomingVeterinary.swift in Sources */,
 				93CE908D2AF7D5E60025FBB0 /* SettingsViewController.swift in Sources */,
 				93DD5AC82B418E7D00BDE0A9 /* PetTypeViewController.swift in Sources */,
@@ -1417,12 +1466,14 @@
 				93E1FDC32B77A7EC00BD72E1 /* DonateRouter.swift in Sources */,
 				933A221A2B45F15400854DB0 /* PetImageRouter.swift in Sources */,
 				93CE906B2AF7BA420025FBB0 /* HomeEntity.swift in Sources */,
+				93364FD72B93369000C430DB /* ScrollableContentViewController.swift in Sources */,
 				93048EDF2B095096000BD03A /* SmsOtpViewController.swift in Sources */,
 				93822B472AFA85C800989255 /* ForgotPasswordPresenter.swift in Sources */,
 				93E1FDBF2B77A7E000BD72E1 /* DonatePresenter.swift in Sources */,
 				933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */,
 				938102402B5D636D00BF21AD /* SettingsModel.swift in Sources */,
 				9309ADF22B389E39001BC2B0 /* PetAvatarModel.swift in Sources */,
+				93364FDD2B93517700C430DB /* ValidationState.swift in Sources */,
 				93B004DD2B8B95B900302B3D /* ClinicDetailsViewController.swift in Sources */,
 				93E1FDC92B77A80A00BD72E1 /* PrivacyPolicyRouter.swift in Sources */,
 				93CE90792AF7D5370025FBB0 /* CalendarRouter.swift in Sources */,
@@ -1443,7 +1494,7 @@
 				933A220D2B45D84300854DB0 /* PetInfoRouter.swift in Sources */,
 				93364FCD2B8F3D1B00C430DB /* SmsOtpPresenter.swift in Sources */,
 				93B004D52B8A719100302B3D /* Network.swift in Sources */,
-				93C46E182B0548B00055BA0F /* PatiButton.swift in Sources */,
+				93C46E182B0548B00055BA0F /* AppButton.swift in Sources */,
 				93CE90852AF7D5AF0025FBB0 /* VetMapRouter.swift in Sources */,
 				93DD5AD02B41993B00BDE0A9 /* PetTypePresenter.swift in Sources */,
 				933780592ADA825200103273 /* LoginRouter.swift in Sources */,
@@ -1458,7 +1509,7 @@
 				9367243E2B8E156400897112 /* UserRegisterResponse.swift in Sources */,
 				93364FCB2B8F3D1600C430DB /* SmsOtpInteractor.swift in Sources */,
 				93732DF92B16701E00DE636E /* UserRegister.swift in Sources */,
-				9381022E2B5C2AC600BF21AD /* PetInfoView.swift in Sources */,
+				93364FF32B9374D200C430DB /* PetInfoEnum.swift in Sources */,
 				933A22252B4729AF00854DB0 /* UITextField + Extension.swift in Sources */,
 				933A22132B45D86500854DB0 /* PetInfoViewController.swift in Sources */,
 				93E1FDC52B77A7FB00BD72E1 /* PrivacyPolicyViewController.swift in Sources */,
@@ -1466,10 +1517,11 @@
 				93E1FDBD2B77A7DA00BD72E1 /* DonateViewController.swift in Sources */,
 				93B004CC2B8A278500302B3D /* URLRouter.swift in Sources */,
 				93048F1C2B0AA4DD000BD03A /* String + Extension.swift in Sources */,
+				93364FE52B93707700C430DB /* ValidatorFactory.swift in Sources */,
 				930EEECF2B7829560008D051 /* AppearanceRouter.swift in Sources */,
 				932D255B2B7CC78F00B99FA3 /* MapDetailView.swift in Sources */,
-				938102362B5C3A8E00BF21AD /* ConstraintsBuilder.swift in Sources */,
 				93822B4B2AFA85E500989255 /* ForgotPasswordRouter.swift in Sources */,
+				93364FF52B93846600C430DB /* BaseTextField.swift in Sources */,
 				93CE90892AF7D5CC0025FBB0 /* VetMapPresenter.swift in Sources */,
 				932D25592B7BFFCD00B99FA3 /* PetDetailRouter.swift in Sources */,
 				93CE908F2AF7D5F50025FBB0 /* SettingsInteractor.swift in Sources */,
