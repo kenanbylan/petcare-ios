@@ -14,6 +14,7 @@ final class SlideCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 24
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -28,6 +29,7 @@ final class SlideCell: UICollectionViewCell {
         super.init(frame: frame)
         prepareUI()
         setupConstraints()
+        imageView.backgroundColor = .systemRed
     }
     
     required init?(coder: NSCoder) {
@@ -40,7 +42,6 @@ final class SlideCell: UICollectionViewCell {
     }
     
     private func prepareUI() {
-        backgroundColor = .systemGreen
         addSubview(imageView)
         addSubview(sliderTitle)
     }
@@ -50,7 +51,6 @@ final class SlideCell: UICollectionViewCell {
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.widthAnchor.constraint(equalTo: widthAnchor),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 300),
             
             sliderTitle.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
             sliderTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
