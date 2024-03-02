@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -33,21 +32,21 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="774.33333333333337"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back to Petcare!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03L-rq-D5N">
-                                                <rect key="frame" x="55" y="50" width="283" height="70"/>
+                                                <rect key="frame" x="55" y="50" width="283" height="58.333333333333343"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="25"/>
                                                 <color key="textColor" name="primaryColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gAo-Pu-giN" customClass="CustomTextField" customModule="Petcare" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="170" width="353" height="50"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gAo-Pu-giN" customClass="MyTextField" customModule="Petcare" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="158.33333333333334" width="353" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="yhB-W6-I7w"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUc-Tg-WQu" customClass="CustomTextField" customModule="Petcare" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="244" width="353" height="50"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUc-Tg-WQu" customClass="MyTextField" customModule="Petcare" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="232.33333333333331" width="353" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="9wv-tt-nA5"/>
                                                 </constraints>
@@ -55,7 +54,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x19-UR-Mr7">
-                                                <rect key="frame" x="224.33333333333337" y="306" width="148.66666666666663" height="33.666666666666686"/>
+                                                <rect key="frame" x="235" y="294.33333333333331" width="138" height="30.333333333333314"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Forgot password?">
                                                     <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
@@ -66,7 +65,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Zq5-DM-jzd">
-                                                <rect key="frame" x="40" y="371.66666666666669" width="313" height="120"/>
+                                                <rect key="frame" x="40" y="356.66666666666669" width="313" height="120"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zV-CU-gfd" customClass="LoginButton" customModule="Petcare" customModuleProvider="target">
                                                         <rect key="frame" x="81.666666666666686" y="0.0" width="150" height="50"/>
@@ -85,7 +84,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29Y-bi-mLo">
-                                                        <rect key="frame" x="33.666666666666671" y="70" width="245.66666666666663" height="50"/>
+                                                        <rect key="frame" x="44" y="70" width="225" height="50"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Don't have an account? Sign up">
                                                             <fontDescription key="titleFontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
@@ -98,10 +97,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="kiF-DA-rpt">
-                                                <rect key="frame" x="70" y="541.66666666666663" width="253" height="45"/>
+                                                <rect key="frame" x="70" y="526.66666666666663" width="253" height="45"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aw2-Nq-7e3">
-                                                        <rect key="frame" x="0.0" y="0.0" width="136" height="45"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="136.66666666666666" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="fc3-Eu-R1E"/>
                                                         </constraints>
@@ -120,7 +119,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haL-Xa-Eke">
-                                                        <rect key="frame" x="152" y="0.0" width="101" height="45"/>
+                                                        <rect key="frame" x="152.66666666666666" y="0.0" width="100.33333333333334" height="45"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="xyY-v6-f7L"/>
                                                         </constraints>

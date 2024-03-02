@@ -33,10 +33,12 @@ final class PetImageViewController: UIViewController {
         return imageView
     }()
     
-    private lazy var patiButton: PatiButton = {
-        let patiButton = PatiButton()
-        patiButton.delegate = self
-        return patiButton
+    private lazy var appButton: AppButton = {
+        let appbutton = AppButton.build()
+            .setImage(UIImage(named: "pati")?.resized(to: CGSize(width: 24, height: 24)))
+            .setDelegate(self)
+            .setTitle("Continiu")
+        return appbutton
     }()
     
     
@@ -55,7 +57,7 @@ final class PetImageViewController: UIViewController {
     }
 }
 
-extension PetImageViewController: PetImageViewProtocol, PatiButtonDelegate {
+extension PetImageViewController: PetImageViewProtocol, AppButtonDelegate {
     
     func dismissScreen() { }
     
@@ -72,7 +74,7 @@ extension PetImageViewController: PetImageViewProtocol, PatiButtonDelegate {
         prepareTapGesture()
     }
     
-    func patiButtonClicked(_ sender: PatiButton) {
+    func patiButtonClicked(_ sender: AppButton) {
         print(" Select Image clicked SaveButton")
         presenter?.navigateMainPage()
     }
@@ -154,7 +156,7 @@ extension PetImageViewController: ViewCoding {
     func setupHierarchy() {
         self.view.addSubview(petsNameLabel)
         self.view.addSubview(petImages)
-        self.view.addSubview(patiButton)
+        self.view.addSubview(appButton)
     }
     
     func setupConstraints() {
@@ -171,8 +173,8 @@ extension PetImageViewController: ViewCoding {
             petImages.heightAnchor.constraint(equalToConstant: 100),
             petImages.widthAnchor.constraint(equalTo: petImages.heightAnchor, multiplier: 3.0 / 4.0),
             
-            patiButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
-            patiButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+            appButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+            appButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
         ])
     }
 }

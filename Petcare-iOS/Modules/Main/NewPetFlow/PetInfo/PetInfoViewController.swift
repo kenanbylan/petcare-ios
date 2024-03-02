@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol PetInfoViewProtocol: AnyObject {
     func prepareUI()
 }
 
-final class PetInfoViewController: UIViewController {
+final class PetInfoViewController: BaseViewController {
     var presenter: PetInfoPresenterProtocol?
 
     //MARK: UI Properties
@@ -47,30 +48,15 @@ final class PetInfoViewController: UIViewController {
         stack.spacing = 20
         return stack
     }()
-    
-    //MARK: Pet name properties
-    private lazy var petsNameLabel: CustomLabel = {
-        let label = CustomLabel(text: "Pets name", fontSize: 14, fontType: .medium, textColor: AppColors.labelColor)
-        label.textAlignment = .left
-        return label
-    }()
-    
+
     private lazy var petsNameTextfield: CustomTextField = {
-        let textfield = CustomTextField()
-        textfield.placeholder = "Entry Name :)"
+        let textfield = CustomTextField(viewModel: .init(type: .name, placeholder: "Pet name"))
         textfield.tintColor = AppColors.primaryColor
         return textfield
     }()
     
-    //MARK: Birth of date properties
-    private lazy var dateBirthLabel: CustomLabel = {
-        let label = CustomLabel(text: "Pets Date of birth", fontSize: 14, fontType: .medium, textColor: AppColors.labelColor)
-        label.textAlignment = .left
-        return label
-    }()
-    
-    private lazy var dateBirthTextfield: CustomTextField = {
-        let textfield = CustomTextField()
+    private lazy var dateBirthTextfield: MyTextField = {
+        let textfield = MyTextField()
         textfield.placeholder = "4 Jan 2020"
         textfield.tintColor = AppColors.primaryColor
         return textfield
@@ -85,35 +71,35 @@ final class PetInfoViewController: UIViewController {
     }()
     
     private lazy var weightTextField: CustomTextField = {
-        let textfield = CustomTextField()
-        textfield.placeholder = "Weight (kg)"
+        let textfield = CustomTextField(viewModel: .init(type: .numberInt, placeholder: "Weight (kg)"))
         textfield.tintColor = AppColors.primaryColor
-        textfield.keyboardType = .numberPad
         return textfield
     }()
     
     private lazy var heightTextField: CustomTextField = {
-        let textfield = CustomTextField()
-        textfield.placeholder = "Height (cm)"
+        let textfield = CustomTextField(viewModel: .init(type: .numberInt, placeholder: "Weight (kg)"))
         textfield.tintColor = AppColors.primaryColor
-        textfield.keyboardType = .numberPad
         return textfield
     }()
     
-    private lazy var patiButton: PatiButton = {
-        let patiButton = PatiButton()
-        patiButton.title = "İlerle"
-        patiButton.image = UIImage(named: "coffee")?.resized(to: CGSize(width: 20, height: 20))
-        patiButton.delegate = self
-        return patiButton
+    //MARK: BUİLDER PATTERN
+    private lazy var appButton: AppButton = {
+        let appbutton = AppButton.build()
+            .setTitle("Continue")
+            .setImage(UIImage(named: "coffee")?.resized(to: CGSize(width: 25, height: 25)))
+            .setFont(UIFont.systemFont(ofSize: 16))
+            .setBackgroundColor(AppColors.customBlue)
+            .setDelegate(self)
+            .setTitleColor(AppColors.customRed)
+        return appbutton
     }()
-
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         buildLayout()
         prepareTitleLabel()
-        
+        dateBirthTextfield.delegate = self
         self.dateBirthTextfield.setInputViewDatePicker(target: self, selector: #selector(tapDone))
     }
     
@@ -127,9 +113,24 @@ final class PetInfoViewController: UIViewController {
         }
         self.dateBirthTextfield.resignFirstResponder()
     }
+    
+    override func keyboardWillShow(with height: CGFloat) {
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: height, right: 0)
+        scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: height, right: 0)
+    }
+    
+    override func keyboardWillHide() {
+        scrollView.contentInset = .zero
+        scrollView.scrollIndicatorInsets = .zero
+    }
 }
 
-extension PetInfoViewController: PetInfoViewProtocol, PatiButtonDelegate {
+extension PetInfoViewController: UITextFieldDelegate {
+    
+    
+}
+
+extension PetInfoViewController: PetInfoViewProtocol, AppButtonDelegate {
     func prepareUI() {
         view.backgroundColor = AppColors.bgColor
     }
@@ -139,46 +140,60 @@ extension PetInfoViewController: PetInfoViewProtocol, PatiButtonDelegate {
         navigationItem.titleView = titleLabel
     }
     
-    func patiButtonClicked(_ sender: PatiButton) {
+    func patiButtonClicked(_ sender: AppButton) {
         presenter?.navigateSelectPetImage()
     }
 }
-
 extension PetInfoViewController: ViewCoding {
-    func setupView() { }
+    func setupView() {}
     
     func setupHierarchy() {
         self.view.addSubview(scrollView)
         self.scrollView.addSubview(contentView)
         self.contentView.addSubview(allStackView)
+        self.contentView.addSubview(appButton)
         
-        let views: [UIView] = [genderSegmentedControl,petsNameLabel,petsNameTextfield,dateBirthLabel,dateBirthTextfield,hStackView, patiButton]
+        let views: [UIView] = [genderSegmentedControl,petsNameTextfield,dateBirthTextfield,hStackView]
         for i in views { allStackView.addArrangedSubview(i) }
-        
+    
         hStackView.addArrangedSubview(weightTextField)
         hStackView.addArrangedSubview(heightTextField)
+        
+        let scrollViewHeight = scrollView.heightAnchor.constraint(equalToConstant: scrollView.contentSize.height)
+        scrollViewHeight.priority = .required - 1
+        scrollViewHeight.isActive = true
     }
     
     func setupConstraints() {
-        scrollView.applyConstraints( builder: { builder in
-            builder.setTargetView(self.view)
-                .addAnchor(.top, .leading, .trailing, .bottom)
-                .addConstant(20)
-                .build()
-        })
-        
         NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor),
-            contentView.heightAnchor.constraint(greaterThanOrEqualTo: self.scrollView.heightAnchor),
+            scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            scrollView.heightAnchor.constraint(equalToConstant: scrollView.contentSize.height),
             
-            allStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 20),
-            allStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 12),
-            allStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -12),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            
+            allStackView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor,constant: 24),
+            allStackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 5.wPercent),
+            allStackView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -5.wPercent),
+            allStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor),
 
+            appButton.topAnchor.constraint(equalTo: self.allStackView.bottomAnchor, constant: 10.wPercent),
+            appButton.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,constant: 5.wPercent),
+            appButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor,constant: -5.wPercent),
         ])
+        
+    }
+}
+
+struct MyTestVC_Previews: PreviewProvider {
+    static var previews: some View {
+        PetInfoViewController().showPreview()
     }
 }

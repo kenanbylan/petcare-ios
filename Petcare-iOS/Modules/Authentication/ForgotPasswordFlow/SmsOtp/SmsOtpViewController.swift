@@ -40,8 +40,8 @@ class SmsOtpViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-    private lazy var verificationTextfield: CustomTextField = {
-        let textfield = CustomTextField()
+    private lazy var verificationTextfield: MyTextField = {
+        let textfield = MyTextField()
         textfield.placeholder = "SMS_OTP_VERIFICATION_TEXTFIELD".localized()
         textfield.delegate = self
         return textfield

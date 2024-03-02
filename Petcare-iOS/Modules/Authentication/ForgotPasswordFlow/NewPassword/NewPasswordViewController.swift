@@ -28,16 +28,16 @@ class NewPasswordViewController: UIViewController, UITextFieldDelegate {
         return label
     }()
     
-    private lazy var newPasswordTextfield: CustomTextField = {
-        let textfield = CustomTextField()
+    private lazy var newPasswordTextfield: MyTextField = {
+        let textfield = MyTextField()
         textfield.placeholder = "NEWPASSWORD_RESET_TEXTFIELD".localized()
         textfield.heightAnchor.constraint(equalToConstant: 50).isActive = true
         textfield.delegate = self
         return textfield
     }()
     
-    private lazy var confirmPasswordTextfield: CustomTextField = {
-        let textfield = CustomTextField()
+    private lazy var confirmPasswordTextfield: MyTextField = {
+        let textfield = MyTextField()
         textfield.placeholder = "NEWPASSWORD_CONFIRM_RESET_TEXTFIELD".localized()
         textfield.heightAnchor.constraint(equalToConstant: 50).isActive = true
         textfield.delegate = self

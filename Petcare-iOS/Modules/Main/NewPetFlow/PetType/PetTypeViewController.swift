@@ -55,12 +55,14 @@ final class PetTypeViewController: UIViewController {
         return stackView
     }()
     
-    private lazy var patiButton: PatiButton = {
-        let patiButton = PatiButton()
-        patiButton.delegate = self
-        return patiButton
+    private lazy var patiButton: AppButton = {
+        let appbutton = AppButton.build()
+            .setDelegate(self)
+            .setTitle("İlerle")
+            .setImage(UIImage(named: "pati")?.resized(to: CGSize(width: 24, height: 24)))
+            .setBackgroundColor(AppColors.primaryColor)
+        return appbutton
     }()
-    
     
     //MARK: Variable's
     private var petTypeViews: [SelectPetView] = []
@@ -155,8 +157,8 @@ extension PetTypeViewController: ViewCoding {
 }
 
 
-extension PetTypeViewController: PetTypeViewProtocol, PetTypeDelegate, PatiButtonDelegate {
-    func patiButtonClicked(_ sender: PatiButton) {
+extension PetTypeViewController: PetTypeViewProtocol, PetTypeDelegate, AppButtonDelegate {
+    func patiButtonClicked(_ sender: AppButton) {
         if selectItem?.isEmpty == true {
             patiButton.isEnabled = false
         } else {
