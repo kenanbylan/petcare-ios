@@ -148,7 +148,6 @@
 		93CE906F2AF7BA550025FBB0 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE906E2AF7BA550025FBB0 /* HomeInteractor.swift */; };
 		93CE90712AF7BA5C0025FBB0 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90702AF7BA5C0025FBB0 /* HomeRouter.swift */; };
 		93CE90732AF7BA910025FBB0 /* MainTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90722AF7BA910025FBB0 /* MainTabbar.swift */; };
-		93CE90752AF7D51C0025FBB0 /* Calendar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93CE90742AF7D51C0025FBB0 /* Calendar.storyboard */; };
 		93CE90772AF7D5260025FBB0 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90762AF7D5260025FBB0 /* CalendarViewController.swift */; };
 		93CE90792AF7D5370025FBB0 /* CalendarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90782AF7D5370025FBB0 /* CalendarRouter.swift */; };
 		93CE907B2AF7D53F0025FBB0 /* CalendarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE907A2AF7D53F0025FBB0 /* CalendarInteractor.swift */; };
@@ -351,7 +350,6 @@
 		93CE906E2AF7BA550025FBB0 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		93CE90702AF7BA5C0025FBB0 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		93CE90722AF7BA910025FBB0 /* MainTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbar.swift; sourceTree = "<group>"; };
-		93CE90742AF7D51C0025FBB0 /* Calendar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		93CE90762AF7D5260025FBB0 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		93CE90782AF7D5370025FBB0 /* CalendarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRouter.swift; sourceTree = "<group>"; };
 		93CE907A2AF7D53F0025FBB0 /* CalendarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarInteractor.swift; sourceTree = "<group>"; };
@@ -886,7 +884,6 @@
 				93CE907A2AF7D53F0025FBB0 /* CalendarInteractor.swift */,
 				93CE907C2AF7D5460025FBB0 /* CalendarPresenter.swift */,
 				93CE90762AF7D5260025FBB0 /* CalendarViewController.swift */,
-				93CE90742AF7D51C0025FBB0 /* Calendar.storyboard */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -1338,7 +1335,6 @@
 				93048F062B0966DB000BD03A /* Poppins-Regular.ttf in Resources */,
 				933780192ADA7DA800103273 /* Main.storyboard in Resources */,
 				93822B432AFA85B500989255 /* ForgotPassword.storyboard in Resources */,
-				93CE90752AF7D51C0025FBB0 /* Calendar.storyboard in Resources */,
 				933780512ADA823300103273 /* Login.storyboard in Resources */,
 				93048F042B0966DB000BD03A /* Poppins-Medium.ttf in Resources */,
 				93048F022B0966DB000BD03A /* Poppins-Bold.ttf in Resources */,
@@ -1749,7 +1745,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1783,7 +1779,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
