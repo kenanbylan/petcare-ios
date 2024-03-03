@@ -5,13 +5,16 @@
 //  Created by Kenan Baylan on 31.12.2023.
 
 import UIKit
+import SwiftUI
+import Combine
 
 protocol PetTypeViewProtocol: AnyObject {
     func prepareUI()
 }
 
-final class PetTypeViewController: UIViewController {
+final class PetTypeViewController: BaseViewController {
     var presenter: PetTypePresenterProtocol?
+    private var cancellables = Set<AnyCancellable>()
     
     //MARK: UI Properties
     private let scrollView: UIScrollView = {
@@ -49,7 +52,7 @@ final class PetTypeViewController: UIViewController {
         return image
     }()
     
-
+    
     private lazy var stackView: CustomStackView = {
         let stackView = CustomStackView(axis: .vertical,alignment: .fill,distribution: .equalSpacing,spacing: 24)
         return stackView
@@ -60,19 +63,20 @@ final class PetTypeViewController: UIViewController {
             .setDelegate(self)
             .setTitle("İlerle")
             .setImage(UIImage(named: "pati")?.resized(to: CGSize(width: 24, height: 24)))
-            .setBackgroundColor(AppColors.primaryColor)
+            .setBackgroundColor(AppColors.customBlue)
         return appbutton
     }()
     
     //MARK: Variable's
-    private var petTypeViews: [SelectPetView] = []
-    private var selectItem: String?
-    
+    var petTypeViews: [SelectPetView] = []
+    @Published private var selectItem: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareTitleLabel()
         buildLayout()
         setNavigationBar()
+        patiButton.isEnabled = false
     }
     
     private func setupPetTypes() {
@@ -97,12 +101,20 @@ final class PetTypeViewController: UIViewController {
         navigationItem.setCustomBackButtonTitle("Back", color: AppColors.primaryColor)
         navigationController?.navigationBar.tintColor = AppColors.primaryColor
     }
+    
+    private func setupBindings() {
+        $selectItem
+            .map { $0 != nil && !$0!.isEmpty } // Select item var mı ve boş değil mi?
+            .assign(to: \.isEnabled, on: patiButton)
+            .store(in: &cancellables)
+    }
 }
 
 extension PetTypeViewController: ViewCoding {
+    
     func setupView() {
         scrollView.backgroundColor = AppColors.bgColor
-        contentView.backgroundColor = AppColors.bgColor
+        contentView.backgroundColor = AppColors.customRed
         topStackView.backgroundColor = AppColors.customBlue
         topStackView.addShadow(shadowColor: AppColors.bgColor.cgColor)
     }
@@ -145,12 +157,13 @@ extension PetTypeViewController: ViewCoding {
             topStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -5.wPercent),
             topStackView.heightAnchor.constraint(equalToConstant: 12.wPercent),
             
-            
             stackView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 10.wPercent),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5.wPercent),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5.wPercent),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10.wPercent),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10.wPercent),
             
             patiButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 15.wPercent),
+            patiButton.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 5.wPercent),
+            patiButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -5.wPercent),
             patiButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
     }
@@ -159,6 +172,7 @@ extension PetTypeViewController: ViewCoding {
 
 extension PetTypeViewController: PetTypeViewProtocol, PetTypeDelegate, AppButtonDelegate {
     func patiButtonClicked(_ sender: AppButton) {
+        print("clicked patiButtonClicked")
         if selectItem?.isEmpty == true {
             patiButton.isEnabled = false
         } else {
@@ -169,10 +183,17 @@ extension PetTypeViewController: PetTypeViewProtocol, PetTypeDelegate, AppButton
     
     func didSelectPetType(_ petType: String) {
         selectItem = petType
+        
         print("Selected Pet Type: \(petType)")
     }
     
-    func prepareUI() {
-        
+    func prepareUI() { }
+    
+}
+
+
+struct PetTypeViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        PetTypeViewController().showPreview()
     }
 }

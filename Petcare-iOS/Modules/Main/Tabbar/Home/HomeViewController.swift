@@ -22,13 +22,6 @@ final class HomeViewController: BaseViewController {
         return label
     }()
     
-    private lazy var seeAllPetsButton: SeeAllButton = {
-        let button = SeeAllButton()
-        button.setTitle("See All", for: .normal)
-        button.setTitleColor(AppColors.primaryColor, for: .normal)
-        button.titleLabel?.font = AppFonts.medium.font(size: 12)
-        return button
-    }()
     
     private lazy var upComingVeterinary: CustomLabel = {
         let upcoming = CustomLabel(text: "Upcoming Veterinary", fontSize: 14, fontType: .medium, textColor: AppColors.labelColor)
@@ -131,8 +124,6 @@ extension HomeViewController: HomeViewProtocol {
         
         sectionStackView.addArrangedSubview(managePetsSectionLabel)
         sectionStackView.addArrangedSubview(UIView())
-        sectionStackView.addArrangedSubview(seeAllPetsButton)
-        
         setupConstraints()
     }
     

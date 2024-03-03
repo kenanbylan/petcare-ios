@@ -11,7 +11,6 @@ protocol PetTypeDelegate: AnyObject {
 }
 
 final class SelectPetView: UIView {
-
     private var petType: String = ""
     weak var delegate: PetTypeDelegate?
     
@@ -33,22 +32,22 @@ final class SelectPetView: UIView {
         label.font = AppFonts.medium.font(size: 14)
         return label
     }()
-
+    
     init() {
         super.init(frame: .zero)
         setupView()
         setupGesture()
         updateAppearance()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func setupView() {
         backgroundColor = AppColors.bgColor
         layer.cornerRadius = 20
-        addShadow(shadowColor: AppColors.bgColor2!.cgColor)
+        addShadow(shadowColor: AppColors.bgColor.cgColor)
         addSubview(label)
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: topAnchor),
@@ -59,25 +58,22 @@ final class SelectPetView: UIView {
             heightAnchor.constraint(equalToConstant: UIScreen.screenWidth / 8.5)
         ])
     }
-
+    
     private func setupGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         addGestureRecognizer(tapGesture)
     }
     
     @objc private func handleTap() {
-        delegate?.didSelectPetType(petType)
-
-        if let superview = superview {
-            for subview in superview.subviews {
-                if let otherPetTypeView = subview as? SelectPetView, otherPetTypeView != self {
-                    otherPetTypeView.setSelection(selected: false)
-                }
-            }
+        guard !isSelected else {
+            // Eğer zaten seçiliyse, seçimi iptal et
+            setSelection(selected: false)
+            return
         }
+        delegate?.didSelectPetType(petType)
         setSelection(selected: true)
     }
-
+    
     private func updateAppearance() {
         if isSelected {
             backgroundColor = AppColors.primaryColor
@@ -91,7 +87,7 @@ final class SelectPetView: UIView {
     func setSelection(selected: Bool) {
         isSelected = selected
         updateAppearance()
-
+        
         UIView.animate(withDuration: 0.3) {
             self.transform = selected ? CGAffineTransform(scaleX: 1.05, y: 1.05) : .identity
         }

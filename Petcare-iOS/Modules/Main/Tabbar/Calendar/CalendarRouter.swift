@@ -22,9 +22,7 @@ final class CalendarRouter: CalendarRouterProtocol {
     }
     
     static func build(navigationController: UINavigationController?) -> CalendarViewController {
-        let storyboard = UIStoryboard(name: Constants.Storyboard.calendar, bundle: nil)
-        let view = storyboard.instantiateViewController(identifier: Constants.Controller.calender) as! CalendarViewController
-
+        let view = CalendarViewController()
         let router = CalendarRouter(navigationController: navigationController)
         let interactor = CalendarInteractor()
         let presenter = CalendarPresenter(view: view, router: router, interactor: interactor)

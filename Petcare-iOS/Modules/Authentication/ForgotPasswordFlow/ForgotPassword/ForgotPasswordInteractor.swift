@@ -12,7 +12,6 @@ protocol ForgotPasswordInteractorProtocol {
 }
 
 protocol ForgotPasswordInteractorOutput {
-    
 }
 
 
@@ -20,8 +19,6 @@ final class ForgotPasswordInteractor: ForgotPasswordInteractorProtocol {
     var output: ForgotPasswordInteractorOutput?
     
     func checkPassword( password: String) {
-        
     }
-    
 }
 
