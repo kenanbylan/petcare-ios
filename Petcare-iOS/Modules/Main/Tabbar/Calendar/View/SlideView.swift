@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SwiftUI
 
 
 protocol SlideViewProtocol {
@@ -30,6 +30,7 @@ final class SlideView: UIView {
         collectionView.isUserInteractionEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.addShadow(shadowColor: AppColors.bgColor.cgColor)
         collectionView.register(SlideCell.self, forCellWithReuseIdentifier: Constants.CollectionViewCell.slideCell)
         return collectionView
     }()
@@ -40,7 +41,7 @@ final class SlideView: UIView {
         control.numberOfPages = 3
         control.currentPage = 0
         control.isUserInteractionEnabled = false
-        control.pageIndicatorTintColor = .gray
+        control.pageIndicatorTintColor = .lightGray
         control.currentPageIndicatorTintColor = AppColors.primaryColor
         return control
     }()
@@ -65,22 +66,22 @@ final class SlideView: UIView {
     }
     
     deinit {
-         timer?.invalidate()
-     }
+        timer?.invalidate()
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     private func startTimer() {
-          timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(autoSlide), userInfo: nil, repeats: true)
-      }
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(autoSlide), userInfo: nil, repeats: true)
+    }
     
     @objc private func autoSlide() {
         let nextPage = (currentPage + 1) % pages
         scrollToPage(nextPage)
     }
-
+    
     private func scrollToPage(_ page: Int) {
         let indexPath = IndexPath(item: page, section: 0)
         carouselCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
@@ -99,11 +100,10 @@ extension SlideView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionViewCell.slideCell, for: indexPath) as? SlideCell else { return UICollectionViewCell() }
-        
         let image = carouselData[indexPath.row].image
         let text = carouselData[indexPath.row].text
         
-        cell.configure(image: image, text: text)
+        cell.configure(text: text,image: image!)
         return cell
     }
 }
@@ -136,24 +136,20 @@ extension SlideView {
 }
 
 extension SlideView {
-    
     public func setupUI() {
         backgroundColor = .clear
         pageControl.numberOfPages = pages
         addSubview(carouselCollection)
         addSubview(pageControl)
         setupConstraints()
-
     }
     
-    
     public func configureView(with data: [SlideData]) {
-        let cellPadding = (frame.width - 300) / 2
         let carouselLayout = UICollectionViewFlowLayout()
         carouselLayout.scrollDirection = .horizontal
-        carouselLayout.itemSize = .init(width: (frame.width * 90) / 100  , height: (frame.width * 45) / 100)
-        carouselLayout.sectionInset = .init(top: 0, left: cellPadding, bottom: 0, right: cellPadding)
-        carouselLayout.minimumLineSpacing = cellPadding * 2
+        carouselLayout.itemSize = .init(width: 100.wPercent - 50 , height: 50.wPercent)
+        carouselLayout.minimumLineSpacing = 10 * 2
+        carouselLayout.sectionInset = .init(top: 0, left: 30, bottom: 0, right: 30)
         carouselCollection.collectionViewLayout = carouselLayout
         
         carouselData = data
@@ -162,13 +158,16 @@ extension SlideView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            carouselCollection.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
-            carouselCollection.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
-            carouselCollection.heightAnchor.constraint(equalToConstant: 40.wPercent),
-            pageControl.topAnchor.constraint(equalTo: carouselCollection.bottomAnchor, constant: 12),
+            carouselCollection.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            carouselCollection.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+            carouselCollection.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            carouselCollection.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            
+            pageControl.topAnchor.constraint(equalTo: carouselCollection.bottomAnchor),
             pageControl.centerXAnchor.constraint(equalTo: centerXAnchor),
             pageControl.widthAnchor.constraint(equalToConstant: 120),
-            pageControl.heightAnchor.constraint(equalToConstant: 20),
+            pageControl.heightAnchor.constraint(equalToConstant: 10),
         ])
     }
 }
+

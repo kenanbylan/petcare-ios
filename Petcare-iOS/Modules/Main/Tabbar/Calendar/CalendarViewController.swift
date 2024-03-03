@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol CalendarViewProtocol: AnyObject {
     
@@ -16,20 +17,22 @@ class CalendarViewController: BaseViewController {
     private var sliderView: SlideView?
     
     private var sliderData = [SlideView.SlideData]()
-    private let backgroundColors: [UIColor] = [#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), #colorLiteral(red: 0.4826081395, green: 0.04436998069, blue: 0.2024421096, alpha: 1), #colorLiteral(red: 0.1728022993, green: 0.42700845, blue: 0.3964217603, alpha: 1)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         
         sliderView = SlideView(pages: 3, delegate: self)
-        sliderData.append(.init(image: UIImage(named: "dog"), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"))
-        sliderData.append(.init(image: UIImage(named: "pati"), text: "elit"))
-        sliderData.append(.init(image: UIImage(named: "cat"), text: "consectetur adipiscing elit"))
-
-        prepareUI()
         
+        sliderData.append(.init(image: UIImage(named: "info-host"), text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"))
+        sliderData.append(.init(image: UIImage(named: "info-dog"),text: "elit"))
+        sliderData.append(.init(image: UIImage(named: "info-cat"), text: "consectetur adipiscing elit"))
+        
+        prepareUI()
         sliderView?.configureView(with: sliderData)
+
+        let titleLabel = TitleLabel.configurationTitleLabel(withText:"Rezervation", fontSize: 17, textColor: AppColors.primaryColor)
+        navigationItem.titleView = titleLabel
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,8 +41,8 @@ class CalendarViewController: BaseViewController {
     }
     
     func prepareUI() {
-        view.backgroundColor = backgroundColors.first
         setupConstraints()
+        view.backgroundColor = AppColors.bgColor
     }
     
     private func setupConstraints() {
@@ -47,10 +50,10 @@ class CalendarViewController: BaseViewController {
         view.addSubview(sliderView)
         sliderView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            sliderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            sliderView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            sliderView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            sliderView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            sliderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            sliderView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            sliderView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            sliderView.heightAnchor.constraint(equalToConstant: 25.hPercent)
         ])
     }
 }
@@ -58,9 +61,13 @@ class CalendarViewController: BaseViewController {
 extension CalendarViewController: SlideViewProtocol {
     func currentPageDidChange(to page: Int) {
         UIView.animate(withDuration: 0.7) {
-            self.view.backgroundColor = self.backgroundColors[page]
+            
         }
     }
-    
-    
+}
+
+struct RezervationVC_Previews: PreviewProvider {
+    static var previews: some View {
+        CalendarViewController().showPreview()
+    }
 }
