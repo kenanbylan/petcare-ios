@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import Combine
 
 protocol AppButtonDelegate: AnyObject {
     func patiButtonClicked(_ sender: AppButton)
 }
 
-class AppButton: UIButton {
+final class AppButton: UIButton {
     weak var delegate: AppButtonDelegate?
     
     var image: UIImage? {
@@ -71,7 +72,6 @@ class AppButton: UIButton {
     }
     
     private func adjustContent() {
-        
         if let image = image, let title = title {
             setImage(image, for: .normal)
             setTitle(title, for: .normal)
@@ -90,6 +90,8 @@ class AppButton: UIButton {
         addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
         addShadow(shadowColor: AppColors.bgColor.cgColor)
         
+        titleColor = AppColors.customWhite
+        titleLabel?.font = AppFonts.medium.font(size: 14)
         layer.cornerRadius = 20
         layer.borderWidth = 1.5
         layer.borderColor = AppColors.borderColor?.cgColor

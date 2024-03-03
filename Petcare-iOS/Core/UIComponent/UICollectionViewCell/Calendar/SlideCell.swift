@@ -8,54 +8,66 @@
 import UIKit
 
 final class SlideCell: UICollectionViewCell {
-    
-    private lazy var imageView: UIImageView = {
+    private lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 24
-        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "info-host")
         return imageView
     }()
     
     private lazy var sliderTitle: CustomLabel = {
-        let label = CustomLabel(text: "Veterinarians", fontSize: 17, fontType: .medium, textColor: AppColors.primaryColor)
+        let label = CustomLabel(text: "Veterinarians", fontSize: 14, fontType: .regular, textColor: AppColors.primaryColor)
         label.textAlignment = .center
-        label.numberOfLines = 0
         return label
+    }()
+    
+    private lazy var textContainerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.3) // Arka plan rengi burada ayarlanabilir
+        return view
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         prepareUI()
         setupConstraints()
-        imageView.backgroundColor = .systemRed
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(image: UIImage?, text: String) {
-        self.imageView.image = image
+    public func configure(text: String, image: UIImage) {
         self.sliderTitle.text = text
+        self.backgroundImageView.image = image
     }
     
     private func prepareUI() {
-        addSubview(imageView)
-        addSubview(sliderTitle)
+        backgroundImageView.layer.cornerRadius = 20
+        addSubview(backgroundImageView)
+        backgroundImageView.addSubview(textContainerView)
+        textContainerView.addSubview(sliderTitle)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.widthAnchor.constraint(equalTo: widthAnchor),
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            backgroundImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            backgroundImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
             
-            sliderTitle.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
-            sliderTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            sliderTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            sliderTitle.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+            textContainerView.leadingAnchor.constraint(equalTo: backgroundImageView.leadingAnchor),
+            textContainerView.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor),
+            textContainerView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor),
+            
+            sliderTitle.leadingAnchor.constraint(equalTo: textContainerView.leadingAnchor, constant: 10),
+            sliderTitle.trailingAnchor.constraint(equalTo: textContainerView.trailingAnchor, constant: -10),
+            sliderTitle.topAnchor.constraint(equalTo: textContainerView.topAnchor, constant: 10),
+            sliderTitle.bottomAnchor.constraint(equalTo: textContainerView.bottomAnchor, constant: -10),
         ])
     }
 }
