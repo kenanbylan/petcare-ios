@@ -77,11 +77,6 @@ final class AlertView: UIView {
         self.alertDescriptionLabel.text = message
         
         
-//        if let keyWindow = UIApplication.shared.keyWindow {
-//            keyWindow.addSubview(parentView)
-//            parentView.frame = keyWindow.bounds
-//        }
-        
         if let keyWindowScene = UIApplication.shared.connectedScenes.first(where: {
             $0.activationState == .foregroundActive }) as? UIWindowScene {
             if let keyWindow = keyWindowScene.windows.first(where: { $0.isKeyWindow }) {
