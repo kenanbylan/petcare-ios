@@ -22,5 +22,6 @@ final class SplashViewController: BaseViewController {
 extension SplashViewController: SplashViewProtocol {
     func noInternetConnection() {
     }
+    
 }
 

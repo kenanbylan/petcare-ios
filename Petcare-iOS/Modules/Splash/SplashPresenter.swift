@@ -24,18 +24,26 @@ final class SplashPresenter: SplashPresenterProtocol {
     
     func viewDidLoad() {
         interactor.checkInternetConnection()
+        interactor.checkLanguage()
+        interactor.checkUserSession()
     }
 }
 
 extension SplashPresenter: SplashInteractorOutputProtocol {
     func internetConnectionStatus(_ status: Bool) {
         if status {
-            print("STATUS is true")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.router?.navigateToHome()
-            }
+            print("Device Connected Internet")
         } else {
-            print("STATUS is false")
+            print("Device not connected internet")
         }
     }
+    
+    func userSessionStatus(_ loggedIn: Bool) {
+        if loggedIn {
+            router?.navigateToHome()
+        } else {
+            router?.navigateToLogin()
+        }
+    }
+    
 }
