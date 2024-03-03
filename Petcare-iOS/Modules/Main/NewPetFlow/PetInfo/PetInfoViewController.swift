@@ -87,10 +87,8 @@ final class PetInfoViewController: BaseViewController {
         let appbutton = AppButton.build()
             .setTitle("Continue")
             .setImage(UIImage(named: "coffee")?.resized(to: CGSize(width: 25, height: 25)))
-            .setFont(UIFont.systemFont(ofSize: 16))
-            .setBackgroundColor(AppColors.customBlue)
+            .setBackgroundColor(AppColors.primaryColor)
             .setDelegate(self)
-            .setTitleColor(AppColors.customRed)
         return appbutton
     }()
         
@@ -101,6 +99,7 @@ final class PetInfoViewController: BaseViewController {
         prepareTitleLabel()
         dateBirthTextfield.delegate = self
         self.dateBirthTextfield.setInputViewDatePicker(target: self, selector: #selector(tapDone))
+        
     }
     
     @objc func tapDone() {
@@ -126,7 +125,6 @@ final class PetInfoViewController: BaseViewController {
 }
 
 extension PetInfoViewController: UITextFieldDelegate {
-    
     
 }
 
