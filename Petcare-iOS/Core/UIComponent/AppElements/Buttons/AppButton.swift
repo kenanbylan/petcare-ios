@@ -8,13 +8,7 @@
 import UIKit
 import Combine
 
-protocol AppButtonDelegate: AnyObject {
-    func patiButtonClicked(_ sender: AppButton)
-}
-
 final class AppButton: UIButton {
-    weak var delegate: AppButtonDelegate?
-    
     var image: UIImage? {
         didSet {
             setImage(image, for: .normal)
@@ -42,7 +36,6 @@ final class AppButton: UIButton {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        configureButton()
     }
     
     // Builder deseni için oluşturucu fonksiyon
@@ -66,11 +59,6 @@ final class AppButton: UIButton {
         }, completion: nil)
     }
 
-    //MARK: DELEGATE s
-    @objc private func buttonClicked() {
-        delegate?.patiButtonClicked(self)
-    }
-    
     private func adjustContent() {
         if let image = image, let title = title {
             setImage(image, for: .normal)
@@ -87,7 +75,6 @@ final class AppButton: UIButton {
     }
     
     private func configureButton() {
-        addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
         addShadow(shadowColor: AppColors.bgColor.cgColor)
         
         titleColor = AppColors.customWhite
@@ -130,10 +117,10 @@ final class AppButton: UIButton {
         return self
     }
     
-    func setDelegate(_ delegate: AppButtonDelegate?) -> AppButton {
-        self.delegate = delegate
-        return self
-    }
+//    func setDelegate(_ delegate: AppButtonDelegate?) -> AppButton {
+//        self.delegate = delegate
+//        return self
+//    }
     
     func setBackgroundColor(_ backgroundColor: UIColor?) -> AppButton {
         self.backgroundColor = backgroundColor
