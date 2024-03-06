@@ -88,7 +88,6 @@ final class PetInfoViewController: BaseViewController {
             .setTitle("Continue")
             .setImage(UIImage(named: "coffee")?.resized(to: CGSize(width: 25, height: 25)))
             .setBackgroundColor(AppColors.primaryColor)
-            .setDelegate(self)
         return appbutton
     }()
         
@@ -128,7 +127,7 @@ extension PetInfoViewController: UITextFieldDelegate {
     
 }
 
-extension PetInfoViewController: PetInfoViewProtocol, AppButtonDelegate {
+extension PetInfoViewController: PetInfoViewProtocol {
     func prepareUI() {
         view.backgroundColor = AppColors.bgColor
     }

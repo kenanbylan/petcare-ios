@@ -25,8 +25,6 @@ final class PetTypePresenter {
     
 }
 
-
-
 extension PetTypePresenter: PetTypePresenterProtocol {
     func navigateToPetInfo() {
         router?.navigateToPetInfo()

@@ -12,7 +12,7 @@ protocol PetTypeViewProtocol: AnyObject {
     func prepareUI()
 }
 
-final class PetTypeViewController: BaseViewController {
+final class PetTypeViewController: UIViewController {
     var presenter: PetTypePresenterProtocol?
     private var cancellables = Set<AnyCancellable>()
     
@@ -60,10 +60,10 @@ final class PetTypeViewController: BaseViewController {
     
     private lazy var patiButton: AppButton = {
         let appbutton = AppButton.build()
-            .setDelegate(self)
             .setTitle("İlerle")
             .setImage(UIImage(named: "pati")?.resized(to: CGSize(width: 24, height: 24)))
             .setBackgroundColor(AppColors.customBlue)
+        appbutton.addTarget(self, action: #selector(patiButtonClicked), for: .touchUpInside)
         return appbutton
     }()
     
@@ -76,7 +76,7 @@ final class PetTypeViewController: BaseViewController {
         prepareTitleLabel()
         buildLayout()
         setNavigationBar()
-        patiButton.isEnabled = false
+        patiButton.isEnabled = true
     }
     
     private func setupPetTypes() {
@@ -84,7 +84,6 @@ final class PetTypeViewController: BaseViewController {
         for type in petTypes {
             let petTypeView = SelectPetView()
             petTypeView.setText(type)
-            petTypeView.delegate = self
             stackView.addArrangedSubview(petTypeView)
             petTypeViews.append(petTypeView)
         }
@@ -101,13 +100,6 @@ final class PetTypeViewController: BaseViewController {
         navigationItem.setCustomBackButtonTitle("Back", color: AppColors.primaryColor)
         navigationController?.navigationBar.tintColor = AppColors.primaryColor
     }
-    
-    private func setupBindings() {
-        $selectItem
-            .map { $0 != nil && !$0!.isEmpty } // Select item var mı ve boş değil mi?
-            .assign(to: \.isEnabled, on: patiButton)
-            .store(in: &cancellables)
-    }
 }
 
 extension PetTypeViewController: ViewCoding {
@@ -123,9 +115,13 @@ extension PetTypeViewController: ViewCoding {
         self.view.addSubview(scrollView)
         self.scrollView.addSubview(contentView)
         
-        let hConst = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
-        hConst.isActive = true
-        hConst.priority = UILayoutPriority(50)
+//        let hConst = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+//        hConst.isActive = true
+//        hConst.priority = UILayoutPriority(50)
+        
+        let scrollViewHeight = contentView.heightAnchor.constraint(equalToConstant: scrollView.contentSize.height)
+        scrollViewHeight.priority = .required - 1
+        scrollViewHeight.isActive = true
         
         contentView.addSubview(topStackView)
         topStackView.addArrangedSubview(petTitle)
@@ -134,8 +130,6 @@ extension PetTypeViewController: ViewCoding {
         
         contentView.addSubview(stackView)
         setupPetTypes()
-        
-        print("width: ", view.frame.width)
         contentView.addSubview(patiButton)
     }
     
@@ -170,25 +164,16 @@ extension PetTypeViewController: ViewCoding {
 }
 
 
-extension PetTypeViewController: PetTypeViewProtocol, PetTypeDelegate, AppButtonDelegate {
-    func patiButtonClicked(_ sender: AppButton) {
-        print("clicked patiButtonClicked")
-        if selectItem?.isEmpty == true {
-            patiButton.isEnabled = false
-        } else {
-            patiButton.isEnabled = true
-            presenter?.navigateToPetInfo()
-        }
+extension PetTypeViewController: PetTypeViewProtocol {
+    
+    @objc func patiButtonClicked() {
+        print("Button clicked!")
+        presenter?.navigateToPetInfo()
     }
     
-    func didSelectPetType(_ petType: String) {
-        selectItem = petType
+    func prepareUI() {
         
-        print("Selected Pet Type: \(petType)")
     }
-    
-    func prepareUI() { }
-    
 }
 
 
