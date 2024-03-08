@@ -3,25 +3,25 @@
 //  Petcare-iOS
 //
 //  Created by Kenan Baylan on 27.02.2024.
-//
-
 import Foundation
 import UIKit
+import SwiftUI
+
+
+struct ClinicDetails {
+    let address: String
+    // ther properties as needed
+}
+
 
 final class MapBottomSheetViewController: UIViewController {
-    
     private var address: String?
     private var vetTitle: String?
-        
-//    init(address: String) {
-//        self.address = address
-//        super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-//        setupPages()
-//    }
+    var clinicDetail: ClinicDetails?
     
     
     lazy var titleLabel: CustomLabel = {
-        let label = CustomLabel(text: "Vetname", fontSize: 20, fontType: .medium, textColor: AppColors.primaryColor)
+        let label = CustomLabel(text: "Noe Animal Hospitla", fontSize: 20, fontType: .medium, textColor: AppColors.primaryColor)
         return label
     }()
     
@@ -46,24 +46,21 @@ final class MapBottomSheetViewController: UIViewController {
     lazy var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = AppColors.bgColor
-        view.layer.cornerRadius = 16
+        view.layer.cornerRadius = 30
         view.clipsToBounds = true
         return view
     }()
     
-    let maxDimmedAlpha: CGFloat = 0.6
     lazy var dimmedView: UIView = {
         let view = UIView()
-        view.backgroundColor = .black
-        view.alpha = maxDimmedAlpha
+        view.backgroundColor = .black.withAlphaComponent(0.6)
         return view
     }()
     
     // Constants
     let defaultHeight: CGFloat = 300
     let dismissibleHeight: CGFloat = 200
-    let maximumContainerHeight: CGFloat = UIScreen.main.bounds.height - 64
-    // keep current new height, initial is default height
+    let maximumContainerHeight: CGFloat = UIScreen.main.bounds.height - 300 // keep current new height, initial is default height
     var currentContainerHeight: CGFloat = 300
     
     // Dynamic container constraint
@@ -77,7 +74,7 @@ final class MapBottomSheetViewController: UIViewController {
         // tap gesture on dimmed view to dismiss
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleCloseAction))
         dimmedView.addGestureRecognizer(tapGesture)
-        
+        print("Clicnic :detail" ,clinicDetail)
         setupPanGesture()
     }
     
@@ -87,7 +84,6 @@ final class MapBottomSheetViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animateShowDimmedView()
         animatePresentContainer()
     }
     
@@ -112,14 +108,16 @@ final class MapBottomSheetViewController: UIViewController {
             dimmedView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             dimmedView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             dimmedView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
             // set container static constraint (trailing & leading)
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
             // content stackView
-            contentStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32),
-            contentStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -20),
-            contentStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20),
-            contentStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20),
+            contentStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 24),
+            contentStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -12),
+            contentStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 12),
+            contentStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -12),
         ])
         
         // Set dynamic constraints
@@ -194,7 +192,7 @@ final class MapBottomSheetViewController: UIViewController {
     }
     
     func animateContainerHeight(_ height: CGFloat) {
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: 0.2) {
             // Update container height
             self.containerViewHeightConstraint?.constant = height
             // Call this to trigger refresh constraint
@@ -207,37 +205,18 @@ final class MapBottomSheetViewController: UIViewController {
     // MARK: Present and dismiss animation
     func animatePresentContainer() {
         // update bottom constraint in animation block
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.2) {
             self.containerViewBottomConstraint?.constant = 0
             // call this to trigger refresh constraint
             self.view.layoutIfNeeded()
         }
     }
     
-    func animateShowDimmedView() {
-        dimmedView.alpha = 0
-        UIView.animate(withDuration: 0.4) {
-            self.dimmedView.alpha = self.maxDimmedAlpha
-        }
-    }
-    
     func animateDismissView() {
-        // hide blur view
-        dimmedView.alpha = maxDimmedAlpha
-        UIView.animate(withDuration: 0.4) {
-            self.dimmedView.alpha = 0
-        } completion: { _ in
-            // once done, dismiss without animation
-            self.dismiss(animated: false)
-        }
-        // hide main view by updating bottom constraint in animation block
-        UIView.animate(withDuration: 0.3) {
+        self.dismiss(animated: false)
+        UIView.animate(withDuration: 0.1) {
             self.containerViewBottomConstraint?.constant = self.defaultHeight
-            // call this to trigger refresh constraint
             self.view.layoutIfNeeded()
         }
     }
-    
 }
-
-
