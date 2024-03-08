@@ -23,54 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E6C79445-CEFD-41D6-AF74-7F63D03A0043"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Petcare-iOS/Modules/Authentication/Regs&#x327;ster/RegisterViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "createButtonTapped()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E6C79445-CEFD-41D6-AF74-7F63D03A0043 - 1d9f2b30be7cdc23"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Petcare.RegisterViewController.createButtonTapped() -&gt; ()"
-                  moduleName = "Petcare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kenanbaylan/Desktop/Petcare-iOS/Petcare-iOS/Modules/Authentication/Regs%CC%A7ster/RegisterViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "292">
-               </Location>
-               <Location
-                  uuid = "E6C79445-CEFD-41D6-AF74-7F63D03A0043 - 1d9f2b30be7cdc23"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Petcare.RegisterViewController.createButtonTapped() -&gt; ()"
-                  moduleName = "Petcare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kenanbaylan/Desktop/Petcare-iOS/Petcare-iOS/Modules/Authentication/Regs%CC%A7ster/RegisterViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "288">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "83FB3536-BD1D-4F25-9A14-21B95F6A50A5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -82,38 +34,6 @@
             endingLineNumber = "34"
             landmarkName = "registerUser(name:surname:email:password:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "83FB3536-BD1D-4F25-9A14-21B95F6A50A5 - 6b7d14253e0b122c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Petcare.RegisterPresenter.registerUser(name: Swift.String, surname: Swift.String, email: Swift.String, password: Swift.String) -&gt; ()"
-                  moduleName = "Petcare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kenanbaylan/Desktop/Petcare-iOS/Petcare-iOS/Modules/Authentication/Regs%CC%A7ster/RegisterPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "136">
-               </Location>
-               <Location
-                  uuid = "83FB3536-BD1D-4F25-9A14-21B95F6A50A5 - 6b7d14253e0b13cd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Petcare.RegisterPresenter.registerUser(name: Swift.String, surname: Swift.String, email: Swift.String, password: Swift.String) -&gt; ()"
-                  moduleName = "Petcare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kenanbaylan/Desktop/Petcare-iOS/Petcare-iOS/Modules/Authentication/Regs%CC%A7ster/RegisterPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "136">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -130,38 +50,6 @@
             endingLineNumber = "52"
             landmarkName = "registerUser(name:surname:email:password:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0D922748-A19F-491F-88B9-0838671B78BF - 4f146b3081c721b4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Petcare.RegisterInteractor.registerUser(name: Swift.String, surname: Swift.String, email: Swift.String, password: Swift.String) -&gt; ()"
-                  moduleName = "Petcare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kenanbaylan/Desktop/Petcare-iOS/Petcare-iOS/Modules/Authentication/Regs%CC%A7ster/RegisterInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "1760">
-               </Location>
-               <Location
-                  uuid = "0D922748-A19F-491F-88B9-0838671B78BF - 4f146b3081c721b4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Petcare.RegisterInteractor.registerUser(name: Swift.String, surname: Swift.String, email: Swift.String, password: Swift.String) -&gt; ()"
-                  moduleName = "Petcare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kenanbaylan/Desktop/Petcare-iOS/Petcare-iOS/Modules/Authentication/Regs%CC%A7ster/RegisterInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "2324">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -193,6 +81,22 @@
             startingLineNumber = "43"
             endingLineNumber = "43"
             landmarkName = "registerUser(name:surname:email:password:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "190667DC-1FFF-4423-9516-FD95F03D02E7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Petcare-iOS/Modules/Main/NewPetFlow/PetType/PetTypeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "patiButtonClicked()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

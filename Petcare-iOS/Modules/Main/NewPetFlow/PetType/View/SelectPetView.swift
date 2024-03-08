@@ -6,14 +6,9 @@
 
 import UIKit
 
-protocol PetTypeDelegate: AnyObject {
-    func didSelectPetType(_ petType: String)
-}
-
 final class SelectPetView: UIView {
-    private var petType: String = ""
-    weak var delegate: PetTypeDelegate?
     
+    private var petType: String = ""
     private var isSelected: Bool = false {
         didSet {
             updateAppearance()
@@ -36,7 +31,6 @@ final class SelectPetView: UIView {
     init() {
         super.init(frame: .zero)
         setupView()
-        setupGesture()
         updateAppearance()
     }
     
@@ -59,27 +53,13 @@ final class SelectPetView: UIView {
         ])
     }
     
-    private func setupGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        addGestureRecognizer(tapGesture)
-    }
-    
-    @objc private func handleTap() {
-        guard !isSelected else {
-            // Eğer zaten seçiliyse, seçimi iptal et
-            setSelection(selected: false)
-            return
-        }
-        delegate?.didSelectPetType(petType)
-        setSelection(selected: true)
-    }
     
     private func updateAppearance() {
         if isSelected {
             backgroundColor = AppColors.primaryColor
             label.textColor = AppColors.customWhite
         } else {
-            backgroundColor = AppColors.bgColor
+            backgroundColor = AppColors.bgColor2
             label.textColor = AppColors.labelColor
         }
     }

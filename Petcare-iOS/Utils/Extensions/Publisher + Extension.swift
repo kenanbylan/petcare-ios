@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 
-
 extension Publisher where Self.Output == String, Failure == Never {
     func validateText(
         validationType: ValidatorType

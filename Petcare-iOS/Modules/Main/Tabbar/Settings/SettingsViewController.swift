@@ -51,13 +51,15 @@ extension SettingsViewController: SettingsViewProtocol {
     
     func prepareTableView() {
         view.addSubview(tableView)
+        tableView.registerNib(with: SettingTableViewCell.identifier)
+        tableView.registerCodedCell(with: SettingTableViewCell.self)
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = AppColors.bgColor
         tableView.frame = view.bounds
         tableView.layer.cornerRadius = 10
         tableView.layer.masksToBounds = true
-        tableView.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.identifier)
     }
 }
 
@@ -71,13 +73,13 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return models.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.section].options[indexPath.row]
         
         switch model.self {
         case .staticCell(model: let model):
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as? SettingTableViewCell else { return UITableViewCell() }
-            
+            let cell = tableView.dequeCell(cellClass: SettingTableViewCell.self, indexPath: indexPath)
             cell.configureCell(with: model)
             return cell
         }

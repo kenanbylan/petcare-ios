@@ -16,14 +16,15 @@ class BaseViewController: UIViewController {
         setNavigationBar()
         networkControl()
         setupKeyboardNotifications()
-        viewDidTapped()
+  //viewDidTapped()
     }
     
+//    
+//    func viewDidTapped() {
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+//           view.addGestureRecognizer(tapGesture)
+//    }
     
-    func viewDidTapped() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-           view.addGestureRecognizer(tapGesture)
-    }
     
     deinit {
         removeKeyboardNotifications()
@@ -40,7 +41,6 @@ class BaseViewController: UIViewController {
     private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
     
     private func networkControl() {
         if NetworkMonitor.shared.isConnected {

@@ -18,9 +18,9 @@ final class VetMapPresenter {
     let router: VetMapRouterProtocol?
     let interactor: VetMapInteractorProtocol?
     
-    let mapTitle = "Veterinary"
+    let mapTitle = "Veterinary List"
     
-    
+ 
     init(view: VetMapViewController? , router: VetMapRouterProtocol?, interactor: VetMapInteractorProtocol?) {
         self.view = view
         self.router = router
