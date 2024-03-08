@@ -31,7 +31,8 @@ final class SlideView: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.addShadow(shadowColor: AppColors.bgColor.cgColor)
-        collectionView.register(SlideCell.self, forCellWithReuseIdentifier: Constants.CollectionViewCell.slideCell)
+        collectionView.registerNib(with: Constants.CollectionViewCell.slideCell)
+        collectionView.registerCodedCell(with: SlideCell.self)
         return collectionView
     }()
     
@@ -99,7 +100,7 @@ extension SlideView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionViewCell.slideCell, for: indexPath) as? SlideCell else { return UICollectionViewCell() }
+        let cell = collectionView.dequeCell(cellClass: SlideCell.self, indexPath: indexPath)
         let image = carouselData[indexPath.row].image
         let text = carouselData[indexPath.row].text
         

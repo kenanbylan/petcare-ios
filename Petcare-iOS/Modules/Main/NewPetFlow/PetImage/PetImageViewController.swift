@@ -36,7 +36,6 @@ final class PetImageViewController: UIViewController {
     private lazy var appButton: AppButton = {
         let appbutton = AppButton.build()
             .setImage(UIImage(named: "pati")?.resized(to: CGSize(width: 24, height: 24)))
-            .setDelegate(self)
             .setTitle("Continiu")
         return appbutton
     }()
@@ -57,7 +56,7 @@ final class PetImageViewController: UIViewController {
     }
 }
 
-extension PetImageViewController: PetImageViewProtocol, AppButtonDelegate {
+extension PetImageViewController: PetImageViewProtocol {
     
     func dismissScreen() { }
     

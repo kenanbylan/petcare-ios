@@ -1,9 +1,9 @@
-/* 
-  Localizable.strings
-  Petcare-iOS
-
-  Created by Kenan Baylan on 19.11.2023.
-*/
+/*
+ Localizable.strings
+ Petcare-iOS
+ 
+ Created by Kenan Baylan on 19.11.2023.
+ */
 
 "ONBOARDING_BUTTON_PREVIUS" = "Zurück";
 
@@ -19,4 +19,3 @@
 "ONBOARDING_BUTTON_GET_STARTED" = "Loslegen";
 "ONBOARDING_BUTTON_LOGIN" = "Anmelden";
 "ONBOARDING_BUTTON_NEXT" = "Weiter";
-

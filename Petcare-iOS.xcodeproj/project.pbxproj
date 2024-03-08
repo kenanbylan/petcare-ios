@@ -141,7 +141,6 @@
 		93C46E132B0509DD0055BA0F /* Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C46E122B0509DD0055BA0F /* Combine.framework */; };
 		93C46E162B0542B30055BA0F /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E152B0542B30055BA0F /* CustomLabel.swift */; };
 		93C46E182B0548B00055BA0F /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E172B0548B00055BA0F /* AppButton.swift */; };
-		93CE90672AF7BA2E0025FBB0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93CE90662AF7BA2E0025FBB0 /* Home.storyboard */; };
 		93CE90692AF7BA380025FBB0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90682AF7BA380025FBB0 /* HomeViewController.swift */; };
 		93CE906B2AF7BA420025FBB0 /* HomeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE906A2AF7BA420025FBB0 /* HomeEntity.swift */; };
 		93CE906D2AF7BA4C0025FBB0 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE906C2AF7BA4C0025FBB0 /* HomePresenter.swift */; };
@@ -153,7 +152,6 @@
 		93CE907B2AF7D53F0025FBB0 /* CalendarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE907A2AF7D53F0025FBB0 /* CalendarInteractor.swift */; };
 		93CE907D2AF7D5460025FBB0 /* CalendarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE907C2AF7D5460025FBB0 /* CalendarPresenter.swift */; };
 		93CE907F2AF7D5580025FBB0 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE907E2AF7D5580025FBB0 /* CalendarModel.swift */; };
-		93CE90812AF7D57F0025FBB0 /* VetMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93CE90802AF7D57F0025FBB0 /* VetMap.storyboard */; };
 		93CE90832AF7D5980025FBB0 /* VetMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90822AF7D5980025FBB0 /* VetMapViewController.swift */; };
 		93CE90852AF7D5AF0025FBB0 /* VetMapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90842AF7D5AF0025FBB0 /* VetMapRouter.swift */; };
 		93CE90872AF7D5C40025FBB0 /* VetMapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90862AF7D5C40025FBB0 /* VetMapInteractor.swift */; };
@@ -166,7 +164,6 @@
 		93DD5ABB2B4035AB00BDE0A9 /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5ABA2B4035AB00BDE0A9 /* UIStackView + Extension.swift */; };
 		93DD5ABE2B403AF100BDE0A9 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5ABD2B403AF100BDE0A9 /* ShadowView.swift */; };
 		93DD5AC12B4044C000BDE0A9 /* UpcomingVeterinary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5AC02B4044C000BDE0A9 /* UpcomingVeterinary.swift */; };
-		93DD5AC42B4065FC00BDE0A9 /* PetAvatarCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5AC32B4065FC00BDE0A9 /* PetAvatarCellHeader.swift */; };
 		93DD5AC82B418E7D00BDE0A9 /* PetTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5AC72B418E7D00BDE0A9 /* PetTypeViewController.swift */; };
 		93DD5ACC2B41976300BDE0A9 /* PetTypeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5ACB2B41976300BDE0A9 /* PetTypeRouter.swift */; };
 		93DD5ACE2B4198CC00BDE0A9 /* PetTypeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5ACD2B4198CC00BDE0A9 /* PetTypeInteractor.swift */; };
@@ -188,6 +185,8 @@
 		93E1FDC72B77A80500BD72E1 /* PrivacyPolicyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1FDC62B77A80500BD72E1 /* PrivacyPolicyInteractor.swift */; };
 		93E1FDC92B77A80A00BD72E1 /* PrivacyPolicyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1FDC82B77A80A00BD72E1 /* PrivacyPolicyRouter.swift */; };
 		93E1FDCB2B77A80F00BD72E1 /* PrivacyPolicyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E1FDCA2B77A80F00BD72E1 /* PrivacyPolicyPresenter.swift */; };
+		93E6D7192B98761000471954 /* UITableView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E6D7182B98761000471954 /* UITableView + Extension.swift */; };
+		93E6D71B2B987CB500471954 /* UICollectionView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E6D71A2B987CB500471954 /* UICollectionView + Extension.swift */; };
 		93F0CE432B0CE62E00D5BAD7 /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0CE422B0CE62E00D5BAD7 /* CustomStackView.swift */; };
 /* End PBXBuildFile section */
 
@@ -343,7 +342,6 @@
 		93C46E122B0509DD0055BA0F /* Combine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Combine.framework; path = System/Library/Frameworks/Combine.framework; sourceTree = SDKROOT; };
 		93C46E152B0542B30055BA0F /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		93C46E172B0548B00055BA0F /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
-		93CE90662AF7BA2E0025FBB0 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		93CE90682AF7BA380025FBB0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		93CE906A2AF7BA420025FBB0 /* HomeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEntity.swift; sourceTree = "<group>"; };
 		93CE906C2AF7BA4C0025FBB0 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -355,7 +353,6 @@
 		93CE907A2AF7D53F0025FBB0 /* CalendarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarInteractor.swift; sourceTree = "<group>"; };
 		93CE907C2AF7D5460025FBB0 /* CalendarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPresenter.swift; sourceTree = "<group>"; };
 		93CE907E2AF7D5580025FBB0 /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
-		93CE90802AF7D57F0025FBB0 /* VetMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VetMap.storyboard; sourceTree = "<group>"; };
 		93CE90822AF7D5980025FBB0 /* VetMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetMapViewController.swift; sourceTree = "<group>"; };
 		93CE90842AF7D5AF0025FBB0 /* VetMapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetMapRouter.swift; sourceTree = "<group>"; };
 		93CE90862AF7D5C40025FBB0 /* VetMapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VetMapInteractor.swift; sourceTree = "<group>"; };
@@ -368,7 +365,6 @@
 		93DD5ABA2B4035AB00BDE0A9 /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
 		93DD5ABD2B403AF100BDE0A9 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		93DD5AC02B4044C000BDE0A9 /* UpcomingVeterinary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingVeterinary.swift; sourceTree = "<group>"; };
-		93DD5AC32B4065FC00BDE0A9 /* PetAvatarCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAvatarCellHeader.swift; sourceTree = "<group>"; };
 		93DD5AC72B418E7D00BDE0A9 /* PetTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTypeViewController.swift; sourceTree = "<group>"; };
 		93DD5ACB2B41976300BDE0A9 /* PetTypeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTypeRouter.swift; sourceTree = "<group>"; };
 		93DD5ACD2B4198CC00BDE0A9 /* PetTypeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTypeInteractor.swift; sourceTree = "<group>"; };
@@ -390,6 +386,8 @@
 		93E1FDC62B77A80500BD72E1 /* PrivacyPolicyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyInteractor.swift; sourceTree = "<group>"; };
 		93E1FDC82B77A80A00BD72E1 /* PrivacyPolicyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyRouter.swift; sourceTree = "<group>"; };
 		93E1FDCA2B77A80F00BD72E1 /* PrivacyPolicyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyPresenter.swift; sourceTree = "<group>"; };
+		93E6D7182B98761000471954 /* UITableView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Extension.swift"; sourceTree = "<group>"; };
+		93E6D71A2B987CB500471954 /* UICollectionView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Extension.swift"; sourceTree = "<group>"; };
 		93F0CE422B0CE62E00D5BAD7 /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -753,6 +751,8 @@
 				93364FD42B8F5ED300C430DB /* UIView + Extension.swift */,
 				93364FD92B9350EE00C430DB /* Publisher + Extension.swift */,
 				93364FE22B936F8400C430DB /* UIViewController + Extension.swift */,
+				93E6D7182B98761000471954 /* UITableView + Extension.swift */,
+				93E6D71A2B987CB500471954 /* UICollectionView + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -831,7 +831,6 @@
 				93CE90862AF7D5C40025FBB0 /* VetMapInteractor.swift */,
 				93CE90882AF7D5CC0025FBB0 /* VetMapPresenter.swift */,
 				93CE90822AF7D5980025FBB0 /* VetMapViewController.swift */,
-				93CE90802AF7D57F0025FBB0 /* VetMap.storyboard */,
 				93B004DC2B8B95B900302B3D /* ClinicDetailsViewController.swift */,
 			);
 			path = VetMaps;
@@ -845,7 +844,6 @@
 				93CE906E2AF7BA550025FBB0 /* HomeInteractor.swift */,
 				93CE906C2AF7BA4C0025FBB0 /* HomePresenter.swift */,
 				93CE90682AF7BA380025FBB0 /* HomeViewController.swift */,
-				93CE90662AF7BA2E0025FBB0 /* Home.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1120,7 +1118,6 @@
 			isa = PBXGroup;
 			children = (
 				9309ADEE2B389DCC001BC2B0 /* PetAvatarCell.swift */,
-				93DD5AC32B4065FC00BDE0A9 /* PetAvatarCellHeader.swift */,
 			);
 			path = PetList;
 			sourceTree = "<group>";
@@ -1148,18 +1145,10 @@
 			path = NewPetFlow;
 			sourceTree = "<group>";
 		};
-		93DD5AC92B418EFE00BDE0A9 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
 		93DD5ACA2B418F1900BDE0A9 /* PetType */ = {
 			isa = PBXGroup;
 			children = (
 				93DD5AD12B4316D200BDE0A9 /* View */,
-				93DD5AC92B418EFE00BDE0A9 /* Entity */,
 				93DD5AC72B418E7D00BDE0A9 /* PetTypeViewController.swift */,
 				93DD5ACB2B41976300BDE0A9 /* PetTypeRouter.swift */,
 				93DD5ACD2B4198CC00BDE0A9 /* PetTypeInteractor.swift */,
@@ -1327,7 +1316,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				93048F052B0966DB000BD03A /* Poppins-Black.ttf in Resources */,
-				93CE90672AF7BA2E0025FBB0 /* Home.storyboard in Resources */,
 				93048F032B0966DB000BD03A /* Poppins-SemiBold.ttf in Resources */,
 				93048F072B0966DB000BD03A /* Poppins-Thin.ttf in Resources */,
 				9337801E2ADA7DAA00103273 /* LaunchScreen.storyboard in Resources */,
@@ -1338,7 +1326,6 @@
 				933780512ADA823300103273 /* Login.storyboard in Resources */,
 				93048F042B0966DB000BD03A /* Poppins-Medium.ttf in Resources */,
 				93048F022B0966DB000BD03A /* Poppins-Bold.ttf in Resources */,
-				93CE90812AF7D57F0025FBB0 /* VetMap.storyboard in Resources */,
 				93048F162B0AA08B000BD03A /* Localizable.strings in Resources */,
 				9347020C2B0FF0540033C7CE /* Onboarding.storyboard in Resources */,
 				930CB6C02AF18F4F00E632A7 /* Splash.storyboard in Resources */,
@@ -1361,6 +1348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93E6D71B2B987CB500471954 /* UICollectionView + Extension.swift in Sources */,
 				93E1FDB32B77A78E00BD72E1 /* PersonInformationPresenter.swift in Sources */,
 				93364FE12B9351F100C430DB /* Validatable.swift in Sources */,
 				930EEECB2B7828E60008D051 /* AppearancePresenter.swift in Sources */,
@@ -1380,8 +1368,8 @@
 				9309ADEF2B389DCC001BC2B0 /* PetAvatarCell.swift in Sources */,
 				93B004DB2B8B353300302B3D /* TokenManager.swift in Sources */,
 				93CE90832AF7D5980025FBB0 /* VetMapViewController.swift in Sources */,
+				93E6D7192B98761000471954 /* UITableView + Extension.swift in Sources */,
 				933780552ADA824500103273 /* LoginPresenter.swift in Sources */,
-				93DD5AC42B4065FC00BDE0A9 /* PetAvatarCellHeader.swift in Sources */,
 				93364FE92B9370DA00C430DB /* Validator.swift in Sources */,
 				934702052B0E78680033C7CE /* LoadingUICustomButton.swift in Sources */,
 				93C46DFA2B040C540055BA0F /* MyTextField.swift in Sources */,

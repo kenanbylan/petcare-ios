@@ -22,6 +22,5 @@ final class HomeInteractor : HomeInteractorProtocol {
     func getVeterinaryData() {
         
     }
-    
 }
 

@@ -8,9 +8,7 @@
 import UIKit
 import SwiftUI
 
-protocol CalendarViewProtocol: AnyObject {
-    
-}
+protocol CalendarViewProtocol: AnyObject { }
 
 class CalendarViewController: BaseViewController {
     var presenter: CalendarPresenterProtocol?
@@ -30,7 +28,10 @@ class CalendarViewController: BaseViewController {
         
         prepareUI()
         sliderView?.configureView(with: sliderData)
-
+        
+        setupTitle()
+    }
+    private func setupTitle() {
         let titleLabel = TitleLabel.configurationTitleLabel(withText:"Rezervation", fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
     }
