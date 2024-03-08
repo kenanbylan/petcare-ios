@@ -10,9 +10,10 @@ import UIKit
 import MapKit
 
 
+
 class ClinicDetailsViewController: UIPageViewController {
     private let address: String
-    
+
     init(address: String) {
         self.address = address
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
