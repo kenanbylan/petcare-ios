@@ -19,7 +19,7 @@ enum SettingsOptionType {
 protocol SettingsViewProtocol: AnyObject {
     func updateTableView(with sections: [Section])
     func prepareTableView()
-    func prepareSetup()
+    func prepareTitle()
 }
 
 final class SettingsViewController: BaseViewController {
@@ -44,7 +44,7 @@ extension SettingsViewController: SettingsViewProtocol {
         self.tableView.reloadData()
     }
     
-    func prepareSetup() {
+    func prepareTitle() {
         let titleLabel = TitleLabel.configurationTitleLabel(withText: presenter.setTitle() , fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
     }
