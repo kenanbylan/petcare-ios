@@ -9,15 +9,15 @@ import Foundation
 
 protocol CalendarPresenterProtocol {
     func viewDidLoad()
+    func navigateToNearbyList() -> Void
 }
 
 final class CalendarPresenter {
-    
     private weak var view: CalendarViewController?
     let router: CalendarRouterProtocol?
     let interactor: CalendarInteractorProtocol?
     
-    init(view: CalendarViewController? , router: CalendarRouterProtocol?, interactor: CalendarInteractorProtocol?) {
+    init(view: CalendarViewController?, router: CalendarRouterProtocol?, interactor: CalendarInteractorProtocol?) {
         self.view = view
         self.router = router
         self.interactor = interactor
@@ -25,11 +25,10 @@ final class CalendarPresenter {
 }
 
 extension CalendarPresenter: CalendarPresenterProtocol {
-    func viewDidLoad() {
-        
+    func viewDidLoad() {}
+    func navigateToNearbyList() {
+        router?.navigateToNearbyList()
     }
 }
 
-extension CalendarPresenter: CalendarInteractorOutput {
-   
-}
+extension CalendarPresenter: CalendarInteractorOutput { }

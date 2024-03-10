@@ -22,7 +22,7 @@ final class HomeViewController: UIViewController {
     }()
     
     private lazy var upComingVeterinaryLabel: CustomLabel = {
-        let upcoming = CustomLabel(text: "Upcoming Veterinary", fontSize: 14, fontType: .medium, textColor: AppColors.labelColor)
+        let upcoming = CustomLabel(text: "Upcoming Appointment", fontSize: 14, fontType: .medium, textColor: AppColors.labelColor)
         return upcoming
     }()
     
