@@ -47,7 +47,6 @@ final class VetMapViewController: BaseViewController {
         view.addSubview(mapView)
         mapView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            
             mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -190,7 +189,6 @@ extension VetMapViewController: MKMapViewDelegate {
         
         return annotationView
     }
-    
     private func showClinicDetailsBottomSheet(with address: String) {
         let bottomSheetVC = MapBottomSheetViewController()
         bottomSheetVC.clinicDetail = ClinicDetails(address: address)

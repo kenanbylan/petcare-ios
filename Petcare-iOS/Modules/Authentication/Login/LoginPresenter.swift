@@ -4,7 +4,7 @@
 
 import Foundation
 import Combine
-import GoogleSignIn
+import UIKit
 
 enum LoginState {
     case loading
@@ -51,19 +51,6 @@ extension LoginPresenter: LoginPresenterProtocol {
     }
     
     func controlGoogleWithSignIn(myself: UIViewController) {
-        GIDSignIn.sharedInstance.signIn(withPresenting: myself) { signInUser, error in
-            guard error == nil else { return }
-            guard let signInUser = signInUser else { return }
-            let user = signInUser.user
-            
-            let emailAddress = user.profile?.email
-            let fullName = user.profile?.name
-            let familyName = user.profile?.familyName
-            let profilePicUrl = user.profile?.imageURL(withDimension: 320)
-            
-            print("Email: \(emailAddress) - FullName: \(fullName) - familyName: \(familyName)")
-            //MARK: - onaylandıktan sonra login olur ve backendde yollanır datalar.
-        }
     }
     
 }

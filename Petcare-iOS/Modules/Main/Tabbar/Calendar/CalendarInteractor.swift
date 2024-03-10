@@ -16,7 +16,7 @@ protocol CalendarInteractorOutput {
 }
 
 
-final class CalendarInteractor : CalendarInteractorProtocol {
+final class CalendarInteractor: CalendarInteractorProtocol {
     var output: CalendarInteractorOutput?
     
     func getVeterinaryData() {

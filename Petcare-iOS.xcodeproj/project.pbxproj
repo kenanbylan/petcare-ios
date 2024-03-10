@@ -35,6 +35,12 @@
 		931144EC2AFC1DC000F6365E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931144EB2AFC1DC000F6365E /* OnboardingView.swift */; };
 		931144F42B02B6DA00F6365E /* Petcare_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931144F32B02B6DA00F6365E /* Petcare_iOSTests.swift */; };
 		931145012B02B79900F6365E /* OnboardingViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931145002B02B79900F6365E /* OnboardingViewMock.swift */; };
+		932347192B9C9E7900971E1D /* NearbyListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932347182B9C9E7900971E1D /* NearbyListRouter.swift */; };
+		9323471B2B9C9E8400971E1D /* NearbyListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323471A2B9C9E8400971E1D /* NearbyListPresenter.swift */; };
+		9323471D2B9C9E9000971E1D /* NearbyListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323471C2B9C9E9000971E1D /* NearbyListInteractor.swift */; };
+		9323471F2B9C9E9600971E1D /* NearbyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323471E2B9C9E9600971E1D /* NearbyListViewController.swift */; };
+		932347222B9C9EFC00971E1D /* NearbyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932347212B9C9EFC00971E1D /* NearbyList.swift */; };
+		932347252B9CA20400971E1D /* NearbyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932347242B9CA20400971E1D /* NearbyListTableViewCell.swift */; };
 		932D25532B7BFF9300B99FA3 /* PetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25522B7BFF9300B99FA3 /* PetDetailViewController.swift */; };
 		932D25552B7BFFC000B99FA3 /* PetDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25542B7BFFC000B99FA3 /* PetDetailInteractor.swift */; };
 		932D25572B7BFFC600B99FA3 /* PetDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25562B7BFFC600B99FA3 /* PetDetailPresenter.swift */; };
@@ -43,7 +49,6 @@
 		932D25672B7FFE0100B99FA3 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25662B7FFE0100B99FA3 /* NetworkMonitor.swift */; };
 		932D256C2B80092F00B99FA3 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D256B2B80092F00B99FA3 /* AlertView.swift */; };
 		932D25752B825D4800B99FA3 /* NSObject + Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25742B825D4800B99FA3 /* NSObject + Extension .swift */; };
-		932D257A2B82695800B99FA3 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 932D25792B82695800B99FA3 /* GoogleSignIn */; };
 		932D257D2B827E1B00B99FA3 /* SlideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D257C2B827E1B00B99FA3 /* SlideCell.swift */; };
 		932D25802B82851B00B99FA3 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D257F2B82851B00B99FA3 /* SlideView.swift */; };
 		93364FC72B8E2DD000C430DB /* MapBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FC62B8E2DD000C430DB /* MapBottomSheetViewController.swift */; };
@@ -234,6 +239,13 @@
 		931144F12B02B6D900F6365E /* Petcare-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Petcare-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		931144F32B02B6DA00F6365E /* Petcare_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petcare_iOSTests.swift; sourceTree = "<group>"; };
 		931145002B02B79900F6365E /* OnboardingViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewMock.swift; sourceTree = "<group>"; };
+		932347182B9C9E7900971E1D /* NearbyListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyListRouter.swift; sourceTree = "<group>"; };
+		9323471A2B9C9E8400971E1D /* NearbyListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyListPresenter.swift; sourceTree = "<group>"; };
+		9323471C2B9C9E9000971E1D /* NearbyListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyListInteractor.swift; sourceTree = "<group>"; };
+		9323471E2B9C9E9600971E1D /* NearbyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyListViewController.swift; sourceTree = "<group>"; };
+		932347212B9C9EFC00971E1D /* NearbyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyList.swift; sourceTree = "<group>"; };
+		932347242B9CA20400971E1D /* NearbyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyListTableViewCell.swift; sourceTree = "<group>"; };
+		932347E92B9CD55C00971E1D /* Petcare-iOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Petcare-iOS copy-Info.plist"; path = "/Users/kenanbaylan/Desktop/Petcare-iOS/Petcare-iOS copy-Info.plist"; sourceTree = "<absolute>"; };
 		932D25522B7BFF9300B99FA3 /* PetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailViewController.swift; sourceTree = "<group>"; };
 		932D25542B7BFFC000B99FA3 /* PetDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailInteractor.swift; sourceTree = "<group>"; };
 		932D25562B7BFFC600B99FA3 /* PetDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailPresenter.swift; sourceTree = "<group>"; };
@@ -404,7 +416,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				93C46E132B0509DD0055BA0F /* Combine.framework in Frameworks */,
-				932D257A2B82695800B99FA3 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +543,34 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		932347172B9C9E4100971E1D /* NearbyVetList */ = {
+			isa = PBXGroup;
+			children = (
+				932347202B9C9EF000971E1D /* Entity */,
+				932347182B9C9E7900971E1D /* NearbyListRouter.swift */,
+				9323471A2B9C9E8400971E1D /* NearbyListPresenter.swift */,
+				9323471C2B9C9E9000971E1D /* NearbyListInteractor.swift */,
+				9323471E2B9C9E9600971E1D /* NearbyListViewController.swift */,
+			);
+			path = NearbyVetList;
+			sourceTree = "<group>";
+		};
+		932347202B9C9EF000971E1D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				932347212B9C9EFC00971E1D /* NearbyList.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		932347232B9CA1E500971E1D /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				932347242B9CA20400971E1D /* NearbyListTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		932D25512B7BFF6200B99FA3 /* PetDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -603,8 +642,9 @@
 		932D25642B7FFCD600B99FA3 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				932347232B9CA1E500971E1D /* TableViewCell */,
 				931144E42AFC178500F6365E /* ComponentViews */,
-				93C46E0F2B0508F30055BA0F /* UICollectionViewCell */,
+				93C46E0F2B0508F30055BA0F /* CollectionViewCell */,
 				932D255E2B7FF89200B99FA3 /* AppElements */,
 			);
 			path = UIComponent;
@@ -675,6 +715,7 @@
 				931144F22B02B6DA00F6365E /* Petcare-iOSTests */,
 				9337800F2ADA7DA800103273 /* Products */,
 				93C46E112B0509DC0055BA0F /* Frameworks */,
+				932347E92B9CD55C00971E1D /* Petcare-iOS copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -876,6 +917,7 @@
 		933780372ADA7EA900103273 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				932347172B9C9E4100971E1D /* NearbyVetList */,
 				932D257E2B8284FC00B99FA3 /* View */,
 				93CE907E2AF7D5580025FBB0 /* CalendarModel.swift */,
 				93CE90782AF7D5370025FBB0 /* CalendarRouter.swift */,
@@ -1059,14 +1101,14 @@
 			path = Token;
 			sourceTree = "<group>";
 		};
-		93C46E0F2B0508F30055BA0F /* UICollectionViewCell */ = {
+		93C46E0F2B0508F30055BA0F /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				932D257B2B827D9300B99FA3 /* Calendar */,
 				932D255F2B7FF8D900B99FA3 /* Onboarding */,
 				93DD5AC22B4065EA00BDE0A9 /* PetList */,
 			);
-			path = UICollectionViewCell;
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		93C46E102B0509000055BA0F /* Buttons */ = {
@@ -1253,7 +1295,6 @@
 			);
 			name = "Petcare-iOS";
 			packageProductDependencies = (
-				932D25792B82695800B99FA3 /* GoogleSignIn */,
 			);
 			productName = "Petcare-iOS";
 			productReference = 9337800E2ADA7DA800103273 /* Petcare.app */;
@@ -1356,11 +1397,13 @@
 				933780472ADA816F00103273 /* OnboardingViewController.swift in Sources */,
 				93822B322AF9672400989255 /* AppColors.swift in Sources */,
 				93822B3D2AF9887C00989255 /* RegisterInteractor.swift in Sources */,
+				932347222B9C9EFC00971E1D /* NearbyList.swift in Sources */,
 				93DD5ACE2B4198CC00BDE0A9 /* PetTypeInteractor.swift in Sources */,
 				93048F092B0A8F8F000BD03A /* Int + Extension.swift in Sources */,
 				93364FED2B9371D000C430DB /* CustomTextfieldType.swift in Sources */,
 				933780412ADA814400103273 /* OnboardingModel.swift in Sources */,
 				932D25552B7BFFC000B99FA3 /* PetDetailInteractor.swift in Sources */,
+				9323471D2B9C9E9000971E1D /* NearbyListInteractor.swift in Sources */,
 				938102392B5C6F2900BF21AD /* PetResultViewController.swift in Sources */,
 				933A221E2B45F16400854DB0 /* PetImagePresenter.swift in Sources */,
 				933780122ADA7DA800103273 /* AppDelegate.swift in Sources */,
@@ -1419,10 +1462,12 @@
 				932D25572B7BFFC600B99FA3 /* PetDetailPresenter.swift in Sources */,
 				93364FDF2B9351B300C430DB /* ValidatorType.swift in Sources */,
 				933A22272B473C2700854DB0 /* UINavigationItem + Extension.swift in Sources */,
+				932347192B9C9E7900971E1D /* NearbyListRouter.swift in Sources */,
 				9348B45E2AE0631E00F7185A /* AppFonts.swift in Sources */,
 				93364FE32B936F8400C430DB /* UIViewController + Extension.swift in Sources */,
 				933A22232B45F6F100854DB0 /* SeeAllButtonBuilder.swift in Sources */,
 				931144E62AFC179500F6365E /* OnboardingCell.swift in Sources */,
+				932347252B9CA20400971E1D /* NearbyListTableViewCell.swift in Sources */,
 				93364FEF2B93720000C430DB /* CustomTextfieldViewModel.swift in Sources */,
 				93CE90712AF7BA5C0025FBB0 /* HomeRouter.swift in Sources */,
 				933780572ADA824D00103273 /* LoginInteractor.swift in Sources */,
@@ -1448,6 +1493,7 @@
 				93B004D82B8B31DD00302B3D /* ErrorHandler.swift in Sources */,
 				932D25802B82851B00B99FA3 /* SlideView.swift in Sources */,
 				93E1FDC32B77A7EC00BD72E1 /* DonateRouter.swift in Sources */,
+				9323471F2B9C9E9600971E1D /* NearbyListViewController.swift in Sources */,
 				933A221A2B45F15400854DB0 /* PetImageRouter.swift in Sources */,
 				93CE906B2AF7BA420025FBB0 /* HomeEntity.swift in Sources */,
 				93364FD72B93369000C430DB /* ScrollableContentViewController.swift in Sources */,
@@ -1492,6 +1538,7 @@
 				93CE906D2AF7BA4C0025FBB0 /* HomePresenter.swift in Sources */,
 				9367243E2B8E156400897112 /* UserRegisterResponse.swift in Sources */,
 				93364FCB2B8F3D1600C430DB /* SmsOtpInteractor.swift in Sources */,
+				9323471B2B9C9E8400971E1D /* NearbyListPresenter.swift in Sources */,
 				93732DF92B16701E00DE636E /* UserRegister.swift in Sources */,
 				93364FF32B9374D200C430DB /* PetInfoEnum.swift in Sources */,
 				933A22252B4729AF00854DB0 /* UITextField + Extension.swift in Sources */,
@@ -1831,14 +1878,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		932D25792B82695800B99FA3 /* GoogleSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 932D25782B82695800B99FA3 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 933780062ADA7DA800103273 /* Project object */;
 }

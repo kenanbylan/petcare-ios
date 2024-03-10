@@ -12,9 +12,10 @@ import Foundation
 import UIKit.UINavigationController
 
 protocol CalendarRouterProtocol: AnyObject {
+    func navigateToNearbyList() -> Void
 }
 
-final class CalendarRouter: CalendarRouterProtocol {
+final class CalendarRouter {
     var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -32,6 +33,11 @@ final class CalendarRouter: CalendarRouterProtocol {
         
         return view
     }
-    
-    
+}
+
+extension CalendarRouter: CalendarRouterProtocol {
+    func navigateToNearbyList() {
+        let view = NearbyListRouter.build(navigationController: navigationController)
+        navigationController?.pushViewController(view, animated: true)
+    }
 }
