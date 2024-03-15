@@ -19,22 +19,23 @@ final class NearbyListTableViewCell: UITableViewCell {
     private lazy var address: CustomLabel = {
         let label = CustomLabel(text: "Çınar Mahallesi 747.Sok no:16 daire:2 Bağcılar/İstanbul", fontSize: 14, fontType: .regular, textColor: AppColors.labelColor)
         label.numberOfLines = 0
-        label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+//        label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+//        label.setContentHuggingPriority(.defaultLow, for: .vertical)
         return label
     }()
     
     private lazy var distance: CustomLabel = {
-        let label = CustomLabel(text: "1.4 KM", fontSize: 17, fontType: .medium, textColor: AppColors.labelColor)
-        label.textAlignment = .center
-        label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal) // Yatayda sıkıştırılmayı artır
+        let label = CustomLabel(text: "1.4 KM", fontSize: 14, fontType: .regular, textColor: AppColors.labelColor)
+        label.textAlignment = .right
+        
+//        label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal) // Yatayda sıkıştırılmayı artır
         return label
     }()
     
     private lazy var icon: UIImageView = {
         let image = UIImageView()
-        let myImage = UIImage(named: "pati")
-        let resizedImage = myImage!.resized(to: CGSize(width: 40, height: 40))
+        let myImage = UIImage(named: "patiShape")
+        let resizedImage = myImage!.resized(to: CGSize(width: 35, height: 35))
         image.image = resizedImage
         image.contentMode = .scaleAspectFit
         return image
@@ -43,7 +44,7 @@ final class NearbyListTableViewCell: UITableViewCell {
     private lazy var insideStackView: CustomStackView = {
         let stack = CustomStackView()
         stack.axis = .vertical
-        stack.alignment = .leading
+        stack.alignment = .fill
         stack.distribution = .fill
         stack.spacing = 8
         return stack
@@ -53,14 +54,12 @@ final class NearbyListTableViewCell: UITableViewCell {
         let stack = CustomStackView()
         stack.axis = .horizontal
         stack.alignment = .fill
-        stack.distribution = .equalSpacing
+        stack.spacing = 12
         stack.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         stack.isLayoutMarginsRelativeArrangement = true
         stack.clipsToBounds = true
         return stack
     }()
-    
-    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -72,10 +71,10 @@ final class NearbyListTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureCell(with nearbyList: NearbyList) {
-        self.title.text = nearbyList.title
+    func configureCell(with nearbyList: NearbyPlace) {
+        self.title.text = nearbyList.placeTitle
         self.address.text = nearbyList.address
-        self.distance.text = String(nearbyList.userDistance)
+        self.distance.text = nearbyList.distance.formatAsDistance()
     }
 }
 
@@ -86,10 +85,10 @@ extension NearbyListTableViewCell: ViewCoding {
         outsideStackView.addArrangedSubview(icon)
         outsideStackView.addArrangedSubview(insideStackView)
         outsideStackView.addArrangedSubview(distance)
+        outsideStackView.addArrangedSubview(UIView())
 
         insideStackView.addArrangedSubview(title)
         insideStackView.addArrangedSubview(address)
-        
     }
     
     func setupHierarchy() {}
@@ -102,7 +101,6 @@ extension NearbyListTableViewCell: ViewCoding {
             outsideStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
             insideStackView.widthAnchor.constraint(equalToConstant: UIScreen.screenWidth / 2)
-
         ])
     }
 }
