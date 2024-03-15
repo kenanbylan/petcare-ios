@@ -6,15 +6,18 @@
 
 import UIKit
 import SwiftUI
-import Combine
 
 protocol PetTypeViewProtocol: AnyObject {
     func prepareUI()
 }
 
+protocol PetTypeViewDelegate: AnyObject {
+    func didSelectPet()
+}
+
 final class PetTypeViewController: UIViewController {
     var presenter: PetTypePresenterProtocol?
-    private var cancellables = Set<AnyCancellable>()
+    weak var delegate: PetTypeViewDelegate?
     
     //MARK: UI Properties
     private let scrollView: UIScrollView = {
@@ -52,44 +55,44 @@ final class PetTypeViewController: UIViewController {
         return image
     }()
     
-    
     private lazy var stackView: CustomStackView = {
-        let stackView = CustomStackView(axis: .vertical,alignment: .fill,distribution: .equalSpacing,spacing: 24)
+        let stackView = CustomStackView(axis: .vertical, alignment: .fill, distribution: .equalSpacing, spacing: 24)
         return stackView
     }()
     
     private lazy var patiButton: AppButton = {
         let appbutton = AppButton.build()
-            .setTitle("İlerle")
-            .setImage(UIImage(named: "pati")?.resized(to: CGSize(width: 24, height: 24)))
-            .setBackgroundColor(AppColors.customBlue)
+            .setTitle("Done")
+            .setImage(UIImage(named: "pati")?.withRenderingMode(.alwaysTemplate).resized(to: CGSize(width: 25, height: 25)))
+            .setBackgroundColor(AppColors.primaryColor)
+            .setTitleColor(AppColors.customWhite)
+        appbutton.isEnabled = false
         appbutton.addTarget(self, action: #selector(patiButtonClicked), for: .touchUpInside)
         return appbutton
     }()
-    
+        
     //MARK: Variable's
     var petTypeViews: [SelectPetView] = []
-    @Published private var selectItem: String?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareTitleLabel()
         buildLayout()
         setNavigationBar()
-        patiButton.isEnabled = true
+        setupPetTypes()
     }
     
+    //MARK: - Pet Types Setup
     private func setupPetTypes() {
-        let petTypes = ["Cat", "Dog", "Bird", "Fish", "Rabbit","Other"]
+        let petTypes = ["Cat", "Dog", "Bird", "Fish", "Rabbit", "Other"]
         for type in petTypes {
             let petTypeView = SelectPetView()
             petTypeView.setText(type)
+            petTypeView.delegate = self
             stackView.addArrangedSubview(petTypeView)
             petTypeViews.append(petTypeView)
         }
     }
-    
-    @objc func nextButtonClicked() { }
     
     private func prepareTitleLabel() {
         let titleLabel = TitleLabel.configurationTitleLabel(withText: "Hello my friend", fontSize: 17, textColor: AppColors.primaryColor)
@@ -103,10 +106,8 @@ final class PetTypeViewController: UIViewController {
 }
 
 extension PetTypeViewController: ViewCoding {
-    
     func setupView() {
         scrollView.backgroundColor = AppColors.bgColor
-        contentView.backgroundColor = AppColors.customRed
         topStackView.backgroundColor = AppColors.customBlue
         topStackView.addShadow(shadowColor: AppColors.bgColor.cgColor)
     }
@@ -115,21 +116,17 @@ extension PetTypeViewController: ViewCoding {
         self.view.addSubview(scrollView)
         self.scrollView.addSubview(contentView)
         
-//        let hConst = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
-//        hConst.isActive = true
-//        hConst.priority = UILayoutPriority(50)
-        
-        let scrollViewHeight = contentView.heightAnchor.constraint(equalToConstant: scrollView.contentSize.height)
-        scrollViewHeight.priority = .required - 1
-        scrollViewHeight.isActive = true
+        let hConst = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        hConst.isActive = true
+        hConst.priority = UILayoutPriority(50)
         
         contentView.addSubview(topStackView)
+        
         topStackView.addArrangedSubview(petTitle)
         topStackView.addArrangedSubview(UIView())
         topStackView.addArrangedSubview(arrowIcon)
         
         contentView.addSubview(stackView)
-        setupPetTypes()
         contentView.addSubview(patiButton)
     }
     
@@ -163,22 +160,24 @@ extension PetTypeViewController: ViewCoding {
     }
 }
 
-
 extension PetTypeViewController: PetTypeViewProtocol {
-    
-    @objc func patiButtonClicked() {
-        print("Button clicked!")
-        presenter?.navigateToPetInfo()
-    }
-    
-    func prepareUI() {
-        
+    func prepareUI() { }
+}
+
+//MARK: - Select Pet View Delegate
+extension PetTypeViewController: SelectPetViewDelegate {
+    func didSelect(_ view: SelectPetView) {
+        let selectPet = view.petType
+        let isAnyItemSelected = petTypeViews.contains { $0.isSelected }
+        delegate?.didSelectPet()
+        patiButton.isEnabled = isAnyItemSelected
     }
 }
 
-
-struct PetTypeViewController_Previews: PreviewProvider {
-    static var previews: some View {
-        PetTypeViewController().showPreview()
+//MARK: - Button Action
+extension PetTypeViewController {
+    @objc func patiButtonClicked() {
+        print("Button clicked!")
+        presenter?.navigateToPetInfo()
     }
 }

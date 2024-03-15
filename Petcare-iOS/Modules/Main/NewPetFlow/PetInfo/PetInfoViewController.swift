@@ -88,6 +88,7 @@ final class PetInfoViewController: BaseViewController {
             .setTitle("Continue")
             .setImage(UIImage(named: "coffee")?.resized(to: CGSize(width: 25, height: 25)))
             .setBackgroundColor(AppColors.primaryColor)
+        appbutton.addTarget(self, action: #selector(appButtonClicked), for: .touchUpInside)
         return appbutton
     }()
         
@@ -123,6 +124,15 @@ final class PetInfoViewController: BaseViewController {
     }
 }
 
+
+//MARK: - Button Action
+extension PetInfoViewController {
+    @objc func appButtonClicked() {
+        print("Button clicked!")
+        presenter?.navigateSelectPetImage()
+    }
+}
+
 extension PetInfoViewController: UITextFieldDelegate {
     
 }
@@ -141,6 +151,7 @@ extension PetInfoViewController: PetInfoViewProtocol {
         presenter?.navigateSelectPetImage()
     }
 }
+
 extension PetInfoViewController: ViewCoding {
     func setupView() {}
     
@@ -156,9 +167,10 @@ extension PetInfoViewController: ViewCoding {
         hStackView.addArrangedSubview(weightTextField)
         hStackView.addArrangedSubview(heightTextField)
         
-        let scrollViewHeight = scrollView.heightAnchor.constraint(equalToConstant: scrollView.contentSize.height)
-        scrollViewHeight.priority = .required - 1
-        scrollViewHeight.isActive = true
+        let hConst = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        hConst.isActive = true
+        hConst.priority = UILayoutPriority(50)
+        
     }
     
     func setupConstraints() {

@@ -6,14 +6,20 @@
 
 import UIKit
 
+protocol SelectPetViewDelegate: AnyObject {
+    func didSelect(_ view: SelectPetView)
+}
+
 final class SelectPetView: UIView {
+     
+    var petType: String = ""
     
-    private var petType: String = ""
-    private var isSelected: Bool = false {
+    var isSelected: Bool = false {
         didSet {
             updateAppearance()
         }
     }
+    weak var delegate: SelectPetViewDelegate?
     
     func setText(_ text: String) {
         petType = text
@@ -32,6 +38,8 @@ final class SelectPetView: UIView {
         super.init(frame: .zero)
         setupView()
         updateAppearance()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        self.addGestureRecognizer(tapGesture)
     }
     
     required init?(coder: NSCoder) {
@@ -42,6 +50,7 @@ final class SelectPetView: UIView {
         backgroundColor = AppColors.bgColor
         layer.cornerRadius = 20
         addShadow(shadowColor: AppColors.bgColor.cgColor)
+        
         addSubview(label)
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: topAnchor),
@@ -52,7 +61,6 @@ final class SelectPetView: UIView {
             heightAnchor.constraint(equalToConstant: UIScreen.screenWidth / 8.5)
         ])
     }
-    
     
     private func updateAppearance() {
         if isSelected {
@@ -65,11 +73,23 @@ final class SelectPetView: UIView {
     }
     
     func setSelection(selected: Bool) {
-        isSelected = selected
-        updateAppearance()
+        // Eğer bu öğe zaten seçili ise işlem yapma.
+        guard !isSelected else { return }
         
-        UIView.animate(withDuration: 0.3) {
-            self.transform = selected ? CGAffineTransform(scaleX: 1.05, y: 1.05) : .identity
+        // Eğer bu öğe seçiliyse, diğer tüm öğeleri seçili olmamış duruma getir.
+        delegate?.didSelect(self)
+        
+        // Diğer tüm öğelerin seçili olmamış duruma getirilmesi
+        for view in superview?.subviews ?? [] {
+            if let petView = view as? SelectPetView, petView != self {
+                petView.isSelected = false
+            }
         }
+        
+        isSelected = true
+    }
+    
+    @objc private func viewTapped() {
+        setSelection(selected: true)
     }
 }
