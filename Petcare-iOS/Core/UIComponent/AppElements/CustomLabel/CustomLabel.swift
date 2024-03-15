@@ -8,7 +8,7 @@ import Foundation
 import UIKit
 
 class CustomLabel: UILabel {
-    init(text: String, fontSize: CGFloat, fontType: AppFonts , textColor: UIColor) {
+    init(text: String? = nil, fontSize: CGFloat, fontType: AppFonts , textColor: UIColor) {
         super.init(frame: .zero)
         commonInit()
         self.text = text
