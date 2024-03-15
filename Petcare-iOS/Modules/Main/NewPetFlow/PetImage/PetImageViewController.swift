@@ -35,8 +35,11 @@ final class PetImageViewController: UIViewController {
     
     private lazy var appButton: AppButton = {
         let appbutton = AppButton.build()
-            .setImage(UIImage(named: "pati")?.resized(to: CGSize(width: 24, height: 24)))
-            .setTitle("Continiu")
+            .setImage(UIImage(named: "pati")?.resized(to: CGSize(width: 25, height: 25)))
+            .setTitle("Save")
+            .setTitleColor(AppColors.labelColor)
+        
+        appbutton.addTarget(self, action: #selector(patiButtonClicked) , for: .touchUpInside)
         return appbutton
     }()
     
@@ -65,17 +68,22 @@ extension PetImageViewController: PetImageViewProtocol {
         
         petImages.backgroundColor = AppColors.bgColor
         petImages.layer.cornerRadius = 12
-        petImages.layer.shadowColor = AppColors.customDarkGray.cgColor
+        petImages.layer.shadowColor = AppColors.customLightGray.cgColor
         petImages.layer.shadowOpacity = 0.4
-        petImages.layer.shadowOffset = CGSize(width: 0, height: 2)
+        petImages.layer.shadowOffset = CGSize(width: 4, height: 4)
         petImages.layer.shadowRadius = 4
         
         prepareTapGesture()
     }
     
-    func patiButtonClicked(_ sender: AppButton) {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        petImages.layer.shadowColor = AppColors.customLightGray.cgColor
+    }
+    
+    @objc func patiButtonClicked() {
         print(" Select Image clicked SaveButton")
-        presenter?.navigateMainPage()
+        presenter?.navigateResultPage()
     }
     
     func getImage() { }
@@ -141,11 +149,10 @@ extension PetImageViewController: UIImagePickerControllerDelegate & UINavigation
         }
         picker.dismiss(animated: true, completion: nil)
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension PetImageViewController: ViewCoding {
@@ -169,11 +176,12 @@ extension PetImageViewController: ViewCoding {
             petImages.leadingAnchor.constraint(equalTo: petsNameLabel.leadingAnchor, constant: 32),
             petImages.trailingAnchor.constraint(equalTo: petsNameLabel.trailingAnchor, constant: -32),
             
-            petImages.heightAnchor.constraint(equalToConstant: 100),
+            petImages.heightAnchor.constraint(equalToConstant: UIScreen.screenWidth / 3),
             petImages.widthAnchor.constraint(equalTo: petImages.heightAnchor, multiplier: 3.0 / 4.0),
             
             appButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
-            appButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+            appButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 5.wPercent),
+            appButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -5.wPercent),
         ])
     }
 }

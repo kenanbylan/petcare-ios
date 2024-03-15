@@ -20,6 +20,11 @@ final class CalendarViewController: BaseViewController {
         return upcoming
     }()
     
+    private lazy var upComingRezervation: CustomLabel = {
+        let upcoming = CustomLabel(text: "Upcoming Rezervation", fontSize: 14, fontType: .medium, textColor: AppColors.labelColor)
+        return upcoming
+    }()
+    
     private lazy var seeAllButton: SeeAllButton = {
         return SeeAllButtonBuilder()
             .withAction {
@@ -110,6 +115,8 @@ final class CalendarViewController: BaseViewController {
             upComingVeterinaryView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             upComingVeterinaryView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             upComingVeterinaryView.heightAnchor.constraint(equalToConstant: 100),
+            
+            
         ])
     }
 }

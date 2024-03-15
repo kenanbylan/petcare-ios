@@ -10,6 +10,7 @@ import Foundation
 protocol NearbyListPresenterProtocol {
     func viewDidLoad()
     func setTitle() -> String
+    func navigateToDetail(data: NearbyPlace)
 }
 
 final class NearbyListPresenter {
@@ -34,6 +35,12 @@ extension NearbyListPresenter: NearbyListPresenterProtocol {
         interactor?.getTableViewList()
         view?.prepareTitle()
     }
+    
+    func navigateToDetail(data: NearbyPlace) {
+        router?.navigateToDetail(data: data)
+    }
 }
 
-extension NearbyListPresenter: NearbyListInteractOutput { }
+extension NearbyListPresenter: NearbyListInteractOutput {
+    
+}

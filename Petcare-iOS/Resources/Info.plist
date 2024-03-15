@@ -41,5 +41,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Please give me location permission</string>
 </dict>
 </plist>

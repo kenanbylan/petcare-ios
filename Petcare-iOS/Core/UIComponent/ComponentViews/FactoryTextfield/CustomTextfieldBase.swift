@@ -32,7 +32,6 @@ class CustomTextFieldBase: UITextField, UITextFieldDelegate {
         self.translatesAutoresizingMaskIntoConstraints = false
         setupTextField()
         delegate = self
-        print("isSecureTextEntryToggle : ", isSecureTextEntryToggle)
     }
     
     
