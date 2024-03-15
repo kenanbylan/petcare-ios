@@ -18,3 +18,43 @@ final class TitleLabel {
         return titleLabel
     }
 }
+
+extension UILabel {
+    func addImage(image: UIImage, offsetY: CGFloat, lineSpacing: CGFloat, textAfterImage: String) {
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = image
+        
+        // Resmin boyutunu ve konumunu ayarla
+        let imageSize = image.size
+        let imageOffsetX = offsetY
+        
+        imageAttachment.bounds = CGRect(x: 0, y: offsetY, width: imageSize.width, height: imageSize.height)
+        
+        // Resim ile birlikte bir NSAttributedString oluştur
+        let attachmentString = NSAttributedString(attachment: imageAttachment)
+        
+        // Boşluk oluştur
+        let spaceString = NSAttributedString(string: " ")
+        
+        // Label'a resmi ekle
+        let mutableAttributedString = NSMutableAttributedString(attributedString: self.attributedText ?? NSAttributedString())
+        mutableAttributedString.append(spaceString)
+        mutableAttributedString.append(attachmentString)
+        
+        // Eğer textAfterImage varsa, label'a ekle
+        if !textAfterImage.isEmpty {
+            let textAfterImageAttributedString = NSAttributedString(string: textAfterImage)
+            mutableAttributedString.append(spaceString)
+            mutableAttributedString.append(textAfterImageAttributedString)
+        }
+        
+        // Label'a tam metni ata
+        self.attributedText = mutableAttributedString
+        
+        // Line spacing ayarla
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        paragraphStyle.alignment = self.textAlignment
+        mutableAttributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: mutableAttributedString.length))
+    }
+}
