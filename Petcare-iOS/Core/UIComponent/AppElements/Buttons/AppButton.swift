@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 
+
 final class AppButton: UIButton {
     var image: UIImage? {
         didSet {
@@ -29,6 +30,15 @@ final class AppButton: UIButton {
         }
     }
     
+    var imageColor: UIColor? {
+        didSet {
+            // Eğer imageColor değişirse, görüntüye tintColor uygulanmalıdır.
+            if let color = imageColor {
+                imageView?.tintColor = color
+            }
+        }
+    }
+    
     private init() {
         super.init(frame: .zero)
         configureButton()
@@ -38,7 +48,6 @@ final class AppButton: UIButton {
         super.init(coder: aDecoder)
     }
     
-    // Builder deseni için oluşturucu fonksiyon
     static func build() -> AppButton {
         return AppButton()
     }
@@ -60,11 +69,10 @@ final class AppButton: UIButton {
     }
 
     private func adjustContent() {
+        // Bu metod, image ve title'ı kontrol eder ve düğmenin içeriğini uygun şekilde ayarlar.
         if let image = image, let title = title {
             setImage(image, for: .normal)
             setTitle(title, for: .normal)
-            imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 10) // Görüntüye sağ boşluk ekle
-            titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -10) // Metne sol boşluk ekle
         } else if let title = title {
             setTitle(title, for: .normal)
             setImage(nil, for: .normal)
@@ -113,14 +121,19 @@ final class AppButton: UIButton {
     }
     
     func setFont(_ font: UIFont) -> AppButton {
-        self.titleLabel?.font = font
+        titleLabel?.font = font
         return self
     }
     
-//    func setDelegate(_ delegate: AppButtonDelegate?) -> AppButton {
-//        self.delegate = delegate
-//        return self
-//    }
+    func setImageColor(_ imageColor: UIColor) -> AppButton {
+        self.imageColor = imageColor
+        return self
+    }
+    
+    func setTintColor(_ tintColor: UIColor) -> AppButton {
+        self.tintColor = tintColor
+        return self
+    }
     
     func setBackgroundColor(_ backgroundColor: UIColor?) -> AppButton {
         self.backgroundColor = backgroundColor

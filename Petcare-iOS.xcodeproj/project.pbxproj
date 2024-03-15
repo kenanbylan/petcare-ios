@@ -131,6 +131,18 @@
 		93822B492AFA85DE00989255 /* ForgotPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B482AFA85DE00989255 /* ForgotPasswordInteractor.swift */; };
 		93822B4B2AFA85E500989255 /* ForgotPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B4A2AFA85E500989255 /* ForgotPasswordRouter.swift */; };
 		93822B4D2AFAC2EA00989255 /* UICustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B4C2AFAC2EA00989255 /* UICustomButton.swift */; };
+		93AA9BB02B9E3A5600942F16 /* NearbyPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BAF2B9E3A5600942F16 /* NearbyPlace.swift */; };
+		93AA9BB22B9E3C9B00942F16 /* CLLocationCoordinate2D + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BB12B9E3C9B00942F16 /* CLLocationCoordinate2D + Extension.swift */; };
+		93AA9BB52B9F822300942F16 /* VeterinaryDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BB42B9F822300942F16 /* VeterinaryDetailRouter.swift */; };
+		93AA9BB72B9F822A00942F16 /* VeterinaryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BB62B9F822A00942F16 /* VeterinaryDetailPresenter.swift */; };
+		93AA9BB92B9F823100942F16 /* VeterinaryDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BB82B9F823100942F16 /* VeterinaryDetailInteractor.swift */; };
+		93AA9BBB2B9F823B00942F16 /* VeterinaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BBA2B9F823B00942F16 /* VeterinaryDetailViewController.swift */; };
+		93AA9BBE2BA0FFFD00942F16 /* ImageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BBD2BA0FFFD00942F16 /* ImageLabel.swift */; };
+		93AA9BC02BA1002B00942F16 /* ImageLabelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BBF2BA1002B00942F16 /* ImageLabelBuilder.swift */; };
+		93AA9BC32BA192C500942F16 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BC22BA192C500942F16 /* BottomSheetView.swift */; };
+		93AA9BC62BA2366600942F16 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BC52BA2366600942F16 /* CustomTextView.swift */; };
+		93AA9BC92BA4C63B00942F16 /* ApproveResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BC82BA4C63B00942F16 /* ApproveResultViewController.swift */; };
+		93AA9BCE2BA4E72600942F16 /* ApproveResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BCD2BA4E72600942F16 /* ApproveResultModel.swift */; };
 		93B004CC2B8A278500302B3D /* URLRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B004CB2B8A278500302B3D /* URLRouter.swift */; };
 		93B004CE2B8A689400302B3D /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B004CD2B8A689400302B3D /* NetworkConstants.swift */; };
 		93B004D02B8A68E100302B3D /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B004CF2B8A68E100302B3D /* RequestMethod.swift */; };
@@ -339,6 +351,18 @@
 		93822B482AFA85DE00989255 /* ForgotPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordInteractor.swift; sourceTree = "<group>"; };
 		93822B4A2AFA85E500989255 /* ForgotPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRouter.swift; sourceTree = "<group>"; };
 		93822B4C2AFAC2EA00989255 /* UICustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomButton.swift; sourceTree = "<group>"; };
+		93AA9BAF2B9E3A5600942F16 /* NearbyPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPlace.swift; sourceTree = "<group>"; };
+		93AA9BB12B9E3C9B00942F16 /* CLLocationCoordinate2D + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D + Extension.swift"; sourceTree = "<group>"; };
+		93AA9BB42B9F822300942F16 /* VeterinaryDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeterinaryDetailRouter.swift; sourceTree = "<group>"; };
+		93AA9BB62B9F822A00942F16 /* VeterinaryDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeterinaryDetailPresenter.swift; sourceTree = "<group>"; };
+		93AA9BB82B9F823100942F16 /* VeterinaryDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeterinaryDetailInteractor.swift; sourceTree = "<group>"; };
+		93AA9BBA2B9F823B00942F16 /* VeterinaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeterinaryDetailViewController.swift; sourceTree = "<group>"; };
+		93AA9BBD2BA0FFFD00942F16 /* ImageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLabel.swift; sourceTree = "<group>"; };
+		93AA9BBF2BA1002B00942F16 /* ImageLabelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLabelBuilder.swift; sourceTree = "<group>"; };
+		93AA9BC22BA192C500942F16 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		93AA9BC52BA2366600942F16 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		93AA9BC82BA4C63B00942F16 /* ApproveResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveResultViewController.swift; sourceTree = "<group>"; };
+		93AA9BCD2BA4E72600942F16 /* ApproveResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveResultModel.swift; sourceTree = "<group>"; };
 		93B004CB2B8A278500302B3D /* URLRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRouter.swift; sourceTree = "<group>"; };
 		93B004CD2B8A689400302B3D /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		93B004CF2B8A68E100302B3D /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
@@ -486,6 +510,7 @@
 		931144E42AFC178500F6365E /* ComponentViews */ = {
 			isa = PBXGroup;
 			children = (
+				93AA9BC12BA192B700942F16 /* BottomSheetView */,
 				93DD5ABF2B4044B400BDE0A9 /* UpcomingVeterinary */,
 				9347020D2B0FF6DE0033C7CE /* FactoryTextfield */,
 			);
@@ -559,6 +584,7 @@
 			isa = PBXGroup;
 			children = (
 				932347212B9C9EFC00971E1D /* NearbyList.swift */,
+				93AA9BAF2B9E3A5600942F16 /* NearbyPlace.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -594,6 +620,8 @@
 		932D255E2B7FF89200B99FA3 /* AppElements */ = {
 			isa = PBXGroup;
 			children = (
+				93AA9BC42BA2365400942F16 /* CustomTextView */,
+				93AA9BBC2BA0FFD900942F16 /* ImageLabel */,
 				93364FD82B93505F00C430DB /* CustomTextfield */,
 				932D256A2B80090700B99FA3 /* AlertView */,
 				93DD5ABC2B403AD500BDE0A9 /* ShadowView */,
@@ -794,6 +822,7 @@
 				93364FE22B936F8400C430DB /* UIViewController + Extension.swift */,
 				93E6D7182B98761000471954 /* UITableView + Extension.swift */,
 				93E6D71A2B987CB500471954 /* UICollectionView + Extension.swift */,
+				93AA9BB12B9E3C9B00942F16 /* CLLocationCoordinate2D + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -813,6 +842,7 @@
 		9337802C2ADA7E4100103273 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				93AA9BC72BA4C61C00942F16 /* ApproveResultView */,
 				933780352ADA7E9100103273 /* Tabbar */,
 				9337802D2ADA7E4C00103273 /* Splash */,
 				9337802E2ADA7E5400103273 /* Onboarding */,
@@ -917,6 +947,7 @@
 		933780372ADA7EA900103273 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				93AA9BB32B9F81E000942F16 /* VeterinaryDetail */,
 				932347172B9C9E4100971E1D /* NearbyVetList */,
 				932D257E2B8284FC00B99FA3 /* View */,
 				93CE907E2AF7D5580025FBB0 /* CalendarModel.swift */,
@@ -1061,6 +1092,51 @@
 				9381023A2B5D5F2600BF21AD /* SettingTableViewCell.swift */,
 			);
 			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		93AA9BB32B9F81E000942F16 /* VeterinaryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				93AA9BB42B9F822300942F16 /* VeterinaryDetailRouter.swift */,
+				93AA9BB62B9F822A00942F16 /* VeterinaryDetailPresenter.swift */,
+				93AA9BB82B9F823100942F16 /* VeterinaryDetailInteractor.swift */,
+				93AA9BBA2B9F823B00942F16 /* VeterinaryDetailViewController.swift */,
+			);
+			path = VeterinaryDetail;
+			sourceTree = "<group>";
+		};
+		93AA9BBC2BA0FFD900942F16 /* ImageLabel */ = {
+			isa = PBXGroup;
+			children = (
+				93AA9BBD2BA0FFFD00942F16 /* ImageLabel.swift */,
+				93AA9BBF2BA1002B00942F16 /* ImageLabelBuilder.swift */,
+			);
+			path = ImageLabel;
+			sourceTree = "<group>";
+		};
+		93AA9BC12BA192B700942F16 /* BottomSheetView */ = {
+			isa = PBXGroup;
+			children = (
+				93AA9BC22BA192C500942F16 /* BottomSheetView.swift */,
+			);
+			path = BottomSheetView;
+			sourceTree = "<group>";
+		};
+		93AA9BC42BA2365400942F16 /* CustomTextView */ = {
+			isa = PBXGroup;
+			children = (
+				93AA9BC52BA2366600942F16 /* CustomTextView.swift */,
+			);
+			name = CustomTextView;
+			sourceTree = "<group>";
+		};
+		93AA9BC72BA4C61C00942F16 /* ApproveResultView */ = {
+			isa = PBXGroup;
+			children = (
+				93AA9BC82BA4C63B00942F16 /* ApproveResultViewController.swift */,
+				93AA9BCD2BA4E72600942F16 /* ApproveResultModel.swift */,
+			);
+			path = ApproveResultView;
 			sourceTree = "<group>";
 		};
 		93B004C82B8A25CF00302B3D /* Network Layer */ = {
@@ -1400,6 +1476,7 @@
 				932347222B9C9EFC00971E1D /* NearbyList.swift in Sources */,
 				93DD5ACE2B4198CC00BDE0A9 /* PetTypeInteractor.swift in Sources */,
 				93048F092B0A8F8F000BD03A /* Int + Extension.swift in Sources */,
+				93AA9BB22B9E3C9B00942F16 /* CLLocationCoordinate2D + Extension.swift in Sources */,
 				93364FED2B9371D000C430DB /* CustomTextfieldType.swift in Sources */,
 				933780412ADA814400103273 /* OnboardingModel.swift in Sources */,
 				932D25552B7BFFC000B99FA3 /* PetDetailInteractor.swift in Sources */,
@@ -1414,6 +1491,7 @@
 				93E6D7192B98761000471954 /* UITableView + Extension.swift in Sources */,
 				933780552ADA824500103273 /* LoginPresenter.swift in Sources */,
 				93364FE92B9370DA00C430DB /* Validator.swift in Sources */,
+				93AA9BCE2BA4E72600942F16 /* ApproveResultModel.swift in Sources */,
 				934702052B0E78680033C7CE /* LoadingUICustomButton.swift in Sources */,
 				93C46DFA2B040C540055BA0F /* MyTextField.swift in Sources */,
 				933A22152B45E83D00854DB0 /* UILabel + Extension.swift in Sources */,
@@ -1427,6 +1505,7 @@
 				932D25672B7FFE0100B99FA3 /* NetworkMonitor.swift in Sources */,
 				93822B452AFA85BF00989255 /* ForgotPasswordViewController.swift in Sources */,
 				93E1FDCB2B77A80F00BD72E1 /* PrivacyPolicyPresenter.swift in Sources */,
+				93AA9BC02BA1002B00942F16 /* ImageLabelBuilder.swift in Sources */,
 				93364FD12B8F3D2C00C430DB /* NewPasswordInteractor.swift in Sources */,
 				93E1FDAF2B77A77F00BD72E1 /* PersonInformationRouter.swift in Sources */,
 				9337804D2ADA81AF00103273 /* OnboardingInteractor.swift in Sources */,
@@ -1436,6 +1515,7 @@
 				93364FCF2B8F3D2600C430DB /* NewPasswordRouter.swift in Sources */,
 				933A221C2B45F15E00854DB0 /* PetImageInteractor.swift in Sources */,
 				93DD5ABE2B403AF100BDE0A9 /* ShadowView.swift in Sources */,
+				93AA9BB52B9F822300942F16 /* VeterinaryDetailRouter.swift in Sources */,
 				9337804B2ADA81A700103273 /* OnboardingRouter.swift in Sources */,
 				93CE90872AF7D5C40025FBB0 /* VetMapInteractor.swift in Sources */,
 				931144E92AFC1B0900F6365E /* ViewCoding.swift in Sources */,
@@ -1449,13 +1529,17 @@
 				933A22202B45F16C00854DB0 /* PetImageViewController.swift in Sources */,
 				933780652ADC0DF000103273 /* SplashRouter.swift in Sources */,
 				930EEED12B782B4F0008D051 /* BaseViewController.swift in Sources */,
+				93AA9BB92B9F823100942F16 /* VeterinaryDetailInteractor.swift in Sources */,
 				93DD5AD32B4316E100BDE0A9 /* SelectPetView.swift in Sources */,
 				933780602ADC0DC000103273 /* SplashViewController.swift in Sources */,
+				93AA9BB02B9E3A5600942F16 /* NearbyPlace.swift in Sources */,
 				93CE90912AF7D5FA0025FBB0 /* SettingsPresenter.swift in Sources */,
 				93822B412AF9888B00989255 /* RegisterRouter.swift in Sources */,
+				93AA9BC32BA192C500942F16 /* BottomSheetView.swift in Sources */,
 				93E1FDB92B77A7B900BD72E1 /* ManageNotificationInteractor.swift in Sources */,
 				93C46E0E2B04EB310055BA0F /* UINavigationController + Extension.swift in Sources */,
 				93B004CE2B8A689400302B3D /* NetworkConstants.swift in Sources */,
+				93AA9BC92BA4C63B00942F16 /* ApproveResultViewController.swift in Sources */,
 				93364FEB2B9371A100C430DB /* CustomTextfield.swift in Sources */,
 				9309ADF42B3B6E4F001BC2B0 /* SeeAllButton.swift in Sources */,
 				933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */,
@@ -1500,6 +1584,7 @@
 				93048EDF2B095096000BD03A /* SmsOtpViewController.swift in Sources */,
 				93822B472AFA85C800989255 /* ForgotPasswordPresenter.swift in Sources */,
 				93E1FDBF2B77A7E000BD72E1 /* DonatePresenter.swift in Sources */,
+				93AA9BB72B9F822A00942F16 /* VeterinaryDetailPresenter.swift in Sources */,
 				933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */,
 				938102402B5D636D00BF21AD /* SettingsModel.swift in Sources */,
 				9309ADF22B389E39001BC2B0 /* PetAvatarModel.swift in Sources */,
@@ -1507,6 +1592,7 @@
 				93B004DD2B8B95B900302B3D /* ClinicDetailsViewController.swift in Sources */,
 				93E1FDC92B77A80A00BD72E1 /* PrivacyPolicyRouter.swift in Sources */,
 				93CE90792AF7D5370025FBB0 /* CalendarRouter.swift in Sources */,
+				93AA9BBE2BA0FFFD00942F16 /* ImageLabel.swift in Sources */,
 				934702072B0E84C40033C7CE /* UIColor + Extension.swift in Sources */,
 				93DD5ACC2B41976300BDE0A9 /* PetTypeRouter.swift in Sources */,
 				93C46E0A2B04C7AF0055BA0F /* LoginButton.swift in Sources */,
@@ -1554,10 +1640,12 @@
 				93822B4B2AFA85E500989255 /* ForgotPasswordRouter.swift in Sources */,
 				93364FF52B93846600C430DB /* BaseTextField.swift in Sources */,
 				93CE90892AF7D5CC0025FBB0 /* VetMapPresenter.swift in Sources */,
+				93AA9BBB2B9F823B00942F16 /* VeterinaryDetailViewController.swift in Sources */,
 				932D25592B7BFFCD00B99FA3 /* PetDetailRouter.swift in Sources */,
 				93CE908F2AF7D5F50025FBB0 /* SettingsInteractor.swift in Sources */,
 				93364FD32B8F3D3600C430DB /* NewPasswordPresenter.swift in Sources */,
 				934702112B0FF8910033C7CE /* CustomTextfieldBase.swift in Sources */,
+				93AA9BC62BA2366600942F16 /* CustomTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

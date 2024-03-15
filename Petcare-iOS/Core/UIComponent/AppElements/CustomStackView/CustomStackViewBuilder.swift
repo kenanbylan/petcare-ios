@@ -32,6 +32,11 @@ final class CustomStackViewBuilder {
         return self
     }
     
+    func aligment(alignment: UIStackView.Alignment = .fill) -> CustomStackViewBuilder {
+        stackView.alignment = alignment
+        return self
+    }
+    
     func withShadow(color: CGColor, opacity: Float, offset: CGSize, radius: CGFloat) -> CustomStackViewBuilder {
         stackView.layer.shadowColor = color
         stackView.layer.opacity = opacity

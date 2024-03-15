@@ -10,7 +10,7 @@ import UIKit.UINavigationController
 
 protocol NearbyListRouterProtocol: AnyObject {
     func popupNearbyListView() -> Void
-    func navigateToDetail() -> Void
+    func navigateToDetail(data: NearbyPlace) -> Void
 }
 
 final class NearbyListRouter {
@@ -37,7 +37,9 @@ extension NearbyListRouter: NearbyListRouterProtocol {
         navigationController?.popViewController(animated: true)
     }
     
-    func navigateToDetail() {
-        
+    func navigateToDetail(data: NearbyPlace) {
+        let view = VeterinaryDetailRouter.build(navigationController: navigationController)
+        //        navigationController?.present(view, animated: true)
+        navigationController?.pushViewController(view, animated: true)
     }
 }
