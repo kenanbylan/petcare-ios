@@ -7,34 +7,35 @@
 import Foundation
 import CoreLocation
 
-final class LocationManager: NSObject {
-    static let shared = LocationManager()
-    
-    lazy var locationManager: CLLocationManager = {
-        let manager = CLLocationManager()
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.delegate = self
-        return manager
-    }()
-    
-    var locationUpdated: ((CLLocationCoordinate2D) -> Void)?
-    
-    override private init() {
+protocol LocationManagerDelegate: AnyObject {
+    func didUpdateLocation(_ location: CLLocationCoordinate2D)
+    func didFailWithError(_ error: Error)
+}
+
+protocol LocationDataSource: AnyObject {
+    func fetchNearbyPlaces(location: CLLocationCoordinate2D)
+}
+
+class LocationManager: NSObject {
+    private let locationManager: CLLocationManager
+    weak var delegate: LocationManagerDelegate?
+
+    init(locationManager: CLLocationManager = CLLocationManager()) {
+        self.locationManager = locationManager
         super.init()
-        self.requestPermissionToAccessLocation()
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.delegate = self
     }
+    
     
     func requestPermissionToAccessLocation() {
         switch locationManager.authorizationStatus {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
-        case .restricted:
-            locationManager.requestWhenInUseAuthorization()
-        case .denied:
+        case .restricted, .denied:
+            // Handle restricted or denied authorization status
             break
-        case .authorizedAlways:
-            locationManager.startUpdatingLocation()
-        case .authorizedWhenInUse:
+        case .authorizedAlways, .authorizedWhenInUse:
             locationManager.startUpdatingLocation()
         @unknown default:
             break
@@ -43,31 +44,13 @@ final class LocationManager: NSObject {
 }
 
 extension LocationManager: CLLocationManagerDelegate {
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        switch manager.authorizationStatus {
-        case .authorizedAlways:
-            manager.startUpdatingLocation()
-        case .authorizedWhenInUse:
-            locationManager.startUpdatingLocation()
-        case .notDetermined:
-            break
-        case .restricted:
-            break
-        case .denied:
-            break
-        @unknown default:
-            print("error with location auth change")
-        }
-    }
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last?.coordinate {
-//            locationManager.stopUpdatingLocation()
-            locationUpdated!(location)
+            delegate?.didUpdateLocation(location)
         }
     }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
-        print(error.localizedDescription)
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        delegate?.didFailWithError(error)
     }
 }
