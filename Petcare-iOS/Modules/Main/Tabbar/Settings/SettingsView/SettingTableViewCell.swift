@@ -38,6 +38,7 @@ final class SettingTableViewCell: UITableViewCell {
         iconContainer.addSubview(iconImageView)
         contentView.clipsToBounds = true     //TODO: Research me
         accessoryType = .disclosureIndicator //TODO: Research me
+        
     }
     
     override func layoutSubviews() {
