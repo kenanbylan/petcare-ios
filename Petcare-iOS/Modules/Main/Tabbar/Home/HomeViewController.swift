@@ -54,6 +54,17 @@ final class HomeViewController: UIViewController {
         collectionView.dataSource = self
         setupConstraints()
         setHeader()
+        
+        let name = "dog".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let url = URL(string: "https://api.api-ninjas.com/v1/animals?name="+name!)!
+        var request = URLRequest(url: url)
+        request.setValue("n+FRtOsmJDY5YH4ELTn83A==pKyZcMz9B0i5Yfur", forHTTPHeaderField: "X-Api-Key")
+        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
+            guard let data = data else { return }
+            print(String(data: data, encoding: .utf8)!)
+            print("data: \(data)")
+        }
+        task.resume()
     }
     
     private func setHeader() {

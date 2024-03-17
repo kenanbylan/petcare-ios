@@ -12,7 +12,8 @@ import Foundation
 import UIKit.UINavigationController
 
 protocol CalendarRouterProtocol: AnyObject {
-    func navigateToNearbyList() -> Void
+    func navigateToNearbyList(with onlyShow: Bool) -> Void
+    func navigateToReminder() -> Void
 }
 
 final class CalendarRouter {
@@ -36,8 +37,13 @@ final class CalendarRouter {
 }
 
 extension CalendarRouter: CalendarRouterProtocol {
-    func navigateToNearbyList() {
-        let view = NearbyListRouter.build(navigationController: navigationController)
+    func navigateToNearbyList(with onlyShow: Bool) {
+        let view =  NearbyListRouter.build(navigationController: navigationController, onlyShow: onlyShow ? true : false)
+        navigationController?.pushViewController(view, animated: true)
+    }
+    
+    func navigateToReminder() -> Void {
+        let view = ReminderRouter.build(navigationController: navigationController)
         navigationController?.pushViewController(view, animated: true)
     }
 }

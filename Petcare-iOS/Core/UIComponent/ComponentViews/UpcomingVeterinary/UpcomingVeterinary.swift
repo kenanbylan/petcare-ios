@@ -3,11 +3,9 @@
 //  Petcare-iOS
 //
 //  Created by Kenan Baylan on 30.12.2023.
-
 import UIKit
 
-class UpcomingVeterinary: UIView {
-    
+final class UpcomingVeterinary: UIView {
     private lazy var veterinaryAvatar: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "bird")
@@ -76,9 +74,8 @@ class UpcomingVeterinary: UIView {
         dateStackView.layer.cornerRadius = 8
         
         backgroundColor = AppColors.customBlue
-        
         layer.cornerRadius = 12
-
+        
         veterinaryAvatar.addShadow(shadowColor: AppColors.bgColor.cgColor)
         veterinaryAvatar.layer.cornerRadius = 12
         veterinaryAvatar.backgroundColor = AppColors.customBlue
@@ -95,14 +92,11 @@ extension UpcomingVeterinary: ViewCoding {
     func setupHierarchy() {
         dateStackView.addArrangedSubview(veterinaryDateLabel)
         dateStackView.addArrangedSubview(veterinaryTimeLabel)
-        
         informationStackView.addArrangedSubview(veterinaryName)
         informationStackView.addArrangedSubview(dateStackView)
-        
         outSideStackView.addArrangedSubview(veterinaryAvatar)
         outSideStackView.addArrangedSubview(UIView())
         outSideStackView.addArrangedSubview(informationStackView)
-        
     }
     
     func setupConstraints() {

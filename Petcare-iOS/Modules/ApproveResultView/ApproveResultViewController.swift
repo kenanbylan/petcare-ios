@@ -101,7 +101,6 @@ final class ApproveResultViewController: UIViewController {
     }
     
     // MARK: - Public Methods
-    
     func configure(with model: ApproveResultModel) {
         backgroundView.image = UIImage(named: model.backgroundImageName)
         textLabel.text = model.title
@@ -112,7 +111,6 @@ final class ApproveResultViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
     @objc private func doneButtonTapped() {
         print("Approve Done button clicked")
         navigationController?.popToRootViewController(animated: true)

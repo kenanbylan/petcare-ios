@@ -62,7 +62,7 @@ final class PetAvatarCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 20
         imageView.clipsToBounds = true
         
-        addShadow(shadowColor: AppColors.labelColor.cgColor)
+        addShadow(shadowColor: AppColors.labelColor.cgColor, shadowOffset: CGSize(width: 1, height: 2),shadowOpacity: 0.4,shadowRadius: 3)
     }
     
     required init?(coder: NSCoder) {
@@ -71,7 +71,7 @@ final class PetAvatarCell: UICollectionViewCell {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        addShadow(shadowColor: AppColors.labelColor.cgColor)
+        addShadow(shadowColor: AppColors.labelColor.cgColor, shadowOffset: CGSize(width: 1, height: 2),shadowOpacity: 0.4,shadowRadius: 3)
     }
 }
 
@@ -94,7 +94,6 @@ extension PetAvatarCell: ViewCoding {
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
-            
         ])
     }
 }
