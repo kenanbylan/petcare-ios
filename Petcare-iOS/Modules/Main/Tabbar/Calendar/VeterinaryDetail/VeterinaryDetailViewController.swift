@@ -21,6 +21,7 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
         sView.translatesAutoresizingMaskIntoConstraints = false
         sView.contentInsetAdjustmentBehavior = .never
         sView.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0)
+        sView.showsVerticalScrollIndicator = false
         return sView
     }()
     
@@ -44,13 +45,13 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
         return textfield
     }()
     
-    
     private lazy var doctorImage: UIImageView = {
         let image = UIImageView()
         let myImage = UIImage(named: "happy-female")
         image.clipsToBounds = true
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
+        image.layer.cornerRadius = 20
         return image
     }()
     

@@ -11,7 +11,6 @@ protocol SelectPetViewDelegate: AnyObject {
 }
 
 final class SelectPetView: UIView {
-     
     var petType: String = ""
     
     var isSelected: Bool = false {

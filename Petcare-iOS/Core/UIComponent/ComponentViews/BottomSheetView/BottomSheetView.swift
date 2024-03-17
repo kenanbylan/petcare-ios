@@ -26,6 +26,9 @@ class BottomSheetView: UIView, UITableViewDelegate, UITableViewDataSource {
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
+        
         addSubview(tableView)
     }
     

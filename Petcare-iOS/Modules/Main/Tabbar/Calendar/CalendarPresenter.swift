@@ -9,7 +9,8 @@ import Foundation
 
 protocol CalendarPresenterProtocol {
     func viewDidLoad()
-    func navigateToNearbyList() -> Void
+    func navigateToNearbyList(onlyShow: Bool) -> Void
+    func navigateToReminder() -> Void
 }
 
 final class CalendarPresenter {
@@ -25,9 +26,16 @@ final class CalendarPresenter {
 }
 
 extension CalendarPresenter: CalendarPresenterProtocol {
-    func viewDidLoad() {}
-    func navigateToNearbyList() {
-        router?.navigateToNearbyList()
+    func navigateToNearbyList(onlyShow: Bool) {
+        router?.navigateToNearbyList(with: onlyShow)
+    }
+    
+    func viewDidLoad() {
+        
+    }
+    
+    func navigateToReminder() {
+        router?.navigateToReminder()
     }
 }
 
