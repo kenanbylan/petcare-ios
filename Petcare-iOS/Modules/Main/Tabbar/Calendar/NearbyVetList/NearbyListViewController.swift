@@ -8,17 +8,20 @@ import UIKit
 import SwiftUI
 import MapKit
 
-protocol NearbyListViewProtocol: AnyObject { }
+protocol NearbyListViewProtocol: AnyObject {
+    func updateTableView()
+    func showError(message: String)
+}
 
 final class NearbyListViewController: UIViewController {
     var presenter: NearbyListPresenterProtocol!
-    var nearbyList = [NearbyList]()
-    var nearbyPlaces = [NearbyPlace]()
-    
+    private let locationManager = LocationManager() // Create an instance of LocationManager
+
     var activityIndicator = UIActivityIndicatorView()
     
     private let tableView: UITableView = {
         let tableView = UITableView.init(frame: .zero, style: .insetGrouped)
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     
@@ -27,57 +30,11 @@ final class NearbyListViewController: UIViewController {
         presenter.viewDidLoad()
         prepareTableView()
         prepareTitle()
-        getUserLocation()
         prepareActivityIndicator()
+        locationManager.delegate = self
+        locationManager.requestPermissionToAccessLocation()
     }
     
-    private func getUserLocation() {
-        activityIndicator.startAnimating()
-        LocationManager.shared.locationUpdated = { [weak self] location in
-            guard let self = self else { return }
-            print("Location \(location)")
-            self.fetchPlaces(location: location)
-        }
-    }
-    
-    private func fetchPlaces(location: CLLocationCoordinate2D) {
-        let searchSpan = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
-        let searchRegion = MKCoordinateRegion(center: location, span: searchSpan)
-        
-        let searchRequest = MKLocalSearch.Request()
-        searchRequest.region = searchRegion
-        searchRequest.resultTypes = .pointOfInterest
-        searchRequest.naturalLanguageQuery = "Veteriner"
-        
-        let search = MKLocalSearch(request: searchRequest)
-        
-        search.start { response, error in
-            guard let mapItems = response?.mapItems else { return }
-            self.nearbyPlaces.removeAll()
-            
-            for mapItem in mapItems {
-                let placeCoordinate = mapItem.placemark.coordinate
-                let placeLocation = CLLocation(latitude: placeCoordinate.latitude, longitude: placeCoordinate.longitude)
-                
-                let name = mapItem.name ?? "No name found"
-                let phoneNumber = mapItem.phoneNumber ?? "No phone number found"
-                let address = "\(mapItem.placemark.subThoroughfare ?? ""),\(mapItem.placemark.thoroughfare ?? ""), \(mapItem.placemark.locality ?? ""), \(mapItem.placemark.subLocality ?? ""), \(mapItem.placemark.administrativeArea ?? ""), \(mapItem.placemark.country ?? "")"
-                
-                let distance = "\(location.distance(to: placeLocation.coordinate))"
-                
-                ///MARK: Already list not append.
-                if !self.nearbyPlaces.contains(where: { $0.placeTitle == name }) {
-                    let nearbyPlace = NearbyPlace(placeTitle: name, address: address, phoneNumber: phoneNumber, distance: distance)
-                    self.nearbyPlaces.append(nearbyPlace)
-                    self.activityIndicator.stopAnimating()
-                }
-            }
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-    }
     
     private func prepareTableView() {
         view.addSubview(tableView)
@@ -99,7 +56,26 @@ final class NearbyListViewController: UIViewController {
     }
 }
 
+extension NearbyListViewController: LocationManagerDelegate {
+    func didUpdateLocation(_ location: CLLocationCoordinate2D) {
+        print("Location \(location)")
+        presenter.fetchNearbyVets(at: location)
+    }
+    
+    func didFailWithError(_ error: any Error) {
+        print("errorerror \(error.localizedDescription)")
+    }
+}
+
 extension NearbyListViewController: NearbyListViewProtocol {
+    func updateTableView() {
+        tableView.reloadData()
+    }
+    
+    func showError(message: String) {
+        //alert
+    }
+    
     func prepareTitle() {
         let titleLabel = TitleLabel.configurationTitleLabel(withText: "Nearby Veterinary List", fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
@@ -108,11 +84,11 @@ extension NearbyListViewController: NearbyListViewProtocol {
 
 extension NearbyListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nearbyPlaces.count
+        return presenter.numberOfVets
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let list = nearbyPlaces[indexPath.row]
+        let list = presenter.vet(at: indexPath.row)
         let cell = tableView.dequeCell(cellClass: NearbyListTableViewCell.self, indexPath: indexPath)
         cell.configureCell(with: list)
         return cell
@@ -123,18 +99,8 @@ extension NearbyListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let didSelectRow = nearbyPlaces[indexPath.row]
+        let didSelectRow = presenter.vet(at: indexPath.row)
         print("didSelectRow: \(didSelectRow)")
         presenter.navigateToDetail(data: didSelectRow)
     }
-    
-    //    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    //        let position = scrollView.contentOffset.y
-    //        if (position > tableView.contentSize.height - 100 - scrollView.frame.height) {
-    //            activityIndicator.startAnimating()
-    //        } else {
-    //            activityIndicator.stopAnimating()
-    //        }
-    //    }
-    
 }
