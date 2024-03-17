@@ -13,9 +13,7 @@ protocol PetImageViewProtocol: AnyObject {
     func dismissScreen()
 }
 
-
 final class PetImageViewController: UIViewController {
-    
     var presenter: PetImagePresenterProtocol?
     
     //MARK: select pet image
@@ -50,7 +48,6 @@ final class PetImageViewController: UIViewController {
         
         buildLayout()
         prepareTitleLabel()
-        
     }
     
     private func prepareTitleLabel() {
@@ -120,7 +117,6 @@ extension PetImageViewController: UIImagePickerControllerDelegate & UINavigation
         imagePicker.delegate = self
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        
         let takePhotoAction = UIAlertAction(title: "Fotoğraf Çek", style: .default) { _ in
             imagePicker.sourceType = .camera
             self.present(imagePicker, animated: true, completion: nil)
@@ -132,7 +128,6 @@ extension PetImageViewController: UIImagePickerControllerDelegate & UINavigation
         }
         
         let cancelAction = UIAlertAction(title: "İptal", style: .cancel, handler: nil)
-        
         alertController.addAction(takePhotoAction)
         alertController.addAction(chooseFromLibraryAction)
         alertController.addAction(cancelAction)
@@ -156,7 +151,6 @@ extension PetImageViewController: UIImagePickerControllerDelegate & UINavigation
 }
 
 extension PetImageViewController: ViewCoding {
-    
     func setupView() { }
     
     func setupHierarchy() {
