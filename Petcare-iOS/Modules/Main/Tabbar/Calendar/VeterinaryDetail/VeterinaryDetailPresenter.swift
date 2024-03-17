@@ -20,7 +20,6 @@ final class VeterinaryDetailPresenter: VeterinaryDetailPresenterProtocol {
     let router: VeterinaryDetailRouterProtocol?
     let interactor: VeterinaryDetailInteractorProtocol?
     
-    
     init(view: VeterinaryDetailViewController?,router: VeterinaryDetailRouterProtocol?, interactor: VeterinaryDetailInteractorProtocol?) {
         self.view = view
         self.router = router
