@@ -9,8 +9,31 @@ import UIKit
 import Combine
 
 extension UITextField {
-    func setInputViewDatePicker(target: Any, selector: Selector) {
+    
+    func setInputViewTimePicker(target: Any, selector: Selector) {
+        let timePicker = UIDatePicker()
+        timePicker.datePickerMode = .time
+        timePicker.preferredDatePickerStyle = .wheels // İsteğe bağlı olarak farklı bir stil seçebilirsiniz
+        timePicker.sizeToFit()
         
+        self.inputView = timePicker
+        
+        // Toolbar oluşturma
+        let toolbar = UIToolbar()
+        toolbar.barStyle = .default
+        toolbar.isTranslucent = true
+        toolbar.tintColor = UIColor.blue
+        toolbar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelBarButton = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: #selector(tapCancel))
+        let doneBarButton = UIBarButtonItem(title: "Done", style: .plain, target: target, action: selector)
+        
+        toolbar.setItems([cancelBarButton, flexibleSpace, doneBarButton], animated: false)
+        self.inputAccessoryView = toolbar
+    }
+    
+    func setInputViewDatePicker(target: Any, selector: Selector) {
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: UIScreen.screenHeight / 3))
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .inline
@@ -51,7 +74,7 @@ extension UITextField {
             .compactMap { ($0.object as? UITextField)?.text }
             .eraseToAnyPublisher()
     }
-        
+    
     func setInputViewBottomSheet(options: [String], target: Any, selector: Selector) {
         let bottomSheetView = BottomSheetView(frame: CGRect(x: 0, y: UIScreen.screenHeight, width: UIScreen.screenWidth, height: UIScreen.screenHeight / 3))
         bottomSheetView.options = options
@@ -63,7 +86,6 @@ extension UITextField {
         }
         self.inputView = bottomSheetView
     }
-    
 }
 
 extension UITextView {
