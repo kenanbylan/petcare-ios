@@ -45,7 +45,6 @@ final class RegisterViewController: BaseViewController {
         return textfield
     }()
     
-    
     private lazy var lastTextfield: MyTextField = {
         let textfield = MyTextField()
         textfield.placeholder = "REGISTER_LASTNAME_PLACEHOLDER".localized()

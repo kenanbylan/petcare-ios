@@ -14,7 +14,7 @@ final class MainTabbar: UITabBarController {
         super.viewDidLoad()
         tabbarInitView()
         loadHomeTab()
-        loadCalendarTab()
+        //loadCalendarTab()
         loadVetMapTab()
         loadSettingsTab()
     }
@@ -35,14 +35,14 @@ final class MainTabbar: UITabBarController {
         self.addChild(navigationController)
     }
     
-    func loadCalendarTab() {
-        let navigationController = UINavigationController()
-        let calendarView = CalendarRouter.build(navigationController: navigationController)
-        navigationController.viewControllers.append(calendarView)
-        navigationController.tabBarItem.image = UIImage(systemName: Tabbar.calendarIcon)
-        navigationController.tabBarItem.title = Tabbar.calendarText
-        self.addChild(navigationController)
-    }
+//    func loadCalendarTab() {
+//        let navigationController = UINavigationController()
+//        let calendarView = CalendarRouter.build(navigationController: navigationController)
+//        navigationController.viewControllers.append(calendarView)
+//        navigationController.tabBarItem.image = UIImage(systemName: Tabbar.calendarIcon)
+//        navigationController.tabBarItem.title = Tabbar.calendarText
+//        self.addChild(navigationController)
+//    }
     
     func loadVetMapTab() {
         let navigationController = UINavigationController()

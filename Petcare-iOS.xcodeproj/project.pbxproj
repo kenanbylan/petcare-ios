@@ -83,7 +83,6 @@
 		933780492ADA81A100103273 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780482ADA81A100103273 /* OnboardingPresenter.swift */; };
 		9337804B2ADA81A700103273 /* OnboardingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9337804A2ADA81A700103273 /* OnboardingRouter.swift */; };
 		9337804D2ADA81AF00103273 /* OnboardingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9337804C2ADA81AF00103273 /* OnboardingInteractor.swift */; };
-		933780512ADA823300103273 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933780502ADA823300103273 /* Login.storyboard */; };
 		933780532ADA823D00103273 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780522ADA823D00103273 /* LoginViewController.swift */; };
 		933780552ADA824500103273 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780542ADA824500103273 /* LoginPresenter.swift */; };
 		933780572ADA824D00103273 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780562ADA824D00103273 /* LoginInteractor.swift */; };
@@ -112,6 +111,8 @@
 		9347020C2B0FF0540033C7CE /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9347020B2B0FF0540033C7CE /* Onboarding.storyboard */; };
 		934702112B0FF8910033C7CE /* CustomTextfieldBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934702102B0FF8910033C7CE /* CustomTextfieldBase.swift */; };
 		9348B45E2AE0631E00F7185A /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9348B45D2AE0631E00F7185A /* AppFonts.swift */; };
+		9363902F2BAB69BA00F9A6A1 /* PetAvatarCellFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363902E2BAB69BA00F9A6A1 /* PetAvatarCellFooter.swift */; };
+		936390332BAC49F700F9A6A1 /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936390322BAC49F700F9A6A1 /* ReminderCell.swift */; };
 		9367243E2B8E156400897112 /* UserRegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367243D2B8E156400897112 /* UserRegisterResponse.swift */; };
 		93732DF22B16598900DE636E /* CustomSecurityPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93732DF12B16598900DE636E /* CustomSecurityPassword.swift */; };
 		93732DF92B16701E00DE636E /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93732DF82B16701E00DE636E /* UserRegister.swift */; };
@@ -129,6 +130,9 @@
 		93822B492AFA85DE00989255 /* ForgotPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B482AFA85DE00989255 /* ForgotPasswordInteractor.swift */; };
 		93822B4B2AFA85E500989255 /* ForgotPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B4A2AFA85E500989255 /* ForgotPasswordRouter.swift */; };
 		93822B4D2AFAC2EA00989255 /* UICustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B4C2AFAC2EA00989255 /* UICustomButton.swift */; };
+		9399E1912BAEB4E800D3D077 /* FormFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9399E1902BAEB4E800D3D077 /* FormFieldView.swift */; };
+		9399E1942BAEC67A00D3D077 /* FormValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9399E1932BAEC67A00D3D077 /* FormValidation.swift */; };
+		9399E1962BAEC6E500D3D077 /* FormValidationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9399E1952BAEC6E500D3D077 /* FormValidationFactory.swift */; };
 		93AA9BB02B9E3A5600942F16 /* NearbyPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BAF2B9E3A5600942F16 /* NearbyPlace.swift */; };
 		93AA9BB22B9E3C9B00942F16 /* CLLocationCoordinate2D + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BB12B9E3C9B00942F16 /* CLLocationCoordinate2D + Extension.swift */; };
 		93AA9BB52B9F822300942F16 /* VeterinaryDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BB42B9F822300942F16 /* VeterinaryDetailRouter.swift */; };
@@ -308,7 +312,6 @@
 		933780482ADA81A100103273 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		9337804A2ADA81A700103273 /* OnboardingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRouter.swift; sourceTree = "<group>"; };
 		9337804C2ADA81AF00103273 /* OnboardingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInteractor.swift; sourceTree = "<group>"; };
-		933780502ADA823300103273 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		933780522ADA823D00103273 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		933780542ADA824500103273 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		933780562ADA824D00103273 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
@@ -338,6 +341,8 @@
 		9347020B2B0FF0540033C7CE /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		934702102B0FF8910033C7CE /* CustomTextfieldBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldBase.swift; sourceTree = "<group>"; };
 		9348B45D2AE0631E00F7185A /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
+		9363902E2BAB69BA00F9A6A1 /* PetAvatarCellFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAvatarCellFooter.swift; sourceTree = "<group>"; };
+		936390322BAC49F700F9A6A1 /* ReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCell.swift; sourceTree = "<group>"; };
 		9367243D2B8E156400897112 /* UserRegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterResponse.swift; sourceTree = "<group>"; };
 		93732DF12B16598900DE636E /* CustomSecurityPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecurityPassword.swift; sourceTree = "<group>"; };
 		93732DF82B16701E00DE636E /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
@@ -355,6 +360,9 @@
 		93822B482AFA85DE00989255 /* ForgotPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordInteractor.swift; sourceTree = "<group>"; };
 		93822B4A2AFA85E500989255 /* ForgotPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRouter.swift; sourceTree = "<group>"; };
 		93822B4C2AFAC2EA00989255 /* UICustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomButton.swift; sourceTree = "<group>"; };
+		9399E1902BAEB4E800D3D077 /* FormFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldView.swift; sourceTree = "<group>"; };
+		9399E1932BAEC67A00D3D077 /* FormValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidation.swift; sourceTree = "<group>"; };
+		9399E1952BAEC6E500D3D077 /* FormValidationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidationFactory.swift; sourceTree = "<group>"; };
 		93AA9BAF2B9E3A5600942F16 /* NearbyPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPlace.swift; sourceTree = "<group>"; };
 		93AA9BB12B9E3C9B00942F16 /* CLLocationCoordinate2D + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D + Extension.swift"; sourceTree = "<group>"; };
 		93AA9BB42B9F822300942F16 /* VeterinaryDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeterinaryDetailRouter.swift; sourceTree = "<group>"; };
@@ -600,6 +608,7 @@
 		932D255E2B7FF89200B99FA3 /* AppElements */ = {
 			isa = PBXGroup;
 			children = (
+				9399E18F2BAEB4D800D3D077 /* FormFieldView */,
 				93AA9BC42BA2365400942F16 /* CustomTextView */,
 				93AA9BBC2BA0FFD900942F16 /* ImageLabel */,
 				93364FD82B93505F00C430DB /* CustomTextfield */,
@@ -897,6 +906,7 @@
 				93CE906E2AF7BA550025FBB0 /* HomeInteractor.swift */,
 				93CE906C2AF7BA4C0025FBB0 /* HomePresenter.swift */,
 				93CE90682AF7BA380025FBB0 /* HomeViewController.swift */,
+				9363902E2BAB69BA00F9A6A1 /* PetAvatarCellFooter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -950,7 +960,6 @@
 				933780562ADA824D00103273 /* LoginInteractor.swift */,
 				933780542ADA824500103273 /* LoginPresenter.swift */,
 				933780522ADA823D00103273 /* LoginViewController.swift */,
-				933780502ADA823300103273 /* Login.storyboard */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1051,6 +1060,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		936390312BAC49EC00F9A6A1 /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				936390322BAC49F700F9A6A1 /* ReminderCell.swift */,
+			);
+			path = Reminder;
+			sourceTree = "<group>";
+		};
 		93732DF72B16700F00DE636E /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -1075,6 +1092,24 @@
 				9381023A2B5D5F2600BF21AD /* SettingTableViewCell.swift */,
 			);
 			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		9399E18F2BAEB4D800D3D077 /* FormFieldView */ = {
+			isa = PBXGroup;
+			children = (
+				9399E1922BAEC66B00D3D077 /* FormValidation */,
+				9399E1902BAEB4E800D3D077 /* FormFieldView.swift */,
+			);
+			path = FormFieldView;
+			sourceTree = "<group>";
+		};
+		9399E1922BAEC66B00D3D077 /* FormValidation */ = {
+			isa = PBXGroup;
+			children = (
+				9399E1932BAEC67A00D3D077 /* FormValidation.swift */,
+				9399E1952BAEC6E500D3D077 /* FormValidationFactory.swift */,
+			);
+			path = FormValidation;
 			sourceTree = "<group>";
 		};
 		93AA9BB32B9F81E000942F16 /* VeterinaryDetail */ = {
@@ -1198,6 +1233,7 @@
 		93C46E0F2B0508F30055BA0F /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				936390312BAC49EC00F9A6A1 /* Reminder */,
 				932D257B2B827D9300B99FA3 /* Calendar */,
 				932D255F2B7FF8D900B99FA3 /* Onboarding */,
 				93DD5AC22B4065EA00BDE0A9 /* PetList */,
@@ -1458,7 +1494,6 @@
 				93048F062B0966DB000BD03A /* Poppins-Regular.ttf in Resources */,
 				933780192ADA7DA800103273 /* Main.storyboard in Resources */,
 				93822B432AFA85B500989255 /* ForgotPassword.storyboard in Resources */,
-				933780512ADA823300103273 /* Login.storyboard in Resources */,
 				93048F042B0966DB000BD03A /* Poppins-Medium.ttf in Resources */,
 				93048F022B0966DB000BD03A /* Poppins-Bold.ttf in Resources */,
 				93048F162B0AA08B000BD03A /* Localizable.strings in Resources */,
@@ -1494,6 +1529,7 @@
 				93DD5ACE2B4198CC00BDE0A9 /* PetTypeInteractor.swift in Sources */,
 				93048F092B0A8F8F000BD03A /* Int + Extension.swift in Sources */,
 				93AA9BB22B9E3C9B00942F16 /* CLLocationCoordinate2D + Extension.swift in Sources */,
+				936390332BAC49F700F9A6A1 /* ReminderCell.swift in Sources */,
 				93364FED2B9371D000C430DB /* CustomTextfieldType.swift in Sources */,
 				933780412ADA814400103273 /* OnboardingModel.swift in Sources */,
 				932D25552B7BFFC000B99FA3 /* PetDetailInteractor.swift in Sources */,
@@ -1545,6 +1581,7 @@
 				93E1FDB52B77A7A700BD72E1 /* ManageNotificationViewController.swift in Sources */,
 				93364FF12B93722800C430DB /* CustomTextfieldFocusState.swift in Sources */,
 				93CE90732AF7BA910025FBB0 /* MainTabbar.swift in Sources */,
+				9399E1912BAEB4E800D3D077 /* FormFieldView.swift in Sources */,
 				93E1FDBB2B77A7C800BD72E1 /* ManageNotificationPresenter.swift in Sources */,
 				933A22202B45F16C00854DB0 /* PetImageViewController.swift in Sources */,
 				933780652ADC0DF000103273 /* SplashRouter.swift in Sources */,
@@ -1556,6 +1593,7 @@
 				93AA9BB02B9E3A5600942F16 /* NearbyPlace.swift in Sources */,
 				93CE90912AF7D5FA0025FBB0 /* SettingsPresenter.swift in Sources */,
 				93AA9BD42BA6244D00942F16 /* NearbyVetView.swift in Sources */,
+				9363902F2BAB69BA00F9A6A1 /* PetAvatarCellFooter.swift in Sources */,
 				93822B412AF9888B00989255 /* RegisterRouter.swift in Sources */,
 				93AA9BC32BA192C500942F16 /* BottomSheetView.swift in Sources */,
 				93E1FDB92B77A7B900BD72E1 /* ManageNotificationInteractor.swift in Sources */,
@@ -1577,6 +1615,7 @@
 				93364FEF2B93720000C430DB /* CustomTextfieldViewModel.swift in Sources */,
 				93CE90712AF7BA5C0025FBB0 /* HomeRouter.swift in Sources */,
 				933780572ADA824D00103273 /* LoginInteractor.swift in Sources */,
+				9399E1962BAEC6E500D3D077 /* FormValidationFactory.swift in Sources */,
 				93364FDA2B9350EE00C430DB /* Publisher + Extension.swift in Sources */,
 				93B004D32B8A715100302B3D /* Decoders.swift in Sources */,
 				93E1FDC72B77A80500BD72E1 /* PrivacyPolicyInteractor.swift in Sources */,
@@ -1665,6 +1704,7 @@
 				93364FF52B93846600C430DB /* BaseTextField.swift in Sources */,
 				93CE90892AF7D5CC0025FBB0 /* VetMapPresenter.swift in Sources */,
 				93AA9BBB2B9F823B00942F16 /* VeterinaryDetailViewController.swift in Sources */,
+				9399E1942BAEC67A00D3D077 /* FormValidation.swift in Sources */,
 				932D25592B7BFFCD00B99FA3 /* PetDetailRouter.swift in Sources */,
 				93CE908F2AF7D5F50025FBB0 /* SettingsInteractor.swift in Sources */,
 				93364FD32B8F3D3600C430DB /* NewPasswordPresenter.swift in Sources */,
