@@ -8,6 +8,9 @@ import UIKit.UINavigationController
 protocol HomeRouterProtocol: AnyObject {
     func navigateToPetType()
     func navigateToPetDetail()
+    
+    func navigateToNearbyList(with onlyShow: Bool) -> Void
+    func navigateToReminder() -> Void
 }
 
 final class HomeRouter: HomeRouterProtocol {
@@ -36,5 +39,15 @@ final class HomeRouter: HomeRouterProtocol {
     func navigateToPetDetail() {
         let detail = PetDetailRouter.build(navigationController: navigationController)
         self.navigationController?.present(detail, animated: true)
+    }
+    
+    func navigateToNearbyList(with onlyShow: Bool) {
+        let view =  NearbyListRouter.build(navigationController: navigationController, onlyShow: onlyShow ? true : false)
+        navigationController?.pushViewController(view, animated: true)
+    }
+    
+    func navigateToReminder() {
+        let view = ReminderRouter.build(navigationController: navigationController)
+        navigationController?.pushViewController(view, animated: true)
     }
 }
