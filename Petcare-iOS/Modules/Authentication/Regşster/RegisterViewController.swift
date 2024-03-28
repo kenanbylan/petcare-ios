@@ -11,7 +11,7 @@ protocol RegisterViewProtocol: AnyObject {
     func updateCreateButtonState(isEnabled: Bool, color: UIColor)
 }
 
-final class RegisterViewController: UIViewController {
+final class RegisterViewController: BaseViewController {
     
     //MARK: Variable's
     var presenter: RegisterPresenterProtocol!
@@ -34,38 +34,38 @@ final class RegisterViewController: UIViewController {
     private lazy var stackView: CustomStackView = {
         let stack = CustomStackView()
         stack.axis = .vertical
+        stack.spacing = 20
         return stack
     }()
     
-    private lazy var nameTextfield: CustomTextField = {
-        let textfield = CustomTextField()
+    private lazy var nameTextfield: MyTextField = {
+        let textfield = MyTextField()
         textfield.placeholder = "REGISTER_NAME_PLACEHOLDER".localized()
         
         return textfield
     }()
     
-    
-    private lazy var lastTextfield: CustomTextField = {
-        let textfield = CustomTextField()
+    private lazy var lastTextfield: MyTextField = {
+        let textfield = MyTextField()
         textfield.placeholder = "REGISTER_LASTNAME_PLACEHOLDER".localized()
         return textfield
     }()
     
-    private lazy var emailTextfield: CustomTextField = {
-        let textfield = CustomTextField()
+    private lazy var emailTextfield: MyTextField = {
+        let textfield = MyTextField()
         textfield.placeholder = "REGISTER_EMAIL_PLACEHOLDER".localized()
         return textfield
     }()
     
-    private lazy var passwordTextfield: CustomTextField = {
-        let textfield = CustomTextField()
+    private lazy var passwordTextfield: MyTextField = {
+        let textfield = MyTextField()
         textfield.isSecureTextEntryToggle = true
         textfield.placeholder = "REGISTER_PASSWORD_PLACEHOLDER".localized()
         return textfield
     }()
     
-    private lazy var confirmPasswordTextfield: CustomTextField = {
-        let textfield = CustomTextField()
+    private lazy var confirmPasswordTextfield: MyTextField = {
+        let textfield = MyTextField()
         textfield.placeholder = "REGISTER_CONFIRM_PLACEHOLDER".localized()
         return textfield
     }()
@@ -92,9 +92,8 @@ final class RegisterViewController: UIViewController {
     }
     
     @objc func createButtonTapped() {
-        
+        presenter.registerUser(name: "Eren", surname: "Karayılan", email: "karayilan@gmail.com", password: "karayilan")
     }
-    
 }
 
 extension RegisterViewController {
@@ -108,13 +107,6 @@ extension RegisterViewController {
         guard let textField = notification.object as? UITextField else {
             return
         }
-    }
-    
-    
-    func showAlert(message: String) {
-        let alert = UIAlertController(title: "Uyarı", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
     
     @objc func keyboardAppear(notification: Notification) {
@@ -181,14 +173,13 @@ extension RegisterViewController: ViewCoding {
             ///MARK: StackView Label
             stackView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 30),
             stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 50),
-            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -50),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
             
             ///MARK: Create Account Button
             stackView.bottomAnchor.constraint(equalTo: createAccountButton.topAnchor, constant: -30),
-            createAccountButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 70),
-            createAccountButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -70),
-            createAccountButton.heightAnchor.constraint(equalTo: createAccountButton.widthAnchor, multiplier: 0.2),
+            createAccountButton.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 30),
+            createAccountButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -30),
             createAccountButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50),
         ])
     }

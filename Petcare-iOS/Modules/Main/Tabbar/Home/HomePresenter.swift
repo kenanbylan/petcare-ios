@@ -9,10 +9,14 @@ import Foundation
 protocol HomePresenterProtocol {
     func viewDidLoad()
     func navigateToPetType()
+    func navigateToPetDetail(detail: IndexPath)
+    
+    func navigateToNearbyList(onlyShow: Bool) -> Void
+    func navigateToReminder() -> Void
 }
 
 final class HomePresenter {
-    private weak var view : HomeViewProtocol?
+    private weak var view: HomeViewProtocol?
     let router: HomeRouterProtocol?
     let interactor: HomeInteractorProtocol?
     
@@ -24,10 +28,22 @@ final class HomePresenter {
 }
 
 extension HomePresenter: HomePresenterProtocol {
+    func navigateToNearbyList(onlyShow: Bool) {
+        router?.navigateToNearbyList(with: onlyShow)
+    }
+    
+    func navigateToReminder() {
+        router?.navigateToReminder()
+    }
+    
+    func navigateToPetDetail(detail: IndexPath) {
+        router?.navigateToPetDetail()
+    }
+    
     func navigateToPetType() {
         router?.navigateToPetType()
     }
-    
+
     func viewDidLoad() {
         view?.prepareUI()
     }

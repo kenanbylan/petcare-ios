@@ -24,11 +24,9 @@ final class LoginRouter: LoginRouterProtocol {
     }
     
     static func build(navigationController: UINavigationController?,window: UIWindow?) -> LoginViewController {
-        let storyboard = UIStoryboard(name: Constants.Storyboard.login, bundle: nil)
-        let view = storyboard.instantiateViewController(identifier: Constants.Controller.login) as! LoginViewController
-        
+        let view = LoginViewController()
         let router = LoginRouter(navigationController: navigationController, window: window)
-        let interactor = LoginInteractor()
+        let interactor = LoginInteractor(networkManager: NetworkManager())
         let presenter = LoginPresenter(view: view, router: router, interactor: interactor)
         view.presenter = presenter
         interactor.output = presenter

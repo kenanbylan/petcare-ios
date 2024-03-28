@@ -13,9 +13,7 @@ protocol PetImageViewProtocol: AnyObject {
     func dismissScreen()
 }
 
-
 final class PetImageViewController: UIViewController {
-    
     var presenter: PetImagePresenterProtocol?
     
     //MARK: select pet image
@@ -33,10 +31,14 @@ final class PetImageViewController: UIViewController {
         return imageView
     }()
     
-    private lazy var patiButton: PatiButton = {
-        let patiButton = PatiButton()
-        patiButton.delegate = self
-        return patiButton
+    private lazy var appButton: AppButton = {
+        let appbutton = AppButton.build()
+            .setImage(UIImage(named: "pati")?.resized(to: CGSize(width: 25, height: 25)))
+            .setTitle("Save")
+            .setTitleColor(AppColors.labelColor)
+        
+        appbutton.addTarget(self, action: #selector(patiButtonClicked) , for: .touchUpInside)
+        return appbutton
     }()
     
     
@@ -46,7 +48,6 @@ final class PetImageViewController: UIViewController {
         
         buildLayout()
         prepareTitleLabel()
-        
     }
     
     private func prepareTitleLabel() {
@@ -55,7 +56,7 @@ final class PetImageViewController: UIViewController {
     }
 }
 
-extension PetImageViewController: PetImageViewProtocol, PatiButtonDelegate {
+extension PetImageViewController: PetImageViewProtocol {
     
     func dismissScreen() { }
     
@@ -64,17 +65,22 @@ extension PetImageViewController: PetImageViewProtocol, PatiButtonDelegate {
         
         petImages.backgroundColor = AppColors.bgColor
         petImages.layer.cornerRadius = 12
-        petImages.layer.shadowColor = AppColors.customDarkGray.cgColor
+        petImages.layer.shadowColor = AppColors.customLightGray.cgColor
         petImages.layer.shadowOpacity = 0.4
-        petImages.layer.shadowOffset = CGSize(width: 0, height: 2)
+        petImages.layer.shadowOffset = CGSize(width: 4, height: 4)
         petImages.layer.shadowRadius = 4
         
         prepareTapGesture()
     }
     
-    func patiButtonClicked(_ sender: PatiButton) {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        petImages.layer.shadowColor = AppColors.customLightGray.cgColor
+    }
+    
+    @objc func patiButtonClicked() {
         print(" Select Image clicked SaveButton")
-        presenter?.navigateMainPage()
+        presenter?.navigateResultPage()
     }
     
     func getImage() { }
@@ -111,7 +117,6 @@ extension PetImageViewController: UIImagePickerControllerDelegate & UINavigation
         imagePicker.delegate = self
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        
         let takePhotoAction = UIAlertAction(title: "Fotoğraf Çek", style: .default) { _ in
             imagePicker.sourceType = .camera
             self.present(imagePicker, animated: true, completion: nil)
@@ -123,7 +128,6 @@ extension PetImageViewController: UIImagePickerControllerDelegate & UINavigation
         }
         
         let cancelAction = UIAlertAction(title: "İptal", style: .cancel, handler: nil)
-        
         alertController.addAction(takePhotoAction)
         alertController.addAction(chooseFromLibraryAction)
         alertController.addAction(cancelAction)
@@ -140,21 +144,19 @@ extension PetImageViewController: UIImagePickerControllerDelegate & UINavigation
         }
         picker.dismiss(animated: true, completion: nil)
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension PetImageViewController: ViewCoding {
-    
     func setupView() { }
     
     func setupHierarchy() {
         self.view.addSubview(petsNameLabel)
         self.view.addSubview(petImages)
-        self.view.addSubview(patiButton)
+        self.view.addSubview(appButton)
     }
     
     func setupConstraints() {
@@ -168,11 +170,12 @@ extension PetImageViewController: ViewCoding {
             petImages.leadingAnchor.constraint(equalTo: petsNameLabel.leadingAnchor, constant: 32),
             petImages.trailingAnchor.constraint(equalTo: petsNameLabel.trailingAnchor, constant: -32),
             
-            petImages.heightAnchor.constraint(equalToConstant: 100),
+            petImages.heightAnchor.constraint(equalToConstant: UIScreen.screenWidth / 3),
             petImages.widthAnchor.constraint(equalTo: petImages.heightAnchor, multiplier: 3.0 / 4.0),
             
-            patiButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
-            patiButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+            appButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+            appButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 5.wPercent),
+            appButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -5.wPercent),
         ])
     }
 }

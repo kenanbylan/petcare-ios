@@ -13,6 +13,7 @@ protocol RegisterPresenterProtocol {
     func navigateToLogin() -> Void
     func navigateToForgotPassword() -> Void
     func validateFields(name: String?, last: String?, email: String?, password: String?, confirmPassword: String?)
+    func registerUser(name: String, surname: String, email: String, password: String)
 }
 
 final class RegisterPresenter {
@@ -28,9 +29,12 @@ final class RegisterPresenter {
 }
 
 extension RegisterPresenter: RegisterPresenterProtocol {
-    func viewDidLoad() {
-        
+    func registerUser(name: String, surname: String, email: String, password: String) {
+        //MARK: - Öncelikle validation yapılacaktır.
+        interactor?.registerUser(name: name, surname: surname, email: email, password: password)
     }
+    
+    func viewDidLoad() { }
     
     func navigateMain() {
         router?.navigateToMain()
@@ -50,7 +54,12 @@ extension RegisterPresenter: RegisterPresenterProtocol {
 }
 
 extension RegisterPresenter: RegisterInteractorOutput {
-    func internetConnectionStatus(_ status: Bool) {
-     
+    func registrationSuccess() {
+        //MARK: -Kayıt başarılı diye bir mesaj alıp ardından login ekranına yönlendirilecektir.
     }
+    
+    func registrationFailure(error: Error) {
+
+    }
+
 }

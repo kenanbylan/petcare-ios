@@ -4,6 +4,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 enum LoginState {
     case loading
@@ -11,20 +12,21 @@ enum LoginState {
     case failed
     case none
 }
+
 protocol LoginPresenterProtocol {
     func viewDidload() -> Void
     func navigateMain() -> Void
     func navigateSignUp() -> Void
     func navigateForgotPassword() -> Void
+    func controlGoogleWithSignIn(myself: UIViewController)
 }
 
 final class LoginPresenter: ObservableObject {
-    private weak var view : LoginViewProtocol?
+    private weak var view: LoginViewController?
     let router: LoginRouterProtocol?
     let interactor: LoginInteractorProtocol?
     
-    
-    init(view: LoginViewProtocol? , router: LoginRouterProtocol?, interactor: LoginInteractorProtocol?) {
+    init(view: LoginViewController? , router: LoginRouterProtocol?, interactor: LoginInteractorProtocol?) {
         self.view = view
         self.router = router
         self.interactor = interactor
@@ -32,11 +34,8 @@ final class LoginPresenter: ObservableObject {
 }
 
 extension LoginPresenter: LoginPresenterProtocol {
-    
     func viewDidload() {
-        interactor?.checkUserLogin(onCompletion: { status in
-            print("STATUSSS: \(status)")
-        })
+        
     }
     
     func navigateMain() {
@@ -50,10 +49,20 @@ extension LoginPresenter: LoginPresenterProtocol {
     func navigateForgotPassword() {
         router?.navigateToForgotPassword()
     }
+    
+    func controlGoogleWithSignIn(myself: UIViewController) {
+    }
+    
 }
 
 extension LoginPresenter: LoginInteractorOutput {
-    func internetConnectionStatus(_ status: Bool) {
-        
+    func registrationSuccess() {
+            
     }
+    
+    func registrationFailure(error: Error) {
+            
+    }
+    
+
 }

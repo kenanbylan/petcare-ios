@@ -11,6 +11,8 @@ protocol PetImagePresenterProtocol {
     func viewDidLoad() -> Void
     func dismissScreen() -> Void
     func navigateMainPage() -> Void
+    func navigateResultPage()
+    func setResultView() -> ApproveResultModel
 }
 
 final class PetImagePresenter {
@@ -23,10 +25,24 @@ final class PetImagePresenter {
         self.router = router
         self.interactor = interactor
     }
+    
+    func setResultView() -> ApproveResultModel {
+        let model = ApproveResultModel(
+            backgroundImageName: "approve-background",
+            title: "Ekledinnnn!!",
+            subTitle: "Evcil Hayvanını Ekledin. Anasayfadaki evcil hayvanlarının görebilir ve diğer yavrucukları ekleyebilirsin :)",
+            imageName: "splash_transparent",
+            buttonTitle: "Devam Et")
+        return model
+    }
 }
 
-
 extension PetImagePresenter: PetImagePresenterProtocol {
+    func navigateResultPage() {
+        let result = setResultView() // Presenter'dan modeli al
+        router?.navigateToResultPage(model: result)
+    }
+    
     func navigateMainPage() {
         router?.navigateToMainTabbar()
     }
@@ -34,12 +50,7 @@ extension PetImagePresenter: PetImagePresenterProtocol {
     func viewDidLoad() {
         view?.prepareUI()
     }
-    
-    func dismissScreen() {
-        
-    }
+    func dismissScreen() { }
 }
 
-extension PetImagePresenter: PetImageInteractorOutput {
-    
-}
+extension PetImagePresenter: PetImageInteractorOutput { }

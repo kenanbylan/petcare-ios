@@ -3,53 +3,38 @@
 //  Petcare-iOS
 //
 //  Created by Kenan Baylan on 15.10.2023.
-//
 
 import Foundation
 import UIKit
 
 protocol SplashInteractorProtocol: AnyObject{
     func checkInternetConnection()
-    func checkTheme()
     func checkLanguage()
-    func getData()
-    func userAlreadyExists() -> Bool
-    func getLocationCity() -> Void
+    func checkUserSession()
+
 }
 
 protocol SplashInteractorOutputProtocol {
     func internetConnectionStatus(_ status: Bool)
+    func userSessionStatus(_ loggedIn: Bool)
 }
 
 final class SplashInteractor: SplashInteractorProtocol {
     var output: SplashInteractorOutputProtocol?
     
-    //    private var networkManager: NetworkManager?
-    //    init(networkManager: NetworkManager<EndpointItem>) {
-    //        self.networkManager = networkManager
-    //    }
-
-    func getLocationCity() {
-        
-    }
-    
     func checkInternetConnection() {
-        let status = true
-        self.output?.internetConnectionStatus(status)
+        let internet = NetworkMonitor.shared.isConnected
+        self.output?.internetConnectionStatus(internet)
     }
     
-    func checkTheme() {
-        
+    func checkUserSession() {
+        // TokenManager.isTokenValid()
+        let loggedIn = true  // kullanıcı oturumunun kontrolü
+        output?.userSessionStatus(loggedIn)
     }
+    
     func checkLanguage() {
-        
-    }
-    
-    func getData() {
-        
-    }
-    
-    func userAlreadyExists() -> Bool {
-        return false
+        let preferredLanguages = Locale.preferredLanguages
+        print("Device Language: \(preferredLanguages)")
     }
 }

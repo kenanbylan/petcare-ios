@@ -41,9 +41,11 @@ final class OnboardingView: UIView {
         layout.minimumLineSpacing = 0
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(OnboardingCell.self, forCellWithReuseIdentifier: Constants.CollectionViewCell.onboardingCell)
+        collectionView.registerNib(with: Constants.CollectionViewCell.onboardingCell)
+        collectionView.registerCodedCell(with: OnboardingCell.self)
+        
         collectionView.backgroundColor = .clear
-        collectionView.isUserInteractionEnabled = false
+        collectionView.isUserInteractionEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -58,15 +60,15 @@ final class OnboardingView: UIView {
         control.translatesAutoresizingMaskIntoConstraints = false
         control.numberOfPages = 3
         control.currentPage = 0
-        control.isUserInteractionEnabled = false
+        control.isUserInteractionEnabled = true
         control.pageIndicatorTintColor = .gray
         control.currentPageIndicatorTintColor = AppColors.primaryColor
         return control
     }()
     
-
+    
     private lazy var nextButton: LoadingUICustomButton = {
-       let button = LoadingUICustomButton()
+        let button = LoadingUICustomButton()
         button.setupButton(title: "ONBOARDING_BUTTON_GET_STARTED".localized())
         button.addTarget(self, action: #selector(nexButtonTapped), for: .touchUpInside)
         return button
@@ -145,7 +147,7 @@ extension OnboardingView: OnboardingViewDelegate {
             failureAnimateButton()
         }
     }
-
+    
     func toPrevButtonTapped() {
         actions = .prev
         pageControl.currentPage -= 1
@@ -160,22 +162,22 @@ private extension OnboardingView {
         carouselCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         carouselCollection.isPagingEnabled = true
     }
-
+    
     func makeHaptic() {
         let hapticSoft = UIImpactFeedbackGenerator(style: .soft)
         let hapticRigid = UIImpactFeedbackGenerator(style: .rigid)
-
+        
         hapticSoft.impactOccurred(intensity: 1.00)
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             hapticRigid.impactOccurred(intensity: 1.00)
         }
     }
-
+    
     
     func successAnimateButton() {
         makeHaptic()
-
+        
         UIView.animate(withDuration: 0.1, animations: { }, completion: { _ in
             UIView.animate(withDuration: 0.1, animations: {
                 self.nextButton.layer.opacity = 0.5
@@ -186,7 +188,7 @@ private extension OnboardingView {
             })
         })
     }
-
+    
     func failureAnimateButton() {
         makeHaptic()
         UIView.animate(withDuration: 0.1, animations: { }, completion: { _ in
@@ -208,6 +210,14 @@ extension OnboardingView: UICollectionViewDelegate {
     }
 }
 
+extension OnboardingView {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let scrollPosition = scrollView.contentOffset.x / self.frame.width
+        pageControl.currentPage = Int(scrollPosition)
+    }
+}
+
 
 extension OnboardingView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -215,9 +225,7 @@ extension OnboardingView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.CollectionViewCell.onboardingCell, for: indexPath) as? OnboardingCell else {
-            return UICollectionViewCell() }
-        
+        let cell = collectionView.dequeCell(cellClass: OnboardingCell.self, indexPath: indexPath)
         cell.model = controller?.getCellViewModel(at: indexPath.row) ?? .init(image: "", title: "", subtitle: "")
         return cell
     }
@@ -242,12 +250,12 @@ extension OnboardingView: ViewCoding {
             carouselCollection.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
             carouselCollection.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             carouselCollection.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-
+            
             pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             pageControl.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -16),
             pageControl.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             pageControl.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-
+            
             nextButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             nextButton.bottomAnchor.constraint( equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10.wPercent),
             nextButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor,constant: 20),

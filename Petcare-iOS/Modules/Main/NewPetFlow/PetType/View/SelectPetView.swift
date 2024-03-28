@@ -6,20 +6,19 @@
 
 import UIKit
 
-protocol PetTypeDelegate: AnyObject {
-    func didSelectPetType(_ petType: String)
+protocol SelectPetViewDelegate: AnyObject {
+    func didSelect(_ view: SelectPetView)
 }
 
 final class SelectPetView: UIView {
-
-    private var petType: String = ""
-    weak var delegate: PetTypeDelegate?
+    var petType: String = ""
     
-    private var isSelected: Bool = false {
+    var isSelected: Bool = false {
         didSet {
             updateAppearance()
         }
     }
+    weak var delegate: SelectPetViewDelegate?
     
     func setText(_ text: String) {
         petType = text
@@ -33,26 +32,23 @@ final class SelectPetView: UIView {
         label.font = AppFonts.medium.font(size: 14)
         return label
     }()
-
+    
     init() {
         super.init(frame: .zero)
         setupView()
-        setupGesture()
         updateAppearance()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        self.addGestureRecognizer(tapGesture)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func setupView() {
         backgroundColor = AppColors.bgColor
-        
-        layer.cornerRadius = 12
-        layer.shadowColor = AppColors.customDarkGray.cgColor
-        layer.shadowOpacity = 0.4
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        layer.shadowRadius = 4
+        layer.cornerRadius = 20
+        addShadow(shadowColor: AppColors.bgColor.cgColor)
         
         addSubview(label)
         NSLayoutConstraint.activate([
@@ -64,41 +60,35 @@ final class SelectPetView: UIView {
             heightAnchor.constraint(equalToConstant: UIScreen.screenWidth / 8.5)
         ])
     }
-
-    private func setupGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        addGestureRecognizer(tapGesture)
-    }
     
-    @objc private func handleTap() {
-        delegate?.didSelectPetType(petType)
-
-        if let superview = superview {
-            for subview in superview.subviews {
-                if let otherPetTypeView = subview as? SelectPetView, otherPetTypeView != self {
-                    otherPetTypeView.setSelection(selected: false)
-                }
-            }
-        }
-        setSelection(selected: true)
-    }
-
     private func updateAppearance() {
         if isSelected {
             backgroundColor = AppColors.primaryColor
             label.textColor = AppColors.customWhite
         } else {
-            backgroundColor = AppColors.bgColor
-            label.textColor = .black
+            backgroundColor = AppColors.bgColor2
+            label.textColor = AppColors.labelColor
         }
     }
     
     func setSelection(selected: Bool) {
-        isSelected = selected
-        updateAppearance()
-
-        UIView.animate(withDuration: 0.3) {
-            self.transform = selected ? CGAffineTransform(scaleX: 1.05, y: 1.05) : .identity
+        // Eğer bu öğe zaten seçili ise işlem yapma.
+        guard !isSelected else { return }
+        
+        // Eğer bu öğe seçiliyse, diğer tüm öğeleri seçili olmamış duruma getir.
+        delegate?.didSelect(self)
+        
+        // Diğer tüm öğelerin seçili olmamış duruma getirilmesi
+        for view in superview?.subviews ?? [] {
+            if let petView = view as? SelectPetView, petView != self {
+                petView.isSelected = false
+            }
         }
+        
+        isSelected = true
+    }
+    
+    @objc private func viewTapped() {
+        setSelection(selected: true)
     }
 }

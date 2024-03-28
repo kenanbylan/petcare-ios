@@ -32,7 +32,6 @@ final class ForgotPasswordRouter: ForgotPasswordRouterProtocol {
         return view
     }
     
-    
     func navigateToMain() {
         UIView.transition(with: window!, duration: 0.5, options: .layoutSubviews , animations: {
             self.window?.rootViewController = MainTabbar()

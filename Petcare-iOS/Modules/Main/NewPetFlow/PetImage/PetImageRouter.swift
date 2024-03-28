@@ -7,7 +7,7 @@
 import UIKit
 
 protocol PetImageRouterProtocol {
-    func navigateToResultPage() -> Void
+    func navigateToResultPage(model: ApproveResultModel)
     func navigateToMainTabbar() -> Void
 }
 
@@ -33,6 +33,7 @@ final class PetImageRouter {
 
 extension PetImageRouter: PetImageRouterProtocol {
     func navigateToMainTabbar() {
+        
             if let tabbarController = navigationController?.tabBarController {
                 tabbarController.selectedIndex = 0
                 if let navController = tabbarController.viewControllers?[0] as? UINavigationController {
@@ -46,7 +47,8 @@ extension PetImageRouter: PetImageRouterProtocol {
             }
     }
     
-    func navigateToResultPage() {
-        
+    func navigateToResultPage(model: ApproveResultModel) {
+        let approveResultViewController = ApproveResultViewController(with: model)
+        navigationController?.pushViewController(approveResultViewController, animated: true)
     }
 }

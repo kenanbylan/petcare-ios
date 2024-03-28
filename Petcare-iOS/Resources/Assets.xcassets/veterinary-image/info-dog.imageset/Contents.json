@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Pet Care Alice.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

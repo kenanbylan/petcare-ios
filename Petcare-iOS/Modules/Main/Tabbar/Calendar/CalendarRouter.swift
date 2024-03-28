@@ -12,9 +12,11 @@ import Foundation
 import UIKit.UINavigationController
 
 protocol CalendarRouterProtocol: AnyObject {
+    func navigateToNearbyList(with onlyShow: Bool) -> Void
+    func navigateToReminder() -> Void
 }
 
-final class CalendarRouter: CalendarRouterProtocol {
+final class CalendarRouter {
     var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -22,9 +24,7 @@ final class CalendarRouter: CalendarRouterProtocol {
     }
     
     static func build(navigationController: UINavigationController?) -> CalendarViewController {
-        let storyboard = UIStoryboard(name: Constants.Storyboard.calendar, bundle: nil)
-        let view = storyboard.instantiateViewController(identifier: Constants.Controller.calender) as! CalendarViewController
-
+        let view = CalendarViewController()
         let router = CalendarRouter(navigationController: navigationController)
         let interactor = CalendarInteractor()
         let presenter = CalendarPresenter(view: view, router: router, interactor: interactor)
@@ -34,6 +34,16 @@ final class CalendarRouter: CalendarRouterProtocol {
         
         return view
     }
+}
+
+extension CalendarRouter: CalendarRouterProtocol {
+    func navigateToNearbyList(with onlyShow: Bool) {
+        let view =  NearbyListRouter.build(navigationController: navigationController, onlyShow: onlyShow ? true : false)
+        navigationController?.pushViewController(view, animated: true)
+    }
     
-    
+    func navigateToReminder() -> Void {
+        let view = ReminderRouter.build(navigationController: navigationController)
+        navigationController?.pushViewController(view, animated: true)
+    }
 }

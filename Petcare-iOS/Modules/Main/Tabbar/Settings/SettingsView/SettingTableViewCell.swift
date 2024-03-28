@@ -12,7 +12,6 @@ final class SettingTableViewCell: UITableViewCell {
     
     private var iconContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemRed
         view.clipsToBounds = true
         view.layer.cornerRadius = 12
         view.layer.masksToBounds = true
@@ -22,12 +21,11 @@ final class SettingTableViewCell: UITableViewCell {
     private var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = AppColors.primaryColor
         return imageView
     }()
     
     private lazy var settingsLabel: CustomLabel = {
-        let label = CustomLabel(text: "Preferences", fontSize: 17, fontType: .medium, textColor: AppColors.labelColor)
+        let label = CustomLabel(text: "Preferences", fontSize: 14, fontType: .medium, textColor: AppColors.labelColor)
         label.textAlignment = .left
         label.numberOfLines = 1
         return label
@@ -40,11 +38,12 @@ final class SettingTableViewCell: UITableViewCell {
         iconContainer.addSubview(iconImageView)
         contentView.clipsToBounds = true     //TODO: Research me
         accessoryType = .disclosureIndicator //TODO: Research me
+        
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let size : CGFloat = contentView.frame.size.height - 20
+        let size : CGFloat = contentView.frame.size.height - 12
         iconContainer.frame = CGRect(x: 15, y: 6, width: size, height: size)
         let imageSize : CGFloat = size / 1.5
         iconImageView.frame = CGRect(x: (size - imageSize)/2, y: (size - imageSize)/2, width: imageSize, height: imageSize)

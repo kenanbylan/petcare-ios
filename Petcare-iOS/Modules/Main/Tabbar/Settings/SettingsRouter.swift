@@ -9,10 +9,10 @@ import Foundation
 import UIKit.UINavigationController
 
 protocol SettingsRouterProtocol: AnyObject {
-    
+    func navigateToDetail(detail: SettingsModel) -> Void
 }
 
-final class SettingsRouter: SettingsRouterProtocol {
+final class SettingsRouter {
     var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -20,8 +20,6 @@ final class SettingsRouter: SettingsRouterProtocol {
     }
     
     static func build(navigationController: UINavigationController?) -> SettingsViewController {
-//        let storyboard = UIStoryboard(name: Constants.Storyboard.settings, bundle: nil)
-//        let view = storyboard.instantiateViewController(identifier: Constants.Controller.settings) as! SettingsViewController
         let view = SettingsViewController()
         let router = SettingsRouter(navigationController: navigationController)
         let interactor = SettingsInteractor()
@@ -31,5 +29,32 @@ final class SettingsRouter: SettingsRouterProtocol {
         interactor.output = presenter
         
         return view
+    }
+}
+
+extension SettingsRouter: SettingsRouterProtocol {
+    func navigateToDetail(detail: SettingsModel) {
+        
+        switch detail.router {
+        case .apperance:
+            let vc = AppearanceRouter.build(navigationController: navigationController)
+            navigationController?.pushViewController(vc, animated: true)
+            
+        case .donateRouter:
+            let vc = DonateRouter.build(navigationController: navigationController)
+            navigationController?.pushViewController(vc, animated: true)
+            
+        case .manageNotification:
+            let vc = ManageNotificationRouter.build(navigationController: navigationController)
+            navigationController?.pushViewController(vc, animated: true)
+            
+        case .privacyPolicy:
+            let vc = PrivacyPolicyRouter.build(navigationController: navigationController)
+            navigationController?.pushViewController(vc, animated: true)
+            
+        case .personInformation:
+            let vc = PersonInformationRouter.build(navigationController: navigationController)
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
