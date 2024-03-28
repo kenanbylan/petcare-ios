@@ -112,7 +112,6 @@ final class ReminderViewController: UIViewController {
         endTimeTextfield.setInputViewTimePicker(target: self, selector: #selector(endTimeTapped))
         
         let petSubject = ["Yaklaşan aşı tarihi hatırlatma", "Beslenme öğün hatırlama", "Gezintiye çıkma zamanı", "Uyku vakti", "Diğer"]
-        
         let availablePets = ["Lolo", "Doggy", "Holosko", "Bobi", "Şirine", "Boncuk ama köpek olan"]
         
         reminderPet.setInputViewBottomSheet(options: availablePets, target: self, selector: #selector(handlePets(_:)))

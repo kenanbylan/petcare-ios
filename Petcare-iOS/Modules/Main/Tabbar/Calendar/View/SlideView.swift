@@ -150,7 +150,7 @@ extension SlideView {
         carouselLayout.scrollDirection = .horizontal
         carouselLayout.itemSize = .init(width: 100.wPercent - 50 , height: 50.wPercent)
         carouselLayout.minimumLineSpacing = 10 * 2
-        carouselLayout.sectionInset = .init(top: 0, left: 30, bottom: 0, right: 30)
+        carouselLayout.sectionInset = .init(top: 0, left: 16, bottom: 0, right: 16)
         carouselCollection.collectionViewLayout = carouselLayout
         
         carouselData = data
@@ -159,15 +159,15 @@ extension SlideView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            carouselCollection.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            carouselCollection.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-            carouselCollection.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            carouselCollection.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            carouselCollection.leadingAnchor.constraint(equalTo: leadingAnchor),
+            carouselCollection.trailingAnchor.constraint(equalTo: trailingAnchor),
+            carouselCollection.topAnchor.constraint(equalTo: topAnchor),
+            carouselCollection.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            pageControl.topAnchor.constraint(equalTo: carouselCollection.bottomAnchor),
+            pageControl.topAnchor.constraint(equalTo: carouselCollection.bottomAnchor,constant: 2.wPercent),
             pageControl.centerXAnchor.constraint(equalTo: centerXAnchor),
-            pageControl.widthAnchor.constraint(equalToConstant: 120),
-            pageControl.heightAnchor.constraint(equalToConstant: 10),
+            pageControl.widthAnchor.constraint(equalToConstant: 40.wPercent),
+            pageControl.heightAnchor.constraint(equalToConstant: 2.wPercent),
         ])
     }
 }
