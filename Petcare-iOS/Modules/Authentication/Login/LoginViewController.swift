@@ -1,104 +1,179 @@
 import UIKit
 import Combine
+import SwiftUI
 
 protocol LoginViewProtocol: AnyObject {
     func loginUserControl()
 }
 
-class LoginViewController: BaseViewController {
+final class LoginViewController: UIViewController {
+    // MARK: Variables
+    var isExpanded: Bool = false
     
-    //MARK: UI Property
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var header: UILabel!
-    @IBOutlet weak var passwordTextfield: MyTextField!
-    @IBOutlet weak var emailTextfield: MyTextField!
-    @IBOutlet weak var forgotPassword: UIButton!
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var googleWithLogin: UIButton!
+    private lazy var loginAvatar: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "cat")?.resized(to: CGSize(width: 60, height: 60))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
     
-    //MARK: Variable's
-    var isExpand: Bool = false
-    var presenter: LoginPresenterProtocol?
+    private lazy var emailForm: FormFieldView = {
+        let form = FormFieldView()
+        form.label.text = "EMAİL"
+        return form
+    }()
+    
+    private lazy var passwordForm: FormFieldView = {
+        let form = FormFieldView()
+        form.label.text = "Password"
+        return form
+    }()
+    
+    private lazy var headerLabel: CustomLabel = {
+        let label = CustomLabel(text:"Welcome back to PetCare!", fontSize: 24, fontType: .medium, textColor: AppColors.primaryColor)
+        return label
+    }()
+    
+    private lazy var stackView: CustomStackView = {
+        let stack = CustomStackView()
+        stack.axis = .vertical
+        
+        return stack
+    }()
+    
+    private lazy var  signUpButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Sign Up", for: .normal)
+        button.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var  googleSignInButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Google Sign In", for: .normal)
+        button.backgroundColor = .systemRed
+        button.addTarget(self, action: #selector(googleSignInButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var loginButton: UIButton = {
+        let button = UIButton(type: .roundedRect)
+        button.setTitle("Login", for: .normal)
+        button.titleLabel?.font = AppFonts.regular.font(size: 14)
+        button.tintColor = AppColors.labelColor
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     
-    // MARK: - Common cycle
+    private lazy var  forgotPasswordButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Forgot Password", for: .normal)
+        button.addTarget(self, action: #selector(forgotPasswordButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    var presenter: LoginPresenterProtocol!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidload()
-        setupPublishers()
-        prepareInitViews()
-        prepareTextfields()
-        prepareKeyboard()
-    }
-    
-    private func prepareTextfields() {
-        emailTextfield.placeholder = "LOGIN_EMAIL_PLACEHOLDER".localized()
-        emailTextfield.keyboardType = .emailAddress
-        passwordTextfield.placeholder = "LOGIN_PASSWORD_PLACEHOLDER".localized()
-        passwordTextfield.isSecureTextEntryToggle = true
-    }
-    
-    private func prepareKeyboard() {
-        //MARK: NotificationCenter Setup
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDissAppear), name: UIResponder.keyboardDidHideNotification, object: nil)
-    }
-}
-
-//MARK: Prepare Inits Views & Keyboard appear
-extension LoginViewController {
-    private func prepareInitViews() {
-        //MARK: Screen tap
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tap)
-        
-        //MARK: Bgcolor
         view.backgroundColor = AppColors.bgColor
-    }
-    
-    @objc func keyboardAppear() {
-        if !self.isExpand {
-            self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height + 200)
-            self.isExpand = true
-        }
-    }
-    
-    @objc func keyboardDissAppear() {
-        if isExpand {
-            self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.scrollView.frame.height - 200)
-            self.isExpand = false
-        }
-    }
-    
-    func setupPublishers() {
-        
-    }
-    
-}
-
-extension LoginViewController: LoginViewProtocol {
-    func loginUserControl() {
-        // Handle login user control
+        presenter.viewDidload()
+        style()
+        layout()
     }
 }
 
-//MARK: Button Actions
 extension LoginViewController {
-    @IBAction func forgotPasswordTapped(_ sender: Any) {
+    
+    func style() {
+        stackView.backgroundColor = .systemGreen
+    }
+    
+    func layout() {
+        view.addSubview(stackView)
+        view.addSubview(loginButton)
+        stackView.addArrangedSubview(loginAvatar)
+        stackView.addArrangedSubview(headerLabel)
+        stackView.addArrangedSubview(emailForm)
+        stackView.addArrangedSubview(passwordForm)
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -20),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 20),
+            emailForm.widthAnchor.constraint(equalToConstant: view.frame.width / 3),
+            passwordForm.widthAnchor.constraint(equalToConstant: view.frame.width / 3),
+            
+            loginButton.topAnchor.constraint(equalTo: stackView.bottomAnchor,constant: 20),
+            loginButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor,constant: 20),
+            loginButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor,constant: -20),
+            
+        ])
+    }
+}
+
+// MARK: - Actions
+
+extension LoginViewController {
+    
+    @objc func undoTapped() {
+        emailForm.undo()
+    }
+    
+    // MARK: - Button Actions
+    @objc func forgotPasswordButtonTapped(_ sender: Any) {
         presenter?.navigateForgotPassword()
     }
     
-    @IBAction func loginButtonTapped(_ sender: Any) {
-        self.view.endEditing(true)
+    @objc func loginButtonTapped(_ sender: Any) {
         presenter?.navigateMain()
     }
     
-    @IBAction func signUpButtonTapped(_ sender: Any) {
+    @objc func signUpButtonTapped(_ sender: Any) {
         presenter?.navigateSignUp()
     }
     
-    @IBAction func signInWithGoogleTapped(_ sender: Any) {
-        presenter?.controlGoogleWithSignIn(myself: LoginViewController())
+    @objc func googleSignInButtonTapped(_ sender: Any) {
+        //        presenter?.controlGoogleSignIn()
+    }
+    
+    private func prepareKeyboard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        // Handle keyboard show event
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        // Handle keyboard hide event
+    }
+}
+
+// MARK: - Factories
+
+func makeButton(withText text: String) -> UIButton {
+    let button = UIButton()
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.setTitle(text, for: .normal)
+    button.titleLabel?.adjustsFontSizeToFitWidth = true
+    button.contentEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+    button.backgroundColor = .systemBlue
+    button.layer.cornerRadius = 60/4
+    return button
+}
+
+
+
+struct LoginVC_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginViewController().showPreview()
     }
 }
