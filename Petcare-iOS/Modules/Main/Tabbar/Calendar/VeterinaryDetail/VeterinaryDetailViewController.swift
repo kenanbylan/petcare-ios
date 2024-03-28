@@ -224,6 +224,7 @@ extension VeterinaryDetailViewController: ViewCoding {
             doctorImage.trailingAnchor.constraint(equalTo: headerImageView.trailingAnchor),
             doctorImage.bottomAnchor.constraint(equalTo: headerImageView.bottomAnchor)
         ])
+        
         imageViewTopConstraint = self.doctorImage.topAnchor.constraint(equalTo: self.view.topAnchor)
         imageViewTopConstraint.priority = UILayoutPriority(rawValue: 900)
         imageViewTopConstraint.isActive = true

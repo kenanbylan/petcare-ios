@@ -22,11 +22,11 @@ protocol LoginPresenterProtocol {
 }
 
 final class LoginPresenter: ObservableObject {
-    private weak var view: LoginViewProtocol?
+    private weak var view: LoginViewController?
     let router: LoginRouterProtocol?
     let interactor: LoginInteractorProtocol?
     
-    init(view: LoginViewProtocol? , router: LoginRouterProtocol?, interactor: LoginInteractorProtocol?) {
+    init(view: LoginViewController? , router: LoginRouterProtocol?, interactor: LoginInteractorProtocol?) {
         self.view = view
         self.router = router
         self.interactor = interactor
