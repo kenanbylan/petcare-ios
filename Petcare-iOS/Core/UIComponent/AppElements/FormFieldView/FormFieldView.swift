@@ -9,19 +9,22 @@ import Foundation
 import UIKit
 
 private struct Local {
-    static let height: CGFloat = 60
+    static let height: CGFloat = 55
     static let tintColorValid: UIColor = .systemGreen
     static let tintColorInValid: UIColor = .systemRed
-    static let backgroundColor: UIColor = .systemGray5
+    static let backgroundColor: UIColor = AppColors.bgColor
     static let foregroundColor: UIColor = .systemGray
 }
 
 class FormFieldView: UIView {
-    let label = UILabel()
-    let invalidLabel = UILabel()
-    
+    let label = CustomLabel(fontSize: 14, fontType: .regular, textColor: AppColors.labelColor)
+    let invalidLabel = CustomLabel(fontSize: 12, fontType: .regular, textColor: AppColors.customRed)
     let textField = UITextField()
-    let cancelButton = makeSymbolButton(systemName: "clear.fill", target: self, selector: #selector(cancelTapped(_:)))
+    
+    lazy var cancelButton: UIButton = {
+        let button = makeSymbolButton(systemName: "clear.fill", target: self, selector: #selector(cancelTapped(_:)))
+        return button
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,6 +46,8 @@ extension FormFieldView {
     
     func setup() {
         textField.delegate = self
+        self.layer.borderColor = AppColors.borderColor?.cgColor
+        self.layer.borderWidth = 1.5
     }
     
     func style() {
@@ -66,7 +71,9 @@ extension FormFieldView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.tintColor = Local.tintColorValid
         textField.isHidden = true
-        
+        textField.backgroundColor = .systemRed
+        textField.heightAnchor.constraint(equalToConstant: 40)
+
         // button
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.imageView?.tintColor = Local.foregroundColor
@@ -120,10 +127,10 @@ extension FormFieldView {
                                                        delay: 0,
                                                        options: []) {
             // style
-            self.backgroundColor = .white
+            self.backgroundColor = AppColors.bgColor
             self.label.textColor = Local.tintColorValid
             self.layer.borderWidth = 1
-            self.layer.borderColor = self.label.textColor.cgColor
+            self.layer.borderColor = AppColors.borderColor?.cgColor
             self.textField.tintColor = Local.tintColorValid
             
             // move
@@ -184,9 +191,10 @@ extension FormFieldView {
             // style
             self.backgroundColor = Local.backgroundColor
             self.label.textColor = Local.foregroundColor
-            self.layer.borderWidth = 0
-            self.layer.borderColor = UIColor.clear.cgColor
             
+            self.layer.borderColor = AppColors.borderColor?.cgColor
+            self.layer.borderWidth = 1.5
+        
             // visibility
             self.label.isHidden = false
             self.invalidLabel.isHidden = true
@@ -208,7 +216,7 @@ extension FormFieldView {
 
 // MARK: - Factories
 
-func makeSymbolButton(systemName: String, target: Any, selector: Selector) -> UIButton {
+private func makeSymbolButton(systemName: String, target: Any, selector: Selector) -> UIButton {
     let configuration = UIImage.SymbolConfiguration(scale: .large)
     let image = UIImage(systemName: systemName, withConfiguration: configuration)
     
@@ -220,6 +228,7 @@ func makeSymbolButton(systemName: String, target: Any, selector: Selector) -> UI
     
     return button
 }
+
 
 // MARK: Utils
 func isValidEmail(_ email: String) -> Bool {

@@ -81,11 +81,11 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
         button.setTitle("Istanbul, Turkey", for: .normal)
         button.titleLabel?.font = AppFonts.regular.font(size: 14)
         button.setImage(UIImage(systemName: "location.circle"), for: .normal)
-        button.tintColor = AppColors.primaryColor // Image ve title rengi olarak primaryColor kullanılıyor.
+        button.tintColor = AppColors.primaryColor
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
+    
     private lazy var conversationTextView: CustomTextView = {
         return CustomTextView.Builder()
             .text("Your text")
@@ -138,13 +138,11 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
         
         ///MARK: Kullanıcı seçebileceği seçeneklerin listesi
         let options = ["Genel Kontrol", "Aşı Takvimi", "Parazit Kontrolü", "Diyet Danışmanlığı", "Davranış Sorunları", "Acil Durum"]
-
+        
         // UITextField'e BottomSheet'i ayarlayın
-        textField.setInputViewBottomSheet(options: options, target: self, selector: #selector(handleOptionSelection(_:)))
+        textField.setInputViewBottomSheet(options: options, target: self, selector: #selector(handleOptionSelection(_:)),title: "Subject")
         
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tap)
-        
+        setupKeyboardDismissRecognizer()
     }
     // Selector metodu
     @objc func handleOptionSelection(_ selectedOption: String) {

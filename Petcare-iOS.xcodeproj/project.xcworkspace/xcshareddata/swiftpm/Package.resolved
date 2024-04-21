@@ -1,5 +1,5 @@
 {
-  "originHash" : "65702308aa6c799a28e3e81b0e73fba22a9344f330285c3763a509e02326ed50",
+  "originHash" : "d9d4681c555e01e24a2d3136f746dc23e7e5b65cd4defcd0ac07238074c89213",
   "pins" : [
     {
       "identity" : "appauth-ios",
@@ -44,6 +44,15 @@
       "state" : {
         "revision" : "cee3c709307912d040bd1e06ca919875a92339c6",
         "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "tweetextfield",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/oleghnidets/TweeTextField.git",
+      "state" : {
+        "revision" : "790fc253b534e1f72525ca03150a5dd1264cbcf4",
+        "version" : "1.6.4"
       }
     }
   ],

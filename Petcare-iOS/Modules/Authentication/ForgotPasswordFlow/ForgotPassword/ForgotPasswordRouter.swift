@@ -8,10 +8,10 @@ import UIKit
 protocol ForgotPasswordRouterProtocol: AnyObject {
     func navigateToMain() -> Void
     func backToLogin() -> Void
+    func navigateToSmsOtp() -> Void
 }
 
 final class ForgotPasswordRouter: ForgotPasswordRouterProtocol {
-    
     var navigationController: UINavigationController?
     var window: UIWindow?
     
@@ -21,12 +21,11 @@ final class ForgotPasswordRouter: ForgotPasswordRouterProtocol {
     }
     
     static func build(navigationController: UINavigationController?, window: UIWindow?) -> ForgotPasswordViewController {
- 
         let view = ForgotPasswordViewController()
         let router = ForgotPasswordRouter(navigationController: navigationController, window: window)
-        let interactor = ForgotPasswordInteractor()
+        let interactor = ForgotPasswordInteractor(networkService: DefaultNetworkService())
         let presenter = ForgotPasswordPresenter(view: view, router: router, interactor: interactor)
-
+        
         view.presenter = presenter
         interactor.output = presenter
         return view
@@ -43,5 +42,9 @@ final class ForgotPasswordRouter: ForgotPasswordRouterProtocol {
         let loginVC = LoginRouter.build(navigationController: navigationController , window: window)
         navigationController.viewControllers.append(loginVC)
         window?.rootViewController = navigationController
+    }
+    
+    func navigateToSmsOtp() {
+        navigationController?.present(SmsOtpViewController(), animated: true)
     }
 }

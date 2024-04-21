@@ -10,6 +10,7 @@ import UIKit.UINavigationController
 
 protocol LoginRouterProtocol: AnyObject {
     func navigateToMain() -> Void
+    func navigateToVeterinaryMain() -> Void
     func navigateToSignUp() -> Void
     func navigateToForgotPassword() -> Void
 }
@@ -26,7 +27,7 @@ final class LoginRouter: LoginRouterProtocol {
     static func build(navigationController: UINavigationController?,window: UIWindow?) -> LoginViewController {
         let view = LoginViewController()
         let router = LoginRouter(navigationController: navigationController, window: window)
-        let interactor = LoginInteractor(networkManager: NetworkManager())
+        let interactor = LoginInteractor(networkService: DefaultNetworkService())
         let presenter = LoginPresenter(view: view, router: router, interactor: interactor)
         view.presenter = presenter
         interactor.output = presenter
@@ -34,12 +35,17 @@ final class LoginRouter: LoginRouterProtocol {
     }
     
     func navigateToMain() {
-
         UIView.animate(withDuration: 0.5, animations: {
                 self.window?.rootViewController = MainTabbar()
             }, completion: nil)
     }
- 
+    
+    func navigateToVeterinaryMain() {
+        UIView.animate(withDuration: 0.5, animations: {
+                self.window?.rootViewController = VeterinaryTabbar()
+            }, completion: nil)
+    }
+    
     func navigateToSignUp() {
         let register = RegisterRouter.build(navigationController: navigationController, window: window)
         self.navigationController?.pushViewController(register, animated: true)

@@ -4,9 +4,7 @@
 //
 //  Created by Kenan Baylan on 3.01.2024.
 //
-
 import UIKit
-import SwiftUI
 
 protocol PetInfoViewProtocol: AnyObject {
     func prepareUI()
@@ -14,7 +12,7 @@ protocol PetInfoViewProtocol: AnyObject {
 
 final class PetInfoViewController: BaseViewController {
     var presenter: PetInfoPresenterProtocol?
-
+    
     //MARK: UI Properties
     private let scrollView: UIScrollView = {
         let srollView = UIScrollView()
@@ -48,9 +46,10 @@ final class PetInfoViewController: BaseViewController {
         stack.spacing = 20
         return stack
     }()
-
-    private lazy var petsNameTextfield: CustomTextField = {
-        let textfield = CustomTextField(viewModel: .init(type: .name, placeholder: "Pet name"))
+    
+    private lazy var petsNameTextfield: MyTextField = {
+        let textfield = MyTextField()
+        textfield.placeholder = "Pet name"
         textfield.tintColor = AppColors.primaryColor
         return textfield
     }()
@@ -70,15 +69,17 @@ final class PetInfoViewController: BaseViewController {
         return segmentedControl
     }()
     
-    private lazy var weightTextField: CustomTextField = {
-        let textfield = CustomTextField(viewModel: .init(type: .numberInt, placeholder: "Weight (kg)"))
-        textfield.tintColor = AppColors.primaryColor
+    private lazy var weightTextField: MyTextField = {
+        let textfield = MyTextField()
+        textfield.placeholder = "Weight (kg)"
+        textfield.keyboardType = .decimalPad
         return textfield
     }()
     
-    private lazy var heightTextField: CustomTextField = {
-        let textfield = CustomTextField(viewModel: .init(type: .numberInt, placeholder: "Weight (kg)"))
-        textfield.tintColor = AppColors.primaryColor
+    private lazy var heightTextField: MyTextField = {
+        let textfield = MyTextField()
+        textfield.placeholder = "Height (cm)"
+        textfield.keyboardType = .numberPad
         return textfield
     }()
     
@@ -86,34 +87,39 @@ final class PetInfoViewController: BaseViewController {
     private lazy var appButton: AppButton = {
         let appbutton = AppButton.build()
             .setTitle("Continue")
+            .setTitleColor(AppColors.customWhite)
             .setImage(UIImage(named: "coffee")?.resized(to: CGSize(width: 25, height: 25)))
             .setBackgroundColor(AppColors.primaryColor)
         appbutton.addTarget(self, action: #selector(appButtonClicked), for: .touchUpInside)
         return appbutton
     }()
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         buildLayout()
         prepareTitleLabel()
-        dateBirthTextfield.delegate = self
-        self.dateBirthTextfield.setInputViewDatePicker(target: self, selector: #selector(tapDone))
         
+        setupKeyboardDismissRecognizer()
+        self.dateBirthTextfield.setInputViewDatePicker(target: self, selector: #selector(tapDone))
     }
     
     @objc func tapDone() {
         let datePicker = self.dateBirthTextfield.inputView as? UIDatePicker
         let dateformatter = DateFormatter()
         dateformatter.dateStyle = .full
-    
+        
         if let selectedDate = datePicker?.date {
-            self.dateBirthTextfield.text = dateformatter.string(from: selectedDate)
+            let formattedDate = dateformatter.string(from: selectedDate)
+            presenter?.selectedDateTime = selectedDate // Seçilen tarihi presenter'a atayabilirsiniz
+            self.dateBirthTextfield.text = formattedDate
         }
         self.dateBirthTextfield.resignFirstResponder()
+        
     }
     
     override func keyboardWillShow(with height: CGFloat) {
+        scrollView.contentSize.height
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: height, right: 0)
         scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: height, right: 0)
     }
@@ -124,17 +130,31 @@ final class PetInfoViewController: BaseViewController {
     }
 }
 
-
 //MARK: - Button Action
 extension PetInfoViewController {
-    @objc func appButtonClicked() {
-        print("Button clicked!")
-        presenter?.navigateSelectPetImage()
-    }
-}
-
-extension PetInfoViewController: UITextFieldDelegate {
     
+    @objc func appButtonClicked() {
+        validate()
+    }
+    
+    func validate() {
+        do {
+            let petName = try petsNameTextfield.validatedText(validationType: ValidatorsType.requiredField(field: "Pets Name "))
+            let height = try heightTextField.validatedText(validationType: ValidatorsType.requiredField(field: "Height "))
+            let weight = try self.weightTextField.validatedText(validationType: ValidatorsType.requiredField(field: "Weight"))
+            let genderIndex = genderSegmentedControl.selectedSegmentIndex
+            let petGenre = presenter?.selectedGenderType(index: genderIndex)
+            
+            let data = PetInfoModel(gender: petGenre, type: presenter?.selectedPet, name: petName , weight: weight, height: height, birthDate: presenter?.selectedDateTime)
+            
+            
+            presenter?.savePetInfo(data)
+            presenter?.navigateSelectPetImage()
+            
+        } catch(let error) {
+            showAlert(for: (error as! ValidationError).message)
+        }
+    }
 }
 
 extension PetInfoViewController: PetInfoViewProtocol {
@@ -143,13 +163,10 @@ extension PetInfoViewController: PetInfoViewProtocol {
     }
     
     private func prepareTitleLabel() {
-        let titleLabel = TitleLabel.configurationTitleLabel(withText: "Almost Done", fontSize: 17, textColor: AppColors.primaryColor)
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: presenter!.title, fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
     }
     
-    func patiButtonClicked(_ sender: AppButton) {
-        presenter?.navigateSelectPetImage()
-    }
 }
 
 extension PetInfoViewController: ViewCoding {
@@ -163,23 +180,21 @@ extension PetInfoViewController: ViewCoding {
         
         let views: [UIView] = [genderSegmentedControl,petsNameTextfield,dateBirthTextfield,hStackView]
         for i in views { allStackView.addArrangedSubview(i) }
-    
+        
         hStackView.addArrangedSubview(weightTextField)
         hStackView.addArrangedSubview(heightTextField)
         
-        let hConst = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
-        hConst.isActive = true
-        hConst.priority = UILayoutPriority(50)
-        
+        let hConstraint = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        hConstraint.priority = .defaultLow
+        hConstraint.isActive = true
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            scrollView.heightAnchor.constraint(equalToConstant: scrollView.contentSize.height),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
@@ -187,22 +202,14 @@ extension PetInfoViewController: ViewCoding {
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
-            
             allStackView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor,constant: 24),
             allStackView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 5.wPercent),
             allStackView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -5.wPercent),
             allStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor),
-
+            
             appButton.topAnchor.constraint(equalTo: self.allStackView.bottomAnchor, constant: 10.wPercent),
             appButton.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,constant: 5.wPercent),
             appButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor,constant: -5.wPercent),
         ])
-        
-    }
-}
-
-struct MyTestVC_Previews: PreviewProvider {
-    static var previews: some View {
-        PetInfoViewController().showPreview()
     }
 }

@@ -26,11 +26,6 @@ final class RegisterViewController: BaseViewController {
         return scrollView
     }()
     
-    private lazy var headerLabel: CustomLabel = {
-        let label = CustomLabel(text:"REGISTER_HEADER_LABEL".localized(), fontSize: 27, fontType: .semibold, textColor: AppColors.primaryColor)
-        return label
-    }()
-    
     private lazy var stackView: CustomStackView = {
         let stack = CustomStackView()
         stack.axis = .vertical
@@ -38,10 +33,17 @@ final class RegisterViewController: BaseViewController {
         return stack
     }()
     
+    private let typeRegisterSegmentedControl: UISegmentedControl = {
+        let items = ["User", "Veterinary Clinic"]
+        let segmentedControl = UISegmentedControl(items: items)
+        segmentedControl.selectedSegmentIndex = 0 // Default to Male
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        return segmentedControl
+    }()
+    
     private lazy var nameTextfield: MyTextField = {
         let textfield = MyTextField()
         textfield.placeholder = "REGISTER_NAME_PLACEHOLDER".localized()
-        
         return textfield
     }()
     
@@ -61,20 +63,25 @@ final class RegisterViewController: BaseViewController {
         let textfield = MyTextField()
         textfield.isSecureTextEntryToggle = true
         textfield.placeholder = "REGISTER_PASSWORD_PLACEHOLDER".localized()
+        textfield.isSecureTextEntry = true
         return textfield
     }()
     
     private lazy var confirmPasswordTextfield: MyTextField = {
         let textfield = MyTextField()
         textfield.placeholder = "REGISTER_CONFIRM_PLACEHOLDER".localized()
+        textfield.isSecureTextEntry = true
+        
         return textfield
     }()
     
-    private lazy var createAccountButton: LoadingUICustomButton = {
-        let button = LoadingUICustomButton()
-        button.setupButton(title: "REGISTER_CREATE_BUTTON".localized() , textSize: .medium)
-        button.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
-        return button
+    private lazy var createAccountButton: AppButton = {
+        let appbutton = AppButton.build()
+            .setTitle("REGISTER_CREATE_BUTTON".localized())
+            .setTitleColor(AppColors.customWhite)
+            .setBackgroundColor(AppColors.primaryColor)
+        appbutton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
+        return appbutton
     }()
     
     override func viewDidLoad() {
@@ -85,14 +92,43 @@ final class RegisterViewController: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidAppear), name: UIResponder.keyboardDidHideNotification, object: nil)
         
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tap)
-        
+        setupKeyboardDismissRecognizer()
         setupTextfieldObservers()
     }
     
     @objc func createButtonTapped() {
-        presenter.registerUser(name: "Eren", surname: "Karayılan", email: "karayilan@gmail.com", password: "karayilan")
+//        self.presenter.navigateToVetAddress()
+        validateTextfield()
+    }
+    
+    private func validateTextfield() {
+        do {
+            let name = try nameTextfield.validatedText(validationType: .name)
+            let lastname = try lastTextfield.validatedText(validationType: .requiredField(field: "Lastname "))
+            let emailAddress = try emailTextfield.validatedText(validationType: .email)
+            let password = try passwordTextfield.validatedText(validationType: .password)
+            
+            let confirmPassword = try confirmPasswordTextfield.validatedText(validationType: .confirmPassword(password: password))
+            
+            
+            let data = UserRegisterRequest(role: .VETERINARY , name: name,
+                                           surname: lastname,email: emailAddress, password: password)
+            
+
+            presenter.saveUser(data)
+            if self.typeRegisterSegmentedControl.selectedSegmentIndex == 0  {
+                showAlert(for: "Register is success. Let's go to Enable Account") {
+                    self.presenter.navigateAccountEnable(email: emailAddress)
+                }
+                
+            } else if self.typeRegisterSegmentedControl.selectedSegmentIndex == 1 {
+                showAlert(for: "Registered Success. Let's Veterinary Clinic address") {
+                    self.presenter.navigateToVetAddress()
+                }
+            }
+        } catch(let error) {
+            showAlert(for: (error as! ValidationError).message)
+        }
     }
 }
 
@@ -145,13 +181,13 @@ extension RegisterViewController: ViewCoding {
     
     func setupHierarchy() {
         view.addSubview(scrollView)
-        scrollView.addSubview(headerLabel)
         let stackViewElements = [nameTextfield, lastTextfield, emailTextfield, passwordTextfield, confirmPasswordTextfield]
         
         for i in stackViewElements {
             stackView.addArrangedSubview(i)
         }
         
+        scrollView.addSubview(typeRegisterSegmentedControl)
         scrollView.addSubview(stackView)
         scrollView.addSubview(createAccountButton)
     }
@@ -165,16 +201,15 @@ extension RegisterViewController: ViewCoding {
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            ///MARK: HeaderLabel
-            headerLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 30),
-            headerLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-            headerLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            typeRegisterSegmentedControl.topAnchor.constraint(equalTo: scrollView.topAnchor,constant: 30),
+            typeRegisterSegmentedControl.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor,constant: 32),
+            typeRegisterSegmentedControl.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor,constant: -32),
             
             ///MARK: StackView Label
-            stackView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 30),
+            stackView.topAnchor.constraint(equalTo: typeRegisterSegmentedControl.bottomAnchor, constant: 30),
             stackView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 32),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -32),
             
             ///MARK: Create Account Button
             stackView.bottomAnchor.constraint(equalTo: createAccountButton.topAnchor, constant: -30),

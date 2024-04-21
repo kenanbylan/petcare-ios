@@ -31,12 +31,15 @@ final class OnboardingCell: UICollectionViewCell {
     private lazy var title: CustomLabel = {
         let label = CustomLabel(text: "", fontSize: 21, fontType: .bold, textColor: AppColors.labelColor)
         label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
     
     private lazy var subtitle: CustomLabel = {
         let label = CustomLabel(text: "", fontSize: 17, fontType: .medium, textColor: AppColors.customLightGray)
         label.numberOfLines = 0
+        label.textAlignment = .center
+        
         return label
     }()
 

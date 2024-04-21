@@ -8,17 +8,24 @@
 import Foundation
 
 protocol ForgotPasswordInteractorProtocol {
-    func checkPassword( password: String) -> Void
+    func forgotpassword(email: String) -> Void
 }
 
 protocol ForgotPasswordInteractorOutput {
+    func registrationSuccess(code: String)
+    func registrationFailure(error: Error)
 }
-
 
 final class ForgotPasswordInteractor: ForgotPasswordInteractorProtocol {
     var output: ForgotPasswordInteractorOutput?
+    var networkService: NetworkService
     
-    func checkPassword( password: String) {
+    init(networkService: NetworkService) {
+        self.networkService = networkService
+    }
+    
+    func forgotpassword(email: String)  {
+        //will be added forgot password
+        
     }
 }
-

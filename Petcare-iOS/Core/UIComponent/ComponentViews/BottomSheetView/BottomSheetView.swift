@@ -8,15 +8,23 @@
 import Foundation
 import UIKit
 
-class BottomSheetView: UIView, UITableViewDelegate, UITableViewDataSource {
+final class BottomSheetView: UIView, UITableViewDelegate, UITableViewDataSource {
     
-    let tableView = UITableView.init(frame: CGRect.zero, style: .insetGrouped)
+    let tableView = UITableView.init(frame: CGRect.zero, style: .grouped)
     var options: [String] = []
     var didSelectOption: ((String) -> Void)?
+    var headerTitle: String? = nil
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, title: String ) {
         super.init(frame: frame)
+        self.headerTitle = title
         setupTableView()
+        
+        tableView.layer.cornerRadius = 20
+        layer.cornerRadius = 20
+        
+        
+        backgroundColor = .clear
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,7 +36,6 @@ class BottomSheetView: UIView, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
-        
         addSubview(tableView)
     }
     
@@ -36,7 +43,6 @@ class BottomSheetView: UIView, UITableViewDelegate, UITableViewDataSource {
         super.layoutSubviews()
         tableView.frame = bounds
         clipsToBounds = true
-        tableView.layer.cornerRadius = 20
     }
     
     // MARK: - UITableViewDataSource
@@ -58,6 +64,6 @@ class BottomSheetView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Rezervasyon Konusu"
+        return headerTitle
     }
 }

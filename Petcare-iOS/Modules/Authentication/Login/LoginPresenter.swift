@@ -15,16 +15,19 @@ enum LoginState {
 
 protocol LoginPresenterProtocol {
     func viewDidload() -> Void
-    func navigateMain() -> Void
+    func navigateMain(data: LoginRequest) -> Void
     func navigateSignUp() -> Void
     func navigateForgotPassword() -> Void
-    func controlGoogleWithSignIn(myself: UIViewController)
+    func navigateToVeterinaryMain() -> Void
+    func saveUser(_ user: LoginRequest)
 }
 
 final class LoginPresenter: ObservableObject {
     private weak var view: LoginViewController?
     let router: LoginRouterProtocol?
     let interactor: LoginInteractorProtocol?
+    
+    var userData: LoginRequest?
     
     init(view: LoginViewController? , router: LoginRouterProtocol?, interactor: LoginInteractorProtocol?) {
         self.view = view
@@ -34,12 +37,20 @@ final class LoginPresenter: ObservableObject {
 }
 
 extension LoginPresenter: LoginPresenterProtocol {
-    func viewDidload() {
-        
+    func saveUser(_ user: LoginRequest) {
+        userData = user
     }
     
-    func navigateMain() {
-        router?.navigateToMain()
+    func viewDidload() { }
+    
+    func navigateMain(data: LoginRequest) {
+        //burada akış değişecek eğer veteriner ise veterinery akışı değilse normal giriş olacak
+        //router?.navigateToMain()
+        interactor?.login(user: data)
+    }
+    
+    func navigateToVeterinaryMain() {
+        router?.navigateToVeterinaryMain()
     }
     
     func navigateSignUp() {
@@ -49,20 +60,14 @@ extension LoginPresenter: LoginPresenterProtocol {
     func navigateForgotPassword() {
         router?.navigateToForgotPassword()
     }
-    
-    func controlGoogleWithSignIn(myself: UIViewController) {
-    }
-    
 }
 
 extension LoginPresenter: LoginInteractorOutput {
-    func registrationSuccess() {
-            
+    func registrationSuccess(user: LoginResponse) {
+        print("Presenter: \(user)")
     }
     
     func registrationFailure(error: Error) {
-            
+        print("ERROR : \(error.localizedDescription)")
     }
-    
-
 }

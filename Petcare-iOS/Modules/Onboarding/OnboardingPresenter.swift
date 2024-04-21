@@ -52,10 +52,8 @@ extension OnboardingPresenter {
         switch row {
         case 0:
             return  OnboardingModel(image: "onboard1", title: "ONBOARDING_TITLE_LABEL".localized() , subtitle: "ONBOARDING_SUBTITLE_LABEL".localized())
-            
         case 1:
             return OnboardingModel(image: "onboard2", title: "ONBOARDING_TITLE_LABEL_2".localized(), subtitle: "ONBOARDING_SUBTITLE_LABEL_2".localized())
-            
         case 2:
             return OnboardingModel(image: "onboard3", title: "ONBOARDING_TITLE_LABEL_3".localized(), subtitle: "ONBOARDING_SUBTITLE_LABEL_3".localized())
         default:
@@ -69,17 +67,14 @@ extension OnboardingPresenter {
         switch page {
         case .first:
             view?.displayScreen(at: 1)
-            view?.hidePrevButton()
         case .second:
             view?.setup(buttonTitle: "ONBOARDING_BUTTON_NEXT".localized())
-            view?.showPrevButton()
             switch direction {
             case .next:
                 view?.displayScreen(at: 2)
                 view?.setup(buttonTitle: "ONBOARDING_BUTTON_LOGIN".localized())
             case .prev:
                 view?.displayScreen(at: 0)
-                view?.hidePrevButton()
                 view?.setup(buttonTitle: "ONBOARDING_BUTTON_GET_STARTED".localized())
             case .stop:
                 print("show alert")
@@ -99,6 +94,7 @@ extension OnboardingPresenter {
     }
     
     func getCurrentPage() -> OnboardingPage {
+        
         if let page = view?.getPage() {
             if page == 0 {
                 return .first
@@ -114,6 +110,4 @@ extension OnboardingPresenter {
     }
 }
 
-extension OnboardingPresenter: OnboardingInteractorOutputProtocol {
-    
-}
+extension OnboardingPresenter: OnboardingInteractorOutputProtocol { }

@@ -7,13 +7,13 @@
 
 import UIKit
 
-class SmsOtpViewController: UIViewController, UITextFieldDelegate {
+final class SmsOtpViewController: UIViewController {
     
     private lazy var stackView: CustomStackView = {
         let stack = CustomStackView()
         return stack
     }()
-
+    
     private lazy var headerLabel: CustomLabel = {
         let label = CustomLabel(text: "SMS_OTP_HEADER_LABEL".localized(), fontSize: 17, fontType: .medium, textColor: AppColors.primaryColor)
         return label
@@ -43,16 +43,16 @@ class SmsOtpViewController: UIViewController, UITextFieldDelegate {
     private lazy var verificationTextfield: MyTextField = {
         let textfield = MyTextField()
         textfield.placeholder = "SMS_OTP_VERIFICATION_TEXTFIELD".localized()
-        textfield.delegate = self
         return textfield
     }()
     
-    
-    private lazy var verificationButton: LoadingUICustomButton = {
-        let button = LoadingUICustomButton()
-        button.setupButton(title: "SMS_OTP_VERIFICATION_BUTTON".localized(), textSize: LabelSize.small)
-        button.addTarget(self, action: #selector(verificationButtonClicked), for: .touchUpInside)
-        return button
+    private lazy var verificationButton: AppButton = {
+        let appbutton = AppButton.build()
+            .setTitle("SMS_OTP_VERIFICATION_BUTTON".localized())
+            .setTitleColor(AppColors.customWhite)
+            .setBackgroundColor(AppColors.primaryColor)
+        appbutton.addTarget(self, action: #selector(verificationButtonClicked), for: .touchUpInside)
+        return appbutton
     }()
     
     override func viewDidLoad() {
@@ -64,10 +64,8 @@ class SmsOtpViewController: UIViewController, UITextFieldDelegate {
     
     @objc func verificationButtonClicked() {
         print("verificationButtonClicked")
-//        let loadingButton = view.subviews.compactMap { $0 as? LoadingButton }.first
-        verificationButton.loadIndicator(true)
+        //        let loadingButton = view.subviews.compactMap { $0 as? LoadingButton }.first
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.verificationButton.loadIndicator(false)
             self.present(NewPasswordViewController(), animated: true)
         }
     }

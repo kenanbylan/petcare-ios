@@ -80,6 +80,7 @@ extension PetAvatarCell: ViewCoding {
         contentView.addSubview(stackView)
     }
     
+    
     func setupHierarchy() {
         let views: [UIView] = [imageView,petName,petAge]
         views.forEach { stackView.addArrangedSubview($0) }

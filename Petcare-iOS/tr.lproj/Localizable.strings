@@ -1,19 +1,12 @@
-/* 
-  Localizable.strings
-  Petcare-iOS
-
-  Created by Kenan Baylan on 19.11.2023.
-  
-*/
-
 /*
- Biz localize edilecek metin içerisine integer bir sayı gömmek istediğimiz içi tanımlamamızı %d ile yapmamız gerekiyor. Eğer string kullanacaksanız buraya %@ yazabilirsiniz. İşte iki dil için tanım da aşağıdaki şekilde.
-
+ Localizable.strings
+ Petcare-iOS
+ 
+ Created by Kenan Baylan on 19.11.2023.
  */
 
 
 "ONBOARDING_BUTTON_PREVIUS" = "Önceki";
-
 "ONBOARDING_TITLE_LABEL" = "Her zaman mükemmel bir ebeveyn olmak için emin olun";
 "ONBOARDING_SUBTITLE_LABEL" = "Favori veterinerlerinizi favoriye ekle ve kendi rehberinizi oluşturun";
 
@@ -26,3 +19,51 @@
 "ONBOARDING_BUTTON_GET_STARTED" = "Başlarken";
 "ONBOARDING_BUTTON_LOGIN" = "Giriş";
 "ONBOARDING_BUTTON_NEXT" = "İleri";
+
+
+//MARK: Login ViewController
+"LOGIN_EMAIL_PLACEHOLDER" = "Email";
+"LOGIN_PASSWORD_PLACEHOLDER" = "Password";
+"LOGIN_TEXT_FORGOTPASSWORD" =  "Şifremi unuttum?";
+"LOGIN_TEXT_SIGNUP" = "Henüz hesabınız yok mu? Kayıt ol";
+"LOGIN_TEXT_LOGIN" = "Giriş Yap";
+"LOGIN_HEADER" = "Paw Buddy'ye Hoşgeldin";
+
+
+//MARK: Register ViewController
+"REGISTER_HEADER" = "Hesabınızı oluşturun";
+"REGISTER_HEADER_LABEL" = "Paw Buddy'ye Hoşgeldin hadi kayıt olalım";
+"REGISTER_NAME_PLACEHOLDER" = "İsim";
+"REGISTER_LASTNAME_PLACEHOLDER" = "Soyisim";
+"REGISTER_EMAIL_PLACEHOLDER" = "email";
+"REGISTER_PASSWORD_PLACEHOLDER" = "şifre";
+"REGISTER_CONFIRM_PLACEHOLDER" = "şifre onayı";
+"REGISTER_CREATE_BUTTON" = "Hesap oluştur";
+
+
+//MARK: Forgot password Screen
+"FORGOTPASSWORD_TITLE" = "E posta adresinizi girin, şifrenizi sıfırlamak için onay içeren bir e-posta göndereceğiz.";
+"FORGOTPASSWORD_HEADER" = "Şifremi Unuttum";
+"FORGOTPASSWORD_BUTTON" = "Kodu Gönder";
+
+
+//MARK: - Smt Otp ViewController
+"SMS_OTP_SUBTITLE_LABEL" = "We have sent to %d";
+"SMS_OTP_HEADER_LABEL" = "E mail kutunuzu kontrol edin";
+"SMS_OTP_RESEND_CODE_BUTTON" = "Tekrar gönder";
+"SMS_OTP_VERIFICATION_TEXTFIELD" = "Kodu giriniz";
+"SMS_OTP_VERIFICATION_BUTTON" = "Doğrula";
+
+//MARK: - New Password ViewController
+"NEWPASSWORD_HEADER_LABEL" = "Yeni şifrenizi giriniz";
+"NEWPASSWORD_SUBTITLE_LABEL" = "Şifreniz önceki şifrenizdan farklı olmalıdır.";
+"NEWPASSWORD_RESET_BUTTON" = "Kaydet";
+"NEWPASSWORD_RESET_TEXTFIELD" = "Yeni şifre gir";
+"NEWPASSWORD_CONFIRM_RESET_TEXTFIELD" = "Şifreyi onayla";
+
+
+/// email verification controller {
+"EmailVerification_header" = "Hesabını onaylamak için lütfen mail adresinize gönderilen kodu iletiniz.";
+
+"EmailVerification_textfield" = "Gönderilen kod";
+"EmailVerification_button" = "Hesabı Aktifleştir";

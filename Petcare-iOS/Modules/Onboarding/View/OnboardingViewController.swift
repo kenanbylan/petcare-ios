@@ -14,8 +14,6 @@ protocol OnboardingViewProtocol: AnyObject {
     func getPage() -> Int
     func displayScreen(at index: Int)
     func isPossibleNext(_ newState: Bool)
-    func showPrevButton()
-    func hidePrevButton()
 }
 
 protocol OnboardingControlling {
@@ -84,13 +82,5 @@ extension OnboardingViewController: OnboardingViewProtocol {
     
     func isPossibleNext(_ newState: Bool) {
         viewDelegate?.isPossibleNext(newState)
-    }
-    
-    func showPrevButton() {
-        viewDelegate?.showPrevButton()
-    }
-    
-    func hidePrevButton() {
-        viewDelegate?.hidePrevButton()
     }
 }

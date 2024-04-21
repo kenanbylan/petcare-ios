@@ -11,14 +11,14 @@ protocol ForgotPasswordViewProtocol: AnyObject {
     func forgotPasswordReset()
 }
 
-final class ForgotPasswordViewController: UIViewController,UITextFieldDelegate  {
+final class ForgotPasswordViewController: UIViewController {
     var presenter: ForgotPasswordPresenterProtocol?
     
     private lazy var subTitleLabel: UILabel = {
         let label = UILabel()
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Enter the email address with your account and we'll send an email with confirmation to reset your password"
+        label.text = "FORGOTPASSWORD_TITLE".localized()
         label.numberOfLines = 3
         label.tintColor = AppColors.labelColor
         label.font = AppFonts.medium.font(size: 14)
@@ -33,15 +33,17 @@ final class ForgotPasswordViewController: UIViewController,UITextFieldDelegate  
         return textfield
     }()
     
-    private lazy var sendCodeButton: LoadingUICustomButton = {
-        let button = LoadingUICustomButton()
-        button.setupButton(title: "Send Code", textSize: LabelSize.small)
-        button.addTarget(self, action: #selector(sendCodeButtonClicked), for: .touchUpInside)
-        return button
+    private lazy var sendCodeButton: AppButton = {
+        let appbutton = AppButton.build()
+            .setTitle("FORGOTPASSWORD_BUTTON".localized())
+            .setTitleColor(AppColors.customWhite)
+            .setBackgroundColor(AppColors.primaryColor)
+        appbutton.addTarget(self, action: #selector(sendCodeButtonClicked), for: .touchUpInside)
+        return appbutton
     }()
-    
+
     private func prepareTitleLabel() {
-        let titleLabel = TitleLabel.configurationTitleLabel(withText: "Forgot Password", fontSize: 17, textColor: AppColors.primaryColor)
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: "FORGOTPASSWORD_HEADER".localized(), fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
     }
     
@@ -50,22 +52,25 @@ final class ForgotPasswordViewController: UIViewController,UITextFieldDelegate  
         presenter?.viewDidLoad()
         buildLayout()
         prepareTitleLabel()
-        
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tap)
+        setupKeyboardDismissRecognizer()
+        navigationController?.customizeNavigationBar()
     }
     
     @objc func sendCodeButtonClicked() {
-        print("Send code button clicked.")
-        present(SmsOtpViewController(), animated: true)
+        validateTextfield()
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-         textField.resignFirstResponder()
-         return true
-     }
+    private func validateTextfield() {
+        do {
+            let email = try emailTextfield.validatedText(validationType: .email)
+            let data = ForgotPasswordRequest(email: email)
+            //presenter.saveUser(data)
+            presenter?.navigateToSmsOtp()
+        } catch(let error) {
+            showAlert(for: (error as! ValidationError).message)
+        }
+    }
 }
-
 
 extension ForgotPasswordViewController: ViewCoding {
     func setupView() {
