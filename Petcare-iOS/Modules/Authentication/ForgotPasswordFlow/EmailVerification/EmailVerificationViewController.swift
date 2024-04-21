@@ -9,7 +9,13 @@ import Foundation
 import UIKit
 
 
+protocol EmailVerificationViewProtocol: AnyObject {
+    func codeAccountEnable()
+}
+
 final class EmailVerificationViewController: UIViewController {
+    var presenter: EmailVerificationPresenterProtocol?
+    
     private lazy var stackView: CustomStackView = {
         let stack = CustomStackView()
         return stack
@@ -19,6 +25,7 @@ final class EmailVerificationViewController: UIViewController {
         let label = CustomLabel(text: "EmailVerification_header".localized(), fontSize: 14, fontType: .medium, textColor: AppColors.primaryColor)
         return label
     }()
+    
     
     private lazy var verificationTextfield: MyTextField = {
         let textfield = MyTextField()
@@ -50,6 +57,10 @@ final class EmailVerificationViewController: UIViewController {
         do {
             let code = try  verificationTextfield.validatedText(validationType: .number)
             //kod backendde gönderilecektir ve eğer eşleşir ise enable olacak ve kullanıcı login ekranına aktarılacaktır
+            
+            showAlert(for: "Account is Active") {
+                self.presenter?.navigateLogin()
+            }
             
         } catch(let error) {
             showAlert(for: (error as! ValidationError).message)
@@ -94,4 +105,8 @@ extension EmailVerificationViewController: ViewCoding {
             verificationButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -16.wPercent),
         ])
     }
+}
+
+extension EmailVerificationViewController: EmailVerificationViewProtocol {
+    func codeAccountEnable() { }
 }

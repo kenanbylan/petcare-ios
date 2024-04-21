@@ -7,23 +7,20 @@
 
 import UIKit
 
-class ResultVerifyViewController: UIViewController {
+protocol ResultVerifyViewProtocol: AnyObject {
+    func forgotPasswordReset()
+}
+
+final class ResultVerifyViewController: UIViewController {
+    var presenter: ResultVerifyPresenterProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        presenter?.viewDidLoad()
+        view.backgroundColor = AppColors.primaryColor
+        
+        title = "Result Verify"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

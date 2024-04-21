@@ -42,7 +42,7 @@ final class PetTypeViewController: UIViewController {
     }()
     
     private lazy var petTitle: CustomLabel = {
-        let petTitle = CustomLabel(text: "Do you have?", fontSize: 14, fontType: .medium, textColor: AppColors.customWhite)
+        let petTitle = CustomLabel(text: "Which pet do you have ?", fontSize: 14, fontType: .medium, textColor: AppColors.customWhite)
         return petTitle
     }()
     
@@ -84,8 +84,7 @@ final class PetTypeViewController: UIViewController {
     
     //MARK: - Pet Types Setup
     private func setupPetTypes() {
-        let petTypes = ["Cat", "Dog", "Bird", "Fish", "Rabbit", "Other"]
-        for type in petTypes {
+        for type in presenter?.petTypes ?? [] {
             let petTypeView = SelectPetView()
             petTypeView.setText(type)
             petTypeView.delegate = self
@@ -95,13 +94,38 @@ final class PetTypeViewController: UIViewController {
     }
     
     private func prepareTitleLabel() {
-        let titleLabel = TitleLabel.configurationTitleLabel(withText: "Hello my friend", fontSize: 17, textColor: AppColors.primaryColor)
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: presenter!.title, fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
     }
+    
     
     private func setNavigationBar() {
         navigationItem.setCustomBackButtonTitle("Back", color: AppColors.primaryColor)
         navigationController?.navigationBar.tintColor = AppColors.primaryColor
+    }
+}
+
+extension PetTypeViewController: PetTypeViewProtocol {
+    func prepareUI() { }
+}
+
+//MARK: - Select Pet View Delegate
+extension PetTypeViewController: SelectPetViewDelegate {
+    func didSelect(_ view: SelectPetView) {
+        presenter?.selectPet = view.petType
+
+        print("selected Pet :", presenter?.selectPet ?? "")
+        let isAnyItemSelected = petTypeViews.contains { $0.isSelected }
+        delegate?.didSelectPet()
+        patiButton.isEnabled = isAnyItemSelected
+    }
+}
+
+//MARK: - Button Action
+extension PetTypeViewController {
+    @objc func patiButtonClicked() {
+        print("Button clicked!")
+        presenter?.navigateToPetInfo()
     }
 }
 
@@ -157,27 +181,5 @@ extension PetTypeViewController: ViewCoding {
             patiButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -5.wPercent),
             patiButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
-    }
-}
-
-extension PetTypeViewController: PetTypeViewProtocol {
-    func prepareUI() { }
-}
-
-//MARK: - Select Pet View Delegate
-extension PetTypeViewController: SelectPetViewDelegate {
-    func didSelect(_ view: SelectPetView) {
-        let selectPet = view.petType
-        let isAnyItemSelected = petTypeViews.contains { $0.isSelected }
-        delegate?.didSelectPet()
-        patiButton.isEnabled = isAnyItemSelected
-    }
-}
-
-//MARK: - Button Action
-extension PetTypeViewController {
-    @objc func patiButtonClicked() {
-        print("Button clicked!")
-        presenter?.navigateToPetInfo()
     }
 }

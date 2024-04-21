@@ -14,7 +14,8 @@ protocol RegisterRouterProtocol: AnyObject {
     func navigateToMain() -> Void
     func backToLogin() -> Void
     func navigateToForgot() -> Void
-    
+    func navigateToVetAddress() -> Void
+    func navigateAccountEnable(email: String) -> Void
 }
 
 final class RegisterRouter: RegisterRouterProtocol {
@@ -30,15 +31,13 @@ final class RegisterRouter: RegisterRouterProtocol {
     static func build(navigationController: UINavigationController?, window: UIWindow?) -> RegisterViewController {
         let view = RegisterViewController()
         let router = RegisterRouter(navigationController: navigationController, window: window)
-        
-        let interactor = RegisterInteractor(networkManager: NetworkManager())
+        let interactor = RegisterInteractor(networkService: DefaultNetworkService())
         let presenter = RegisterPresenter(view: view, router: router, interactor: interactor)
         
         view.presenter = presenter
         interactor.output = presenter
         return view
     }
-    
     
     func navigateToMain() {
         UIView.transition(with: window!, duration: 0.5, options: .layoutSubviews , animations: {
@@ -52,6 +51,17 @@ final class RegisterRouter: RegisterRouterProtocol {
     }
     
     func backToLogin() {
-      
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func navigateToVetAddress() {
+        let vetAddress = AddressVerifyRouter.build(navigationController: navigationController,window: window)
+        self.navigationController?.pushViewController(vetAddress, animated: true)
+    }
+    
+    
+    func navigateAccountEnable(email: String) {
+        let accountEnable = EmailVerificationRouter.build(navigationController: navigationController, emailAddress: email)
+        self.navigationController?.pushViewController(accountEnable, animated: true)
     }
 }

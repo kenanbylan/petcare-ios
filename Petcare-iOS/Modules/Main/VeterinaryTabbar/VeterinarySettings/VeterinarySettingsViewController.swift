@@ -7,23 +7,23 @@
 
 import UIKit
 
-class VeterinarySettingsViewController: UIViewController {
+protocol VeterinarySettingsViewProtocol: AnyObject {
+    
+}
+
+final class VeterinarySettingsViewController: UIViewController {
+    var presenter: VeterinarySettingsPresenterProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        presenter?.viewDidLoad()
+        view.backgroundColor = AppColors.bgColor
+        
+        prepareTitleLabel()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func prepareTitleLabel() {
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: "Veterinary Settings", fontSize: 17, textColor: AppColors.primaryColor)
+        navigationItem.titleView = titleLabel
     }
-    */
-
 }

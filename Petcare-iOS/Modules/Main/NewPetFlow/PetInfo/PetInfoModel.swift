@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+enum Gender: Int {
+    case MALE = 0
+    case FEMALE
+}
+
+struct PetInfoModel {
+    var gender: Gender?
+    var type: String?
+    var name: String
+    var weight: String
+    var height: String
+    var birthDate: Date?
+    var image: String?
+}
+

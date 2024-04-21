@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol RegisterInteractorProtocol {
-    func registerUser(name: String, surname: String, email: String, password: String) -> Void
+    func registerUser(registerUser: UserRegisterRequest) -> Void
 }
 
 protocol RegisterInteractorOutput: AnyObject {
@@ -18,38 +18,14 @@ protocol RegisterInteractorOutput: AnyObject {
 }
 
 final class RegisterInteractor : RegisterInteractorProtocol {
-    
-    var subscriptions = Set<AnyCancellable>()
-
     weak var output: RegisterInteractorOutput?
-    let networkManager: NetworkManager
+    let networkService: NetworkService
     
-    init(networkManager: NetworkManager) {
-        self.networkManager = networkManager
+    init(networkService: NetworkService) {
+        self.networkService = networkService
     }
     
-    func registerUser(name: String, surname: String, email: String, password: String) {
-        do {
-            let userRegister = ["name": name , "surname": surname, "email": email, "password": password]
-            print("Request data: \(userRegister)")
-            let jsonData = try JSONSerialization.data(withJSONObject: userRegister, options: .prettyPrinted)
-
-            networkManager.request(type: UserRegisterResponse.self , router: .users, method: .post, requestData: jsonData)
-                .sink { completion in
-                    switch completion {
-                    case .finished:
-                        print("finished")
-                    case .failure(let error):
-                        print("error: :\(error.localizedDescription)")
-                        self.output?.registrationFailure(error: error)
-                    }
-                } receiveValue: { response in
-                    print("User data: \(response)")
-                    self.output?.registrationSuccess()
-                }
-                .store(in: &subscriptions)
-        } catch {
-            print("ERROR: \(error.localizedDescription)")
-        }
+    func registerUser(registerUser: UserRegisterRequest) {
+        
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class VeterinaryUITabBarController: UITabBarController {
+final class VeterinaryTabbar: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ final class VeterinaryUITabBarController: UITabBarController {
     
     func loadHomeTab() {
         let navigationController = UINavigationController()
-        let homeView = HomeRouter.build(navigationController: navigationController)
+        let homeView = VeterinaryHomeRouter.build(navigationController: navigationController)
         
         navigationController.viewControllers.append(homeView)
         navigationController.tabBarItem.image = UIImage(systemName: Tabbar.homeIcon)
@@ -35,7 +35,7 @@ final class VeterinaryUITabBarController: UITabBarController {
     
     func loadSettingsTab() {
         let navigationController = UINavigationController()
-        let settings = SettingsRouter.build(navigationController: navigationController)
+        let settings = VeterinarySettingsRouter.build(navigationController: navigationController)
         navigationController.viewControllers.append(settings)
         navigationController.tabBarItem.image = UIImage(systemName: Tabbar.settingsIcon )
         navigationController.tabBarItem.title = Tabbar.settingsText

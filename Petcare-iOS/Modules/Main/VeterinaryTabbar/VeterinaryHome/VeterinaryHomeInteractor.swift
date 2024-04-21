@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+protocol VeterinaryHomeInteractorProtocol {
+}
+
+
+protocol VeterinaryHomeInteractorOutput {
+    
+}
+
+
+final class VeterinaryHomeInteractor: VeterinaryHomeInteractorProtocol {
+    var output: VeterinaryHomeInteractorOutput?
+
+}

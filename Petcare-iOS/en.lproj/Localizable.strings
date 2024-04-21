@@ -20,8 +20,6 @@
 
 //MARK: - Smt Otp ViewController
 "SMS_OTP_HEADER_LABEL" = "Please check your email";
-"SMS_OTP_SUBTITLE_LABEL" = "We have sent to %d";
-"SMS_OTP_HEADER_LABEL" = "Please check your email";
 "SMS_OTP_RESEND_CODE_BUTTON" = "Send code again";
 "SMS_OTP_VERIFICATION_TEXTFIELD" = "Please entry code";
 "SMS_OTP_VERIFICATION_BUTTON" = "Verification";
@@ -30,18 +28,25 @@
 //MARK: - New Password ViewController
 "NEWPASSWORD_HEADER_LABEL" = "Create new password";
 "NEWPASSWORD_SUBTITLE_LABEL" = "This password should be different from to previous password";
-"NEWPASSWORD_VALIDATION_LABEL" = "At least %d characters";
-"NEWPASSWORD_VALIDATION_LABEL_2" = "At least %d number";
-"NEWPASSWORD_VALIDATION_LABEL_3" = "Both upper and lower case letters";
-
 "NEWPASSWORD_RESET_BUTTON" = "Reset Password";
 "NEWPASSWORD_RESET_TEXTFIELD" = "Reset password";
 "NEWPASSWORD_CONFIRM_RESET_TEXTFIELD" = "Confirm reset password";
 
 
+//MARK: - Smt Otp ViewController
+"SMS_OTP_SUBTITLE_LABEL" = "We have sent to %d";
+"SMS_OTP_HEADER_LABEL" = "Please check email address";
+"SMS_OTP_RESEND_CODE_BUTTON" = "Send code again";
+"SMS_OTP_VERIFICATION_TEXTFIELD" = "code";
+"SMS_OTP_VERIFICATION_BUTTON" = "Verification";
+
 //MARK: Login ViewController
 "LOGIN_EMAIL_PLACEHOLDER" = "Email";
 "LOGIN_PASSWORD_PLACEHOLDER" = "Password";
+"LOGIN_TEXT_FORGOTPASSWORD" =  "Forgot Password?";
+"LOGIN_TEXT_SIGNUP" = "Don't have an account? Sign Up";
+"LOGIN_TEXT_LOGIN" = "Login";
+"LOGIN_HEADER" = "Welcome to Paw Buddy";
 
 
 //MARK: Register ViewController
@@ -53,3 +58,15 @@
 "REGISTER_PASSWORD_PLACEHOLDER" = "Password";
 "REGISTER_CONFIRM_PLACEHOLDER" = "Confirm password";
 "REGISTER_CREATE_BUTTON" = "Create Account";
+
+//MARK: FORGOT PASSWORD
+"FORGOTPASSWORD_TITLE" = "Enter the email address with your account and we'll send an email with confirmation to reset your password";
+"FORGOTPASSWORD_HEADER" = "Forgot Password";
+"FORGOTPASSWORD_BUTTON" = "Send Code";
+
+
+
+///MARK: -Email verification controller
+"EmailVerification_header" = "To confirm your account, please forward the code sent to your e-mail address.";
+"EmailVerification_textfield" = "Code send";
+"EmailVerification_button" = "Activate Account";

@@ -13,16 +13,18 @@ protocol PetImageRouterProtocol {
 
 final class PetImageRouter {
     var navigationController: UINavigationController?
+    var petInfoData: PetInfoModel?
     
-    init(navigationController: UINavigationController? = nil) {
+    init(navigationController: UINavigationController? = nil, petInfoData: PetInfoModel? = nil) {
         self.navigationController = navigationController
+        self.petInfoData = petInfoData
     }
     
-    static func build(navigationController: UINavigationController?) -> PetImageViewController {
+    static func build(navigationController: UINavigationController?, petInfoData: PetInfoModel) -> PetImageViewController {
         let view = PetImageViewController()
         let router = PetImageRouter(navigationController: navigationController)
         let interactor = PetImageInteractor()
-        let presenter = PetImagePresenter(view: view, router: router, interactor: interactor)
+        let presenter = PetImagePresenter(view: view, router: router, interactor: interactor, petInfoData: petInfoData)
         
         view.presenter = presenter
         interactor.output = presenter

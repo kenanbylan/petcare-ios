@@ -142,12 +142,6 @@ extension CustomTextField: Validator {
     private func startValidation() {
         guard validationState == .idle, let validationType = ValidatorType(rawValue: viewModel.type.rawValue) else { return }
         
-        textField.textPublisher()
-            .removeDuplicates()
-            .debounce(for: 0.2, scheduler: RunLoop.main)
-            .validateText(validationType: validationType)
-            .assign(to: &$validationState)
-        
         NotificationCenter.default.post(
             name: UITextField.textDidChangeNotification,
             object: textField

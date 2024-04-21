@@ -9,49 +9,37 @@ import Foundation
 import Combine
 
 protocol LoginInteractorProtocol {
-    func login(email: String, password: String) -> Void
+    func login(user: LoginRequest) -> Void
 }
 
 protocol LoginInteractorOutput {
-    func registrationSuccess()
+    func registrationSuccess(user: LoginResponse)
     func registrationFailure(error: Error)
 }
 
 final class LoginInteractor: LoginInteractorProtocol, ObservableObject {
+    
     var output: LoginInteractorOutput?
-    let networkManager: NetworkManager
+    let networkService: NetworkService
     
-    var subscriptions = Set<AnyCancellable>()
-    
-    init(networkManager: NetworkManager) {
-        self.networkManager = networkManager
+    init(networkService: NetworkService) {
+        self.networkService = networkService
     }
     
-    func login(email: String, password: String) {
-        let requestData: [String: Any] = ["email": email, "password": password]
-        
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: requestData)
-            networkManager.request(type: User.self , router: .login, method: .post, requestData: jsonData)
-                .sink { completion in
-                    switch completion {
-                    case .finished:
-                        break
-                    case .failure(let error):
-                        self.output?.registrationFailure(error: error)
-                    }
-                } receiveValue: { response in
-                    print("Response: \(response)")
-                    self.output?.registrationSuccess()
-                }
-                .store(in: &subscriptions)
+    func login(user: LoginRequest) {
+        let loginRequest = LoginRequests(email: user.email, password: user.password)
+
+        networkService.request(loginRequest) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+
+            case .success(let response):
+                print("loginUser: \(response)")
+                //self.output?.registrationSuccess(user: response)
             
-        } catch {
-            
+            case .failure(let error):
+                self.output?.registrationFailure(error: error)
+            }
         }
-        
-        
-        
     }
-    
 }

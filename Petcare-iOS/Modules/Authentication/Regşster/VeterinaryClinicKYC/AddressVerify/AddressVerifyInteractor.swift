@@ -6,3 +6,21 @@
 //
 
 import Foundation
+
+protocol AddressVerifyInteractorProtocol {
+    func getAddressInfo(_ address: String) -> Void
+}
+
+
+protocol AddressVerifyInteractorOutput {
+    
+}
+
+
+final class AddressVerifyInteractor: AddressVerifyInteractorProtocol {
+    var output: AddressVerifyInteractorOutput?
+    
+    func getAddressInfo(_ address: String) {
+        
+    }
+}

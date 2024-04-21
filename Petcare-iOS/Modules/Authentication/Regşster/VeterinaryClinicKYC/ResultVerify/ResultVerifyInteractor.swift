@@ -6,3 +6,22 @@
 //
 
 import Foundation
+
+
+protocol ResultVerifyInteractorProtocol {
+    func resultData(_ data: String) -> Void
+}
+
+
+protocol ResultVerifyInteractorOutput {
+    
+}
+
+
+final class ResultVerifyInteractor: ResultVerifyInteractorProtocol {
+    var output: ResultVerifyInteractorOutput?
+    
+    func resultData(_ data: String) {
+            
+    }
+}
