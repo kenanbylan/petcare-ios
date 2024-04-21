@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewPasswordViewController: UIViewController, UITextFieldDelegate {
+final class NewPasswordViewController: UIViewController {
     
     private lazy var stackView: CustomStackView = {
         let stack = CustomStackView()
@@ -17,13 +17,13 @@ class NewPasswordViewController: UIViewController, UITextFieldDelegate {
     }()
     
     private lazy var headerLabel: CustomLabel = {
-        let label = CustomLabel(text: "NEWPASSWORD_HEADER_LABEL".localized(), fontSize: 21, fontType: .semibold, textColor: AppColors.primaryColor)
+        let label = CustomLabel(text: "NEWPASSWORD_HEADER_LABEL".localized(), fontSize: 17, fontType: .medium, textColor: AppColors.primaryColor)
         label.textAlignment = .left
         return label
     }()
     
     private lazy var subTitleLabel: CustomLabel = {
-        let label = CustomLabel(text: "NEWPASSWORD_SUBTITLE_LABEL".localized("kenan.baylan@gmail.com"), fontSize: 21, fontType: .semibold, textColor: AppColors.labelColor)
+        let label = CustomLabel(text: "NEWPASSWORD_SUBTITLE_LABEL".localized(), fontSize: 17, fontType: .regular, textColor: AppColors.labelColor)
         label.textAlignment = .justified
         return label
     }()
@@ -31,24 +31,22 @@ class NewPasswordViewController: UIViewController, UITextFieldDelegate {
     private lazy var newPasswordTextfield: MyTextField = {
         let textfield = MyTextField()
         textfield.placeholder = "NEWPASSWORD_RESET_TEXTFIELD".localized()
-        textfield.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        textfield.delegate = self
         return textfield
     }()
     
     private lazy var confirmPasswordTextfield: MyTextField = {
         let textfield = MyTextField()
         textfield.placeholder = "NEWPASSWORD_CONFIRM_RESET_TEXTFIELD".localized()
-        textfield.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        textfield.delegate = self
         return textfield
     }()
     
-    private lazy var resetPasswordButton: LoadingUICustomButton = {
-        let button = LoadingUICustomButton()
-        button.setupButton(title: "NEWPASSWORD_RESET_BUTTON".localized(), textSize: .medium)
-        button.addTarget(self, action: #selector(resetPasswordButtonClicked), for: .touchUpInside)
-        return button
+    private lazy var resetPasswordButton: AppButton = {
+        let appbutton = AppButton.build()
+            .setTitle("NEWPASSWORD_RESET_BUTTON".localized())
+            .setTitleColor(AppColors.customWhite)
+            .setBackgroundColor(AppColors.primaryColor)
+        appbutton.addTarget(self, action: #selector(resetPasswordButtonClicked), for: .touchUpInside)
+        return appbutton
     }()
    
     override func viewDidLoad() {
@@ -78,7 +76,6 @@ extension NewPasswordViewController: ViewCoding {
         for i in myViews {
             stackView.addArrangedSubview(i)
         }
-        
         view.addSubview(stackView)
     }
     

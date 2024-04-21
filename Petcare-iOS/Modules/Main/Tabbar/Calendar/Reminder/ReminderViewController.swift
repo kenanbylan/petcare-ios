@@ -114,11 +114,10 @@ final class ReminderViewController: UIViewController {
         let petSubject = ["Yaklaşan aşı tarihi hatırlatma", "Beslenme öğün hatırlama", "Gezintiye çıkma zamanı", "Uyku vakti", "Diğer"]
         let availablePets = ["Lolo", "Doggy", "Holosko", "Bobi", "Şirine", "Boncuk ama köpek olan"]
         
-        reminderPet.setInputViewBottomSheet(options: availablePets, target: self, selector: #selector(handlePets(_:)))
-        reminderSubject.setInputViewBottomSheet(options: petSubject, target: self, selector: #selector(handleSubject(_:)))
-        
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tap)
+        reminderPet.setInputViewBottomSheet(options: availablePets, target: self, selector: #selector(handlePets(_:)),title: "Pet's")
+        reminderSubject.setInputViewBottomSheet(options: petSubject, target: self, selector: #selector(handleSubject(_:)),title: "Subject")
+
+        setupKeyboardDismissRecognizer()
     }
     
     // Selector metodu
@@ -218,8 +217,4 @@ extension ReminderViewController: ViewCoding {
             doneButton.trailingAnchor.constraint(equalTo: dateStackView.trailingAnchor, constant: -20),
         ])
     }
-}
-
-extension ReminderViewController: UITextFieldDelegate {
-    
 }

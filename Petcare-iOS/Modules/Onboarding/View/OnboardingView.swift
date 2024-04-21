@@ -18,11 +18,10 @@ protocol OnboardingViewDelegate: AnyObject {
     func getPage() -> Int
     func displayScreen(at index: Int) -> Void
     func isPossibleNext(_ newState: Bool)
-    func hidePrevButton()
-    func showPrevButton()
 }
 
 final class OnboardingView: UIView {
+    
     private var isPossibleNext = true
     var controller: OnboardingControlling?
     
@@ -74,19 +73,6 @@ final class OnboardingView: UIView {
         return button
     }()
     
-    private lazy var prevButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.setImage(UIImage(systemName: "chevron.left"), for: .normal)
-        button.setTitle("ONBOARDING_BUTTON_PREVIUS".localized(), for: .normal)
-        button.titleLabel?.font = AppFonts.medium.font(size: .medium)
-        button.tintColor = AppColors.primaryColor
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(toPrevButtonTapped), for: .touchUpInside)
-        button.layer.cornerRadius = 10
-        button.setTitleColor(.tintColor, for: .normal)
-        return button
-    }()
-    
     init(frame: CGRect, controller: OnboardingControlling? = nil) {
         self.controller = controller
         super.init(frame: frame)
@@ -121,18 +107,6 @@ extension OnboardingView: OnboardingViewDelegate {
     
     func isPossibleNext(_ newState: Bool) {
         self.isPossibleNext = newState
-    }
-    
-    func hidePrevButton() {
-        self.prevButton.removeFromSuperview()
-    }
-    
-    func showPrevButton() {
-        self.addSubview(prevButton)
-        NSLayoutConstraint.activate([
-            prevButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            prevButton.leadingAnchor.constraint(equalToSystemSpacingAfter: self.leadingAnchor, multiplier: 2)
-        ])
     }
 }
 
@@ -246,10 +220,11 @@ extension OnboardingView: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            carouselCollection.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            carouselCollection.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            carouselCollection.topAnchor.constraint(equalTo: self.topAnchor),
+            carouselCollection.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             carouselCollection.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             carouselCollection.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            
             
             pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             pageControl.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -16),
@@ -262,5 +237,4 @@ extension OnboardingView: ViewCoding {
             nextButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor,constant: -20)
         ])
     }
-    
 }

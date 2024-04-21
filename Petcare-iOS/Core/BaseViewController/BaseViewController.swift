@@ -16,15 +16,7 @@ class BaseViewController: UIViewController {
         setNavigationBar()
         networkControl()
         setupKeyboardNotifications()
-  //viewDidTapped()
     }
-    
-//    
-//    func viewDidTapped() {
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-//           view.addGestureRecognizer(tapGesture)
-//    }
-    
     
     deinit {
         removeKeyboardNotifications()
@@ -35,9 +27,6 @@ class BaseViewController: UIViewController {
         networkControl()
     }
     
-    @objc func dismissKeyboard() {
-        view.endEditing(true) // Klavyeyi kapat
-    }
     private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -60,14 +49,6 @@ class BaseViewController: UIViewController {
         navigationItem.setCustomBackButtonTitle("Back", color: AppColors.primaryColor)
         navigationController?.navigationBar.tintColor = AppColors.primaryColor
     }
-    
-    func showAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
     
     private func setupKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)

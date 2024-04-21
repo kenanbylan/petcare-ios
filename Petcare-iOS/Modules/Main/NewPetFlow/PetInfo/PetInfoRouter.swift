@@ -9,21 +9,21 @@ import UIKit
 
 protocol PetInfoRouterProtocol {
     func navigatePetFlowResult() -> Void
-    func navigateSelectPetImage() -> Void
+    func navigateSelectPetImage(_ data: PetInfoModel) -> Void
 }
 
 final class PetInfoRouter {
     var navigationController: UINavigationController?
-    init(navigationController: UINavigationController? = nil) {
+    
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     
-    static func build(navigationController: UINavigationController?) -> PetInfoViewController {
-        
+    static func build(navigationController: UINavigationController?, selectedPet: String) -> PetInfoViewController {
         let view = PetInfoViewController()
         let router = PetInfoRouter(navigationController: navigationController)
         let interactor = PetInfoInteractor()
-        let presenter = PetInfoPresenter(view: view, router: router, interactor: interactor)
+        let presenter = PetInfoPresenter(view: view, router: router, interactor: interactor, selectedPet: selectedPet)
         view.presenter = presenter
         interactor.output = presenter
         
@@ -36,8 +36,8 @@ extension PetInfoRouter: PetInfoRouterProtocol {
         
     }
     
-    func navigateSelectPetImage() {
-        let petSelectImageVC = PetImageRouter.build(navigationController: navigationController)
+    func navigateSelectPetImage(_ data: PetInfoModel) {
+        let petSelectImageVC = PetImageRouter.build(navigationController: navigationController, petInfoData: data)
         navigationController?.pushViewController(petSelectImageVC, animated: true)
     }
 }

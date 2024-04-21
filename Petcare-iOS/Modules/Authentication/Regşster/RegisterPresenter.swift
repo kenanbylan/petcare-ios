@@ -11,15 +11,19 @@ protocol RegisterPresenterProtocol {
     func viewDidLoad() -> Void
     func navigateMain() -> Void
     func navigateToLogin() -> Void
+    func navigateToVetAddress() -> Void
     func navigateToForgotPassword() -> Void
-    func validateFields(name: String?, last: String?, email: String?, password: String?, confirmPassword: String?)
-    func registerUser(name: String, surname: String, email: String, password: String)
+    func navigateAccountEnable(email: String) -> Void
+    
+    func isMatchPassword(password: String, confirmPassword: String) -> Bool
+    func saveUser(_ data: UserRegisterRequest)
 }
 
 final class RegisterPresenter {
     private weak var view: RegisterViewProtocol?
     let router: RegisterRouterProtocol?
     let interactor: RegisterInteractorProtocol?
+    var userData: UserRegisterRequest?
     
     init(view: RegisterViewProtocol?, router: RegisterRouterProtocol?, interactor: RegisterInteractorProtocol?) {
         self.view = view
@@ -29,9 +33,8 @@ final class RegisterPresenter {
 }
 
 extension RegisterPresenter: RegisterPresenterProtocol {
-    func registerUser(name: String, surname: String, email: String, password: String) {
-        //MARK: - Öncelikle validation yapılacaktır.
-        interactor?.registerUser(name: name, surname: surname, email: email, password: password)
+    func saveUser(_ data: UserRegisterRequest) {
+        userData = data
     }
     
     func viewDidLoad() { }
@@ -48,8 +51,19 @@ extension RegisterPresenter: RegisterPresenterProtocol {
         router?.navigateToForgot()
     }
     
-    func validateFields(name: String?, last: String?, email: String?, password: String?, confirmPassword: String?) {
+    func navigateAccountEnable(email: String) {
+        router?.navigateAccountEnable(email: email)
+    }
+    
+    func isMatchPassword(password: String, confirmPassword: String) -> Bool {
+        guard password.count >= 8 else { return false }
+        guard password == confirmPassword else { return false }
         
+        return true
+    }
+    
+    func navigateToVetAddress() {
+        router?.navigateToVetAddress()
     }
 }
 

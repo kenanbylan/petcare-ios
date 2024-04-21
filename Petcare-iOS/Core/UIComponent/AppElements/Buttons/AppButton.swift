@@ -83,9 +83,7 @@ final class AppButton: UIButton {
     }
     
     private func configureButton() {
-        addShadow(shadowColor: AppColors.bgColor.cgColor)
-        
-        titleColor = AppColors.customWhite
+        titleColor = AppColors.primaryColor
         titleLabel?.font = AppFonts.medium.font(size: 14)
         layer.cornerRadius = 20
         layer.borderWidth = 1.5

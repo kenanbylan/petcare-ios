@@ -114,7 +114,7 @@ final class HomeViewController: UIViewController {
     fileprivate lazy var reminderCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: UIScreen.screenWidth / 2 , height: UIScreen.screenWidth / 4)
+        layout.itemSize = CGSize(width: UIScreen.screenWidth / 1.5 , height: UIScreen.screenWidth / 4)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.registerNib(with: "ReminderCell")
@@ -149,6 +149,7 @@ final class HomeViewController: UIViewController {
         presenter?.viewDidLoad()
         prepareSlideView()
         scrollView.delegate = self
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -159,9 +160,10 @@ final class HomeViewController: UIViewController {
         setHeader()
         // fetchApiFinder()
         collectionView.register(PetAvatarCellFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "PetAvatarCellFooter")
-        /// Reference size
-        //(self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout).footerReferenceSize = CGSize(width: collectionView.bounds.width, height: 80)
+        
+        reminderCollectionView.register(PetAvatarCellFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "PetAvatarCellFooter")
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -191,7 +193,8 @@ final class HomeViewController: UIViewController {
     
     private func setHeader() {
         let titleLabel = UILabel()
-        titleLabel.text = "My PetCare"
+        titleLabel.text = "Paw Buddy"
+        
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.font = AppFonts.bold.font(size: 24)
         titleLabel.textColor = AppColors.primaryColor
@@ -221,13 +224,12 @@ extension HomeViewController: SlideViewProtocol {
 extension HomeViewController: UICollectionViewDataSource , UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionView  {
-            return 5
+            return 4
         }
-        return 4
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         if collectionView == self.collectionView {
             let cell = collectionView.dequeCell(cellClass: PetAvatarCell.self, indexPath: indexPath)
             return cell
@@ -244,6 +246,7 @@ extension HomeViewController: UICollectionViewDataSource , UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("indexPath: \(indexPath)")
+        
         presenter?.navigateToPetDetail(detail: indexPath)
     }
     
@@ -257,7 +260,14 @@ extension HomeViewController: UICollectionViewDataSource , UICollectionViewDeleg
             if kind == UICollectionView.elementKindSectionFooter {
                 let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PetAvatarCellFooter", for: indexPath) as! PetAvatarCellFooter
                 footer.setupView()
-                //footer.petAdd.addTarget(self, action: #selector(newPetButton), for: .touchUpInside)
+                footer.petAdd.addTarget(self, action: #selector(newPetButton), for: .touchUpInside)
+                return footer
+            }
+        } else if collectionView == self.reminderCollectionView {
+            if kind == UICollectionView.elementKindSectionFooter {
+                let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "PetAvatarCellFooter", for: indexPath) as! PetAvatarCellFooter
+                footer.setupView()
+                footer.petAdd.addTarget(self, action: #selector(reminderAddButton), for: .touchUpInside)
                 return footer
             }
         }
@@ -277,13 +287,16 @@ extension HomeViewController: HomeViewProtocol {
         presenter?.navigateToPetType()
     }
     
+    @objc func reminderAddButton() {
+        presenter?.navigateToReminder()
+    }
+    
     func prepareUI() {
         setupConstraints()
     }
     
     private func setupConstraints() {
         view.backgroundColor = AppColors.bgColor
-        secondaryTitleStackView.backgroundColor = .systemRed
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         let hConst = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
@@ -317,10 +330,9 @@ extension HomeViewController: HomeViewProtocol {
             scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            //            scrollView.heightAnchor.constraint(equalToConstant: scrollView.contentSize.height),
             
             contentView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor),
+            contentView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor,constant: -200),
             contentView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor),
@@ -343,10 +355,10 @@ extension HomeViewController: HomeViewProtocol {
             secondaryTitleStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 16),
             secondaryTitleStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -16),
             
-            reminderCollectionView.topAnchor.constraint(equalTo: collectionView.bottomAnchor,constant: 12),
-            reminderCollectionView.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor,constant: 16),
-            reminderCollectionView.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor,constant: -16),
-            reminderCollectionView.heightAnchor.constraint(equalToConstant: view.frame.width / 5),
+            reminderCollectionView.topAnchor.constraint(equalTo: secondaryTitleStackView.bottomAnchor),
+            reminderCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            reminderCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            reminderCollectionView.heightAnchor.constraint(equalToConstant: view.frame.width / 3),
             
             titleStackView.topAnchor.constraint(equalTo: reminderCollectionView.bottomAnchor, constant: 12),
             titleStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
@@ -367,4 +379,3 @@ extension HomeViewController: HomeViewProtocol {
         ])
     }
 }
-

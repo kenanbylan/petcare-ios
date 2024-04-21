@@ -10,6 +10,11 @@ import Combine
 
 extension UITextField {
     
+    func validatedText(validationType: ValidatorsType) throws -> String {
+        let validator = ValidatorFactorys.validatorFor(type: validationType)
+        return try validator.validated(self.text!)
+    }
+    
     func setInputViewTimePicker(target: Any, selector: Selector) {
         let timePicker = UIDatePicker()
         timePicker.datePickerMode = .time
@@ -67,16 +72,9 @@ extension UITextField {
         self.resignFirstResponder()
     }
     
-    //MARK: -for textfield
-    func textPublisher() -> AnyPublisher<String, Never> {
-        NotificationCenter.default
-            .publisher(for: UITextField.textDidChangeNotification, object: self)
-            .compactMap { ($0.object as? UITextField)?.text }
-            .eraseToAnyPublisher()
-    }
-    
-    func setInputViewBottomSheet(options: [String], target: Any, selector: Selector) {
-        let bottomSheetView = BottomSheetView(frame: CGRect(x: 0, y: UIScreen.screenHeight, width: UIScreen.screenWidth, height: UIScreen.screenHeight / 3))
+  
+    func setInputViewBottomSheet(options: [String], target: Any, selector: Selector, title: String?) {
+        let bottomSheetView = BottomSheetView(frame: CGRect(x: 0, y: UIScreen.screenHeight, width: UIScreen.screenWidth, height: UIScreen.screenHeight / 2.5), title: title ?? "test")
         bottomSheetView.options = options
         bottomSheetView.didSelectOption = { selectedOption in
             self.text = selectedOption

@@ -36,8 +36,8 @@ final class PetImageViewController: UIViewController {
             .setImage(UIImage(named: "pati")?.resized(to: CGSize(width: 25, height: 25)))
             .setTitle("Save")
             .setTitleColor(AppColors.labelColor)
-        
         appbutton.addTarget(self, action: #selector(patiButtonClicked) , for: .touchUpInside)
+        appbutton.isEnabled = false
         return appbutton
     }()
     
@@ -141,6 +141,7 @@ extension PetImageViewController: UIImagePickerControllerDelegate & UINavigation
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             petImages.image = pickedImage
+            appButton.isEnabled = true
         }
         picker.dismiss(animated: true, completion: nil)
     }
