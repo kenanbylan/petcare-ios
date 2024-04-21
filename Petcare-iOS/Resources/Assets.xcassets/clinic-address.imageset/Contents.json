@@ -1,15 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "splash.png",
+      "filename" : "clinic-address.jpg",
       "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "preserves-vector-representation" : true
   }
 }
