@@ -24,7 +24,7 @@ struct UserRegisterRequest {
 
 struct VetInformation {
     var address: VetAddress
-    var phone: VetPhone
+    var phone: String?
 }
 
 struct VetAddress {
@@ -36,13 +36,10 @@ struct VetAddress {
     var apartmentNo: String?
 }
 
-struct VetPhone {
-    var phone: String
-}
 
 struct VetDocument {
-    var document: String?
-    var status: VetDocumentStatus?
+    var document: Data?
+    var status: VetDocumentStatus? = .PENDING
 }
 
 enum VetDocumentStatus {
