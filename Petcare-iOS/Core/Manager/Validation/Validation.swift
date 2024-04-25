@@ -73,7 +73,6 @@ struct RequiredFieldValidator: ValidatorConvertible {
 }
 
 struct UserNameValidator: ValidatorConvertible {
-    
     func validated(_ value: String) throws -> String {
         guard value.count >= 3 else {
             throw ValidationError("Username must contain more than 3 characters" )

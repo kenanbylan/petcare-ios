@@ -9,9 +9,7 @@ import UIKit
 import SwiftUI
 
 extension UIViewController {
-    
     private struct Preview: UIViewControllerRepresentable {
-        
         let viewController: UIViewController
         
         func makeUIViewController(context: Context) -> some UIViewController {
@@ -51,26 +49,27 @@ extension UIViewController: UITextFieldDelegate {
         return false
     }
     
-    
     func showAlert(for alert: String) {
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(alertAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    
-    func showAlert(title: String, message: String, action: (() -> Void)? = nil) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            action?()
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Uyarı", message: alert, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            
+            //TODO:
+            self.present(alertController, animated: true, completion: nil)
         }
-        
-        alertController.addAction(okAction)
-        
-        self.present(alertController, animated: true, completion: nil)
     }
     
+    func showAlert(title: String, message: String, type: UIAlertController.Style  ,  action: (() -> Void)? = nil) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: type)
+            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                action?()
+            }
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
     
     func showAlert(for alert: String, action: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: nil, message: alert, preferredStyle: .alert)
@@ -81,8 +80,5 @@ extension UIViewController: UITextFieldDelegate {
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
     }
-
-
-    
 }
 
