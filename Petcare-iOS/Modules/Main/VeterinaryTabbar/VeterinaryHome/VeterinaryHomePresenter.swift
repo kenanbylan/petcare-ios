@@ -9,7 +9,7 @@ import Foundation
 
 protocol VeterinaryHomePresenterProtocol {
     func viewDidLoad() -> Void
-    func navigateMain() -> Void
+    func navigateToDateList() -> Void
     func backToLogin() -> Void
 }
 
@@ -31,8 +31,8 @@ extension VeterinaryHomePresenter: VeterinaryHomePresenterProtocol {
         
     }
     
-    func navigateMain() {
-        
+    func navigateToDateList() {
+        router?.navigateToDateList()
     }
     
     func backToLogin() {

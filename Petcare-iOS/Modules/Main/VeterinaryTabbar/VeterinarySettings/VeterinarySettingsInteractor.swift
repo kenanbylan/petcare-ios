@@ -7,13 +7,9 @@
 
 import Foundation
 
-protocol VeterinarySettingsInteractorProtocol {
-}
+protocol VeterinarySettingsInteractorProtocol { }
 
-
-protocol VeterinarySettingsInteractorOutput {
-    
-}
+protocol VeterinarySettingsInteractorOutput { }
 
 
 final class VeterinarySettingsInteractor: VeterinarySettingsInteractorProtocol {
