@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		93048EDF2B095096000BD03A /* SmsOtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93048EDE2B095096000BD03A /* SmsOtpViewController.swift */; };
+		93048EDF2B095096000BD03A /* CodeVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93048EDE2B095096000BD03A /* CodeVerificationViewController.swift */; };
 		93048EE12B0950C2000BD03A /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93048EE02B0950C2000BD03A /* NewPasswordViewController.swift */; };
 		93048F022B0966DB000BD03A /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93048EFC2B0966DB000BD03A /* Poppins-Bold.ttf */; };
 		93048F032B0966DB000BD03A /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93048EFD2B0966DB000BD03A /* Poppins-SemiBold.ttf */; };
@@ -63,7 +63,6 @@
 		931D70982BBD7C9F0012E7D1 /* PetInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931D70972BBD7C9F0012E7D1 /* PetInfoModel.swift */; };
 		931D709A2BBD90E50012E7D1 /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931D70992BBD90E50012E7D1 /* ValidationManager.swift */; };
 		931D709D2BBD9EDE0012E7D1 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931D709C2BBD9EDE0012E7D1 /* Validation.swift */; };
-		931D709F2BC5D99C0012E7D1 /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931D709E2BC5D99C0012E7D1 /* DocumentView.swift */; };
 		932347192B9C9E7900971E1D /* NearbyListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932347182B9C9E7900971E1D /* NearbyListRouter.swift */; };
 		9323471B2B9C9E8400971E1D /* NearbyListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323471A2B9C9E8400971E1D /* NearbyListPresenter.swift */; };
 		9323471D2B9C9E9000971E1D /* NearbyListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323471C2B9C9E9000971E1D /* NearbyListInteractor.swift */; };
@@ -81,9 +80,9 @@
 		932D257D2B827E1B00B99FA3 /* SlideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D257C2B827E1B00B99FA3 /* SlideCell.swift */; };
 		932D25802B82851B00B99FA3 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D257F2B82851B00B99FA3 /* SlideView.swift */; };
 		93364FC72B8E2DD000C430DB /* MapBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FC62B8E2DD000C430DB /* MapBottomSheetViewController.swift */; };
-		93364FC92B8F3D1000C430DB /* SmsOtpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FC82B8F3D1000C430DB /* SmsOtpRouter.swift */; };
-		93364FCB2B8F3D1600C430DB /* SmsOtpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FCA2B8F3D1600C430DB /* SmsOtpInteractor.swift */; };
-		93364FCD2B8F3D1B00C430DB /* SmsOtpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FCC2B8F3D1B00C430DB /* SmsOtpPresenter.swift */; };
+		93364FC92B8F3D1000C430DB /* CodeVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FC82B8F3D1000C430DB /* CodeVerificationRouter.swift */; };
+		93364FCB2B8F3D1600C430DB /* CodeVerificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FCA2B8F3D1600C430DB /* CodeVerificationInteractor.swift */; };
+		93364FCD2B8F3D1B00C430DB /* CodeVerificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FCC2B8F3D1B00C430DB /* CodeVerificationPresenter.swift */; };
 		93364FCF2B8F3D2600C430DB /* NewPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FCE2B8F3D2600C430DB /* NewPasswordRouter.swift */; };
 		93364FD12B8F3D2C00C430DB /* NewPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD02B8F3D2C00C430DB /* NewPasswordInteractor.swift */; };
 		93364FD32B8F3D3600C430DB /* NewPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD22B8F3D3600C430DB /* NewPasswordPresenter.swift */; };
@@ -147,6 +146,12 @@
 		9367243E2B8E156400897112 /* UserRegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367243D2B8E156400897112 /* UserRegisterResponse.swift */; };
 		93732DF22B16598900DE636E /* CustomSecurityPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93732DF12B16598900DE636E /* CustomSecurityPassword.swift */; };
 		93732DF92B16701E00DE636E /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93732DF82B16701E00DE636E /* UserRegister.swift */; };
+		9378A8E52BD7C94E0064FE2C /* DateListInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378A8E42BD7C94E0064FE2C /* DateListInfoViewController.swift */; };
+		9378A8E72BD7C9530064FE2C /* DateListInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378A8E62BD7C9530064FE2C /* DateListInfoRouter.swift */; };
+		9378A8E92BD7C95E0064FE2C /* DateListInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378A8E82BD7C95E0064FE2C /* DateListInfoPresenter.swift */; };
+		9378A8EB2BD7C9660064FE2C /* DateListInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378A8EA2BD7C9660064FE2C /* DateListInfoInteractor.swift */; };
+		9378A8ED2BD7CC2C0064FE2C /* DateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378A8EC2BD7CC2C0064FE2C /* DateList.swift */; };
+		9378A8F02BD7D9F40064FE2C /* CustomDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378A8EF2BD7D9F40064FE2C /* CustomDateCollectionViewCell.swift */; };
 		938102392B5C6F2900BF21AD /* PetResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938102382B5C6F2900BF21AD /* PetResultViewController.swift */; };
 		9381023B2B5D5F2600BF21AD /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381023A2B5D5F2600BF21AD /* SettingTableViewCell.swift */; };
 		938102402B5D636D00BF21AD /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381023F2B5D636D00BF21AD /* SettingsModel.swift */; };
@@ -261,7 +266,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		93048EDE2B095096000BD03A /* SmsOtpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsOtpViewController.swift; sourceTree = "<group>"; };
+		93048EDE2B095096000BD03A /* CodeVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationViewController.swift; sourceTree = "<group>"; };
 		93048EE02B0950C2000BD03A /* NewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
 		93048EFC2B0966DB000BD03A /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		93048EFD2B0966DB000BD03A /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -321,7 +326,6 @@
 		931D70972BBD7C9F0012E7D1 /* PetInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfoModel.swift; sourceTree = "<group>"; };
 		931D70992BBD90E50012E7D1 /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		931D709C2BBD9EDE0012E7D1 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
-		931D709E2BC5D99C0012E7D1 /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
 		932347182B9C9E7900971E1D /* NearbyListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyListRouter.swift; sourceTree = "<group>"; };
 		9323471A2B9C9E8400971E1D /* NearbyListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyListPresenter.swift; sourceTree = "<group>"; };
 		9323471C2B9C9E9000971E1D /* NearbyListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyListInteractor.swift; sourceTree = "<group>"; };
@@ -340,9 +344,9 @@
 		932D257C2B827E1B00B99FA3 /* SlideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCell.swift; sourceTree = "<group>"; };
 		932D257F2B82851B00B99FA3 /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
 		93364FC62B8E2DD000C430DB /* MapBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBottomSheetViewController.swift; sourceTree = "<group>"; };
-		93364FC82B8F3D1000C430DB /* SmsOtpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsOtpRouter.swift; sourceTree = "<group>"; };
-		93364FCA2B8F3D1600C430DB /* SmsOtpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsOtpInteractor.swift; sourceTree = "<group>"; };
-		93364FCC2B8F3D1B00C430DB /* SmsOtpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmsOtpPresenter.swift; sourceTree = "<group>"; };
+		93364FC82B8F3D1000C430DB /* CodeVerificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationRouter.swift; sourceTree = "<group>"; };
+		93364FCA2B8F3D1600C430DB /* CodeVerificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationInteractor.swift; sourceTree = "<group>"; };
+		93364FCC2B8F3D1B00C430DB /* CodeVerificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationPresenter.swift; sourceTree = "<group>"; };
 		93364FCE2B8F3D2600C430DB /* NewPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordRouter.swift; sourceTree = "<group>"; };
 		93364FD02B8F3D2C00C430DB /* NewPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordInteractor.swift; sourceTree = "<group>"; };
 		93364FD22B8F3D3600C430DB /* NewPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordPresenter.swift; sourceTree = "<group>"; };
@@ -409,6 +413,12 @@
 		9367243D2B8E156400897112 /* UserRegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterResponse.swift; sourceTree = "<group>"; };
 		93732DF12B16598900DE636E /* CustomSecurityPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecurityPassword.swift; sourceTree = "<group>"; };
 		93732DF82B16701E00DE636E /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
+		9378A8E42BD7C94E0064FE2C /* DateListInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateListInfoViewController.swift; sourceTree = "<group>"; };
+		9378A8E62BD7C9530064FE2C /* DateListInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateListInfoRouter.swift; sourceTree = "<group>"; };
+		9378A8E82BD7C95E0064FE2C /* DateListInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateListInfoPresenter.swift; sourceTree = "<group>"; };
+		9378A8EA2BD7C9660064FE2C /* DateListInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateListInfoInteractor.swift; sourceTree = "<group>"; };
+		9378A8EC2BD7CC2C0064FE2C /* DateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateList.swift; sourceTree = "<group>"; };
+		9378A8EF2BD7D9F40064FE2C /* CustomDateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateCollectionViewCell.swift; sourceTree = "<group>"; };
 		938102382B5C6F2900BF21AD /* PetResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetResultViewController.swift; sourceTree = "<group>"; };
 		9381023A2B5D5F2600BF21AD /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		9381023F2B5D636D00BF21AD /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
@@ -547,10 +557,10 @@
 		93048EDC2B09504C000BD03A /* SmsOtp */ = {
 			isa = PBXGroup;
 			children = (
-				93048EDE2B095096000BD03A /* SmsOtpViewController.swift */,
-				93364FC82B8F3D1000C430DB /* SmsOtpRouter.swift */,
-				93364FCA2B8F3D1600C430DB /* SmsOtpInteractor.swift */,
-				93364FCC2B8F3D1B00C430DB /* SmsOtpPresenter.swift */,
+				93048EDE2B095096000BD03A /* CodeVerificationViewController.swift */,
+				93364FC82B8F3D1000C430DB /* CodeVerificationRouter.swift */,
+				93364FCA2B8F3D1600C430DB /* CodeVerificationInteractor.swift */,
+				93364FCC2B8F3D1B00C430DB /* CodeVerificationPresenter.swift */,
 			);
 			path = SmsOtp;
 			sourceTree = "<group>";
@@ -670,7 +680,6 @@
 				931D706C2BB9AD800012E7D1 /* DocumentVerifyInteractor.swift */,
 				931D706E2BB9AD850012E7D1 /* DocumentVerifyRouter.swift */,
 				931D70702BB9AD8F0012E7D1 /* DocumentVerifyViewController.swift */,
-				931D709E2BC5D99C0012E7D1 /* DocumentView.swift */,
 			);
 			path = DocumentVerify;
 			sourceTree = "<group>";
@@ -689,6 +698,7 @@
 		931D70842BB9B6560012E7D1 /* VeterinaryTabbar */ = {
 			isa = PBXGroup;
 			children = (
+				9378A8E32BD7C92C0064FE2C /* DateListInfo */,
 				931D70862BB9B6880012E7D1 /* VeterinarySettings */,
 				931D70852BB9B6680012E7D1 /* VeterinaryHome */,
 			);
@@ -1251,6 +1261,27 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		9378A8E32BD7C92C0064FE2C /* DateListInfo */ = {
+			isa = PBXGroup;
+			children = (
+				9378A8EE2BD7D9E70064FE2C /* View */,
+				9378A8EC2BD7CC2C0064FE2C /* DateList.swift */,
+				9378A8E42BD7C94E0064FE2C /* DateListInfoViewController.swift */,
+				9378A8E62BD7C9530064FE2C /* DateListInfoRouter.swift */,
+				9378A8E82BD7C95E0064FE2C /* DateListInfoPresenter.swift */,
+				9378A8EA2BD7C9660064FE2C /* DateListInfoInteractor.swift */,
+			);
+			path = DateListInfo;
+			sourceTree = "<group>";
+		};
+		9378A8EE2BD7D9E70064FE2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9378A8EF2BD7D9F40064FE2C /* CustomDateCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		938102372B5C6F1000BF21AD /* PetResultView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1396,16 +1427,8 @@
 				9304938F2BCAFD1E004026FE /* Network */,
 				93B004D92B8B352A00302B3D /* Token */,
 				93B004D62B8B31C200302B3D /* ErrorHandler */,
-				93B004D12B8A691400302B3D /* Model */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		93B004D12B8A691400302B3D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		93B004D62B8B31C200302B3D /* ErrorHandler */ = {
@@ -1657,6 +1680,8 @@
 				93262B432AEBD1360047A79F /* XCRemoteSwiftPackageReference "CombineCocoa" */,
 				932D25782B82695800B99FA3 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				931D70652BB89FC90012E7D1 /* XCRemoteSwiftPackageReference "TweeTextField" */,
+				9378A8DA2BD6E6140064FE2C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				9378A8DD2BD6E6670064FE2C /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 9337800F2ADA7DA800103273 /* Products */;
 			projectDirPath = "";
@@ -1771,7 +1796,6 @@
 				93732DF22B16598900DE636E /* CustomSecurityPassword.swift in Sources */,
 				931D70982BBD7C9F0012E7D1 /* PetInfoModel.swift in Sources */,
 				93364FCF2B8F3D2600C430DB /* NewPasswordRouter.swift in Sources */,
-				931D709F2BC5D99C0012E7D1 /* DocumentView.swift in Sources */,
 				933A221C2B45F15E00854DB0 /* PetImageInteractor.swift in Sources */,
 				93AA9BDC2BA700EF00942F16 /* ReminderViewController.swift in Sources */,
 				93DD5ABE2B403AF100BDE0A9 /* ShadowView.swift in Sources */,
@@ -1806,6 +1830,7 @@
 				931D70712BB9AD8F0012E7D1 /* DocumentVerifyViewController.swift in Sources */,
 				93822B412AF9888B00989255 /* RegisterRouter.swift in Sources */,
 				93AA9BC32BA192C500942F16 /* BottomSheetView.swift in Sources */,
+				9378A8E92BD7C95E0064FE2C /* DateListInfoPresenter.swift in Sources */,
 				93E1FDB92B77A7B900BD72E1 /* ManageNotificationInteractor.swift in Sources */,
 				93C46E0E2B04EB310055BA0F /* UINavigationController + Extension.swift in Sources */,
 				93AA9BC92BA4C63B00942F16 /* ApproveResultViewController.swift in Sources */,
@@ -1840,6 +1865,7 @@
 				933780692ADC0DFF00103273 /* SplashInteractor.swift in Sources */,
 				933A220F2B45D85500854DB0 /* PetInfoInteractor.swift in Sources */,
 				93CE907F2AF7D5580025FBB0 /* CalendarModel.swift in Sources */,
+				9378A8ED2BD7CC2C0064FE2C /* DateList.swift in Sources */,
 				93CE90692AF7BA380025FBB0 /* HomeViewController.swift in Sources */,
 				93DD5AC12B4044C000BDE0A9 /* UpcomingVeterinary.swift in Sources */,
 				93CE908D2AF7D5E60025FBB0 /* SettingsViewController.swift in Sources */,
@@ -1848,6 +1874,7 @@
 				93DD5AC82B418E7D00BDE0A9 /* PetTypeViewController.swift in Sources */,
 				9381023B2B5D5F2600BF21AD /* SettingTableViewCell.swift in Sources */,
 				93822B3B2AF9887300989255 /* RegisterViewController.swift in Sources */,
+				9378A8F02BD7D9F40064FE2C /* CustomDateCollectionViewCell.swift in Sources */,
 				93AA9BD92BA64D0F00942F16 /* ThemeManager.swift in Sources */,
 				932D25802B82851B00B99FA3 /* SlideView.swift in Sources */,
 				93E1FDC32B77A7EC00BD72E1 /* DonateRouter.swift in Sources */,
@@ -1856,12 +1883,13 @@
 				93CE906B2AF7BA420025FBB0 /* HomeEntity.swift in Sources */,
 				93364FD72B93369000C430DB /* ScrollableContentViewController.swift in Sources */,
 				938901DB2BD5095500183EEC /* APIEnvironment.swift in Sources */,
-				93048EDF2B095096000BD03A /* SmsOtpViewController.swift in Sources */,
+				93048EDF2B095096000BD03A /* CodeVerificationViewController.swift in Sources */,
 				93822B472AFA85C800989255 /* ForgotPasswordPresenter.swift in Sources */,
 				93E1FDBF2B77A7E000BD72E1 /* DonatePresenter.swift in Sources */,
 				93AA9BB72B9F822A00942F16 /* VeterinaryDetailPresenter.swift in Sources */,
 				933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */,
 				93AA9BD12BA6167B00942F16 /* KeyValueStackView.swift in Sources */,
+				9378A8E52BD7C94E0064FE2C /* DateListInfoViewController.swift in Sources */,
 				938102402B5D636D00BF21AD /* SettingsModel.swift in Sources */,
 				9309ADF22B389E39001BC2B0 /* PetAvatarModel.swift in Sources */,
 				938901D82BD5037600183EEC /* TestRequest.swift in Sources */,
@@ -1876,12 +1904,13 @@
 				931D70792BB9AE570012E7D1 /* ResultVerifyInteractor.swift in Sources */,
 				93DD5ACC2B41976300BDE0A9 /* PetTypeRouter.swift in Sources */,
 				930493952BCAFD62004026FE /* ErrorResponse.swift in Sources */,
+				9378A8E72BD7C9530064FE2C /* DateListInfoRouter.swift in Sources */,
 				93C46E0A2B04C7AF0055BA0F /* LoginButton.swift in Sources */,
 				933780532ADA823D00103273 /* LoginViewController.swift in Sources */,
 				93E1FDC12B77A7E700BD72E1 /* DonateInteractor.swift in Sources */,
 				93C46E0C2B04CB620055BA0F /* GoogleButton.swift in Sources */,
 				9309ADF82B3CAB4B001BC2B0 /* UIScreen + Extension.swift in Sources */,
-				93364FC92B8F3D1000C430DB /* SmsOtpRouter.swift in Sources */,
+				93364FC92B8F3D1000C430DB /* CodeVerificationRouter.swift in Sources */,
 				93822B492AFA85DE00989255 /* ForgotPasswordInteractor.swift in Sources */,
 				93048F0D2B0A9164000BD03A /* Size.swift in Sources */,
 				932D25752B825D4800B99FA3 /* NSObject + Extension .swift in Sources */,
@@ -1889,7 +1918,7 @@
 				93450D612B44883200ADDADD /* LocationManager.swift in Sources */,
 				93822B4D2AFAC2EA00989255 /* UICustomButton.swift in Sources */,
 				933A220D2B45D84300854DB0 /* PetInfoRouter.swift in Sources */,
-				93364FCD2B8F3D1B00C430DB /* SmsOtpPresenter.swift in Sources */,
+				93364FCD2B8F3D1B00C430DB /* CodeVerificationPresenter.swift in Sources */,
 				93C46E182B0548B00055BA0F /* AppButton.swift in Sources */,
 				93CE90852AF7D5AF0025FBB0 /* VetMapRouter.swift in Sources */,
 				93DD5AD02B41993B00BDE0A9 /* PetTypePresenter.swift in Sources */,
@@ -1907,7 +1936,7 @@
 				93CE906D2AF7BA4C0025FBB0 /* HomePresenter.swift in Sources */,
 				931D70882BB9B6C80012E7D1 /* VeterinaryHomeViewController.swift in Sources */,
 				9367243E2B8E156400897112 /* UserRegisterResponse.swift in Sources */,
-				93364FCB2B8F3D1600C430DB /* SmsOtpInteractor.swift in Sources */,
+				93364FCB2B8F3D1600C430DB /* CodeVerificationInteractor.swift in Sources */,
 				9323471B2B9C9E8400971E1D /* NearbyListPresenter.swift in Sources */,
 				93732DF92B16701E00DE636E /* UserRegister.swift in Sources */,
 				93364FF32B9374D200C430DB /* PetInfoEnum.swift in Sources */,
@@ -1926,6 +1955,7 @@
 				93364FF52B93846600C430DB /* BaseTextField.swift in Sources */,
 				93CE90892AF7D5CC0025FBB0 /* VetMapPresenter.swift in Sources */,
 				93AA9BBB2B9F823B00942F16 /* VeterinaryDetailViewController.swift in Sources */,
+				9378A8EB2BD7C9660064FE2C /* DateListInfoInteractor.swift in Sources */,
 				931D709D2BBD9EDE0012E7D1 /* Validation.swift in Sources */,
 				930493912BCAFD24004026FE /* Network.swift in Sources */,
 				9399E1942BAEC67A00D3D077 /* FormValidation.swift in Sources */,
@@ -2144,6 +2174,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6RYG55F8TD;
@@ -2166,6 +2197,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "kenanbaylan.Petcare-iOS";
 				PRODUCT_NAME = Petcare;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2178,6 +2210,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6RYG55F8TD;
@@ -2200,6 +2233,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "kenanbaylan.Petcare-iOS";
 				PRODUCT_NAME = Petcare;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2261,6 +2295,22 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.0.0;
+			};
+		};
+		9378A8DA2BD6E6140064FE2C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		9378A8DD2BD6E6670064FE2C /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

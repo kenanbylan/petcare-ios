@@ -93,7 +93,6 @@ extension PetImageViewController: PetImageViewProtocol {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if let vc = viewController as? UINavigationController {
-            print("SELECTT TABBAR CLİCKED")
             vc.popToRootViewController(animated: false)
         }
     }
@@ -155,9 +154,9 @@ extension PetImageViewController: ViewCoding {
     func setupView() { }
     
     func setupHierarchy() {
-        self.view.addSubview(petsNameLabel)
-        self.view.addSubview(petImages)
-        self.view.addSubview(appButton)
+        view.addSubview(petsNameLabel)
+        view.addSubview(petImages)
+        view.addSubview(appButton)
     }
     
     func setupConstraints() {

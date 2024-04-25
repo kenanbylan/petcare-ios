@@ -9,7 +9,6 @@ import UIKit
 
 final class ApproveResultViewController: UIViewController {
     
-    
     // MARK: - Properties
     private let backgroundView: UIImageView = {
         let imageView = UIImageView()

@@ -12,9 +12,7 @@ protocol DocumentVerifyInteractorProtocol {
     func uploadImage(_ image: String) -> Void
 }
 
-
 protocol DocumentVerifyInteractorOutput {
-    
 }
 
 

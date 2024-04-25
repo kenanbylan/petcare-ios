@@ -1,17 +1,20 @@
-//  ForgotPasswordRouter.swift
+//
+//  CodeVerificationRouter.swift
 //  Petcare-iOS
-//  Created by Kenan Baylan on 7.11.2023.
+//
+//  Created by Kenan Baylan on 28.02.2024.
+//
 
 import Foundation
 import UIKit
 
-protocol ForgotPasswordRouterProtocol: AnyObject {
+
+protocol CodeVerificationRouterProtocol: AnyObject {
     func navigateToMain() -> Void
     func backToLogin() -> Void
-    func navigateToSendCode() -> Void
 }
 
-final class ForgotPasswordRouter: ForgotPasswordRouterProtocol {
+final class CodeVerificationRouter: CodeVerificationRouterProtocol {
     var navigationController: UINavigationController?
     var window: UIWindow?
     
@@ -20,11 +23,11 @@ final class ForgotPasswordRouter: ForgotPasswordRouterProtocol {
         self.window = window
     }
     
-    static func build(navigationController: UINavigationController?, window: UIWindow?) -> ForgotPasswordViewController {
-        let view = ForgotPasswordViewController()
-        let router = ForgotPasswordRouter(navigationController: navigationController, window: window)
-        let interactor = ForgotPasswordInteractor(networkService: DefaultNetworkService())
-        let presenter = ForgotPasswordPresenter(view: view, router: router, interactor: interactor)
+    static func build(navigationController: UINavigationController?, window: UIWindow?) -> CodeVerificationViewController {
+        let view = CodeVerificationViewController()
+        let router = CodeVerificationRouter(navigationController: navigationController, window: window)
+        let interactor = CodeVerificationInteractor(networkService: DefaultNetworkService())
+        let presenter = CodeVerificationPresenter(view: view, router: router, interactor: interactor)
         
         view.presenter = presenter
         interactor.output = presenter
@@ -43,8 +46,5 @@ final class ForgotPasswordRouter: ForgotPasswordRouterProtocol {
         navigationController.viewControllers.append(loginVC)
         window?.rootViewController = navigationController
     }
-    
-    func navigateToSendCode() {
-        navigationController?.present(CodeVerificationViewController(), animated: true)
-    }
+ 
 }

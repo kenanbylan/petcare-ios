@@ -1,5 +1,5 @@
 
-//  SmsOtpViewController.swift
+//  CodeVerificationViewController.swift
 //  Petcare-iOS
 //
 //  Created by Kenan Baylan on 18.11.2023.
@@ -7,7 +7,12 @@
 
 import UIKit
 
-final class SmsOtpViewController: UIViewController {
+protocol CodeVerificationViewProtocol: AnyObject {
+    func sendCode()
+}
+
+final class CodeVerificationViewController: UIViewController {
+    var presenter: CodeVerificationPresenterProtocol?
     
     private lazy var stackView: CustomStackView = {
         let stack = CustomStackView()
@@ -75,7 +80,7 @@ final class SmsOtpViewController: UIViewController {
     }
 }
 
-extension SmsOtpViewController: ViewCoding {
+extension CodeVerificationViewController: ViewCoding {
     func setupView() {
         self.view.backgroundColor = AppColors.bgColor
     }
@@ -119,4 +124,8 @@ extension SmsOtpViewController: ViewCoding {
             verificationButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -16.wPercent),
         ])
     }
+}
+
+extension CodeVerificationViewController: CodeVerificationViewProtocol {
+    func sendCode() { }
 }

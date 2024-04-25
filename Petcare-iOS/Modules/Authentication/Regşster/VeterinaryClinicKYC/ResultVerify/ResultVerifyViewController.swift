@@ -13,14 +13,11 @@ protocol ResultVerifyViewProtocol: AnyObject {
 
 final class ResultVerifyViewController: UIViewController {
     var presenter: ResultVerifyPresenterProtocol?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
-        view.backgroundColor = AppColors.primaryColor
-        
+        view.backgroundColor = AppColors.bgColor
         title = "Result Verify"
     }
-    
-
 }

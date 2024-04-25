@@ -51,7 +51,7 @@ enum Constants {
         static let privacyPolicy = "PrivacyPolicyViewController"
         
     }
-
+    
     enum CollectionViewCell {
         static let onboardingCell = "OnboardingCell"
         static let settingsTableViewCell = "SettingTableViewCell"

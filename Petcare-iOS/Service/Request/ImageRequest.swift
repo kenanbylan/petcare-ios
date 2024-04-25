@@ -8,14 +8,14 @@
 import UIKit
 
 struct ImageRequest: DataRequest {
-    var contentType: String? { "application/json" } // Content-Type belirtildi
+    
+    typealias Response = TestResponse // Response type
 
-    let url: String
+    var url: String = ""
     
-    var method: HTTPMethod {
-        .get
-    }
+    var method: HTTPMethod = .get
     
+
     func decode(_ data: Data) throws -> UIImage {
         guard let image = UIImage(data: data) else {
             throw NSError(

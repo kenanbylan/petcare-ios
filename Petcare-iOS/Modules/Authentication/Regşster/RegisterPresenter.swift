@@ -13,9 +13,7 @@ protocol RegisterPresenterProtocol {
     func navigateToLogin() -> Void
     func navigateToVetAddress() -> Void
     func navigateToForgotPassword() -> Void
-    func navigateAccountEnable(email: String) -> Void
-    
-    func isMatchPassword(password: String, confirmPassword: String) -> Bool
+    func navigateAccountEnable() -> Void
     func saveUser(_ data: UserRegisterRequest)
 }
 
@@ -51,19 +49,12 @@ extension RegisterPresenter: RegisterPresenterProtocol {
         router?.navigateToForgot()
     }
     
-    func navigateAccountEnable(email: String) {
-        router?.navigateAccountEnable(email: email)
-    }
-    
-    func isMatchPassword(password: String, confirmPassword: String) -> Bool {
-        guard password.count >= 8 else { return false }
-        guard password == confirmPassword else { return false }
-        
-        return true
+    func navigateAccountEnable() {
+        router?.navigateAccountEnable(userInfo: userData!)
     }
     
     func navigateToVetAddress() {
-        router?.navigateToVetAddress()
+        router?.navigateToVetAddress(userInfo: userData!)
     }
 }
 
@@ -73,7 +64,6 @@ extension RegisterPresenter: RegisterInteractorOutput {
     }
     
     func registrationFailure(error: Error) {
-
+        
     }
-
 }

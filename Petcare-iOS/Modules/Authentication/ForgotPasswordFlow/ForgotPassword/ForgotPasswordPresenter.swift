@@ -35,7 +35,7 @@ extension ForgotPasswordPresenter: ForgotPasswordPresenterProtocol {
     }
     
     func navigateToSmsOtp() {
-        router?.navigateToSmsOtp()
+        router?.navigateToSendCode()
     }
 }
 

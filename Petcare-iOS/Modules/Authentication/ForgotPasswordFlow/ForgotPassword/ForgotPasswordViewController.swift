@@ -41,7 +41,7 @@ final class ForgotPasswordViewController: UIViewController {
         appbutton.addTarget(self, action: #selector(sendCodeButtonClicked), for: .touchUpInside)
         return appbutton
     }()
-
+    
     private func prepareTitleLabel() {
         let titleLabel = TitleLabel.configurationTitleLabel(withText: "FORGOTPASSWORD_HEADER".localized(), fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
@@ -76,7 +76,7 @@ extension ForgotPasswordViewController: ViewCoding {
     func setupView() {
         self.view.backgroundColor = AppColors.bgColor
     }
-   
+    
     func setupHierarchy() {
         let myViews = [subTitleLabel, emailTextfield, sendCodeButton]
         for i in myViews {
@@ -89,7 +89,7 @@ extension ForgotPasswordViewController: ViewCoding {
             subTitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             subTitleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant:20),
             subTitleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-
+            
             emailTextfield.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 15),
             emailTextfield.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             emailTextfield.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),

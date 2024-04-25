@@ -84,7 +84,7 @@ final class AppButton: UIButton {
     
     private func configureButton() {
         titleColor = AppColors.primaryColor
-        titleLabel?.font = AppFonts.medium.font(size: 14)
+        titleLabel?.font = AppFonts.semibold.font(size: 14)
         layer.cornerRadius = 20
         layer.borderWidth = 1.5
         layer.borderColor = AppColors.borderColor?.cgColor
