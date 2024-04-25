@@ -3,7 +3,7 @@ import Combine
 import SwiftUI
 
 protocol LoginViewProtocol: AnyObject {
-    func loginUserControl()
+    func showAlertMessage(message: String) -> Void
 }
 
 final class LoginViewController: UIViewController {
@@ -19,18 +19,18 @@ final class LoginViewController: UIViewController {
     
     private lazy var emailForm: MyTextField = {
         let textfield = MyTextField()
-        textfield.placeholder = "Email"
+        textfield.placeholder = "LOGIN_EMAIL_PLACEHOLDER".localized()
         return textfield
     }()
     
     private lazy var passwordForm: MyTextField = {
         let textfield = MyTextField()
-        textfield.placeholder = "Password"
+        textfield.placeholder = "LOGIN_PASSWORD_PLACEHOLDER".localized()
         return textfield
     }()
     
     private lazy var headerLabel: CustomLabel = {
-        let label = CustomLabel(text:"Welcome to Paw Buddy !", fontSize: 21, fontType: .medium, textColor: AppColors.primaryColor)
+        let label = CustomLabel(text:"LOGIN_HEADER".localized(), fontSize: 21, fontType: .medium, textColor: AppColors.primaryColor)
         label.textAlignment = .center
         return label
     }()
@@ -42,17 +42,9 @@ final class LoginViewController: UIViewController {
         return stack
     }()
     
-    private lazy var  signUpButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Sign Up", for: .normal)
-        button.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
-        return button
-    }()
-    
     private lazy var loginButton: AppButton = {
         let appbutton = AppButton.build()
-            .setTitle("Login")
+            .setTitle("LOGIN_TEXT_LOGIN".localized())
             .setBackgroundColor(AppColors.primaryColor)
             .setTitleColor(AppColors.customWhite)
         appbutton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
@@ -64,7 +56,7 @@ final class LoginViewController: UIViewController {
     private lazy var forgotPasswordButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Forgot Password?", for: .normal)
+        button.setTitle("LOGIN_TEXT_FORGOTPASSWORD".localized(), for: .normal)
         button.titleLabel?.font = AppFonts.regular.font(size: 14)
         button.setTitleColor(AppColors.labelColor, for: .normal)
         button.addTarget(self, action: #selector(forgotPasswordButtonTapped), for: .touchUpInside)
@@ -74,13 +66,12 @@ final class LoginViewController: UIViewController {
     private lazy var registerPasswordButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Don't have an account? Sign Up", for: .normal)
+        button.setTitle("LOGIN_TEXT_SIGNUP".localized(), for: .normal)
         button.titleLabel?.font = AppFonts.regular.font(size: 14)
         button.setTitleColor(AppColors.labelColor, for: .normal)
         button.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         return button
     }()
-        
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +83,6 @@ final class LoginViewController: UIViewController {
 }
 
 extension LoginViewController {
-    
     func style() {
         view.backgroundColor = AppColors.bgColor
     }
@@ -102,7 +92,7 @@ extension LoginViewController {
         view.addSubview(forgotPasswordButton)
         view.addSubview(loginButton)
         view.addSubview(registerPasswordButton)
-
+        
         stackView.addArrangedSubview(loginAvatar)
         stackView.addArrangedSubview(headerLabel)
         stackView.addArrangedSubview(emailForm)
@@ -123,14 +113,17 @@ extension LoginViewController {
             loginButton.widthAnchor.constraint(equalToConstant: view.frame.width / 3),
             
             registerPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
-            registerPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
+            registerPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }
 
+
 // MARK: - Actions
-extension LoginViewController {
+extension LoginViewController: LoginViewProtocol {
+    func showAlertMessage(message: String) {
+        showAlert(for: message)
+    }
     
     // MARK: - Button Actions
     @objc func forgotPasswordButtonTapped(_ sender: Any) {
@@ -138,7 +131,6 @@ extension LoginViewController {
     }
     
     @objc func loginButtonTapped(_ sender: Any) {
-        //presenter?.navigateMain()
         validateTextfield()
     }
     
@@ -150,10 +142,9 @@ extension LoginViewController {
         do {
             let email = try emailForm.validatedText(validationType: .email)
             let password = try passwordForm.validatedText(validationType: .password)
-        
             let data = LoginRequest(email: email, password: password)
             presenter.saveUser(data)
-            presenter.navigateMain(data: data)
+            presenter.navigateMain()
         } catch(let error) {
             showAlert(for: (error as! ValidationError).message)
         }
