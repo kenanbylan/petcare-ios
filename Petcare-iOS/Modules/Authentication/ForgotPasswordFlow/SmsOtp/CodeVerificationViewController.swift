@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SmsOtpViewController: UIViewController {
+final class CodeVerificationViewController: UIViewController {
     
     private lazy var stackView: CustomStackView = {
         let stack = CustomStackView()
