@@ -7,9 +7,8 @@
 
 import UIKit
 
-protocol AddressVerifyViewProtocol: AnyObject {
-    
-}
+protocol AddressVerifyViewProtocol: AnyObject { }
+
 
 final class AddressVerifyViewController: UIViewController {
     var presenter: AddressVerifyPresenterProtocol?
@@ -34,6 +33,7 @@ final class AddressVerifyViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
     private lazy var addressImageView: UIImageView = {
         let image = UIImageView()
         let myImage = UIImage(named: "happy-female")
@@ -44,37 +44,53 @@ final class AddressVerifyViewController: UIViewController {
         return image
     }()
     
+    
+    private lazy var clinicName: MyTextField = {
+        let textfield = MyTextField()
+        textfield.placeholder = "ADDRESS_VERIFY_Name".localized()
+        textfield.tintColor = AppColors.primaryColor
+        return textfield
+    }()
+    
+    private lazy var clinicPhoneNumber: MyTextField = {
+        let textfield = MyTextField()
+        textfield.placeholder = "ADDRESS_VERIFY_PHONE".localized()
+        textfield.tintColor = AppColors.primaryColor
+        textfield.keyboardType = .numberPad
+        return textfield
+    }()
+    
     private lazy var cityTextField: MyTextField = {
         let textfield = MyTextField()
-        textfield.placeholder = "Select City"
+        textfield.placeholder = "ADDRESS_VERIFY_CITY".localized()
         textfield.tintColor = AppColors.primaryColor
         return textfield
     }()
     
     private lazy var districtTextField: MyTextField = {
         let textfield = MyTextField()
-        textfield.placeholder = "Select District"
+        textfield.placeholder = "ADDRESS_VERIFY_DISTRICT".localized()
         textfield.tintColor = AppColors.primaryColor
         return textfield
     }()
     
     private lazy var streetTextField: MyTextField = {
         let textfield = MyTextField()
-        textfield.placeholder = "Street "
+        textfield.placeholder = "ADDRESS_VERIFY_Street".localized()
         textfield.tintColor = AppColors.primaryColor
         return textfield
     }()
     
     private lazy var apartmentTextField: MyTextField = {
         let textfield = MyTextField()
-        textfield.placeholder = " No"
+        textfield.placeholder = "ADDRESS_VERIFY_No".localized()
         textfield.tintColor = AppColors.primaryColor
         return textfield
     }()
     
     private lazy var houseTextField: MyTextField = {
         let textfield = MyTextField()
-        textfield.placeholder = "House No"
+        textfield.placeholder = "ADDRESS_VERIFY_apartmentNo".localized()
         textfield.tintColor = AppColors.primaryColor
         return textfield
     }()
@@ -86,7 +102,7 @@ final class AddressVerifyViewController: UIViewController {
     
     private lazy var appButton: AppButton = {
         let appbutton = AppButton.build()
-            .setTitle("Continue")
+            .setTitle("ADDRESS_VERIFY_BUTTON_Continue".localized())
             .setTitleColor(AppColors.labelColor)
             .setImage(UIImage(named: "patiShape")?.resized(to: CGSize(width: 25, height: 25)))
             .setBackgroundColor(AppColors.bgColor2)
@@ -104,16 +120,39 @@ final class AddressVerifyViewController: UIViewController {
     }
     
     @objc func appButtonClicked() {
-        presenter?.navigateDocumentVerify()
+        validateTextfield()
     }
     
+    private func validateTextfield()  {
+        do {
+            let clinicName = try clinicName.validatedText(validationType: .requiredField(field: "ADDRESS_VERIFY_clinic_name".localized()))
+            
+            let clinicPhone = try clinicPhoneNumber.validatedText(validationType: .phone)
+            
+            let city = try cityTextField.validatedText(validationType: .requiredField(field: "ADDRESS_VERIFY_city_name".localized()))
+            let district = try districtTextField.validatedText(validationType: .requiredField(field: "ADDRESS_VERIFY_disctirct_name".localized()))
+            let street = try streetTextField.validatedText(validationType: .requiredField(field: "ADDRESS_VERIFY_street_name".localized()))
+            
+            let no = try apartmentTextField.validatedText(validationType: .number)
+            
+            let mesken = try houseTextField.validatedText(validationType: .requiredField(field: "ADDRESS_VERIFY_no_mesken".localized()))
+            
+            let address = VetAddress(clinicName: clinicName, clinicCity: city, clinicDiscrict: district, clinicStreet: street, clinicNo: no, apartmentNo: mesken)
+            
+            presenter?.saveVetAddressData(address: address)
+            presenter?.navigateDocumentVerify()
+            
+        } catch (let error) {
+            showAlert(for: (error as! ValidationError).message)
+        }
+    }
 }
 
 extension AddressVerifyViewController: ViewCoding {
     func setupView() {
         view.backgroundColor = AppColors.bgColor
         setupKeyboardDismissRecognizer()
-        self.title = "Address Verify"
+        self.title = "ADDRESS_VERIFY_Header".localized()
         addressImageView.image = UIImage(named: "clinic-address")
     }
     
@@ -128,6 +167,8 @@ extension AddressVerifyViewController: ViewCoding {
         contentView.addSubview(stackView)
         contentView.addSubview(appButton)
         
+        stackView.addArrangedSubview(clinicName)
+        stackView.addArrangedSubview(clinicPhoneNumber)
         stackView.addArrangedSubview(cityTextField)
         stackView.addArrangedSubview(districtTextField)
         stackView.addArrangedSubview(streetTextField)
@@ -147,7 +188,7 @@ extension AddressVerifyViewController: ViewCoding {
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor,constant: 30),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
             // Address ImageView Constraints
@@ -161,7 +202,7 @@ extension AddressVerifyViewController: ViewCoding {
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5.wPercent),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5.wPercent),
             
-            
+            // AppButton Constaints
             appButton.topAnchor.constraint(equalTo: self.stackView.bottomAnchor, constant: 10.wPercent),
             appButton.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,constant: 5.wPercent),
             appButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor,constant: -5.wPercent),
@@ -171,7 +212,6 @@ extension AddressVerifyViewController: ViewCoding {
 
 extension AddressVerifyViewController {
     
-    // Klavye açıldığında yapılan işlemler
     @objc func keyboardWillAppear(notification: Notification) {
         guard let keyboardFrameValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         let keyboardFrame = keyboardFrameValue.cgRectValue
@@ -185,13 +225,13 @@ extension AddressVerifyViewController {
         var aRect = self.view.frame
         aRect.size.height -= keyboardHeight
         
-        // Aktif text field'i kontrol et
+        //MARK: Aktif text field'i kontrol et
         if !aRect.contains(houseTextField.frame.origin) {
             scrollView.scrollRectToVisible(houseTextField.frame, animated: true)
         }
     }
     
-    // Klavye kapanışını takip eden işlemler
+    //MARK: Klavye kapanışını takip eden işlem
     @objc func keyboardWillDisappear(notification: Notification) {
         scrollView.contentInset = .zero
         scrollView.scrollIndicatorInsets = .zero

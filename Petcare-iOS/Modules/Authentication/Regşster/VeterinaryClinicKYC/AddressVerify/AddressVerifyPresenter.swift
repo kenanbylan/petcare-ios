@@ -9,43 +9,52 @@ import Foundation
 
 protocol AddressVerifyPresenterProtocol {
     func viewDidLoad() -> Void
-    func navigateMain() -> Void
     func navigateDocumentVerify() -> Void
-    func backToLogin() -> Void
+    func saveVetAddressData(address: VetAddress) -> Void
 }
 
 final class AddressVerifyPresenter {
     private weak var view: AddressVerifyViewController?
     private let router: AddressVerifyRouterProtocol?
     private let interactor: AddressVerifyInteractorProtocol?
+    private let userInfo: UserRegisterRequest?
     
-    init(view: AddressVerifyViewController?, router: AddressVerifyRouterProtocol?, interactor: AddressVerifyInteractorProtocol?) {
+    private var clinicAddress: VetAddress?
+    
+    init(view: AddressVerifyViewController?, router: AddressVerifyRouterProtocol?, interactor: AddressVerifyInteractorProtocol?,userInfo: UserRegisterRequest?) {
         self.view = view
         self.router = router
         self.interactor = interactor
+        self.userInfo = userInfo
     }
 }
 
 extension AddressVerifyPresenter: AddressVerifyPresenterProtocol {
-    
-    func viewDidLoad() {
-        
+    func saveVetAddressData(address: VetAddress) {
+        self.clinicAddress = address
     }
     
-    func navigateMain() {
-        
-    }
-    
-    func backToLogin() {
-        router?.backToLogin()
-    }
-    
+
+    func viewDidLoad() { }
+  
     func navigateDocumentVerify() {
-        router?.navigateToDocumentVerify()
+        guard let userInfo = userInfo else {
+            return
+        }
+        
+        let data = UserRegisterRequest(role: userInfo.role,
+                                       name: userInfo.name,
+                                       surname: userInfo.surname,
+                                       email: userInfo.email,
+                                       password: userInfo.password,
+                                       vetInfo: VetInformation(address: clinicAddress!))
+        
+        router?.navigateToDocumentVerify(data: data) 
     }
 }
-
 
 extension AddressVerifyPresenter: AddressVerifyInteractorOutput {
-   
+    func successAddress(data: String) { }
+    func failure(error: ExceptionErrorHandle) { }
 }
+
