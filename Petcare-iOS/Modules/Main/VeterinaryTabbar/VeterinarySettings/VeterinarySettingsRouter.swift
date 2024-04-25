@@ -32,7 +32,6 @@ final class VeterinarySettingsRouter: VeterinarySettingsRouterProtocol {
         return view
     }
     
-    func backToLogin() {
-       
-    }
+    func backToLogin() { }
+    
 }

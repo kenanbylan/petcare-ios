@@ -3,7 +3,6 @@
 //  Petcare-iOS
 //
 //  Created by Kenan Baylan on 6.11.2023.
-//
 
 import UIKit
 
@@ -12,7 +11,6 @@ protocol RegisterViewProtocol: AnyObject {
 }
 
 final class RegisterViewController: BaseViewController {
-    
     //MARK: Variable's
     var presenter: RegisterPresenterProtocol!
     var isExpand: Bool = false
@@ -34,7 +32,7 @@ final class RegisterViewController: BaseViewController {
     }()
     
     private let typeRegisterSegmentedControl: UISegmentedControl = {
-        let items = ["User", "Veterinary Clinic"]
+        let items = ["REGISTER_USER".localized(), "REGISTER_VET".localized()]
         let segmentedControl = UISegmentedControl(items: items)
         segmentedControl.selectedSegmentIndex = 0 // Default to Male
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
@@ -97,35 +95,28 @@ final class RegisterViewController: BaseViewController {
     }
     
     @objc func createButtonTapped() {
-//        self.presenter.navigateToVetAddress()
         validateTextfield()
     }
     
     private func validateTextfield() {
         do {
             let name = try nameTextfield.validatedText(validationType: .name)
-            let lastname = try lastTextfield.validatedText(validationType: .requiredField(field: "Lastname "))
+            let lastname = try lastTextfield.validatedText(validationType: .requiredField(field: "REGISTER_LASTNAME".localized()))
             let emailAddress = try emailTextfield.validatedText(validationType: .email)
             let password = try passwordTextfield.validatedText(validationType: .password)
-            
             let confirmPassword = try confirmPasswordTextfield.validatedText(validationType: .confirmPassword(password: password))
             
-            
-            let data = UserRegisterRequest(role: .VETERINARY , name: name,
-                                           surname: lastname,email: emailAddress, password: password)
-            
-
+            var role: ROLE = typeRegisterSegmentedControl.selectedSegmentIndex == 0 ? .USER : .VETERINARY
+            let data = UserRegisterRequest(role: role,
+                                           name: name,
+                                           surname: lastname,
+                                           email: emailAddress,
+                                           password: password)
             presenter.saveUser(data)
-            if self.typeRegisterSegmentedControl.selectedSegmentIndex == 0  {
-                showAlert(for: "Register is success. Let's go to Enable Account") {
-                    self.presenter.navigateAccountEnable(email: emailAddress)
-                }
-                
-            } else if self.typeRegisterSegmentedControl.selectedSegmentIndex == 1 {
-                showAlert(for: "Registered Success. Let's Veterinary Clinic address") {
-                    self.presenter.navigateToVetAddress()
-                }
+            showAlert(for: role == .USER ? "REGISTER_USER_ALERT".localized() : "REGISTER_VET_ALERT".localized()) {
+                role == .USER ? self.presenter.navigateAccountEnable() : self.presenter.navigateToVetAddress()
             }
+            
         } catch(let error) {
             showAlert(for: (error as! ValidationError).message)
         }
@@ -146,9 +137,7 @@ extension RegisterViewController {
     }
     
     @objc func keyboardAppear(notification: Notification) {
-        guard !self.isExpand, let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-            return
-        }
+        guard !self.isExpand, let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         
         let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
         self.scrollView.contentInset = contentInsets
@@ -159,7 +148,6 @@ extension RegisterViewController {
         if !aRect.contains(self.createAccountButton.frame.origin) {
             self.scrollView.scrollRectToVisible(self.createAccountButton.frame, animated: true)
         }
-        
         self.isExpand = true
     }
     
@@ -194,7 +182,6 @@ extension RegisterViewController: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            
             ///MARK: ScrollView
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

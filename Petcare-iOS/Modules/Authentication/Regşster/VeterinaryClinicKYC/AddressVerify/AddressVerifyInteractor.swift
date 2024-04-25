@@ -11,16 +11,14 @@ protocol AddressVerifyInteractorProtocol {
     func getAddressInfo(_ address: String) -> Void
 }
 
-
 protocol AddressVerifyInteractorOutput {
-    
+    func successAddress(data: String) -> Void
+    func failure(error: ExceptionErrorHandle) -> Void
 }
-
 
 final class AddressVerifyInteractor: AddressVerifyInteractorProtocol {
     var output: AddressVerifyInteractorOutput?
     
-    func getAddressInfo(_ address: String) {
-        
-    }
+    func getAddressInfo(_ address: String) { }
+    
 }

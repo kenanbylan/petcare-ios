@@ -7,12 +7,12 @@
 import Foundation
 
 struct LoginRequest: Codable {
-    var email: String
-    var password: String
+    var email: String?
+    var password: String?
 }
 
 struct LoginResponse: Codable {
-    var token: String
-    var refreshToken: String
+    var token: String?
+    var refreshToken: String?
 }
 

@@ -14,7 +14,7 @@ protocol LoginInteractorProtocol {
 
 protocol LoginInteractorOutput {
     func registrationSuccess(user: LoginResponse)
-    func registrationFailure(error: Error)
+    func registrationFailure(error: ExceptionErrorHandle)
 }
 
 final class LoginInteractor: LoginInteractorProtocol, ObservableObject {
@@ -27,18 +27,17 @@ final class LoginInteractor: LoginInteractorProtocol, ObservableObject {
     }
     
     func login(user: LoginRequest) {
-        let loginRequest = LoginRequests(email: user.email, password: user.password)
-
+        let loginRequest = LoginRequests(email: user.email ?? "", password: user.password ?? "")
+        
         networkService.request(loginRequest) { [weak self] result in
-            guard let self = self else { return }
+            guard self != nil else { return }
             switch result {
-
             case .success(let response):
                 print("loginUser: \(response)")
                 //self.output?.registrationSuccess(user: response)
-            
-            case .failure(let error):
-                self.output?.registrationFailure(error: error)
+            case .failure(let error): 
+                print("Interactor Error \(error.error)")
+                self?.output?.registrationFailure(error: error)
             }
         }
     }

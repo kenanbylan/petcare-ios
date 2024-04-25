@@ -23,7 +23,7 @@
 
 //MARK: Login ViewController
 "LOGIN_EMAIL_PLACEHOLDER" = "Email";
-"LOGIN_PASSWORD_PLACEHOLDER" = "Password";
+"LOGIN_PASSWORD_PLACEHOLDER" = "Şifre";
 "LOGIN_TEXT_FORGOTPASSWORD" =  "Şifremi unuttum?";
 "LOGIN_TEXT_SIGNUP" = "Henüz hesabınız yok mu? Kayıt ol";
 "LOGIN_TEXT_LOGIN" = "Giriş Yap";
@@ -39,6 +39,11 @@
 "REGISTER_PASSWORD_PLACEHOLDER" = "şifre";
 "REGISTER_CONFIRM_PLACEHOLDER" = "şifre onayı";
 "REGISTER_CREATE_BUTTON" = "Hesap oluştur";
+"REGISTER_USER" = "Kullanıcı";
+"REGISTER_VET" = "Veteriner Kayıt";
+"REGISTER_LASTNAME" = "Soyad";
+"REGISTER_USER_ALERT" = "Kayıt başarılı. Hadi Hesabını aktifleştirelim. Mail adresine onay kodu gönderdik.";
+"REGISTER_VET_ALERT" = "Kayıt başarılı. Hadi Veteriner adresini doğrulayalım.";
 
 
 //MARK: Forgot password Screen
@@ -62,8 +67,48 @@
 "NEWPASSWORD_CONFIRM_RESET_TEXTFIELD" = "Şifreyi onayla";
 
 
-/// email verification controller {
+/// email verification controller
 "EmailVerification_header" = "Hesabını onaylamak için lütfen mail adresinize gönderilen kodu iletiniz.";
 
 "EmailVerification_textfield" = "Gönderilen kod";
 "EmailVerification_button" = "Hesabı Aktifleştir";
+
+
+
+
+//MARK: AddressVerifyViewController
+"ADDRESS_VERIFY_CITY" = "Şehir Seçiniz";
+"ADDRESS_VERIFY_Name" = "Klinik adı";
+"ADDRESS_VERIFY_PHONE" = "Klinik numarası giriniz";
+"ADDRESS_VERIFY_Country" = "Ülke Seçiniz";
+"ADDRESS_VERIFY_DISTRICT" = "İlçe Seçiniz";
+"ADDRESS_VERIFY_Street" = "Sokak Seçiniz";
+"ADDRESS_VERIFY_No" = "No giriniz";
+"ADDRESS_VERIFY_apartmentNo" = "Mesken no giriniz";
+"ADDRESS_VERIFY_BUTTON_Continue" = "Devam Et";
+"ADDRESS_VERIFY_Header" = "Veteriner Adres Doğrulama";
+
+//mark: validation text:
+
+"ADDRESS_VERIFY_clinic_name" = "Lütfen klinik adını giriniz";
+"ADDRESS_VERIFY_tel_no" = "Lütfen cep veya klinik numaranızı giriniz";
+"ADDRESS_VERIFY_city_name" = "Lütfen şehir bilgisi giriniz";
+"ADDRESS_VERIFY_disctirct_name" = "Lütfen mahalle/cadde bilgisi giriniz";
+"ADDRESS_VERIFY_street_name" = "Lütfen sokak adı veya numaranızı giriniz";
+"ADDRESS_VERIFY_no_name" = "Lütfen apartman no giriniz";
+"ADDRESS_VERIFY_no_mesken" = "Lütfen mesken no giriniz";
+
+
+//MARK: - DocumentVerifyViewController
+"DocumentVerifyView_HEADER" = "Veteriner yeterlilik belgenizi PDF veya görsel formatında yükleyiniz.";
+"DocumentVerifyView_Title" = "Döküman Doğrulama";
+"DocumentVerifyView_button" = "Döküman'ı Kaydet";
+"DocumentVerifyView_INFO_ALERT" = "Veteriner yeterlilik belgenizi doğrulamaK için yüklemeniz gerekmektedir. Kontrol ettikten sonra size bildirim ile haber vereceğiz";
+"DocumentVerifyView_BottomSheet_Title" = "Döküman tipini seçiniz";
+"DocumentVerifyView_BottomSheet_IMAGE" = "Görsel";
+"DocumentVerifyView_BottomSheet_pdf" = "PDF";
+"DocumentVerifyView_BottomSheet_Cancel" = "Kapat";
+"DocumentVerifyView_BottomSheet_handle_image_error" = "Seçilen görsel geçerli değil.";
+"DocumentVerifyView_BottomSheet_handle_pdf_error" = "Seçilen Pdf geçerli değil.";
+
+

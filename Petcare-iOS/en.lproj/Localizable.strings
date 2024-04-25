@@ -3,7 +3,7 @@
  Petcare-iOS
  Created by Kenan Baylan on 19.11.2023.
  */
- 
+
 
 ///MARK: Onboarding ViewController
 "ONBOARDING_BUTTON_PREVIUS" = "Previous";
@@ -58,6 +58,12 @@
 "REGISTER_PASSWORD_PLACEHOLDER" = "Password";
 "REGISTER_CONFIRM_PLACEHOLDER" = "Confirm password";
 "REGISTER_CREATE_BUTTON" = "Create Account";
+"REGISTER_USER" = "User";
+"REGISTER_VET" = "Veterinary Account";
+"REGISTER_LASTNAME" = "Lastname";
+"REGISTER_USER_ALERT" = "Register is success. Let's go to Enable Account. We sent a confirmation code to your email address.";
+"REGISTER_VET_ALERT" = "Register is success. Let's verify the Vet address.";
+
 
 //MARK: FORGOT PASSWORD
 "FORGOTPASSWORD_TITLE" = "Enter the email address with your account and we'll send an email with confirmation to reset your password";
@@ -70,3 +76,40 @@
 "EmailVerification_header" = "To confirm your account, please forward the code sent to your e-mail address.";
 "EmailVerification_textfield" = "Code send";
 "EmailVerification_button" = "Activate Account";
+
+
+//MARK: AddressVerifyViewController
+
+"ADDRESS_VERIFY_CITY" = "Select City";
+"ADDRESS_VERIFY_Country" = "Select Country";
+"ADDRESS_VERIFY_Name" = "Clinic Name";
+"ADDRESS_VERIFY_PHONE" = "Clinic phone number";
+"ADDRESS_VERIFY_DISTRICT" = "Select district";
+"ADDRESS_VERIFY_Street" = "Select street";
+"ADDRESS_VERIFY_No" = "Enter a number";
+"ADDRESS_VERIFY_apartmentNo" = "Enter residence no";
+"ADDRESS_VERIFY_BUTTON_Continue" = "Continue";
+"ADDRESS_VERIFY_Header" = "Veterinary Address Verification";
+
+
+//mark: validation text:
+"ADDRESS_VERIFY_clinic_name" = "Please enter clinic name";
+"ADDRESS_VERIFY_tel_no" = "Please enter phone or number number";
+"ADDRESS_VERIFY_city_name" = "Please enter city";
+"ADDRESS_VERIFY_disctirct_name" = "Please enter dictrict";
+"ADDRESS_VERIFY_street_name" = "Please enter street name or no";
+"ADDRESS_VERIFY_no_name" = "Please enter apartment no";
+"ADDRESS_VERIFY_no_mesken" = "Please enter mesken no";
+
+
+//MARK: - DocumentVerifyViewController
+"DocumentVerifyView_HEADER" = "Please upload your veterinary qualification certificate in PDF or image format.";
+"DocumentVerifyView_Title" = "Document Verification";
+"DocumentVerifyView_button" = "Document Save";
+"DocumentVerifyView_INFO_ALERT" = "You need to upload your veterinary qualification certificate for verification. We will notify you with a notification after checking";
+"DocumentVerifyView_BottomSheet_Title" = "Select the document type";
+"DocumentVerifyView_BottomSheet_IMAGE" = "Image";
+"DocumentVerifyView_BottomSheet_pdf" = "PDF";
+"DocumentVerifyView_BottomSheet_Cancel" = "Cancel";
+"DocumentVerifyView_BottomSheet_handle_image_error" = "The selected image is not valid.";
+"DocumentVerifyView_BottomSheet_handle_pdf_error" = "The selected pdf is not valid.";

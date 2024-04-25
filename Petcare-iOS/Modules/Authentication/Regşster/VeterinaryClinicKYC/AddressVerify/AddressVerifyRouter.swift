@@ -10,7 +10,7 @@ import UIKit
 
 protocol AddressVerifyRouterProtocol: AnyObject {
     func backToLogin() -> Void
-    func navigateToDocumentVerify() -> Void
+    func navigateToDocumentVerify(data: UserRegisterRequest) -> Void
 }
 
 final class AddressVerifyRouter: AddressVerifyRouterProtocol {
@@ -23,25 +23,21 @@ final class AddressVerifyRouter: AddressVerifyRouterProtocol {
         self.window = window
     }
     
-    static func build(navigationController: UINavigationController?, window: UIWindow?) -> AddressVerifyViewController {
-        
+    static func build(navigationController: UINavigationController?, window: UIWindow?, userInfo: UserRegisterRequest?) -> AddressVerifyViewController {
         let view = AddressVerifyViewController()
         let router = AddressVerifyRouter(navigationController: navigationController,window: window)
-        
         let interactor = AddressVerifyInteractor()
-        let presenter = AddressVerifyPresenter(view: view, router: router, interactor: interactor)
+        let presenter = AddressVerifyPresenter(view: view, router: router, interactor: interactor, userInfo: userInfo)
         
         view.presenter = presenter
         interactor.output = presenter
         return view
     }
     
-    func backToLogin() {
-        
-    }
+    func backToLogin() { }
     
-    func navigateToDocumentVerify() {
-        let documentVerify = DocumentVerifyRouter.build(navigationController: navigationController, window: window)
+    func navigateToDocumentVerify(data: UserRegisterRequest) {
+        let documentVerify = DocumentVerifyRouter.build(navigationController: navigationController, window: window, data: data)
         navigationController?.pushViewController(documentVerify, animated: true)
     }
 }

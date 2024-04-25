@@ -18,7 +18,6 @@ final class VeterinarySettingsViewController: UIViewController {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         view.backgroundColor = AppColors.bgColor
-        
         prepareTitleLabel()
     }
     
@@ -27,3 +26,4 @@ final class VeterinarySettingsViewController: UIViewController {
         navigationItem.titleView = titleLabel
     }
 }
+

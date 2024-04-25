@@ -14,8 +14,8 @@ protocol RegisterRouterProtocol: AnyObject {
     func navigateToMain() -> Void
     func backToLogin() -> Void
     func navigateToForgot() -> Void
-    func navigateToVetAddress() -> Void
-    func navigateAccountEnable(email: String) -> Void
+    func navigateToVetAddress(userInfo: UserRegisterRequest) -> Void
+    func navigateAccountEnable(userInfo: UserRegisterRequest) -> Void
 }
 
 final class RegisterRouter: RegisterRouterProtocol {
@@ -54,14 +54,14 @@ final class RegisterRouter: RegisterRouterProtocol {
         self.navigationController?.popViewController(animated: true)
     }
     
-    func navigateToVetAddress() {
-        let vetAddress = AddressVerifyRouter.build(navigationController: navigationController,window: window)
+    func navigateToVetAddress(userInfo: UserRegisterRequest) {
+        let vetAddress = AddressVerifyRouter.build(navigationController: navigationController,window: window, userInfo: userInfo)
         self.navigationController?.pushViewController(vetAddress, animated: true)
     }
     
     
-    func navigateAccountEnable(email: String) {
-        let accountEnable = EmailVerificationRouter.build(navigationController: navigationController, emailAddress: email)
+    func navigateAccountEnable(userInfo: UserRegisterRequest) {
+        let accountEnable = EmailVerificationRouter.build(navigationController: navigationController, emailAddress: userInfo.email)
         self.navigationController?.pushViewController(accountEnable, animated: true)
     }
 }

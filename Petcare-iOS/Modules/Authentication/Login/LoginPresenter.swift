@@ -3,7 +3,6 @@
 //  Created by Kenan Baylan on 14.10.2023.
 
 import Foundation
-import Combine
 import UIKit
 
 enum LoginState {
@@ -15,21 +14,21 @@ enum LoginState {
 
 protocol LoginPresenterProtocol {
     func viewDidload() -> Void
-    func navigateMain(data: LoginRequest) -> Void
+    func navigateMain() -> Void
     func navigateSignUp() -> Void
     func navigateForgotPassword() -> Void
     func navigateToVeterinaryMain() -> Void
     func saveUser(_ user: LoginRequest)
 }
 
-final class LoginPresenter: ObservableObject {
-    private weak var view: LoginViewController?
+final class LoginPresenter {
+    weak var view: LoginViewProtocol?
     let router: LoginRouterProtocol?
     let interactor: LoginInteractorProtocol?
     
     var userData: LoginRequest?
     
-    init(view: LoginViewController? , router: LoginRouterProtocol?, interactor: LoginInteractorProtocol?) {
+    init(view: LoginViewProtocol? , router: LoginRouterProtocol?, interactor: LoginInteractorProtocol?) {
         self.view = view
         self.router = router
         self.interactor = interactor
@@ -43,10 +42,8 @@ extension LoginPresenter: LoginPresenterProtocol {
     
     func viewDidload() { }
     
-    func navigateMain(data: LoginRequest) {
-        //burada akış değişecek eğer veteriner ise veterinery akışı değilse normal giriş olacak
-        //router?.navigateToMain()
-        interactor?.login(user: data)
+    func navigateMain() {
+        interactor?.login(user: userData!)
     }
     
     func navigateToVeterinaryMain() {
@@ -65,9 +62,11 @@ extension LoginPresenter: LoginPresenterProtocol {
 extension LoginPresenter: LoginInteractorOutput {
     func registrationSuccess(user: LoginResponse) {
         print("Presenter: \(user)")
+        //MARK: -eğer login doğru ise gelen role göre user ya veterinery akışına yada user'a gidecektir.
+        
     }
     
-    func registrationFailure(error: Error) {
-        print("ERROR : \(error.localizedDescription)")
+    func registrationFailure(error: ExceptionErrorHandle) {
+        view?.showAlertMessage(message: error.error ?? "error message is nil")
     }
 }
