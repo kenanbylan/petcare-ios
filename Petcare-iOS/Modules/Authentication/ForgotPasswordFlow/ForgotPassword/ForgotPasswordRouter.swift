@@ -8,7 +8,7 @@ import UIKit
 protocol ForgotPasswordRouterProtocol: AnyObject {
     func navigateToMain() -> Void
     func backToLogin() -> Void
-    func navigateToSmsOtp() -> Void
+    func navigateToSendCode() -> Void
 }
 
 final class ForgotPasswordRouter: ForgotPasswordRouterProtocol {
@@ -44,7 +44,7 @@ final class ForgotPasswordRouter: ForgotPasswordRouterProtocol {
         window?.rootViewController = navigationController
     }
     
-    func navigateToSmsOtp() {
-        navigationController?.present(SmsOtpViewController(), animated: true)
+    func navigateToSendCode() {
+        navigationController?.present(CodeVerificationViewController(), animated: true)
     }
 }
