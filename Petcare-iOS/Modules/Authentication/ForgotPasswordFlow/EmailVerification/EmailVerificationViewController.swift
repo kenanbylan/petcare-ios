@@ -22,10 +22,17 @@ final class EmailVerificationViewController: UIViewController {
     }()
     
     private lazy var headerLabel: CustomLabel = {
-        let label = CustomLabel(text: "EmailVerification_header".localized(), fontSize: 14, fontType: .medium, textColor: AppColors.primaryColor)
+        let label = CustomLabel(text: "EmailVerification_header".localized(), fontSize: 17, fontType: .medium, textColor: AppColors.primaryColor)
         return label
     }()
+ 
     
+    private lazy var infoTextLabel: CustomLabel = {
+        let email = presenter?.setEmailAddress() ?? "example@gmail.com"
+        let labelText = "We sent to code \(email)".localized()
+        let label = CustomLabel(text: labelText, fontSize: 14, fontType: .medium, textColor: AppColors.labelColor)
+        return label
+    }()
     
     private lazy var verificationTextfield: MyTextField = {
         let textfield = MyTextField()
@@ -55,10 +62,10 @@ final class EmailVerificationViewController: UIViewController {
     
     private func validateTextfield() {
         do {
-            let code = try  verificationTextfield.validatedText(validationType: .number)
-            //kod backendde gönderilecektir ve eğer eşleşir ise enable olacak ve kullanıcı login ekranına aktarılacaktır
-            
+            var code = try  verificationTextfield.validatedText(validationType: .number)
+
             showAlert(for: "Account is Active") {
+                self.presenter?.saveCode(code: code)
                 self.presenter?.navigateLogin()
             }
             
@@ -76,6 +83,7 @@ extension EmailVerificationViewController: ViewCoding {
     func setupHierarchy() {
         let myViews = [
             headerLabel,
+            infoTextLabel,
             verificationTextfield,
             verificationButton
         ]
@@ -92,7 +100,11 @@ extension EmailVerificationViewController: ViewCoding {
             headerLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant:20),
             headerLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -20),
             
-            verificationTextfield.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 15),
+            infoTextLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 12),
+            infoTextLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant:20),
+            infoTextLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -20),
+            
+            verificationTextfield.topAnchor.constraint(equalTo: infoTextLabel.bottomAnchor, constant: 15),
             verificationTextfield.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             verificationTextfield.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             verificationTextfield.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),

@@ -21,13 +21,12 @@
 		93048F1C2B0AA4DD000BD03A /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93048F1B2B0AA4DD000BD03A /* String + Extension.swift */; };
 		930493912BCAFD24004026FE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930493902BCAFD24004026FE /* Network.swift */; };
 		930493932BCAFD45004026FE /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930493922BCAFD45004026FE /* DataRequest.swift */; };
-		930493952BCAFD62004026FE /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930493942BCAFD62004026FE /* ErrorResponse.swift */; };
+		930493952BCAFD62004026FE /* ExceptionErrorHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930493942BCAFD62004026FE /* ExceptionErrorHandle.swift */; };
 		930493972BCAFD88004026FE /* ImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930493962BCAFD88004026FE /* ImageClient.swift */; };
 		9304939A2BCAFDBA004026FE /* LoginRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930493992BCAFDBA004026FE /* LoginRequests.swift */; };
 		9304939C2BCAFED2004026FE /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304939B2BCAFED2004026FE /* ImageRequest.swift */; };
 		9309ADEF2B389DCC001BC2B0 /* PetAvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309ADEE2B389DCC001BC2B0 /* PetAvatarCell.swift */; };
 		9309ADF22B389E39001BC2B0 /* PetAvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309ADF12B389E39001BC2B0 /* PetAvatarModel.swift */; };
-		9309ADF42B3B6E4F001BC2B0 /* SeeAllButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309ADF32B3B6E4F001BC2B0 /* SeeAllButton.swift */; };
 		9309ADF62B3CA127001BC2B0 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309ADF52B3CA127001BC2B0 /* UIImage + Extension.swift */; };
 		9309ADF82B3CAB4B001BC2B0 /* UIScreen + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309ADF72B3CAB4B001BC2B0 /* UIScreen + Extension.swift */; };
 		930CB6C02AF18F4F00E632A7 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 930CB6BF2AF18F4F00E632A7 /* Splash.storyboard */; };
@@ -74,7 +73,6 @@
 		932D25572B7BFFC600B99FA3 /* PetDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25562B7BFFC600B99FA3 /* PetDetailPresenter.swift */; };
 		932D25592B7BFFCD00B99FA3 /* PetDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25582B7BFFCD00B99FA3 /* PetDetailRouter.swift */; };
 		932D255B2B7CC78F00B99FA3 /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D255A2B7CC78F00B99FA3 /* MapDetailView.swift */; };
-		932D25672B7FFE0100B99FA3 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25662B7FFE0100B99FA3 /* NetworkMonitor.swift */; };
 		932D256C2B80092F00B99FA3 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D256B2B80092F00B99FA3 /* AlertView.swift */; };
 		932D25752B825D4800B99FA3 /* NSObject + Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25742B825D4800B99FA3 /* NSObject + Extension .swift */; };
 		932D257D2B827E1B00B99FA3 /* SlideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D257C2B827E1B00B99FA3 /* SlideCell.swift */; };
@@ -87,21 +85,8 @@
 		93364FD12B8F3D2C00C430DB /* NewPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD02B8F3D2C00C430DB /* NewPasswordInteractor.swift */; };
 		93364FD32B8F3D3600C430DB /* NewPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD22B8F3D3600C430DB /* NewPasswordPresenter.swift */; };
 		93364FD52B8F5ED300C430DB /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD42B8F5ED300C430DB /* UIView + Extension.swift */; };
-		93364FD72B93369000C430DB /* ScrollableContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD62B93369000C430DB /* ScrollableContentViewController.swift */; };
-		93364FDA2B9350EE00C430DB /* Publisher + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD92B9350EE00C430DB /* Publisher + Extension.swift */; };
-		93364FDD2B93517700C430DB /* ValidationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FDC2B93517700C430DB /* ValidationState.swift */; };
-		93364FDF2B9351B300C430DB /* ValidatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FDE2B9351B300C430DB /* ValidatorType.swift */; };
-		93364FE12B9351F100C430DB /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FE02B9351F100C430DB /* Validatable.swift */; };
 		93364FE32B936F8400C430DB /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FE22B936F8400C430DB /* UIViewController + Extension.swift */; };
-		93364FE52B93707700C430DB /* ValidatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FE42B93707700C430DB /* ValidatorFactory.swift */; };
-		93364FE72B9370A700C430DB /* CustomValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FE62B9370A700C430DB /* CustomValidation.swift */; };
-		93364FE92B9370DA00C430DB /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FE82B9370DA00C430DB /* Validator.swift */; };
-		93364FEB2B9371A100C430DB /* CustomTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FEA2B9371A100C430DB /* CustomTextfield.swift */; };
-		93364FED2B9371D000C430DB /* CustomTextfieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FEC2B9371D000C430DB /* CustomTextfieldType.swift */; };
-		93364FEF2B93720000C430DB /* CustomTextfieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FEE2B93720000C430DB /* CustomTextfieldViewModel.swift */; };
-		93364FF12B93722800C430DB /* CustomTextfieldFocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FF02B93722800C430DB /* CustomTextfieldFocusState.swift */; };
 		93364FF32B9374D200C430DB /* PetInfoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FF22B9374D200C430DB /* PetInfoEnum.swift */; };
-		93364FF52B93846600C430DB /* BaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FF42B93846600C430DB /* BaseTextField.swift */; };
 		933780122ADA7DA800103273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780112ADA7DA800103273 /* AppDelegate.swift */; };
 		933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933780132ADA7DA800103273 /* SceneDelegate.swift */; };
 		933780192ADA7DA800103273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933780172ADA7DA800103273 /* Main.storyboard */; };
@@ -144,7 +129,7 @@
 		9363902F2BAB69BA00F9A6A1 /* PetAvatarCellFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363902E2BAB69BA00F9A6A1 /* PetAvatarCellFooter.swift */; };
 		936390332BAC49F700F9A6A1 /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936390322BAC49F700F9A6A1 /* ReminderCell.swift */; };
 		9367243E2B8E156400897112 /* UserRegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367243D2B8E156400897112 /* UserRegisterResponse.swift */; };
-		93732DF22B16598900DE636E /* CustomSecurityPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93732DF12B16598900DE636E /* CustomSecurityPassword.swift */; };
+		936795942BDA9E350001FA47 /* EmaiVerificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936795932BDA9E350001FA47 /* EmaiVerificationRequest.swift */; };
 		93732DF92B16701E00DE636E /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93732DF82B16701E00DE636E /* UserRegister.swift */; };
 		9378A8E52BD7C94E0064FE2C /* DateListInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378A8E42BD7C94E0064FE2C /* DateListInfoViewController.swift */; };
 		9378A8E72BD7C9530064FE2C /* DateListInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378A8E62BD7C9530064FE2C /* DateListInfoRouter.swift */; };
@@ -165,7 +150,7 @@
 		93822B472AFA85C800989255 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B462AFA85C800989255 /* ForgotPasswordPresenter.swift */; };
 		93822B492AFA85DE00989255 /* ForgotPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B482AFA85DE00989255 /* ForgotPasswordInteractor.swift */; };
 		93822B4B2AFA85E500989255 /* ForgotPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B4A2AFA85E500989255 /* ForgotPasswordRouter.swift */; };
-		93822B4D2AFAC2EA00989255 /* UICustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B4C2AFAC2EA00989255 /* UICustomButton.swift */; };
+		938786502BDC54BD008C8C88 /* SeeAllButon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9387864F2BDC54BD008C8C88 /* SeeAllButon.swift */; };
 		938901D82BD5037600183EEC /* TestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938901D72BD5037600183EEC /* TestRequest.swift */; };
 		938901DB2BD5095500183EEC /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938901DA2BD5095500183EEC /* APIEnvironment.swift */; };
 		938901DD2BD509CD00183EEC /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938901DC2BD509CD00183EEC /* APIConfig.swift */; };
@@ -174,9 +159,6 @@
 		938901E52BD55C5700183EEC /* EmailVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938901E42BD55C5700183EEC /* EmailVerificationRouter.swift */; };
 		938901E72BD55C5D00183EEC /* EmailVerificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938901E62BD55C5D00183EEC /* EmailVerificationPresenter.swift */; };
 		938901E92BD55C6300183EEC /* EmailVerificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938901E82BD55C6300183EEC /* EmailVerificationInteractor.swift */; };
-		9399E1912BAEB4E800D3D077 /* FormFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9399E1902BAEB4E800D3D077 /* FormFieldView.swift */; };
-		9399E1942BAEC67A00D3D077 /* FormValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9399E1932BAEC67A00D3D077 /* FormValidation.swift */; };
-		9399E1962BAEC6E500D3D077 /* FormValidationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9399E1952BAEC6E500D3D077 /* FormValidationFactory.swift */; };
 		93AA9BB02B9E3A5600942F16 /* NearbyPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BAF2B9E3A5600942F16 /* NearbyPlace.swift */; };
 		93AA9BB22B9E3C9B00942F16 /* CLLocationCoordinate2D + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BB12B9E3C9B00942F16 /* CLLocationCoordinate2D + Extension.swift */; };
 		93AA9BB52B9F822300942F16 /* VeterinaryDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BB42B9F822300942F16 /* VeterinaryDetailRouter.swift */; };
@@ -192,7 +174,6 @@
 		93AA9BD12BA6167B00942F16 /* KeyValueStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BD02BA6167B00942F16 /* KeyValueStackView.swift */; };
 		93AA9BD42BA6244D00942F16 /* NearbyVetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BD32BA6244D00942F16 /* NearbyVetView.swift */; };
 		93AA9BD62BA62AA200942F16 /* VeterinerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BD52BA62AA200942F16 /* VeterinerService.swift */; };
-		93AA9BD92BA64D0F00942F16 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BD82BA64D0F00942F16 /* ThemeManager.swift */; };
 		93AA9BDC2BA700EF00942F16 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BDB2BA700EF00942F16 /* ReminderViewController.swift */; };
 		93AA9BDE2BA700FA00942F16 /* ReminderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BDD2BA700FA00942F16 /* ReminderPresenter.swift */; };
 		93AA9BE02BA7010000942F16 /* ReminderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BDF2BA7010000942F16 /* ReminderRouter.swift */; };
@@ -226,8 +207,6 @@
 		93CE90912AF7D5FA0025FBB0 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90902AF7D5FA0025FBB0 /* SettingsPresenter.swift */; };
 		93CE90932AF7D6000025FBB0 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90922AF7D6000025FBB0 /* SettingsRouter.swift */; };
 		93CE90952AF7E1C60025FBB0 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CE90942AF7E1C60025FBB0 /* Tabbar.swift */; };
-		93DD5ABB2B4035AB00BDE0A9 /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5ABA2B4035AB00BDE0A9 /* UIStackView + Extension.swift */; };
-		93DD5ABE2B403AF100BDE0A9 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5ABD2B403AF100BDE0A9 /* ShadowView.swift */; };
 		93DD5AC12B4044C000BDE0A9 /* UpcomingVeterinary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5AC02B4044C000BDE0A9 /* UpcomingVeterinary.swift */; };
 		93DD5AC82B418E7D00BDE0A9 /* PetTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5AC72B418E7D00BDE0A9 /* PetTypeViewController.swift */; };
 		93DD5ACC2B41976300BDE0A9 /* PetTypeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DD5ACB2B41976300BDE0A9 /* PetTypeRouter.swift */; };
@@ -283,13 +262,12 @@
 		93048F1B2B0AA4DD000BD03A /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		930493902BCAFD24004026FE /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		930493922BCAFD45004026FE /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
-		930493942BCAFD62004026FE /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		930493942BCAFD62004026FE /* ExceptionErrorHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExceptionErrorHandle.swift; sourceTree = "<group>"; };
 		930493962BCAFD88004026FE /* ImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClient.swift; sourceTree = "<group>"; };
 		930493992BCAFDBA004026FE /* LoginRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequests.swift; sourceTree = "<group>"; };
 		9304939B2BCAFED2004026FE /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		9309ADEE2B389DCC001BC2B0 /* PetAvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAvatarCell.swift; sourceTree = "<group>"; };
 		9309ADF12B389E39001BC2B0 /* PetAvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAvatarModel.swift; sourceTree = "<group>"; };
-		9309ADF32B3B6E4F001BC2B0 /* SeeAllButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllButton.swift; sourceTree = "<group>"; };
 		9309ADF52B3CA127001BC2B0 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 		9309ADF72B3CAB4B001BC2B0 /* UIScreen + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen + Extension.swift"; sourceTree = "<group>"; };
 		930CB6BF2AF18F4F00E632A7 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
@@ -332,13 +310,11 @@
 		9323471E2B9C9E9600971E1D /* NearbyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyListViewController.swift; sourceTree = "<group>"; };
 		932347212B9C9EFC00971E1D /* NearbyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyList.swift; sourceTree = "<group>"; };
 		932347242B9CA20400971E1D /* NearbyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyListTableViewCell.swift; sourceTree = "<group>"; };
-		932347E92B9CD55C00971E1D /* Petcare-iOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Petcare-iOS copy-Info.plist"; path = "/Users/kenanbaylan/Desktop/Petcare-iOS/Petcare-iOS copy-Info.plist"; sourceTree = "<absolute>"; };
 		932D25522B7BFF9300B99FA3 /* PetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailViewController.swift; sourceTree = "<group>"; };
 		932D25542B7BFFC000B99FA3 /* PetDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailInteractor.swift; sourceTree = "<group>"; };
 		932D25562B7BFFC600B99FA3 /* PetDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailPresenter.swift; sourceTree = "<group>"; };
 		932D25582B7BFFCD00B99FA3 /* PetDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailRouter.swift; sourceTree = "<group>"; };
 		932D255A2B7CC78F00B99FA3 /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
-		932D25662B7FFE0100B99FA3 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		932D256B2B80092F00B99FA3 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		932D25742B825D4800B99FA3 /* NSObject + Extension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject + Extension .swift"; sourceTree = "<group>"; };
 		932D257C2B827E1B00B99FA3 /* SlideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCell.swift; sourceTree = "<group>"; };
@@ -351,21 +327,8 @@
 		93364FD02B8F3D2C00C430DB /* NewPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordInteractor.swift; sourceTree = "<group>"; };
 		93364FD22B8F3D3600C430DB /* NewPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordPresenter.swift; sourceTree = "<group>"; };
 		93364FD42B8F5ED300C430DB /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
-		93364FD62B93369000C430DB /* ScrollableContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableContentViewController.swift; sourceTree = "<group>"; };
-		93364FD92B9350EE00C430DB /* Publisher + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher + Extension.swift"; sourceTree = "<group>"; };
-		93364FDC2B93517700C430DB /* ValidationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationState.swift; sourceTree = "<group>"; };
-		93364FDE2B9351B300C430DB /* ValidatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorType.swift; sourceTree = "<group>"; };
-		93364FE02B9351F100C430DB /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
 		93364FE22B936F8400C430DB /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
-		93364FE42B93707700C430DB /* ValidatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorFactory.swift; sourceTree = "<group>"; };
-		93364FE62B9370A700C430DB /* CustomValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomValidation.swift; sourceTree = "<group>"; };
-		93364FE82B9370DA00C430DB /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
-		93364FEA2B9371A100C430DB /* CustomTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfield.swift; sourceTree = "<group>"; };
-		93364FEC2B9371D000C430DB /* CustomTextfieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldType.swift; sourceTree = "<group>"; };
-		93364FEE2B93720000C430DB /* CustomTextfieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldViewModel.swift; sourceTree = "<group>"; };
-		93364FF02B93722800C430DB /* CustomTextfieldFocusState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldFocusState.swift; sourceTree = "<group>"; };
 		93364FF22B9374D200C430DB /* PetInfoEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfoEnum.swift; sourceTree = "<group>"; };
-		93364FF42B93846600C430DB /* BaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTextField.swift; sourceTree = "<group>"; };
 		9337800E2ADA7DA800103273 /* Petcare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petcare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		933780112ADA7DA800103273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		933780132ADA7DA800103273 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -411,7 +374,7 @@
 		9363902E2BAB69BA00F9A6A1 /* PetAvatarCellFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAvatarCellFooter.swift; sourceTree = "<group>"; };
 		936390322BAC49F700F9A6A1 /* ReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCell.swift; sourceTree = "<group>"; };
 		9367243D2B8E156400897112 /* UserRegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterResponse.swift; sourceTree = "<group>"; };
-		93732DF12B16598900DE636E /* CustomSecurityPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecurityPassword.swift; sourceTree = "<group>"; };
+		936795932BDA9E350001FA47 /* EmaiVerificationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmaiVerificationRequest.swift; sourceTree = "<group>"; };
 		93732DF82B16701E00DE636E /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
 		9378A8E42BD7C94E0064FE2C /* DateListInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateListInfoViewController.swift; sourceTree = "<group>"; };
 		9378A8E62BD7C9530064FE2C /* DateListInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateListInfoRouter.swift; sourceTree = "<group>"; };
@@ -432,7 +395,7 @@
 		93822B462AFA85C800989255 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
 		93822B482AFA85DE00989255 /* ForgotPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordInteractor.swift; sourceTree = "<group>"; };
 		93822B4A2AFA85E500989255 /* ForgotPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRouter.swift; sourceTree = "<group>"; };
-		93822B4C2AFAC2EA00989255 /* UICustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomButton.swift; sourceTree = "<group>"; };
+		9387864F2BDC54BD008C8C88 /* SeeAllButon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllButon.swift; sourceTree = "<group>"; };
 		938901D72BD5037600183EEC /* TestRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRequest.swift; sourceTree = "<group>"; };
 		938901DA2BD5095500183EEC /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
 		938901DC2BD509CD00183EEC /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
@@ -441,9 +404,6 @@
 		938901E42BD55C5700183EEC /* EmailVerificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationRouter.swift; sourceTree = "<group>"; };
 		938901E62BD55C5D00183EEC /* EmailVerificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationPresenter.swift; sourceTree = "<group>"; };
 		938901E82BD55C6300183EEC /* EmailVerificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationInteractor.swift; sourceTree = "<group>"; };
-		9399E1902BAEB4E800D3D077 /* FormFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldView.swift; sourceTree = "<group>"; };
-		9399E1932BAEC67A00D3D077 /* FormValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidation.swift; sourceTree = "<group>"; };
-		9399E1952BAEC6E500D3D077 /* FormValidationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidationFactory.swift; sourceTree = "<group>"; };
 		93AA9BAF2B9E3A5600942F16 /* NearbyPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPlace.swift; sourceTree = "<group>"; };
 		93AA9BB12B9E3C9B00942F16 /* CLLocationCoordinate2D + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D + Extension.swift"; sourceTree = "<group>"; };
 		93AA9BB42B9F822300942F16 /* VeterinaryDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeterinaryDetailRouter.swift; sourceTree = "<group>"; };
@@ -459,7 +419,6 @@
 		93AA9BD02BA6167B00942F16 /* KeyValueStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStackView.swift; sourceTree = "<group>"; };
 		93AA9BD32BA6244D00942F16 /* NearbyVetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyVetView.swift; sourceTree = "<group>"; };
 		93AA9BD52BA62AA200942F16 /* VeterinerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeterinerService.swift; sourceTree = "<group>"; };
-		93AA9BD82BA64D0F00942F16 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		93AA9BDB2BA700EF00942F16 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		93AA9BDD2BA700FA00942F16 /* ReminderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPresenter.swift; sourceTree = "<group>"; };
 		93AA9BDF2BA7010000942F16 /* ReminderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRouter.swift; sourceTree = "<group>"; };
@@ -493,8 +452,6 @@
 		93CE90902AF7D5FA0025FBB0 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		93CE90922AF7D6000025FBB0 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		93CE90942AF7E1C60025FBB0 /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
-		93DD5ABA2B4035AB00BDE0A9 /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
-		93DD5ABD2B403AF100BDE0A9 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		93DD5AC02B4044C000BDE0A9 /* UpcomingVeterinary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingVeterinary.swift; sourceTree = "<group>"; };
 		93DD5AC72B418E7D00BDE0A9 /* PetTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTypeViewController.swift; sourceTree = "<group>"; };
 		93DD5ACB2B41976300BDE0A9 /* PetTypeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTypeRouter.swift; sourceTree = "<group>"; };
@@ -554,7 +511,7 @@
 			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
-		93048EDC2B09504C000BD03A /* SmsOtp */ = {
+		93048EDC2B09504C000BD03A /* CodeVerification */ = {
 			isa = PBXGroup;
 			children = (
 				93048EDE2B095096000BD03A /* CodeVerificationViewController.swift */,
@@ -562,7 +519,7 @@
 				93364FCA2B8F3D1600C430DB /* CodeVerificationInteractor.swift */,
 				93364FCC2B8F3D1B00C430DB /* CodeVerificationPresenter.swift */,
 			);
-			path = SmsOtp;
+			path = CodeVerification;
 			sourceTree = "<group>";
 		};
 		93048EDD2B095066000BD03A /* NewPassword */ = {
@@ -574,13 +531,6 @@
 				93364FD22B8F3D3600C430DB /* NewPasswordPresenter.swift */,
 			);
 			path = NewPassword;
-			sourceTree = "<group>";
-		};
-		93048F0B2B0A900D000BD03A /* Textfields */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Textfields;
 			sourceTree = "<group>";
 		};
 		9304938F2BCAFD1E004026FE /* Network */ = {
@@ -730,6 +680,7 @@
 		931D709B2BBD9ED90012E7D1 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
+				931D70992BBD90E50012E7D1 /* ValidationManager.swift */,
 				931D709C2BBD9EDE0012E7D1 /* Validation.swift */,
 			);
 			path = Validation;
@@ -790,13 +741,10 @@
 				9399E18F2BAEB4D800D3D077 /* FormFieldView */,
 				93AA9BC42BA2365400942F16 /* CustomTextView */,
 				93AA9BBC2BA0FFD900942F16 /* ImageLabel */,
-				93364FD82B93505F00C430DB /* CustomTextfield */,
 				932D256A2B80090700B99FA3 /* AlertView */,
-				93DD5ABC2B403AD500BDE0A9 /* ShadowView */,
 				93C46E142B05429B0055BA0F /* CustomLabel */,
 				93F0CE412B0CE62000D5BAD7 /* CustomStackView */,
 				93C46E102B0509000055BA0F /* Buttons */,
-				93048F0B2B0A900D000BD03A /* Textfields */,
 			);
 			path = AppElements;
 			sourceTree = "<group>";
@@ -809,13 +757,12 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		932D25602B7FF92900B99FA3 /* BaseViewController */ = {
+		932D25602B7FF92900B99FA3 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
 				930EEED02B782B4F0008D051 /* BaseViewController.swift */,
-				93364FD62B93369000C430DB /* ScrollableContentViewController.swift */,
 			);
-			path = BaseViewController;
+			path = BaseView;
 			sourceTree = "<group>";
 		};
 		932D25622B7FF94100B99FA3 /* Map Location */ = {
@@ -848,14 +795,6 @@
 			path = UIComponent;
 			sourceTree = "<group>";
 		};
-		932D25652B7FFD0C00B99FA3 /* Network Monitor */ = {
-			isa = PBXGroup;
-			children = (
-				932D25662B7FFE0100B99FA3 /* NetworkMonitor.swift */,
-			);
-			path = "Network Monitor";
-			sourceTree = "<group>";
-		};
 		932D256A2B80090700B99FA3 /* AlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -880,39 +819,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		93364FD82B93505F00C430DB /* CustomTextfield */ = {
-			isa = PBXGroup;
-			children = (
-				93364FDB2B93516A00C430DB /* Validation */,
-				93364FEA2B9371A100C430DB /* CustomTextfield.swift */,
-				93364FEC2B9371D000C430DB /* CustomTextfieldType.swift */,
-				93364FEE2B93720000C430DB /* CustomTextfieldViewModel.swift */,
-				93364FF02B93722800C430DB /* CustomTextfieldFocusState.swift */,
-				93364FF42B93846600C430DB /* BaseTextField.swift */,
-			);
-			path = CustomTextfield;
-			sourceTree = "<group>";
-		};
-		93364FDB2B93516A00C430DB /* Validation */ = {
-			isa = PBXGroup;
-			children = (
-				93364FDC2B93517700C430DB /* ValidationState.swift */,
-				93364FDE2B9351B300C430DB /* ValidatorType.swift */,
-				93364FE02B9351F100C430DB /* Validatable.swift */,
-				93364FE42B93707700C430DB /* ValidatorFactory.swift */,
-				93364FE62B9370A700C430DB /* CustomValidation.swift */,
-				93364FE82B9370DA00C430DB /* Validator.swift */,
-			);
-			path = Validation;
-			sourceTree = "<group>";
-		};
 		933780052ADA7DA800103273 = {
 			isa = PBXGroup;
 			children = (
 				933780102ADA7DA800103273 /* Petcare-iOS */,
 				9337800F2ADA7DA800103273 /* Products */,
 				93C46E112B0509DC0055BA0F /* Frameworks */,
-				932347E92B9CD55C00971E1D /* Petcare-iOS copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -964,10 +876,9 @@
 			isa = PBXGroup;
 			children = (
 				93AA9BD72BA64D0200942F16 /* Manager */,
-				932D25652B7FFD0C00B99FA3 /* Network Monitor */,
 				932D25642B7FFCD600B99FA3 /* UIComponent */,
 				932D25622B7FF94100B99FA3 /* Map Location */,
-				932D25602B7FF92900B99FA3 /* BaseViewController */,
+				932D25602B7FF92900B99FA3 /* BaseView */,
 				931144E72AFC1A7700F6365E /* Protocols */,
 			);
 			path = Core;
@@ -982,13 +893,11 @@
 				93048F1B2B0AA4DD000BD03A /* String + Extension.swift */,
 				934702062B0E84C40033C7CE /* UIColor + Extension.swift */,
 				9309ADF52B3CA127001BC2B0 /* UIImage + Extension.swift */,
-				93DD5ABA2B4035AB00BDE0A9 /* UIStackView + Extension.swift */,
 				933A22142B45E83D00854DB0 /* UILabel + Extension.swift */,
 				933A22242B4729AF00854DB0 /* UITextField + Extension.swift */,
 				933A22262B473C2700854DB0 /* UINavigationItem + Extension.swift */,
 				932D25742B825D4800B99FA3 /* NSObject + Extension .swift */,
 				93364FD42B8F5ED300C430DB /* UIView + Extension.swift */,
-				93364FD92B9350EE00C430DB /* Publisher + Extension.swift */,
 				93364FE22B936F8400C430DB /* UIViewController + Extension.swift */,
 				93E6D7182B98761000471954 /* UITableView + Extension.swift */,
 				93E6D71A2B987CB500471954 /* UICollectionView + Extension.swift */,
@@ -1164,7 +1073,7 @@
 			children = (
 				938901E32BD55B5200183EEC /* EmailVerification */,
 				93048EDB2B09503F000BD03A /* ForgotPassword */,
-				93048EDC2B09504C000BD03A /* SmsOtp */,
+				93048EDC2B09504C000BD03A /* CodeVerification */,
 				93048EDD2B095066000BD03A /* NewPassword */,
 			);
 			path = ForgotPasswordFlow;
@@ -1198,7 +1107,7 @@
 			isa = PBXGroup;
 			children = (
 				933A22222B45F6F100854DB0 /* SeeAllButtonBuilder.swift */,
-				9309ADF32B3B6E4F001BC2B0 /* SeeAllButton.swift */,
+				9387864F2BDC54BD008C8C88 /* SeeAllButon.swift */,
 			);
 			path = SeeAllButton;
 			sourceTree = "<group>";
@@ -1216,7 +1125,6 @@
 			children = (
 				93C46DF92B040C540055BA0F /* MyTextField.swift */,
 				934702102B0FF8910033C7CE /* CustomTextfieldBase.swift */,
-				93732DF12B16598900DE636E /* CustomSecurityPassword.swift */,
 			);
 			path = FactoryTextfield;
 			sourceTree = "<group>";
@@ -1250,6 +1158,14 @@
 				936390322BAC49F700F9A6A1 /* ReminderCell.swift */,
 			);
 			path = Reminder;
+			sourceTree = "<group>";
+		};
+		936795922BDA9E260001FA47 /* EmaiVerificationRequest */ = {
+			isa = PBXGroup;
+			children = (
+				936795932BDA9E350001FA47 /* EmaiVerificationRequest.swift */,
+			);
+			path = EmaiVerificationRequest;
 			sourceTree = "<group>";
 		};
 		93732DF72B16700F00DE636E /* Entity */ = {
@@ -1302,6 +1218,7 @@
 		938901D92BD5092500183EEC /* NetworkHelper */ = {
 			isa = PBXGroup;
 			children = (
+				930493942BCAFD62004026FE /* ExceptionErrorHandle.swift */,
 				938901DA2BD5095500183EEC /* APIEnvironment.swift */,
 				938901DC2BD509CD00183EEC /* APIConfig.swift */,
 			);
@@ -1311,6 +1228,7 @@
 		938901E32BD55B5200183EEC /* EmailVerification */ = {
 			isa = PBXGroup;
 			children = (
+				936795922BDA9E260001FA47 /* EmaiVerificationRequest */,
 				938901E12BD54D5C00183EEC /* EmailVerificationViewController.swift */,
 				938901E42BD55C5700183EEC /* EmailVerificationRouter.swift */,
 				938901E62BD55C5D00183EEC /* EmailVerificationPresenter.swift */,
@@ -1322,19 +1240,8 @@
 		9399E18F2BAEB4D800D3D077 /* FormFieldView */ = {
 			isa = PBXGroup;
 			children = (
-				9399E1922BAEC66B00D3D077 /* FormValidation */,
-				9399E1902BAEB4E800D3D077 /* FormFieldView.swift */,
 			);
 			path = FormFieldView;
-			sourceTree = "<group>";
-		};
-		9399E1922BAEC66B00D3D077 /* FormValidation */ = {
-			isa = PBXGroup;
-			children = (
-				9399E1932BAEC67A00D3D077 /* FormValidation.swift */,
-				9399E1952BAEC6E500D3D077 /* FormValidationFactory.swift */,
-			);
-			path = FormValidation;
 			sourceTree = "<group>";
 		};
 		93AA9BB32B9F81E000942F16 /* VeterinaryDetail */ = {
@@ -1402,8 +1309,6 @@
 			isa = PBXGroup;
 			children = (
 				931D709B2BBD9ED90012E7D1 /* Validation */,
-				93AA9BD82BA64D0F00942F16 /* ThemeManager.swift */,
-				931D70992BBD90E50012E7D1 /* ValidationManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1426,17 +1331,8 @@
 				930493982BCAFDA8004026FE /* Request */,
 				9304938F2BCAFD1E004026FE /* Network */,
 				93B004D92B8B352A00302B3D /* Token */,
-				93B004D62B8B31C200302B3D /* ErrorHandler */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		93B004D62B8B31C200302B3D /* ErrorHandler */ = {
-			isa = PBXGroup;
-			children = (
-				930493942BCAFD62004026FE /* ErrorResponse.swift */,
-			);
-			path = ErrorHandler;
 			sourceTree = "<group>";
 		};
 		93B004D92B8B352A00302B3D /* Token */ = {
@@ -1462,7 +1358,6 @@
 			isa = PBXGroup;
 			children = (
 				933A22212B45F6DD00854DB0 /* SeeAllButton */,
-				93822B4C2AFAC2EA00989255 /* UICustomButton.swift */,
 				93C46E172B0548B00055BA0F /* AppButton.swift */,
 				93C46E092B04C7AF0055BA0F /* LoginButton.swift */,
 				93C46E0B2B04CB620055BA0F /* GoogleButton.swift */,
@@ -1485,14 +1380,6 @@
 				93C46E152B0542B30055BA0F /* CustomLabel.swift */,
 			);
 			path = CustomLabel;
-			sourceTree = "<group>";
-		};
-		93DD5ABC2B403AD500BDE0A9 /* ShadowView */ = {
-			isa = PBXGroup;
-			children = (
-				93DD5ABD2B403AF100BDE0A9 /* ShadowView.swift */,
-			);
-			path = ShadowView;
 			sourceTree = "<group>";
 		};
 		93DD5ABF2B4044B400BDE0A9 /* UpcomingVeterinary */ = {
@@ -1678,10 +1565,6 @@
 			mainGroup = 933780052ADA7DA800103273;
 			packageReferences = (
 				93262B432AEBD1360047A79F /* XCRemoteSwiftPackageReference "CombineCocoa" */,
-				932D25782B82695800B99FA3 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
-				931D70652BB89FC90012E7D1 /* XCRemoteSwiftPackageReference "TweeTextField" */,
-				9378A8DA2BD6E6140064FE2C /* XCRemoteSwiftPackageReference "Alamofire" */,
-				9378A8DD2BD6E6670064FE2C /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = 9337800F2ADA7DA800103273 /* Products */;
 			projectDirPath = "";
@@ -1738,7 +1621,6 @@
 				93E6D71B2B987CB500471954 /* UICollectionView + Extension.swift in Sources */,
 				93E1FDB32B77A78E00BD72E1 /* PersonInformationPresenter.swift in Sources */,
 				931D70942BB9B6FB0012E7D1 /* VeterinarySettingsInteractor.swift in Sources */,
-				93364FE12B9351F100C430DB /* Validatable.swift in Sources */,
 				930EEECB2B7828E60008D051 /* AppearancePresenter.swift in Sources */,
 				93F0CE432B0CE62E00D5BAD7 /* CustomStackView.swift in Sources */,
 				933780472ADA816F00103273 /* OnboardingViewController.swift in Sources */,
@@ -1750,7 +1632,6 @@
 				93048F092B0A8F8F000BD03A /* Int + Extension.swift in Sources */,
 				93AA9BB22B9E3C9B00942F16 /* CLLocationCoordinate2D + Extension.swift in Sources */,
 				936390332BAC49F700F9A6A1 /* ReminderCell.swift in Sources */,
-				93364FED2B9371D000C430DB /* CustomTextfieldType.swift in Sources */,
 				933780412ADA814400103273 /* OnboardingModel.swift in Sources */,
 				932D25552B7BFFC000B99FA3 /* PetDetailInteractor.swift in Sources */,
 				931D70732BB9AE420012E7D1 /* ResultVerifyViewController.swift in Sources */,
@@ -1768,7 +1649,6 @@
 				93CE90832AF7D5980025FBB0 /* VetMapViewController.swift in Sources */,
 				93E6D7192B98761000471954 /* UITableView + Extension.swift in Sources */,
 				933780552ADA824500103273 /* LoginPresenter.swift in Sources */,
-				93364FE92B9370DA00C430DB /* Validator.swift in Sources */,
 				93AA9BCE2BA4E72600942F16 /* ApproveResultModel.swift in Sources */,
 				934702052B0E78680033C7CE /* LoadingUICustomButton.swift in Sources */,
 				93C46DFA2B040C540055BA0F /* MyTextField.swift in Sources */,
@@ -1780,10 +1660,8 @@
 				93364FD52B8F5ED300C430DB /* UIView + Extension.swift in Sources */,
 				932D257D2B827E1B00B99FA3 /* SlideCell.swift in Sources */,
 				93822B3F2AF9888600989255 /* RegisterPresenter.swift in Sources */,
-				93DD5ABB2B4035AB00BDE0A9 /* UIStackView + Extension.swift in Sources */,
 				9337805B2ADA826B00103273 /* User.swift in Sources */,
 				933A22172B45EADB00854DB0 /* CustomStackViewBuilder.swift in Sources */,
-				932D25672B7FFE0100B99FA3 /* NetworkMonitor.swift in Sources */,
 				93AA9BD62BA62AA200942F16 /* VeterinerService.swift in Sources */,
 				93822B452AFA85BF00989255 /* ForgotPasswordViewController.swift in Sources */,
 				93E1FDCB2B77A80F00BD72E1 /* PrivacyPolicyPresenter.swift in Sources */,
@@ -1793,12 +1671,10 @@
 				9337804D2ADA81AF00103273 /* OnboardingInteractor.swift in Sources */,
 				93CE907B2AF7D53F0025FBB0 /* CalendarInteractor.swift in Sources */,
 				93CE90772AF7D5260025FBB0 /* CalendarViewController.swift in Sources */,
-				93732DF22B16598900DE636E /* CustomSecurityPassword.swift in Sources */,
 				931D70982BBD7C9F0012E7D1 /* PetInfoModel.swift in Sources */,
 				93364FCF2B8F3D2600C430DB /* NewPasswordRouter.swift in Sources */,
 				933A221C2B45F15E00854DB0 /* PetImageInteractor.swift in Sources */,
 				93AA9BDC2BA700EF00942F16 /* ReminderViewController.swift in Sources */,
-				93DD5ABE2B403AF100BDE0A9 /* ShadowView.swift in Sources */,
 				93AA9BB52B9F822300942F16 /* VeterinaryDetailRouter.swift in Sources */,
 				9337804B2ADA81A700103273 /* OnboardingRouter.swift in Sources */,
 				93CE90872AF7D5C40025FBB0 /* VetMapInteractor.swift in Sources */,
@@ -1808,11 +1684,8 @@
 				931D70962BB9B7020012E7D1 /* VeterinarySettingsViewController.swift in Sources */,
 				931D707F2BB9AE8B0012E7D1 /* AddressVerifyInteractor.swift in Sources */,
 				9309ADF62B3CA127001BC2B0 /* UIImage + Extension.swift in Sources */,
-				93364FE72B9370A700C430DB /* CustomValidation.swift in Sources */,
 				93E1FDB52B77A7A700BD72E1 /* ManageNotificationViewController.swift in Sources */,
-				93364FF12B93722800C430DB /* CustomTextfieldFocusState.swift in Sources */,
 				93CE90732AF7BA910025FBB0 /* MainTabbar.swift in Sources */,
-				9399E1912BAEB4E800D3D077 /* FormFieldView.swift in Sources */,
 				93E1FDBB2B77A7C800BD72E1 /* ManageNotificationPresenter.swift in Sources */,
 				933A22202B45F16C00854DB0 /* PetImageViewController.swift in Sources */,
 				933780652ADC0DF000103273 /* SplashRouter.swift in Sources */,
@@ -1834,11 +1707,8 @@
 				93E1FDB92B77A7B900BD72E1 /* ManageNotificationInteractor.swift in Sources */,
 				93C46E0E2B04EB310055BA0F /* UINavigationController + Extension.swift in Sources */,
 				93AA9BC92BA4C63B00942F16 /* ApproveResultViewController.swift in Sources */,
-				93364FEB2B9371A100C430DB /* CustomTextfield.swift in Sources */,
-				9309ADF42B3B6E4F001BC2B0 /* SeeAllButton.swift in Sources */,
 				933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */,
 				932D25572B7BFFC600B99FA3 /* PetDetailPresenter.swift in Sources */,
-				93364FDF2B9351B300C430DB /* ValidatorType.swift in Sources */,
 				933A22272B473C2700854DB0 /* UINavigationItem + Extension.swift in Sources */,
 				938901E02BD518AC00183EEC /* ForgotPasswordEntity.swift in Sources */,
 				932347192B9C9E7900971E1D /* NearbyListRouter.swift in Sources */,
@@ -1849,11 +1719,8 @@
 				931D70752BB9AE4B0012E7D1 /* ResultVerifyPresenter.swift in Sources */,
 				931144E62AFC179500F6365E /* OnboardingCell.swift in Sources */,
 				932347252B9CA20400971E1D /* NearbyListTableViewCell.swift in Sources */,
-				93364FEF2B93720000C430DB /* CustomTextfieldViewModel.swift in Sources */,
 				93CE90712AF7BA5C0025FBB0 /* HomeRouter.swift in Sources */,
 				933780572ADA824D00103273 /* LoginInteractor.swift in Sources */,
-				9399E1962BAEC6E500D3D077 /* FormValidationFactory.swift in Sources */,
-				93364FDA2B9350EE00C430DB /* Publisher + Extension.swift in Sources */,
 				93E1FDC72B77A80500BD72E1 /* PrivacyPolicyInteractor.swift in Sources */,
 				933A22112B45D85B00854DB0 /* PetInfoPresenter.swift in Sources */,
 				938901E72BD55C5D00183EEC /* EmailVerificationPresenter.swift in Sources */,
@@ -1862,6 +1729,7 @@
 				930EEECD2B7829510008D051 /* AppearanceInteractor.swift in Sources */,
 				93364FC72B8E2DD000C430DB /* MapBottomSheetViewController.swift in Sources */,
 				931144EC2AFC1DC000F6365E /* OnboardingView.swift in Sources */,
+				938786502BDC54BD008C8C88 /* SeeAllButon.swift in Sources */,
 				933780692ADC0DFF00103273 /* SplashInteractor.swift in Sources */,
 				933A220F2B45D85500854DB0 /* PetInfoInteractor.swift in Sources */,
 				93CE907F2AF7D5580025FBB0 /* CalendarModel.swift in Sources */,
@@ -1875,13 +1743,11 @@
 				9381023B2B5D5F2600BF21AD /* SettingTableViewCell.swift in Sources */,
 				93822B3B2AF9887300989255 /* RegisterViewController.swift in Sources */,
 				9378A8F02BD7D9F40064FE2C /* CustomDateCollectionViewCell.swift in Sources */,
-				93AA9BD92BA64D0F00942F16 /* ThemeManager.swift in Sources */,
 				932D25802B82851B00B99FA3 /* SlideView.swift in Sources */,
 				93E1FDC32B77A7EC00BD72E1 /* DonateRouter.swift in Sources */,
 				9323471F2B9C9E9600971E1D /* NearbyListViewController.swift in Sources */,
 				933A221A2B45F15400854DB0 /* PetImageRouter.swift in Sources */,
 				93CE906B2AF7BA420025FBB0 /* HomeEntity.swift in Sources */,
-				93364FD72B93369000C430DB /* ScrollableContentViewController.swift in Sources */,
 				938901DB2BD5095500183EEC /* APIEnvironment.swift in Sources */,
 				93048EDF2B095096000BD03A /* CodeVerificationViewController.swift in Sources */,
 				93822B472AFA85C800989255 /* ForgotPasswordPresenter.swift in Sources */,
@@ -1893,7 +1759,6 @@
 				938102402B5D636D00BF21AD /* SettingsModel.swift in Sources */,
 				9309ADF22B389E39001BC2B0 /* PetAvatarModel.swift in Sources */,
 				938901D82BD5037600183EEC /* TestRequest.swift in Sources */,
-				93364FDD2B93517700C430DB /* ValidationState.swift in Sources */,
 				931D709A2BBD90E50012E7D1 /* ValidationManager.swift in Sources */,
 				930493932BCAFD45004026FE /* DataRequest.swift in Sources */,
 				93B004DD2B8B95B900302B3D /* ClinicDetailsViewController.swift in Sources */,
@@ -1903,8 +1768,9 @@
 				934702072B0E84C40033C7CE /* UIColor + Extension.swift in Sources */,
 				931D70792BB9AE570012E7D1 /* ResultVerifyInteractor.swift in Sources */,
 				93DD5ACC2B41976300BDE0A9 /* PetTypeRouter.swift in Sources */,
-				930493952BCAFD62004026FE /* ErrorResponse.swift in Sources */,
+				930493952BCAFD62004026FE /* ExceptionErrorHandle.swift in Sources */,
 				9378A8E72BD7C9530064FE2C /* DateListInfoRouter.swift in Sources */,
+				936795942BDA9E350001FA47 /* EmaiVerificationRequest.swift in Sources */,
 				93C46E0A2B04C7AF0055BA0F /* LoginButton.swift in Sources */,
 				933780532ADA823D00103273 /* LoginViewController.swift in Sources */,
 				93E1FDC12B77A7E700BD72E1 /* DonateInteractor.swift in Sources */,
@@ -1916,7 +1782,6 @@
 				932D25752B825D4800B99FA3 /* NSObject + Extension .swift in Sources */,
 				93CE907D2AF7D5460025FBB0 /* CalendarPresenter.swift in Sources */,
 				93450D612B44883200ADDADD /* LocationManager.swift in Sources */,
-				93822B4D2AFAC2EA00989255 /* UICustomButton.swift in Sources */,
 				933A220D2B45D84300854DB0 /* PetInfoRouter.swift in Sources */,
 				93364FCD2B8F3D1B00C430DB /* CodeVerificationPresenter.swift in Sources */,
 				93C46E182B0548B00055BA0F /* AppButton.swift in Sources */,
@@ -1947,18 +1812,15 @@
 				9304939C2BCAFED2004026FE /* ImageRequest.swift in Sources */,
 				93E1FDBD2B77A7DA00BD72E1 /* DonateViewController.swift in Sources */,
 				93048F1C2B0AA4DD000BD03A /* String + Extension.swift in Sources */,
-				93364FE52B93707700C430DB /* ValidatorFactory.swift in Sources */,
 				930EEECF2B7829560008D051 /* AppearanceRouter.swift in Sources */,
 				938901DD2BD509CD00183EEC /* APIConfig.swift in Sources */,
 				932D255B2B7CC78F00B99FA3 /* MapDetailView.swift in Sources */,
 				93822B4B2AFA85E500989255 /* ForgotPasswordRouter.swift in Sources */,
-				93364FF52B93846600C430DB /* BaseTextField.swift in Sources */,
 				93CE90892AF7D5CC0025FBB0 /* VetMapPresenter.swift in Sources */,
 				93AA9BBB2B9F823B00942F16 /* VeterinaryDetailViewController.swift in Sources */,
 				9378A8EB2BD7C9660064FE2C /* DateListInfoInteractor.swift in Sources */,
 				931D709D2BBD9EDE0012E7D1 /* Validation.swift in Sources */,
 				930493912BCAFD24004026FE /* Network.swift in Sources */,
-				9399E1942BAEC67A00D3D077 /* FormValidation.swift in Sources */,
 				932D25592B7BFFCD00B99FA3 /* PetDetailRouter.swift in Sources */,
 				93CE908F2AF7D5F50025FBB0 /* SettingsInteractor.swift in Sources */,
 				93364FD32B8F3D3600C430DB /* NewPasswordPresenter.swift in Sources */,
@@ -2273,44 +2135,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		931D70652BB89FC90012E7D1 /* XCRemoteSwiftPackageReference "TweeTextField" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/oleghnidets/TweeTextField.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.6.4;
-			};
-		};
 		93262B432AEBD1360047A79F /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.4.1;
-			};
-		};
-		932D25782B82695800B99FA3 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
-			};
-		};
-		9378A8DA2BD6E6140064FE2C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.9.1;
-			};
-		};
-		9378A8DD2BD6E6670064FE2C /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

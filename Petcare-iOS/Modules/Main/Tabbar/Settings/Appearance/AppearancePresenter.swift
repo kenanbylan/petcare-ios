@@ -21,7 +21,7 @@ final class ApperancePresenter {
     let router: AppearanceRouterProtocol?
     let interactor: AppearanceInteractorProtocol?
     
-
+    
     //MARK: Variable's
     var title:String = "Appearance"
     
@@ -49,27 +49,16 @@ extension ApperancePresenter: AppearancePresenterProtocol {
     func didSelectRowAt(index: Int) {
         switch index {
         case 0: // Dark Mode
-            UIApplication.shared.windows.forEach { window in
-                window.overrideUserInterfaceStyle = .dark
-            }
-            UserDefaults.standard.set(AppTheme.dark.rawValue, forKey: "selectedTheme")
-        case 1: // Light Mode
-            UIApplication.shared.windows.forEach { window in
-                window.overrideUserInterfaceStyle = .light
-            }
-            UserDefaults.standard.set(AppTheme.light.rawValue, forKey: "selectedTheme")
-
-        case 2: // Device Mode
-            if #available(iOS 13.0, *) {
-                UIApplication.shared.windows.forEach { window in
-                    window.overrideUserInterfaceStyle = .unspecified
-                }
-                UserDefaults.standard.set(AppTheme.device.rawValue, forKey: "selectedTheme")
-            }
-        default:
-            
             break
-        }   
+            
+        case 1: // Light Mode
+            break
+            
+        case 2: // Device Mode
+            break
+        default:
+            break
+        }
     }
     
     func viewDidLoad() {

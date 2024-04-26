@@ -140,9 +140,3 @@ class PetDetailViewController: UIViewController {
 extension PetDetailViewController: PetDetailViewProtocol {
     func setupUI() { }
 }
-
-struct MyTestVsC_Previews: PreviewProvider {
-    static var previews: some View {
-        PetDetailViewController().showPreview()
-    }
-}

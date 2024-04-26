@@ -23,7 +23,6 @@ final class DocumentVerifyPresenter {
         self.router = router
         self.interactor = interactor
         self.data = data
-        
     }
 }
 
@@ -33,7 +32,8 @@ extension DocumentVerifyPresenter: DocumentVerifyPresenterProtocol {
     func navigateMain() { }
     
     func navigateToResult() {
-        router?.navigateToResult()
+        print("DocumentVerifyData : \(data!)")
+        router?.navigateToResult(data: data!)
     }
 }
 

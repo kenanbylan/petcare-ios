@@ -126,22 +126,17 @@ final class AddressVerifyViewController: UIViewController {
     private func validateTextfield()  {
         do {
             let clinicName = try clinicName.validatedText(validationType: .requiredField(field: "ADDRESS_VERIFY_clinic_name".localized()))
-            
             let clinicPhone = try clinicPhoneNumber.validatedText(validationType: .phone)
-            
             let city = try cityTextField.validatedText(validationType: .requiredField(field: "ADDRESS_VERIFY_city_name".localized()))
             let district = try districtTextField.validatedText(validationType: .requiredField(field: "ADDRESS_VERIFY_disctirct_name".localized()))
             let street = try streetTextField.validatedText(validationType: .requiredField(field: "ADDRESS_VERIFY_street_name".localized()))
-            
             let no = try apartmentTextField.validatedText(validationType: .number)
-            
             let mesken = try houseTextField.validatedText(validationType: .requiredField(field: "ADDRESS_VERIFY_no_mesken".localized()))
             
-            let address = VetAddress(clinicName: clinicName, clinicCity: city, clinicDiscrict: district, clinicStreet: street, clinicNo: no, apartmentNo: mesken)
+            let address = VetAddress(clinicName: clinicName, clinicCity: city,phone: clinicPhone, clinicDiscrict: district, clinicStreet: street, clinicNo: no, apartmentNo: mesken)
             
             presenter?.saveVetAddressData(address: address)
             presenter?.navigateDocumentVerify()
-            
         } catch (let error) {
             showAlert(for: (error as! ValidationError).message)
         }
@@ -188,7 +183,7 @@ extension AddressVerifyViewController: ViewCoding {
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor,constant: 30),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor,constant: -100),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
             // Address ImageView Constraints

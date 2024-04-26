@@ -102,7 +102,6 @@ final class ReminderCell: UICollectionViewCell {
         ])
     }
 
-    // Add animation for button tap (example using a basic scale animation)
     @objc private func handleTrashButtonTap(_ sender: UIButton) {
         let animation = CABasicAnimation(keyPath: "transform.scale")
         animation.fromValue = 1.0
@@ -110,8 +109,6 @@ final class ReminderCell: UICollectionViewCell {
         animation.duration = 0.1
         animation.repeatCount = 2
         animation.autoreverses = true
-        trashButton.layer.add(animation, forKey: nil)
-        
-        // Handle actual trash button functionality here (e.g., call delegate method)
+        trashButton.layer.add(animation, forKey: nil)        
     }
 }

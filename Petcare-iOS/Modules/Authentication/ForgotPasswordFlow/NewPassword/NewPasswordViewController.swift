@@ -8,7 +8,6 @@
 import UIKit
 
 final class NewPasswordViewController: UIViewController {
-    
     private lazy var stackView: CustomStackView = {
         let stack = CustomStackView()
         stack.axis = .vertical

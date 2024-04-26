@@ -19,16 +19,12 @@ final class NearbyListTableViewCell: UITableViewCell {
     private lazy var address: CustomLabel = {
         let label = CustomLabel(text: "Çınar Mahallesi 747.Sok no:16 daire:2 Bağcılar/İstanbul", fontSize: 14, fontType: .regular, textColor: AppColors.labelColor)
         label.numberOfLines = 0
-//        label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-//        label.setContentHuggingPriority(.defaultLow, for: .vertical)
         return label
     }()
     
     private lazy var distance: CustomLabel = {
         let label = CustomLabel(text: "1.4 KM", fontSize: 14, fontType: .regular, textColor: AppColors.labelColor)
         label.textAlignment = .right
-        
-//        label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal) // Yatayda sıkıştırılmayı artır
         return label
     }()
     
