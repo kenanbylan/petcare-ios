@@ -23,7 +23,7 @@ final class SplashInteractor: SplashInteractorProtocol {
     var output: SplashInteractorOutputProtocol?
     
     func checkInternetConnection() {
-        let internet = NetworkMonitor.shared.isConnected
+        let internet = false
         self.output?.internetConnectionStatus(internet)
     }
     

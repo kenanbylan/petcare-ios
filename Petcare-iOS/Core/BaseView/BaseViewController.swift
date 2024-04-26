@@ -32,17 +32,7 @@ class BaseViewController: UIViewController {
     }
     
     private func networkControl() {
-        if NetworkMonitor.shared.isConnected {
-            print("You're connected")
-            
-            AlertView.shared.showAlert(title: "Title", message: "Message", buttonType: .multiButton, onPrimaryTapped: {
-                print("Primary button tapped")
-            }, onSecondaryTapped: {
-                print("Secondary button tapped")
-            })
-        } else {
-            
-        }
+        
     }
     
     fileprivate func setNavigationBar() {

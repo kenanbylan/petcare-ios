@@ -34,9 +34,9 @@ extension AddressVerifyPresenter: AddressVerifyPresenterProtocol {
         self.clinicAddress = address
     }
     
-
+    
     func viewDidLoad() { }
-  
+    
     func navigateDocumentVerify() {
         guard let userInfo = userInfo else {
             return
@@ -47,9 +47,9 @@ extension AddressVerifyPresenter: AddressVerifyPresenterProtocol {
                                        surname: userInfo.surname,
                                        email: userInfo.email,
                                        password: userInfo.password,
-                                       vetInfo: VetInformation(address: clinicAddress!))
+                                       vetInfo: clinicAddress)
         
-        router?.navigateToDocumentVerify(data: data) 
+        router?.navigateToDocumentVerify(data: data)
     }
 }
 

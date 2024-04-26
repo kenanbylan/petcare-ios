@@ -8,7 +8,7 @@ import Foundation
 import UIKit
 
 protocol DocumentVerifyRouterProtocol: AnyObject {
-    func navigateToResult() -> Void
+    func navigateToResult(data: UserRegisterRequest) -> Void
 }
 
 final class DocumentVerifyRouter: DocumentVerifyRouterProtocol {
@@ -32,8 +32,8 @@ final class DocumentVerifyRouter: DocumentVerifyRouterProtocol {
         return view
     }
     
-    func navigateToResult() {
-        let page = CodeVerificationRouter.build(navigationController: navigationController,window: window)
-        navigationController?.present(page, animated: true)
+    func navigateToResult(data: UserRegisterRequest) {
+        let accountEnable = EmailVerificationRouter.build(navigationController: navigationController, emailAddress: data.email)
+        self.navigationController?.pushViewController(accountEnable, animated: true)
     }
 }

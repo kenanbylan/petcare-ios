@@ -20,7 +20,6 @@ final class ResultVerifyRouter: ResultVerifyRouterProtocol {
     }
     
     static func build(navigationController: UINavigationController?) -> ResultVerifyViewController {
- 
         let view = ResultVerifyViewController()
         let router = ResultVerifyRouter(navigationController: navigationController)
         let interactor = ResultVerifyInteractor()
@@ -31,6 +30,6 @@ final class ResultVerifyRouter: ResultVerifyRouterProtocol {
         return view
     }
     
-    func backToLogin() {
-    }
+    func backToLogin() { }
+    
 }

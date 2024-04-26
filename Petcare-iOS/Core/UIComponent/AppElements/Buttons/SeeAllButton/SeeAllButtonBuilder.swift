@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 final class SeeAllButtonBuilder {
     private var originalImage: UIImage?
     private var targetHeight: CGFloat = 20.0

@@ -18,18 +18,14 @@ struct UserRegisterRequest {
     var email: String
     var password: String
     
-    var vetInfo: VetInformation?
+    var vetInfo: VetAddress?
     var document: VetDocument?
+    
 }
-
-struct VetInformation {
-    var address: VetAddress
-    var phone: String?
-}
-
 struct VetAddress {
     var clinicName: String?
     var clinicCity: String?
+    var phone: String?
     var clinicDiscrict: String?
     var clinicStreet: String?
     var clinicNo: String?
@@ -47,4 +43,3 @@ enum VetDocumentStatus {
     case PENDING
     case REJECTED
 }
-

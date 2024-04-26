@@ -97,6 +97,7 @@ extension DocumentVerifyViewController {
         let imageAction = UIAlertAction(title: "DocumentVerifyView_BottomSheet_IMAGE".localized(), style: .default) { _ in
             self.showImagePicker()
         }
+        
         let pdfAction = UIAlertAction(title: "DocumentVerifyView_BottomSheet_pdf".localized(), style: .default) { _ in
             self.showDocumentPicker()
         }
@@ -131,6 +132,7 @@ extension DocumentVerifyViewController: UIImagePickerControllerDelegate & UINavi
         do {
             let pdfData = try Data(contentsOf: selectedFileURL)
             //MARK: - burada kaydedilecek
+            
         } catch {
             print("PDF dosyasını veriye dönüştürme hatası: \(error)")
         }
