@@ -8,21 +8,24 @@
 import Foundation
 
 ///http://localhost:8081/api/v1/auth/activate-account?token=597459a
-struct EmaiVerificationRequest: DataRequest {
+
+struct EmailVerificationRequest: DataRequest {
     typealias Response = EmailVerificationResponse
     let verifyCode: String
     
     var url: String {
-        return APIConfig(environment: .development).baseURL() + "auth/activate-account?token=\(verifyCode)"
+        let baseURL = APIConfig(environment: .development).baseURL()
+        let encodedVerifyCode = verifyCode.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        return "\(baseURL)auth/activate-account?token=\(encodedVerifyCode)"
     }
     
     var method: HTTPMethod = .get
     
     var headers: [String: String]? {
-        return ["application/json": "Content-Type"]
+        return ["Content-Type": "application/json"]
     }
 }
 
 struct EmailVerificationResponse: Codable {
-    //let status: Int
+    let message: String
 }

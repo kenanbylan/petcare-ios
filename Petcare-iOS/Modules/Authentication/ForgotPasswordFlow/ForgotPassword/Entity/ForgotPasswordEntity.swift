@@ -7,20 +7,11 @@
 
 import Foundation
 
-struct ForgotPasswordRequest: Codable {
-    var email: String
-}
-
-struct ForgotPasswordResponse: Codable {
-    var code: String
-    
-}
-
 
 struct ForgotPasswordDTO: DataRequest {
     typealias Response = ForgotPasswordResponse
 
-    var url: String = APIConfig(environment: .development).baseURL() + "/forgotpassword"
+    var url: String = APIConfig(environment: .development).baseURL() + "/sendResetPasswordEmail"
     let method: HTTPMethod = .post
     var contentType: String? { "application/json" } // Content-Type belirtildi
 

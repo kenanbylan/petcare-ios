@@ -16,7 +16,7 @@ final class DefaultNetworkService: NetworkService {
         guard var urlComponent = URLComponents(string: request.url) else {
             return completion(.failure(.init(ebusinessCode: "Invalid URL Component's",businessErrorDetails: nil,error: nil)))
         }
-        
+    
         var queryItems: [URLQueryItem] = []
         
         request.queryItems.forEach {
@@ -39,10 +39,10 @@ final class DefaultNetworkService: NetworkService {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
-        urlRequest.allHTTPHeaderFields = request.headers // header eklendi.
+        urlRequest.allHTTPHeaderFields = request.headers
         urlRequest.httpBody = request.body
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type") // Content-Type ayarlandı
-        
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if let error = error {
@@ -67,7 +67,7 @@ final class DefaultNetworkService: NetworkService {
                     completion(.failure(.init(ebusinessCode: nil, businessErrorDetails: nil, error: error.localizedDescription)))
                 }
                 
-            case 400:
+            case 400,401,403,422:
                 guard let data = data else {
                     completion(.failure(.init(ebusinessCode: "\(httpResponse.statusCode)", businessErrorDetails: nil, error: "Data decoding error")))
                     return

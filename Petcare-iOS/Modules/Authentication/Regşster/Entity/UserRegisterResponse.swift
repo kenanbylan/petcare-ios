@@ -7,12 +7,33 @@
 
 import Foundation
 
-struct UserRegisterResponse: Decodable {
-    var id: String?
-    var createdAt: String?
-    var updatedAt: String?
-    var name: String?
-    var surname: String?
-    var email: String?
-    var role: String?
+struct RegisterRequest: DataRequest {
+    typealias Response = UserRegisterResponse
+    
+    var url: String {
+        return APIConfig(environment: .development).baseURL() + "auth/register"
+    }
+    
+    var method: HTTPMethod = .post
+    
+    //    var userRegister: UserRegisterRequest
+    var role: String
+    var name: String
+    var surname: String
+    var email: String
+    var password: String
+    
+    var body: Data? {
+        let bodyDict = ["role": role, "name": name, "surname": surname, "email": email, "password": password]
+        
+        do {
+            return try JSONSerialization.data(withJSONObject: bodyDict, options: [])
+        } catch {
+            return nil
+        }
+    }
+}
+
+struct UserRegisterResponse: Codable {
+    let message: String?
 }

@@ -37,8 +37,6 @@ extension UIViewController: UITextFieldDelegate {
             let alertController = UIAlertController(title: "Uyarı", message: alert, preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(alertAction)
-            
-            //TODO:
             self.present(alertController, animated: true, completion: nil)
         }
     }

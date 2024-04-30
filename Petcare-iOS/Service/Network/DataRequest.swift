@@ -23,7 +23,7 @@ protocol DataRequest {
     var headers: [String : String] { get }
     var queryItems: [String : String] { get }
     var body: Data? { get }
-    func decode(_ data: Data) throws -> Response // New decoding method
+    func decode(_ data: Data) throws -> Response
 }
 
 extension DataRequest where Response: Decodable {

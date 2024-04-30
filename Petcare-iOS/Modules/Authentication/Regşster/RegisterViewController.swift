@@ -7,7 +7,8 @@
 import UIKit
 
 protocol RegisterViewProtocol: AnyObject {
-    func updateCreateButtonState(isEnabled: Bool, color: UIColor)
+    func showAlertMessage(message: String, type: ROLE) -> Void
+    func showAlertFailure(message: String) -> Void
 }
 
 final class RegisterViewController: BaseViewController {
@@ -96,6 +97,7 @@ final class RegisterViewController: BaseViewController {
     
     @objc func createButtonTapped() {
         validateTextfield()
+        //presenter.navigateToVetAddress()
     }
     
     private func validateTextfield() {
@@ -106,16 +108,14 @@ final class RegisterViewController: BaseViewController {
             let password = try passwordTextfield.validatedText(validationType: .password)
             let confirmPassword = try confirmPasswordTextfield.validatedText(validationType: .confirmPassword(password: password))
             
-            var role: ROLE = typeRegisterSegmentedControl.selectedSegmentIndex == 0 ? .USER : .VETERINARY
+            let role: ROLE = typeRegisterSegmentedControl.selectedSegmentIndex == 0 ? .USER : .VETERINARY
             let data = UserRegisterRequest(role: role,
                                            name: name,
                                            surname: lastname,
                                            email: emailAddress,
                                            password: password)
             presenter.saveUser(data)
-            showAlert(for: role == .USER ? "REGISTER_USER_ALERT".localized() : "REGISTER_VET_ALERT".localized()) {
-                role == .USER ? self.presenter.navigateAccountEnable() : self.presenter.navigateToVetAddress()
-            }
+            presenter.fetchRequest()
             
         } catch(let error) {
             showAlert(for: (error as! ValidationError).message)
@@ -156,6 +156,24 @@ extension RegisterViewController {
             self.scrollView.contentInset = UIEdgeInsets.zero
             self.scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
             self.isExpand = false
+        }
+    }
+}
+
+extension RegisterViewController: RegisterViewProtocol {
+    func showAlertFailure(message: String) {
+        showAlert(for: message)
+    }
+    
+    func showAlertMessage(message: String, type: ROLE) {
+        if type == .USER {
+            showAlert(title: "Success", message: message, type: .alert) {
+                self.presenter.navigateToEmailAddress()
+            }
+        } else if type == .VETERINARY {
+            showAlert(title: "Success", message: message, type: .alert) {
+                self.presenter.navigateToVetAddress()
+            }
         }
     }
 }
@@ -207,9 +225,3 @@ extension RegisterViewController: ViewCoding {
     }
 }
 
-extension RegisterViewController: RegisterViewProtocol {
-    func updateCreateButtonState(isEnabled: Bool, color: UIColor) {
-        createAccountButton.isEnabled = isEnabled
-        createAccountButton.backgroundColor = color
-    }
-}

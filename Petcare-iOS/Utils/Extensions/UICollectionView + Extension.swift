@@ -22,5 +22,4 @@ extension UICollectionView {
         let identifier = String(describing: T.self)
         return dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! T
     }
-    
 }

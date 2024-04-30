@@ -5,13 +5,6 @@
 import Foundation
 import UIKit
 
-enum LoginState {
-    case loading
-    case success
-    case failed
-    case none
-}
-
 protocol LoginPresenterProtocol {
     func viewDidload() -> Void
     func navigateMain() -> Void
@@ -43,7 +36,8 @@ extension LoginPresenter: LoginPresenterProtocol {
     func viewDidload() { }
     
     func navigateMain() {
-        interactor?.login(user: userData!)
+        //interactor?.login(user: userData!)
+        router?.navigateToMain()
     }
     
     func navigateToVeterinaryMain() {
@@ -63,7 +57,6 @@ extension LoginPresenter: LoginInteractorOutput {
     func registrationSuccess(user: LoginResponse) {
         print("Presenter: \(user)")
         //MARK: -eğer login doğru ise gelen role göre user ya veterinery akışına yada user'a gidecektir.
-        
     }
     
     func registrationFailure(error: ExceptionErrorHandle) {

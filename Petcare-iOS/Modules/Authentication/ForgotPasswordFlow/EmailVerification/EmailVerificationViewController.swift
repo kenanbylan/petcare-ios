@@ -25,7 +25,7 @@ final class EmailVerificationViewController: UIViewController {
         let label = CustomLabel(text: "EmailVerification_header".localized(), fontSize: 17, fontType: .medium, textColor: AppColors.primaryColor)
         return label
     }()
- 
+    
     
     private lazy var infoTextLabel: CustomLabel = {
         let email = presenter?.setEmailAddress() ?? "example@gmail.com"
@@ -62,12 +62,10 @@ final class EmailVerificationViewController: UIViewController {
     
     private func validateTextfield() {
         do {
-            var code = try  verificationTextfield.validatedText(validationType: .number)
-
-            showAlert(for: "Account is Active") {
-                self.presenter?.saveCode(code: code)
-                self.presenter?.navigateLogin()
-            }
+            let  code = try  verificationTextfield.validatedText(validationType: .number)
+            
+            self.presenter?.saveCode(code: code)
+            self.presenter?.navigateLogin()
             
         } catch(let error) {
             showAlert(for: (error as! ValidationError).message)

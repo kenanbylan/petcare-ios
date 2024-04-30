@@ -7,142 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "20C72140-CF9F-4381-B7C3-9EE7D0F9485F"
+            uuid = "4741E118-A91C-4476-A6D0-B190CD020356"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Petcare-iOS/Core/Reachability/NetworkMonitor.swift"
+            filePath = "Petcare-iOS/Modules/Authentication/Login/LoginPresenter.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "NetworkMonitor"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D1F25615-097F-4E7D-BE27-4B126B894422"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Petcare-iOS/Modules/Authentication/Login/LoginInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "login(user:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D1F25615-097F-4E7D-BE27-4B126B894422 - b018450d7274abbc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Petcare.LoginResponse, Petcare.ExceptionErrorHandle&gt;) -&gt; () in Petcare.LoginInteractor.login(user: Petcare.LoginRequest) -&gt; ()"
-                  moduleName = "Petcare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kenanbaylan/Desktop/Petcare-iOS/Petcare-iOS/Modules/Authentication/Login/LoginInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35">
-               </Location>
-               <Location
-                  uuid = "D1F25615-097F-4E7D-BE27-4B126B894422 - b018450d7274abbc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Petcare.LoginResponse, Petcare.ExceptionErrorHandle&gt;) -&gt; () in Petcare.LoginInteractor.login(user: Petcare.LoginRequest) -&gt; ()"
-                  moduleName = "Petcare"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/kenanbaylan/Desktop/Petcare-iOS/Petcare-iOS/Modules/Authentication/Login/LoginInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0574829D-9BE0-42D3-9032-1EF3E8C6B94A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Petcare-iOS/Modules/Authentication/Regs&#x327;ster/RegisterPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "navigateToVetAddress()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9ED5A48F-CDD3-4444-8CE2-04E258004350"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Petcare-iOS/Modules/Authentication/Regs&#x327;ster/RegisterPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "saveUser(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "99D378F4-A46C-4D5B-A69D-C420C1A1FC05"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Petcare-iOS/Modules/Authentication/Regs&#x327;ster/RegisterRouter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "navigateToVetAddress(userInfo:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A675FDA1-D4A9-426D-AC44-27D2C80BB806"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Petcare-iOS/Modules/Authentication/Regs&#x327;ster/VeterinaryClinicKYC/AddressVerify/AddressVerifyPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "navigateDocumentVerify()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BDF8CBF6-0225-4D05-B1DD-5E413C299EC5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Petcare-iOS/Modules/Authentication/Regs&#x327;ster/VeterinaryClinicKYC/DocumentVerify/DocumentVerifyPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "navigateToResult()"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "registrationSuccess(user:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

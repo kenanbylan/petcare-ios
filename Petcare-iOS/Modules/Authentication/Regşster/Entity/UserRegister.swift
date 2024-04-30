@@ -6,7 +6,7 @@
 
 import Foundation
 
-enum ROLE {
+enum ROLE: String {
     case USER
     case VETERINARY
 }
@@ -21,7 +21,17 @@ struct UserRegisterRequest {
     var vetInfo: VetAddress?
     var document: VetDocument?
     
+    init(role: ROLE, name: String, surname: String, email: String, password: String, vetInfo: VetAddress? = nil, document: VetDocument? = nil) {
+        self.role = role
+        self.name = name
+        self.surname = surname
+        self.email = email
+        self.password = password
+        self.vetInfo = vetInfo
+        self.document = document
+    }
 }
+
 struct VetAddress {
     var clinicName: String?
     var clinicCity: String?
@@ -31,7 +41,6 @@ struct VetAddress {
     var clinicNo: String?
     var apartmentNo: String?
 }
-
 
 struct VetDocument {
     var document: Data?

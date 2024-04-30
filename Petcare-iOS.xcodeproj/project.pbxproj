@@ -145,12 +145,12 @@
 		93822B3D2AF9887C00989255 /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B3C2AF9887C00989255 /* RegisterInteractor.swift */; };
 		93822B3F2AF9888600989255 /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B3E2AF9888600989255 /* RegisterPresenter.swift */; };
 		93822B412AF9888B00989255 /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B402AF9888B00989255 /* RegisterRouter.swift */; };
-		93822B432AFA85B500989255 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93822B422AFA85B500989255 /* ForgotPassword.storyboard */; };
 		93822B452AFA85BF00989255 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B442AFA85BF00989255 /* ForgotPasswordViewController.swift */; };
 		93822B472AFA85C800989255 /* ForgotPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B462AFA85C800989255 /* ForgotPasswordPresenter.swift */; };
 		93822B492AFA85DE00989255 /* ForgotPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B482AFA85DE00989255 /* ForgotPasswordInteractor.swift */; };
 		93822B4B2AFA85E500989255 /* ForgotPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93822B4A2AFA85E500989255 /* ForgotPasswordRouter.swift */; };
 		938786502BDC54BD008C8C88 /* SeeAllButon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9387864F2BDC54BD008C8C88 /* SeeAllButon.swift */; };
+		9387876E2BDEE30F008C8C88 /* ForgotPasswordDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9387876D2BDEE30F008C8C88 /* ForgotPasswordDTO.swift */; };
 		938901D82BD5037600183EEC /* TestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938901D72BD5037600183EEC /* TestRequest.swift */; };
 		938901DB2BD5095500183EEC /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938901DA2BD5095500183EEC /* APIEnvironment.swift */; };
 		938901DD2BD509CD00183EEC /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938901DC2BD509CD00183EEC /* APIConfig.swift */; };
@@ -390,12 +390,12 @@
 		93822B3C2AF9887C00989255 /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
 		93822B3E2AF9888600989255 /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
 		93822B402AF9888B00989255 /* RegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
-		93822B422AFA85B500989255 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		93822B442AFA85BF00989255 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		93822B462AFA85C800989255 /* ForgotPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordPresenter.swift; sourceTree = "<group>"; };
 		93822B482AFA85DE00989255 /* ForgotPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordInteractor.swift; sourceTree = "<group>"; };
 		93822B4A2AFA85E500989255 /* ForgotPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRouter.swift; sourceTree = "<group>"; };
 		9387864F2BDC54BD008C8C88 /* SeeAllButon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllButon.swift; sourceTree = "<group>"; };
+		9387876D2BDEE30F008C8C88 /* ForgotPasswordDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordDTO.swift; sourceTree = "<group>"; };
 		938901D72BD5037600183EEC /* TestRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRequest.swift; sourceTree = "<group>"; };
 		938901DA2BD5095500183EEC /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
 		938901DC2BD509CD00183EEC /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
@@ -501,12 +501,11 @@
 		93048EDB2B09503F000BD03A /* ForgotPassword */ = {
 			isa = PBXGroup;
 			children = (
+				9387876A2BDEE2E1008C8C88 /* Entity */,
 				93822B4A2AFA85E500989255 /* ForgotPasswordRouter.swift */,
 				93822B482AFA85DE00989255 /* ForgotPasswordInteractor.swift */,
 				93822B462AFA85C800989255 /* ForgotPasswordPresenter.swift */,
 				93822B442AFA85BF00989255 /* ForgotPasswordViewController.swift */,
-				93822B422AFA85B500989255 /* ForgotPassword.storyboard */,
-				938901DF2BD518AC00183EEC /* ForgotPasswordEntity.swift */,
 			);
 			path = ForgotPassword;
 			sourceTree = "<group>";
@@ -1215,6 +1214,15 @@
 			path = SettingsView;
 			sourceTree = "<group>";
 		};
+		9387876A2BDEE2E1008C8C88 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				938901DF2BD518AC00183EEC /* ForgotPasswordEntity.swift */,
+				9387876D2BDEE30F008C8C88 /* ForgotPasswordDTO.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		938901D92BD5092500183EEC /* NetworkHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -1595,7 +1603,6 @@
 				9337801B2ADA7DAA00103273 /* Assets.xcassets in Resources */,
 				93048F062B0966DB000BD03A /* Poppins-Regular.ttf in Resources */,
 				933780192ADA7DA800103273 /* Main.storyboard in Resources */,
-				93822B432AFA85B500989255 /* ForgotPassword.storyboard in Resources */,
 				93048F042B0966DB000BD03A /* Poppins-Medium.ttf in Resources */,
 				93048F022B0966DB000BD03A /* Poppins-Bold.ttf in Resources */,
 				93048F162B0AA08B000BD03A /* Localizable.strings in Resources */,
@@ -1708,6 +1715,7 @@
 				93C46E0E2B04EB310055BA0F /* UINavigationController + Extension.swift in Sources */,
 				93AA9BC92BA4C63B00942F16 /* ApproveResultViewController.swift in Sources */,
 				933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */,
+				9387876E2BDEE30F008C8C88 /* ForgotPasswordDTO.swift in Sources */,
 				932D25572B7BFFC600B99FA3 /* PetDetailPresenter.swift in Sources */,
 				933A22272B473C2700854DB0 /* UINavigationItem + Extension.swift in Sources */,
 				938901E02BD518AC00183EEC /* ForgotPasswordEntity.swift in Sources */,

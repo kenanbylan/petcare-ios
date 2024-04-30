@@ -15,6 +15,9 @@ protocol RegisterPresenterProtocol {
     func navigateToForgotPassword() -> Void
     func navigateAccountEnable() -> Void
     func saveUser(_ data: UserRegisterRequest)
+    func registerAccount(_ data: UserRegisterRequest)
+    func navigateToEmailAddress() -> Void
+    func fetchRequest() -> Void
 }
 
 final class RegisterPresenter {
@@ -31,8 +34,17 @@ final class RegisterPresenter {
 }
 
 extension RegisterPresenter: RegisterPresenterProtocol {
+    func registerAccount(_ data: UserRegisterRequest) {
+        interactor?.registerUser(registerUser: data)
+    }
+    
     func saveUser(_ data: UserRegisterRequest) {
         userData = data
+    }
+    
+    func fetchRequest() {
+        guard let userData = userData else { return }
+        interactor?.registerUser(registerUser: userData)
     }
     
     func viewDidLoad() { }
@@ -50,6 +62,11 @@ extension RegisterPresenter: RegisterPresenterProtocol {
     }
     
     func navigateAccountEnable() {
+        guard let userData = userData else { return }
+        interactor?.registerUser(registerUser: userData)
+    }
+    
+    func navigateToEmailAddress() {
         router?.navigateAccountEnable(userInfo: userData!)
     }
     
@@ -58,12 +75,22 @@ extension RegisterPresenter: RegisterPresenterProtocol {
     }
 }
 
+
 extension RegisterPresenter: RegisterInteractorOutput {
-    func registrationSuccess() {
-        //MARK: -Kayıt başarılı diye bir mesaj alıp ardından login ekranına yönlendirilecektir.
+    //TODO: - Ask here
+    func registrationSuccess(response: UserRegisterResponse) {
+        if !(response.message == nil)  {
+            if userData?.role == .USER {
+                self.view?.showAlertMessage(message: response.message ??  "TEST", type: .USER)
+            } else if userData?.role == .VETERINARY {
+                self.view?.showAlertMessage(message: response.message ??  "TEST", type: .VETERINARY)
+                router?.navigateToVetAddress(userInfo: userData!)
+            }
+        }
+        view?.showAlertFailure(message: response.message ?? "nil")
     }
     
-    func registrationFailure(error: Error) {
-        
+    func registrationFailure(error: ExceptionErrorHandle) {
+        view?.showAlertFailure(message: error.error ?? "error message is nil")
     }
 }

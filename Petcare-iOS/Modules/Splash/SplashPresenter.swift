@@ -39,6 +39,6 @@ extension SplashPresenter: SplashInteractorOutputProtocol {
     }
     
     func userSessionStatus(_ loggedIn: Bool) {
-        router?.navigateToLogin()
+        router?.navigateToOnboarding()
     }
 }

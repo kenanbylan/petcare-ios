@@ -5,9 +5,6 @@
 //  Created by Kenan Baylan on 6.11.2023.
 
 import Foundation
-import UIKit
-
-import Foundation
 import UIKit.UINavigationController
 
 protocol RegisterRouterProtocol: AnyObject {
@@ -59,9 +56,8 @@ final class RegisterRouter: RegisterRouterProtocol {
         self.navigationController?.pushViewController(vetAddress, animated: true)
     }
     
-    
     func navigateAccountEnable(userInfo: UserRegisterRequest) {
-        let accountEnable = EmailVerificationRouter.build(navigationController: navigationController, emailAddress: userInfo.email)
+        let accountEnable = EmailVerificationRouter.build(navigationController: self.navigationController, emailAddress: userInfo.email)
         self.navigationController?.pushViewController(accountEnable, animated: true)
     }
 }

@@ -131,7 +131,8 @@ extension LoginViewController: LoginViewProtocol {
     }
     
     @objc func loginButtonTapped(_ sender: Any) {
-        validateTextfield()
+       // validateTextfield()
+        presenter.navigateMain()
     }
     
     @objc func signUpButtonTapped(_ sender: Any) {

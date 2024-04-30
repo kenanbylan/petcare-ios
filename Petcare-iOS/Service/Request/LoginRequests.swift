@@ -5,7 +5,6 @@
 //  Created by Kenan Baylan on 13.04.2024.
 
 import Foundation
-import Network
 
 struct LoginRequests: DataRequest {
     typealias Response = LoginResponse // Response type

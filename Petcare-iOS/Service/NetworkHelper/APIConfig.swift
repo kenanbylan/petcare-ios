@@ -15,4 +15,4 @@ struct APIConfig {
     }
 }
 
-/// MARK: print(config.baseURL()) //Output: http://192.168.1.7:8080/api/v1
+/// MARK: print(config.baseURL()) //Output: http://localhost:8080/api/v1

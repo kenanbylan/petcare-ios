@@ -15,4 +15,3 @@ struct LoginResponse: Codable {
     var token: String?
     var refreshToken: String?
 }
-
