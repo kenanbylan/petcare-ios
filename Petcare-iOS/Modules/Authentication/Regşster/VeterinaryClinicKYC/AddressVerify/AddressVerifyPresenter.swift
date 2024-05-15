@@ -8,7 +8,6 @@
 import Foundation
 
 protocol AddressVerifyPresenterProtocol {
-    func viewDidLoad() -> Void
     func navigateDocumentVerify() -> Void
     func saveVetAddressData(address: VetAddress) -> Void
 }
@@ -34,20 +33,17 @@ extension AddressVerifyPresenter: AddressVerifyPresenterProtocol {
         self.clinicAddress = address
     }
     
-    
-    func viewDidLoad() { }
-    
     func navigateDocumentVerify() {
         guard let userInfo = userInfo else {
             return
         }
         
-        let data = UserRegisterRequest(role: userInfo.role,
-                                       name: userInfo.name,
+        let data = UserRegisterRequest(name: userInfo.name,
                                        surname: userInfo.surname,
                                        email: userInfo.email,
                                        password: userInfo.password,
-                                       vetInfo: clinicAddress)
+                                       role: userInfo.role,
+                                       address: clinicAddress)
         
         router?.navigateToDocumentVerify(data: data)
     }

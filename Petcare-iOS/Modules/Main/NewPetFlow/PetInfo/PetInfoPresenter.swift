@@ -37,7 +37,7 @@ final class PetInfoPresenter {
 }
 
 extension PetInfoPresenter: PetInfoPresenterProtocol {
-    
+
     func savePetInfo(_ data: PetInfoModel) {
         petInfoData = data
     }

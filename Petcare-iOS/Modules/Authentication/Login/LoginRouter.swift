@@ -35,15 +35,20 @@ final class LoginRouter: LoginRouterProtocol {
     }
     
     func navigateToMain() {
-        UIView.animate(withDuration: 0.5, animations: {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.5, animations: {
                 self.window?.rootViewController = MainTabbar()
+                
             }, completion: nil)
+        }
     }
     
     func navigateToVeterinaryMain() {
-        UIView.animate(withDuration: 0.5, animations: {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.5, animations: {
                 self.window?.rootViewController = VeterinaryTabbar()
             }, completion: nil)
+        }
     }
     
     func navigateToSignUp() {

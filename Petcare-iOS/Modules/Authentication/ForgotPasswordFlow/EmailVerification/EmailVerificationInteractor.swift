@@ -8,24 +8,33 @@
 import Foundation
 
 protocol EmailVerificationInteractorProtocol {
-    func codeVerification(email: String) -> Void
+    func codeVerification(code: String, resetPassword: Bool?) -> Void
     
 }
 
 protocol EmailVerificationInteractorOutput {
-    func registrationSuccess(code: String)
-    func registrationFailure(error: Error)
+    func registrationSuccess(message: EmailVerificationResponse)
+    func registrationFailure(error: ExceptionErrorHandle)
 }
 
 final class EmailVerificationInteractor: EmailVerificationInteractorProtocol {
     var output: EmailVerificationInteractorOutput?
-    var networkService: NetworkService
+    private let networkService: NetworkService
     
     init(networkService: NetworkService) {
         self.networkService = networkService
     }
     
-    func codeVerification(email: String) -> Void {
-        
+    func codeVerification(code: String, resetPassword: Bool?) -> Void {
+        let request = EmailVerificationRequest(sendCode: code, resetPassword: resetPassword ?? false)
+        networkService.request(request) { response in
+            switch response {
+            case .success(let res):
+                self.output?.registrationSuccess(message: res)
+            case .failure(let error):
+                print("Error Email Verify: \(error)")
+                self.output?.registrationFailure(error: error)
+            }
+        }
     }
 }

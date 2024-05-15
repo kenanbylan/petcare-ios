@@ -13,7 +13,5 @@ struct ForgotPasswordRequest: Codable {
 }
 
 struct ForgotPasswordResponse: Codable {
-    var code: String
-    
+    var message: String
 }
-

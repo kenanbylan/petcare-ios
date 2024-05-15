@@ -55,4 +55,27 @@ extension String {
             return self
         }
     }
+    
+    func calculateAge() -> String? {
+        let dateFormatter = ISO8601DateFormatter()
+        dateFormatter.formatOptions = [.withFullDate, .withDashSeparatorInDate, .withColonSeparatorInTime, .withColonSeparatorInTimeZone]
+        
+        guard let date = dateFormatter.date(from: self) else {
+            return nil
+        }
+        
+        let calendar = Calendar.current
+        let now = Date()
+        
+        let ageComponents = calendar.dateComponents([.year, .month], from: date, to: now)
+        
+        if let year = ageComponents.year, year == 0, let month = ageComponents.month {
+            return "\(month) months old"
+        } else if let year = ageComponents.year {
+            return "\(year) yo"
+        } else {
+            return nil
+        }
+    }
 }
+

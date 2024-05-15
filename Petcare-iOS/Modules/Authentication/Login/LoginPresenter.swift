@@ -6,12 +6,12 @@ import Foundation
 import UIKit
 
 protocol LoginPresenterProtocol {
-    func viewDidload() -> Void
     func navigateMain() -> Void
     func navigateSignUp() -> Void
     func navigateForgotPassword() -> Void
     func navigateToVeterinaryMain() -> Void
     func saveUser(_ user: LoginRequest)
+    func fetchLogin() -> Void
 }
 
 final class LoginPresenter {
@@ -29,14 +29,16 @@ final class LoginPresenter {
 }
 
 extension LoginPresenter: LoginPresenterProtocol {
+    func fetchLogin() {
+        interactor?.login(user: userData!)
+    }
+    
     func saveUser(_ user: LoginRequest) {
         userData = user
     }
     
-    func viewDidload() { }
-    
+    //MARK: - Router's
     func navigateMain() {
-        //interactor?.login(user: userData!)
         router?.navigateToMain()
     }
     
@@ -55,11 +57,54 @@ extension LoginPresenter: LoginPresenterProtocol {
 
 extension LoginPresenter: LoginInteractorOutput {
     func registrationSuccess(user: LoginResponse) {
-        print("Presenter: \(user)")
-        //MARK: -eğer login doğru ise gelen role göre user ya veterinery akışına yada user'a gidecektir.
+        guard let jwtToken = user.token else { return }
+        do {
+            let decodedPayload = try JWTDecoder().decode(jwtToken: jwtToken)
+            guard let email = decodedPayload["sub"] as? String,
+                  let userId = decodedPayload["user_id"] as? String,
+                  let userRole = decodedPayload["user_role"] as? String,
+                  let expirationTimestamp = decodedPayload["exp"] as? TimeInterval else {
+                return
+            }
+            
+            let refreshToken = user.refreshToken ?? ""
+            TokenManager.shared.updateTokens(accessToken: jwtToken, refreshToken: refreshToken, accessTokenExpirationDate: Date(timeIntervalSince1970: expirationTimestamp), refreshTokenExpirationDate: Date(), userId: userId, email: email, userRole: userRole)
+            
+            if let role = ROLE(rawValue: userRole) {
+                switch role {
+                case .USER:
+                    router?.navigateToMain()
+                case .VETERINARY:
+                    router?.navigateToVeterinaryMain()
+                }
+            } else {
+                //MARK: - burada backendden hesabın enable veya dissable olduğu durumuda gelmelidir. Bu işleme göre kullanıcıya farklı bir message gönderilecektir.
+                view?.showAlertMessage(message: "ROLE Alınamadı.")
+            }
+        } catch {
+            print("Hata oluştu: \(error)")
+        }
     }
     
     func registrationFailure(error: ExceptionErrorHandle) {
         view?.showAlertMessage(message: error.error ?? "error message is nil")
+    }
+    
+    private func decodingTokenMethodGetRole(jwtToken: String) -> ROLE?  {
+        do {
+            let decodedPayload = try TokenManager.shared.decodeJWT(jwtToken)
+
+            print("DECODED PAYLOAD : \(decodedPayload)")
+
+            if let userRoleString = decodedPayload["user_role"] as? String,
+               let userRole = ROLE(rawValue: userRoleString) {
+                return userRole
+            } else {
+                return nil
+            }
+        } catch {
+            print("DECODED PAYLOAD ERROR: \(error)")
+            return nil
+        }
     }
 }

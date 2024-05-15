@@ -3,28 +3,19 @@
 //  Petcare-iOS
 //
 //  Created by Kenan Baylan on 5.11.2023.
-//
 
 import UIKit
-import SwiftUI
 
 protocol HomeViewProtocol: AnyObject {
     func prepareUI()
-}
-
-enum CollectionViewType {
-    case reminder
-    case petAdd
-    case appointment
+    func getPetsSuccess(_ message: String)
+    func getPetsFailure(_ message: String)
 }
 
 final class HomeViewController: UIViewController {
     var presenter: HomePresenterProtocol?
     private var sliderView: SlideView?
     private var sliderData = [SlideView.SlideData]()
-    
-    var collectionViewType: CollectionViewType = .reminder // Örnek bir varsayılan değer
-    
     
     //MARK: UI Properties
     private let scrollView: UIScrollView = {
@@ -162,8 +153,9 @@ final class HomeViewController: UIViewController {
         collectionView.register(PetAvatarCellFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "PetAvatarCellFooter")
         
         reminderCollectionView.register(PetAvatarCellFooter.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "PetAvatarCellFooter")
+        
+        print("Login bilgileri :\(TokenManager.shared.email) , \(TokenManager.shared.userRole) ,\(TokenManager.shared.userId)"  )
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -178,18 +170,6 @@ final class HomeViewController: UIViewController {
         sliderView?.configureView(with: sliderData)
     }
     
-    private func fetchApiFinder() {
-        let name = "dog".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        let url = URL(string: "https://api.api-ninjas.com/v1/animals?name="+name!)!
-        var request = URLRequest(url: url)
-        request.setValue("n+FRtOsmJDY5YH4ELTn83A==pKyZcMz9B0i5Yfur", forHTTPHeaderField: "X-Api-Key")
-        let task = URLSession.shared.dataTask(with: request) {(data, response, error) in
-            guard let data = data else { return }
-            print(String(data: data, encoding: .utf8)!)
-            print("data: \(data)")
-        }
-        task.resume()
-    }
     
     private func setHeader() {
         let titleLabel = UILabel()
@@ -224,7 +204,7 @@ extension HomeViewController: SlideViewProtocol {
 extension HomeViewController: UICollectionViewDataSource , UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionView  {
-            return 4
+            return presenter?.pets.count ?? 1
         }
         return 3
     }
@@ -232,6 +212,10 @@ extension HomeViewController: UICollectionViewDataSource , UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView {
             let cell = collectionView.dequeCell(cellClass: PetAvatarCell.self, indexPath: indexPath)
+            
+            guard let pet = presenter?.pets[indexPath.item] else { return UICollectionViewCell() }
+            cell.configure(with: pet)
+            
             return cell
         }
         
@@ -243,11 +227,14 @@ extension HomeViewController: UICollectionViewDataSource , UICollectionViewDeleg
         return UICollectionViewCell()
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("indexPath: \(indexPath)")
-        
-        presenter?.navigateToPetDetail(detail: indexPath)
+        if collectionView == self.collectionView {
+            guard let pet = presenter?.pets[indexPath.item] else { return }
+            guard let petId = pet.id else { return }
+            print("Tıklanan petId: \(petId)")
+            presenter?.getPetByPetId(petId: petId)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -282,6 +269,14 @@ extension HomeViewController: UICollectionViewDataSource , UICollectionViewDeleg
 }
 
 extension HomeViewController: HomeViewProtocol {
+    func getPetsSuccess(_ message: String) {
+        print("message: \(message)")
+        collectionView.reloadData()
+    }
+    
+    func getPetsFailure(_ message: String) {
+        
+    }
     
     @objc func newPetButton() {
         presenter?.navigateToPetType()
@@ -296,86 +291,90 @@ extension HomeViewController: HomeViewProtocol {
     }
     
     private func setupConstraints() {
-        view.backgroundColor = AppColors.bgColor
-        view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        let hConst = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
-        hConst.isActive = true
-        hConst.priority = UILayoutPriority(50)
-        
-        guard let sliderView = sliderView else { return }
-        contentView.addSubview(sliderView)
-        
-        contentView.addSubview(managePetsSectionLabel)
-        contentView.addSubview(collectionView)
-        contentView.addSubview(secondaryTitleStackView)
-        contentView.addSubview(reminderCollectionView)
-        contentView.addSubview(titleStackView)
-        contentView.addSubview(nearbyView)
-        contentView.addSubview(upComingVeterinaryLabel)
-        contentView.addSubview(upComingVeterinaryView)
-        
-        titleStackView.addArrangedSubview(nearbyVeterinaryLabel)
-        titleStackView.addArrangedSubview(UIView())
-        titleStackView.addArrangedSubview(nearbySeeAllButton)
-        
-        secondaryTitleStackView.addArrangedSubview(reminderVeterinaryLabel)
-        secondaryTitleStackView.addArrangedSubview(UIView())
-        secondaryTitleStackView.addArrangedSubview(reminderButton)
-        
-        sliderView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
+        DispatchQueue.main.async { [weak self]  in
+            guard let self = self else { return }
             
-            scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            view.backgroundColor = AppColors.bgColor
+            view.addSubview(scrollView)
+            scrollView.addSubview(contentView)
+            let hConst = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+            hConst.isActive = true
+            hConst.priority = UILayoutPriority(50)
             
-            contentView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor,constant: -200),
-            contentView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
-            contentView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor),
+            guard let sliderView = sliderView else { return }
+            contentView.addSubview(sliderView)
             
-            sliderView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 24),
-            sliderView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            sliderView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            sliderView.heightAnchor.constraint(equalToConstant: 25.hPercent),
+            contentView.addSubview(managePetsSectionLabel)
+            contentView.addSubview(collectionView)
+            contentView.addSubview(secondaryTitleStackView)
+            contentView.addSubview(reminderCollectionView)
+            contentView.addSubview(titleStackView)
+            contentView.addSubview(nearbyView)
+            contentView.addSubview(upComingVeterinaryLabel)
+            contentView.addSubview(upComingVeterinaryView)
             
-            managePetsSectionLabel.topAnchor.constraint(equalTo: sliderView.bottomAnchor, constant: 12),
-            managePetsSectionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            managePetsSectionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            titleStackView.addArrangedSubview(nearbyVeterinaryLabel)
+            titleStackView.addArrangedSubview(UIView())
+            titleStackView.addArrangedSubview(nearbySeeAllButton)
             
-            collectionView.topAnchor.constraint(equalTo: managePetsSectionLabel.bottomAnchor,constant: 12),
-            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: view.frame.width / 3),
+            secondaryTitleStackView.addArrangedSubview(reminderVeterinaryLabel)
+            secondaryTitleStackView.addArrangedSubview(UIView())
+            secondaryTitleStackView.addArrangedSubview(reminderButton)
             
-            secondaryTitleStackView.topAnchor.constraint(equalTo: collectionView.bottomAnchor,constant: 12),
-            secondaryTitleStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 16),
-            secondaryTitleStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -16),
-            
-            reminderCollectionView.topAnchor.constraint(equalTo: secondaryTitleStackView.bottomAnchor),
-            reminderCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            reminderCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            reminderCollectionView.heightAnchor.constraint(equalToConstant: view.frame.width / 3),
-            
-            titleStackView.topAnchor.constraint(equalTo: reminderCollectionView.bottomAnchor, constant: 12),
-            titleStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            titleStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            
-            nearbyView.topAnchor.constraint(equalTo: titleStackView.bottomAnchor, constant: 12),
-            nearbyView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            nearbyView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            nearbyView.heightAnchor.constraint(equalToConstant: view.frame.width / 4),
-            
-            upComingVeterinaryLabel.topAnchor.constraint(equalTo: nearbyView.bottomAnchor, constant: 12),
-            upComingVeterinaryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            
-            upComingVeterinaryView.topAnchor.constraint(equalTo: upComingVeterinaryLabel.bottomAnchor, constant: 12),
-            upComingVeterinaryView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            upComingVeterinaryView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            upComingVeterinaryView.heightAnchor.constraint(equalToConstant: view.frame.width / 4),
-        ])
+            sliderView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                
+                scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+                scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                
+                contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+                contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor,constant: -200),
+                contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+                contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+                contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+                
+                sliderView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 24),
+                sliderView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                sliderView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                sliderView.heightAnchor.constraint(equalToConstant: 25.hPercent),
+                
+                managePetsSectionLabel.topAnchor.constraint(equalTo: sliderView.bottomAnchor, constant: 12),
+                managePetsSectionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+                managePetsSectionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+                
+                collectionView.topAnchor.constraint(equalTo: managePetsSectionLabel.bottomAnchor,constant: 12),
+                collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                collectionView.heightAnchor.constraint(equalToConstant: view.frame.width / 3),
+                
+                secondaryTitleStackView.topAnchor.constraint(equalTo: collectionView.bottomAnchor,constant: 12),
+                secondaryTitleStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 16),
+                secondaryTitleStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -16),
+                
+                reminderCollectionView.topAnchor.constraint(equalTo: secondaryTitleStackView.bottomAnchor),
+                reminderCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                reminderCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                reminderCollectionView.heightAnchor.constraint(equalToConstant: view.frame.width / 3),
+                
+                titleStackView.topAnchor.constraint(equalTo: reminderCollectionView.bottomAnchor, constant: 12),
+                titleStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+                titleStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+                
+                nearbyView.topAnchor.constraint(equalTo: titleStackView.bottomAnchor, constant: 12),
+                nearbyView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+                nearbyView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+                nearbyView.heightAnchor.constraint(equalToConstant: view.frame.width / 4),
+                
+                upComingVeterinaryLabel.topAnchor.constraint(equalTo: nearbyView.bottomAnchor, constant: 12),
+                upComingVeterinaryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+                
+                upComingVeterinaryView.topAnchor.constraint(equalTo: upComingVeterinaryLabel.bottomAnchor, constant: 12),
+                upComingVeterinaryView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+                upComingVeterinaryView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+                upComingVeterinaryView.heightAnchor.constraint(equalToConstant: view.frame.width / 4),
+            ])
+        }
     }
 }

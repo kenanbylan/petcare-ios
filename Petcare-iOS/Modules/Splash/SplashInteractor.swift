@@ -11,7 +11,6 @@ protocol SplashInteractorProtocol: AnyObject{
     func checkInternetConnection()
     func checkLanguage()
     func checkUserSession()
-
 }
 
 protocol SplashInteractorOutputProtocol {
@@ -28,8 +27,8 @@ final class SplashInteractor: SplashInteractorProtocol {
     }
     
     func checkUserSession() {
-        // TokenManager.isTokenValid()
-        let loggedIn = true  // kullanıcı oturumunun kontrolü
+        let loggedIn = true  //MARK: -user session control
+        
         output?.userSessionStatus(loggedIn)
     }
     

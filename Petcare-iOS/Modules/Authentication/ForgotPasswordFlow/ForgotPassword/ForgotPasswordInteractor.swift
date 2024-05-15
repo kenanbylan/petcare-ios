@@ -13,7 +13,7 @@ protocol ForgotPasswordInteractorProtocol {
 
 protocol ForgotPasswordInteractorOutput {
     func registrationSuccess(code: String)
-    func registrationFailure(error: Error)
+    func registrationFailure(error: ExceptionErrorHandle)
 }
 
 final class ForgotPasswordInteractor: ForgotPasswordInteractorProtocol {
@@ -25,7 +25,15 @@ final class ForgotPasswordInteractor: ForgotPasswordInteractorProtocol {
     }
     
     func forgotpassword(email: String)  {
-        //will be added forgot password
+        let request = ForgotPasswordDTO(email: email)
         
+        networkService.request(request) { [weak self] result in
+            switch result {
+            case .success(let res):
+                self?.output?.registrationSuccess(code: res.message)
+            case .failure(let error):
+                self?.output?.registrationFailure(error: error)
+            }
+        }
     }
 }

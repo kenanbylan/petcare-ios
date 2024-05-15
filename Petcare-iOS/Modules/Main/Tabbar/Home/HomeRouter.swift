@@ -7,7 +7,7 @@ import UIKit.UINavigationController
 
 protocol HomeRouterProtocol: AnyObject {
     func navigateToPetType()
-    func navigateToPetDetail()
+    func navigateToPetDetail(petData: PetResponse)
     
     func navigateToNearbyList(with onlyShow: Bool) -> Void
     func navigateToReminder() -> Void
@@ -23,7 +23,7 @@ final class HomeRouter: HomeRouterProtocol {
     static func build(navigationController: UINavigationController?) -> HomeViewController {
         let view = HomeViewController()
         let router = HomeRouter(navigationController: navigationController)
-        let interactor = HomeInteractor()
+        let interactor = HomeInteractor(networkManager: NetworkManager.shared)
         let presenter = HomePresenter(view: view, router: router, interactor: interactor)
         view.presenter = presenter
         interactor.output = presenter
@@ -36,18 +36,24 @@ final class HomeRouter: HomeRouterProtocol {
         self.navigationController?.pushViewController(petType, animated: true)
     }
     
-    func navigateToPetDetail() {
-        let detail = PetDetailRouter.build(navigationController: navigationController)
-        self.navigationController?.present(detail, animated: true)
+    func navigateToPetDetail(petData: PetResponse) {
+        DispatchQueue.main.async {
+            let detail = PetDetailRouter.build(navigationController: self.navigationController, petData: petData)
+            self.navigationController?.present(detail, animated: true)
+        }
     }
     
     func navigateToNearbyList(with onlyShow: Bool) {
-        let view =  NearbyListRouter.build(navigationController: navigationController, onlyShow: onlyShow ? true : false)
-        navigationController?.pushViewController(view, animated: true)
+        DispatchQueue.main.async {
+            let view =  NearbyListRouter.build(navigationController: self.navigationController, onlyShow: onlyShow ? true : false)
+            self.navigationController?.pushViewController(view, animated: true)
+        }
     }
     
     func navigateToReminder() {
-        let view = ReminderRouter.build(navigationController: navigationController)
-        navigationController?.pushViewController(view, animated: true)
+        DispatchQueue.main.async {
+            let view = ReminderRouter.build(navigationController: self.navigationController)
+            self.navigationController?.pushViewController(view, animated: true)
+        }
     }
 }

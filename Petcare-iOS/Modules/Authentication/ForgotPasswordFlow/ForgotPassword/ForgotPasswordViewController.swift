@@ -9,6 +9,7 @@ import UIKit
 
 protocol ForgotPasswordViewProtocol: AnyObject {
     func forgotPasswordReset()
+    func showAlertStatus(message: String)
 }
 
 final class ForgotPasswordViewController: UIViewController {
@@ -63,9 +64,8 @@ final class ForgotPasswordViewController: UIViewController {
     private func validateTextfield() {
         do {
             let email = try emailTextfield.validatedText(validationType: .email)
-            let data = ForgotPasswordRequest(email: email)
-            //presenter.saveUser(data)
-            presenter?.navigateToSmsOtp()
+            presenter?.saveEmail(email: email)
+            presenter?.requestCode()
         } catch(let error) {
             showAlert(for: (error as! ValidationError).message)
         }
@@ -103,5 +103,14 @@ extension ForgotPasswordViewController: ViewCoding {
 }
 
 extension ForgotPasswordViewController: ForgotPasswordViewProtocol {
-    func forgotPasswordReset() { }
+    func showAlertStatus(message: String) {
+        showAlert(title: "Reset Code", message: message, type: .alert) {
+            //aciton
+            self.presenter?.navigateToSenCode()
+        }
+    }
+    
+    func forgotPasswordReset() {
+        
+    }
 }

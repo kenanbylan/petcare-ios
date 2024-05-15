@@ -83,6 +83,19 @@ final class PetInfoViewController: BaseViewController {
         return textfield
     }()
     
+    private lazy var conversationTextView: CustomTextView = {
+        return CustomTextView.Builder()
+            .text("Info: ")
+            .textColor(AppColors.labelColor)
+            .font(AppFonts.medium.font(size: 14))
+            .shadowOffset(CGSize(width: 2, height: 2))
+            .cornerRadius(12)
+            .borderWidth(2)
+            .borderColor(AppColors.borderColor)
+            .height(UIScreen.screenWidth / 2)
+            .build()
+    }()
+    
     //MARK: BUİLDER PATTERN
     private lazy var appButton: AppButton = {
         let appbutton = AppButton.build()
@@ -139,15 +152,15 @@ extension PetInfoViewController {
     
     func validate() {
         do {
-            let petName = try petsNameTextfield.validatedText(validationType: ValidatorsType.requiredField(field: "Pets Name "))
+            let petName = try petsNameTextfield.validatedText(validationType: ValidatorsType.requiredField(field: "Pets Name"))
             let height = try heightTextField.validatedText(validationType: ValidatorsType.requiredField(field: "Height "))
             let weight = try self.weightTextField.validatedText(validationType: ValidatorsType.requiredField(field: "Weight"))
             let genderIndex = genderSegmentedControl.selectedSegmentIndex
             let petGenre = presenter?.selectedGenderType(index: genderIndex)
+            let petInfo = conversationTextView.text
             
-            let data = PetInfoModel(gender: petGenre, type: presenter?.selectedPet, name: petName , weight: weight, height: height, birthDate: presenter?.selectedDateTime)
-            
-            
+            let data = PetInfoModel(gender: petGenre, type: presenter?.selectedPet, name: petName , weight: weight, height: height, birthDate: presenter?.selectedDateTime,specialInfo: petInfo)
+        
             presenter?.savePetInfo(data)
             presenter?.navigateSelectPetImage()
             
@@ -178,7 +191,7 @@ extension PetInfoViewController: ViewCoding {
         self.contentView.addSubview(allStackView)
         self.contentView.addSubview(appButton)
         
-        let views: [UIView] = [genderSegmentedControl,petsNameTextfield,dateBirthTextfield,hStackView]
+        let views: [UIView] = [genderSegmentedControl,petsNameTextfield,dateBirthTextfield,hStackView, conversationTextView]
         for i in views { allStackView.addArrangedSubview(i) }
         
         hStackView.addArrangedSubview(weightTextField)
@@ -210,6 +223,8 @@ extension PetInfoViewController: ViewCoding {
             appButton.topAnchor.constraint(equalTo: self.allStackView.bottomAnchor, constant: 10.wPercent),
             appButton.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,constant: 5.wPercent),
             appButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor,constant: -5.wPercent),
+            
+            conversationTextView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
 }

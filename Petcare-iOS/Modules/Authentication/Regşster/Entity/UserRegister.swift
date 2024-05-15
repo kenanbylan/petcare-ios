@@ -12,39 +12,21 @@ enum ROLE: String {
 }
 
 struct UserRegisterRequest {
-    var role: ROLE
-    var name: String
-    var surname: String
-    var email: String
-    var password: String
-    
-    var vetInfo: VetAddress?
-    var document: VetDocument?
-    
-    init(role: ROLE, name: String, surname: String, email: String, password: String, vetInfo: VetAddress? = nil, document: VetDocument? = nil) {
-        self.role = role
-        self.name = name
-        self.surname = surname
-        self.email = email
-        self.password = password
-        self.vetInfo = vetInfo
-        self.document = document
-    }
+    var name, surname, email, password: String?
+    var role: ROLE?
+    var address: VetAddress?
+    var document: Document?
 }
 
-struct VetAddress {
-    var clinicName: String?
-    var clinicCity: String?
-    var phone: String?
-    var clinicDiscrict: String?
-    var clinicStreet: String?
-    var clinicNo: String?
-    var apartmentNo: String?
+// MARK: - Address
+struct VetAddress: Codable {
+    let phoneNumber, clinicName, clinicCity, clinicDistrict: String?
+    let clinicStreet, clinicNo, apartmentNo: String?
 }
 
-struct VetDocument {
-    var document: Data?
-    var status: VetDocumentStatus? = .PENDING
+// MARK: - Document
+struct Document: Codable {
+    let base64Document: String?
 }
 
 enum VetDocumentStatus {

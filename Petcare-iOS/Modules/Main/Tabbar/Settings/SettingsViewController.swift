@@ -14,6 +14,7 @@ struct Section {
 
 enum SettingsOptionType {
     case staticCell(model: SettingsModel)
+    case signOut
 }
 
 protocol SettingsViewProtocol: AnyObject {
@@ -73,14 +74,18 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         return models.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = models[indexPath.section].options[indexPath.row]
         
-        switch model.self {
-        case .staticCell(model: let model):
-            let cell = tableView.dequeCell(cellClass: SettingTableViewCell.self, indexPath: indexPath)
-            cell.configureCell(with: model)
+        switch model {
+        case .staticCell(model: let settingModel):
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as! SettingTableViewCell
+            cell.configureCell(with: settingModel)
+            return cell
+        case .signOut:
+            let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+            cell.textLabel?.text = "Sign Out"
+            cell.textLabel?.textColor = .red // Optional: Customize sign out cell appearance
             return cell
         }
     }
@@ -91,6 +96,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         switch selectedOption {
         case .staticCell(model: let model):
             presenter.navigateDetail(detail: model)
+        case .signOut:
+            presenter.signOut()
         }
     }
     

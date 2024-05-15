@@ -3,14 +3,13 @@
 //  Petcare-iOS
 //
 //  Created by Kenan Baylan on 21.04.2024.
-//
 
 import Foundation
 import UIKit
 
-
 protocol EmailVerificationViewProtocol: AnyObject {
-    func codeAccountEnable()
+    func showSuccessAlert(message: String, resetPassword: Bool)
+    func showErrorAlert(message: String) -> Void
 }
 
 final class EmailVerificationViewController: UIViewController {
@@ -62,10 +61,10 @@ final class EmailVerificationViewController: UIViewController {
     
     private func validateTextfield() {
         do {
-            let  code = try  verificationTextfield.validatedText(validationType: .number)
+            let code = try verificationTextfield.validatedText(validationType: .number)
             
             self.presenter?.saveCode(code: code)
-            self.presenter?.navigateLogin()
+            self.presenter?.viewDidLoad()
             
         } catch(let error) {
             showAlert(for: (error as! ValidationError).message)
@@ -118,5 +117,17 @@ extension EmailVerificationViewController: ViewCoding {
 }
 
 extension EmailVerificationViewController: EmailVerificationViewProtocol {
-    func codeAccountEnable() { }
+    func showSuccessAlert(message: String, resetPassword: Bool) {
+        showAlert(title: "Success", message: message, type: .alert) {
+            if resetPassword == true {
+                self.presenter?.resetPasswordCode()
+            } else {
+                self.presenter?.navigateLogin()
+            }
+        }
+    }
+    
+    func showErrorAlert(message: String) {
+        showAlert(title: "UYARI", message: message, type: .alert)
+    }
 }

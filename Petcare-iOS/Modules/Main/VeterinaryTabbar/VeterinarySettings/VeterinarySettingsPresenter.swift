@@ -10,6 +10,7 @@ protocol VeterinarySettingsPresenterProtocol {
     func viewDidLoad() -> Void
     func navigateMain() -> Void
     func backToLogin() -> Void
+    func navigateDetail(detail: DateModel?)
 }
 
 final class VeterinarySettingsPresenter {
@@ -27,7 +28,11 @@ final class VeterinarySettingsPresenter {
 extension VeterinarySettingsPresenter: VeterinarySettingsPresenterProtocol {
     
     func viewDidLoad() {
-        
+        interactor?.fetchSettingsSections()
+    }
+    
+    func navigateDetail(detail: DateModel?) {
+        router?.navigateToDetail(detail: detail)
     }
     
     func navigateMain() {
@@ -41,5 +46,9 @@ extension VeterinarySettingsPresenter: VeterinarySettingsPresenterProtocol {
 
 
 extension VeterinarySettingsPresenter: VeterinarySettingsInteractorOutput {
+    func settingsSectionsFetched(_ sections: [SectionDay]) {
+        view?.updateTableView(with: sections)
+    }
+    
     
 }

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import UIKit.UINavigationController
+import UIKit
 
 protocol SettingsRouterProtocol: AnyObject {
     func navigateToDetail(detail: SettingsModel) -> Void
@@ -14,14 +14,16 @@ protocol SettingsRouterProtocol: AnyObject {
 
 final class SettingsRouter {
     var navigationController: UINavigationController?
-    
-    init(navigationController: UINavigationController?) {
+    var window: UIWindow
+        
+    init(navigationController: UINavigationController? = nil, window: UIWindow) {
         self.navigationController = navigationController
+        self.window = window
     }
     
-    static func build(navigationController: UINavigationController?) -> SettingsViewController {
+    static func build(navigationController: UINavigationController?, window: UIWindow) -> SettingsViewController {
         let view = SettingsViewController()
-        let router = SettingsRouter(navigationController: navigationController)
+        let router = SettingsRouter(navigationController: navigationController,window: window)
         let interactor = SettingsInteractor()
         let presenter = SettingsPresenter(view: view, router: router, interactor: interactor)
         
@@ -55,6 +57,12 @@ extension SettingsRouter: SettingsRouterProtocol {
         case .personInformation:
             let vc = PersonInformationRouter.build(navigationController: navigationController)
             navigationController?.pushViewController(vc, animated: true)
+        case .signOut:
+            break
+//            let navigationController = UINavigationController()
+//            let loginVC = LoginRouter.build(navigationController: navigationController , window: window)
+//            navigationController.viewControllers.append(loginVC)
+//            window.rootViewController = navigationController
         }
     }
 }

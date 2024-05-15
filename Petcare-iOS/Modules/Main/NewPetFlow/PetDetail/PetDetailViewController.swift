@@ -16,26 +16,17 @@ class PetDetailViewController: UIViewController {
     var presenter: PetDetailPresenterProtocol?
     
     private lazy var petsNameLabel: CustomLabel = {
-        let label = CustomLabel(text: "Bobo, Holosko", fontSize: 21, fontType: .bold, textColor: AppColors.labelColor)
+        let label = CustomLabel(text: presenter?.petData.name, fontSize: 21, fontType: .bold, textColor: AppColors.labelColor)
         label.numberOfLines = 0
-        return label
-    }()
-    
-    private lazy var subTitleLabel: UILabel = {
-        let label = UILabel()
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Enter the email address with your account and we'll send an email with confirmation to reset your password"
-        label.numberOfLines = 3
-        label.tintColor = AppColors.labelColor
-        label.font = AppFonts.medium.font(size: 14)
-        label.textAlignment = .justified
         return label
     }()
     
     private lazy var petImages: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "info-cat")
+        if let base64Image = presenter?.petData.image, let image = UIImage(base64String: base64Image) {
+            imageView.image = image
+        }
+        
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         imageView.layer.cornerRadius = 20
@@ -46,6 +37,12 @@ class PetDetailViewController: UIViewController {
         let button = UIButton(type: .close)
         button.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var specialInfo: CustomLabel = {
+        let label = CustomLabel(text: presenter?.petData.specialInfo, fontSize: 17, fontType: .medium, textColor: AppColors.labelColor)
+        label.numberOfLines = 0
+        return label
     }()
     
     @objc private func dismissView() {
@@ -68,7 +65,16 @@ class PetDetailViewController: UIViewController {
             .withCornerRadius(20)
             .build()
     }()
-
+    
+    private lazy var informationSideStackView: CustomStackView = {
+        return CustomStackViewBuilder()
+            .withAxis(.vertical)
+            .distribution(distribution: .fill)
+            .withLayoutMargins(top: 20, left: 20, bottom: 20, right: 20)
+            .withCornerRadius(20)
+            .build()
+    }()
+    
     private lazy var petGenre: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "dog")?.resized(to: CGSize(width: 25, height: 25))
@@ -77,10 +83,14 @@ class PetDetailViewController: UIViewController {
         return imageView
     }()
     
-    
     let keyvalueAge = KeyValueStackView(data: nil)
     let keyvalueWeight = KeyValueStackView(data: nil)
     let keyvalueHeight = KeyValueStackView(data: nil)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewDidLoad()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,48 +102,64 @@ class PetDetailViewController: UIViewController {
         petImages.addShadow()
         
         infoOutSideStackView.backgroundColor = AppColors.customWhite.withAlphaComponent(0.4)
+        informationSideStackView.backgroundColor = AppColors.customWhite.withAlphaComponent(0.4)
+        
         infoOutSideStackView.addShadow(
             shadowColor: AppColors.customDarkGray.cgColor,
             shadowOffset:CGSize(width: 5.0, height: 7.0),
             shadowOpacity: 0.7,
             shadowRadius: 4.0)
-
-        keyvalueAge.data = [("Age", "6 months")]
-        keyvalueHeight.data = [("Height", "40 CM") ]
-        keyvalueWeight.data = [("Weight", "4 Kg 2 gr")]
+        
+        informationSideStackView.addShadow(
+            shadowColor: AppColors.customDarkGray.cgColor,
+            shadowOffset:CGSize(width: 5.0, height: 7.0),
+            shadowOpacity: 0.7,
+            shadowRadius: 4.0)
+        
+        keyvalueAge.data = [("Age", presenter?.petData.birthDate?.calculateAge() ?? "6 month")]
+        keyvalueHeight.data = [("Height", String(presenter?.petData.height ?? 1.2))]
+        keyvalueWeight.data = [("Weight", String(presenter?.petData.weight ?? 1.2))]
     }
     
     private func prepareConstraint() {
-        view.addSubview(headerStackView)
-        headerStackView.addArrangedSubview(petsNameLabel)
-        headerStackView.addArrangedSubview(petGenre)
-        headerStackView.addArrangedSubview(UIView())
-        headerStackView.addArrangedSubview(closeButton)
-        
-        view.addSubview(petImages)
-        view.addSubview(infoOutSideStackView)
-        
-        infoOutSideStackView.addArrangedSubview(keyvalueAge)
-        infoOutSideStackView.addArrangedSubview(keyvalueHeight)
-        infoOutSideStackView.addArrangedSubview(keyvalueWeight)
-    
-        
-        NSLayoutConstraint.activate([
-            headerStackView.topAnchor.constraint(equalTo: view.topAnchor,constant: 5.wPercent),
-            headerStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 5.wPercent),
-            headerStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -5.wPercent),
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
             
-            petImages.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant: 5.wPercent),
-            petImages.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
-            petImages.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.wPercent),
-            petImages.heightAnchor.constraint(equalToConstant: UIScreen.screenWidth / 1.5),
+            view.addSubview(headerStackView)
+            headerStackView.addArrangedSubview(petsNameLabel)
+            headerStackView.addArrangedSubview(petGenre)
+            headerStackView.addArrangedSubview(UIView())
+            headerStackView.addArrangedSubview(closeButton)
             
+            view.addSubview(petImages)
+            view.addSubview(infoOutSideStackView)
+            view.addSubview(informationSideStackView)
             
-            infoOutSideStackView.topAnchor.constraint(equalTo: petImages.bottomAnchor, constant: 10.wPercent),
-            infoOutSideStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
-            infoOutSideStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5.wPercent),
+            infoOutSideStackView.addArrangedSubview(keyvalueAge)
+            infoOutSideStackView.addArrangedSubview(keyvalueHeight)
+            infoOutSideStackView.addArrangedSubview(keyvalueWeight)
             
-        ])
+            informationSideStackView.addArrangedSubview(specialInfo)
+            
+            NSLayoutConstraint.activate([
+                headerStackView.topAnchor.constraint(equalTo: view.topAnchor,constant: 5.wPercent),
+                headerStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 5.wPercent),
+                headerStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -5.wPercent),
+                
+                petImages.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant: 5.wPercent),
+                petImages.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
+                petImages.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.wPercent),
+                petImages.heightAnchor.constraint(equalToConstant: UIScreen.screenWidth / 1.5),
+                
+                infoOutSideStackView.topAnchor.constraint(equalTo: petImages.bottomAnchor, constant: 10.wPercent),
+                infoOutSideStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
+                infoOutSideStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5.wPercent),
+                
+                informationSideStackView.topAnchor.constraint(equalTo: infoOutSideStackView.bottomAnchor, constant: 5.wPercent),
+                informationSideStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
+                informationSideStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5.wPercent),
+            ])
+        }
     }
 }
 

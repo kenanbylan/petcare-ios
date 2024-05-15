@@ -3,37 +3,28 @@
 //  Petcare-iOS
 //
 //  Created by Kenan Baylan on 21.04.2024.
-//
 
 import Foundation
 
-
 struct ForgotPasswordDTO: DataRequest {
+    typealias ResponseError = ExceptionErrorHandle
     typealias Response = ForgotPasswordResponse
-
-    var url: String = APIConfig(environment: .development).baseURL() + "/sendResetPasswordEmail"
+    
+    var url: String {
+        let baseURL = APIConfig(environment: .development).baseURL()
+        return "\(baseURL)auth/sendResetPasswordEmail"
+    }
+    
     let method: HTTPMethod = .post
-    var contentType: String? { "application/json" } // Content-Type belirtildi
-
-    let forgotPasswordData: ForgotPasswordRequest
+    
+    let email: String
     
     
-    // Giriş bilgilerini JSON formatına dönüştürmek için encode() metodu
-    func encode() throws -> Data? {
-        let credentials = ["email": forgotPasswordData.email]
-        return try JSONSerialization.data(withJSONObject: credentials, options: [])
+    var headers: [String: String]? {
+        return ["Content-Type": "application/json"]
     }
     
-    var headers: [String : String] {
-        return [:]
-    }
-    
-    var queryItems: [String : String] {
-        return [:]
-    }
-    
-    func decode(_ data: Data) throws -> ForgotPasswordResponse {
-        let decoder = JSONDecoder()
-        return try decoder.decode(ForgotPasswordResponse.self, from: data)
+    var queryItems: [String: String] {
+        return ["email": email]
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 protocol EmailVerificationRouterProtocol: AnyObject {
     func navigateToLogin() -> Void
+    func navigateToResetPassword(email: String) -> Void
 }
 
 final class EmailVerificationRouter: EmailVerificationRouterProtocol {
@@ -19,12 +20,12 @@ final class EmailVerificationRouter: EmailVerificationRouterProtocol {
         self.navigationController = navigationController
     }
     
-    static func build(navigationController: UINavigationController?, emailAddress: String?) -> EmailVerificationViewController {
+    static func build(navigationController: UINavigationController?, emailAddress: String?, resetPassword: Bool? = nil) -> EmailVerificationViewController {
         let view = EmailVerificationViewController()
-        let router = EmailVerificationRouter(navigationController: navigationController )
+        let router = EmailVerificationRouter(navigationController: navigationController)
         let interactor = EmailVerificationInteractor(networkService: DefaultNetworkService())
-        let presenter = EmailVerificationPresenter(view: view, router: router, interactor: interactor,emailAddress: emailAddress)
-        
+        let presenter = EmailVerificationPresenter(view: view, router: router, interactor: interactor,emailAddress: emailAddress, resetPassword: resetPassword)
+
         view.presenter = presenter
         interactor.output = presenter
         
@@ -33,5 +34,10 @@ final class EmailVerificationRouter: EmailVerificationRouterProtocol {
     
     func navigateToLogin() {
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func navigateToResetPassword(email: String) {
+        let resetView = NewPasswordRouter.build(navigationController: navigationController, email: email)
+        self.navigationController?.pushViewController(resetView, animated: true)
     }
 }

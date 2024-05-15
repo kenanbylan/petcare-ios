@@ -11,12 +11,13 @@ protocol NetworkService {
     func request<Request: DataRequest>(_ request: Request, completion: @escaping (Result<Request.Response, ExceptionErrorHandle>) -> Void)
 }
 
+
 final class DefaultNetworkService: NetworkService {
     func request<Request: DataRequest>(_ request: Request, completion: @escaping (Result<Request.Response, ExceptionErrorHandle>) -> Void) {
         guard var urlComponent = URLComponents(string: request.url) else {
             return completion(.failure(.init(ebusinessCode: "Invalid URL Component's",businessErrorDetails: nil,error: nil)))
         }
-    
+        
         var queryItems: [URLQueryItem] = []
         
         request.queryItems.forEach {
@@ -42,7 +43,7 @@ final class DefaultNetworkService: NetworkService {
         urlRequest.allHTTPHeaderFields = request.headers
         urlRequest.httpBody = request.body
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if let error = error {

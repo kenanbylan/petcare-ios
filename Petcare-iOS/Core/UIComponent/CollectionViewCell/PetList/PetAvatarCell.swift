@@ -9,13 +9,6 @@ import Foundation
 import UIKit
 
 final class PetAvatarCell: UICollectionViewCell {
-    var model: PetAvatarModel = .init(petImage: "", petName: "", petAge: "") {
-        didSet {
-            self.imageView.image = UIImage(named: self.model.petImage!)
-            self.petName.text = self.model.petName
-            self.petAge.text = self.model.petAge
-        }
-    }
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "dog"))
@@ -47,6 +40,14 @@ final class PetAvatarCell: UICollectionViewCell {
         super.init(frame: frame)
         buildLayout()
         setupAvatarStyle()
+    }
+    
+    func configure(with pet: PetResponse) {
+        petName.text = pet.name
+        petAge.text =  pet.birthDate?.calculateAge()
+        if let base64Image = pet.image, let image = UIImage(base64String: base64Image) {
+            imageView.image = image
+        }
     }
     
     required init?(coder: NSCoder) {

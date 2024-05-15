@@ -7,7 +7,6 @@
 import UIKit
 
 protocol PetImageRouterProtocol {
-    func navigateToResultPage(model: ApproveResultModel)
     func navigateToMainTabbar() -> Void
 }
 
@@ -23,7 +22,7 @@ final class PetImageRouter {
     static func build(navigationController: UINavigationController?, petInfoData: PetInfoModel) -> PetImageViewController {
         let view = PetImageViewController()
         let router = PetImageRouter(navigationController: navigationController)
-        let interactor = PetImageInteractor()
+        let interactor = PetImageInteractor(networkManager: NetworkManager.shared)
         let presenter = PetImagePresenter(view: view, router: router, interactor: interactor, petInfoData: petInfoData)
         
         view.presenter = presenter
@@ -35,22 +34,8 @@ final class PetImageRouter {
 
 extension PetImageRouter: PetImageRouterProtocol {
     func navigateToMainTabbar() {
-        
-            if let tabbarController = navigationController?.tabBarController {
-                tabbarController.selectedIndex = 0
-                if let navController = tabbarController.viewControllers?[0] as? UINavigationController {
-                    print("tabbarController.viewControllers", tabbarController.viewControllers)
-                    navController.popViewController(animated: true)
-                }
-            } else {
-                let tabBarController = MainTabbar()
-                tabBarController.selectedIndex = 0
-                navigationController?.setViewControllers([tabBarController], animated: true)
-            }
-    }
-    
-    func navigateToResultPage(model: ApproveResultModel) {
-        let approveResultViewController = ApproveResultViewController(with: model)
-        navigationController?.pushViewController(approveResultViewController, animated: true)
+        DispatchQueue.main.async {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
 }

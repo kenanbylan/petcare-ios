@@ -8,15 +8,24 @@
 import Foundation
 
 protocol VeterinaryHomePresenterProtocol {
-    func viewDidLoad() -> Void
+    var numberOfVets: Int { get }
+    func appointment(at index: Int) -> AppointmentModel?
     func navigateToDateList() -> Void
     func backToLogin() -> Void
+    func didSelectAppointment(at index: Int)    
 }
 
 final class VeterinaryHomePresenter {
     private weak var view: VeterinaryHomeViewController?
     private let router: VeterinaryHomeRouterProtocol?
     private let interactor: VeterinaryHomeInteractorProtocol?
+    
+    let rezervationList: [AppointmentModel] = [
+        AppointmentModel(rezervationName: "Fluffy's Checkup", date: "2024-05-15", time: "10:00", info: "Routine checkup for Fluffy"),
+        AppointmentModel(rezervationName: "Max's Vaccination", date: "2024-05-17", time: "13:30", info: "Annual vaccination for Max"),
+        AppointmentModel(rezervationName: "Buddy's Surgery", date: "2024-05-20", time: "15:00", info: "Minor surgery for Buddy"),
+        // Ek veri örnekleri ekle
+    ]
     
     init(view: VeterinaryHomeViewController?, router: VeterinaryHomeRouterProtocol?, interactor: VeterinaryHomeInteractorProtocol?) {
         self.view = view
@@ -26,8 +35,20 @@ final class VeterinaryHomePresenter {
 }
 
 extension VeterinaryHomePresenter: VeterinaryHomePresenterProtocol {
+    var numberOfVets: Int {
+        return rezervationList.count
+    }
     
-    func viewDidLoad() {
+    func appointment(at index: Int) -> AppointmentModel? {
+        guard index >= 0 && index < rezervationList.count else {
+            // Index is out of range
+            return nil
+        }
+        return rezervationList[index]
+    }
+    
+    
+    func didSelectAppointment(at index: Int) {
         
     }
     
@@ -39,7 +60,6 @@ extension VeterinaryHomePresenter: VeterinaryHomePresenterProtocol {
         router?.backToLogin()
     }
 }
-
 
 extension VeterinaryHomePresenter: VeterinaryHomeInteractorOutput {
     

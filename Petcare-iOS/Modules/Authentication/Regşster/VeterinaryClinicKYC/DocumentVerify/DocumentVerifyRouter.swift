@@ -22,9 +22,9 @@ final class DocumentVerifyRouter: DocumentVerifyRouterProtocol {
     
     static func build(navigationController: UINavigationController?, window: UIWindow?, data: UserRegisterRequest) -> DocumentVerifyViewController {
         let view = DocumentVerifyViewController()
-        let router = DocumentVerifyRouter(navigationController: navigationController,window: window)
+        let router = DocumentVerifyRouter(navigationController: navigationController, window: window)
         
-        let interactor = DocumentVerifyInteractor()
+        let interactor = DocumentVerifyInteractor(networkService: DefaultNetworkService())
         let presenter = DocumentVerifyPresenter(view: view, router: router, interactor: interactor, data: data)
         
         view.presenter = presenter

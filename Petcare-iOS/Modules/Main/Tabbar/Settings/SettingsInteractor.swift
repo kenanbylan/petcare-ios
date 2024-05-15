@@ -24,11 +24,18 @@ final class SettingsInteractor: SettingsInteractorProtocol {
         ]
         
         let donateOptions: [SettingsOptionType] = [
-            .staticCell(model: SettingsModel(title: "Buy a coffee", icon: UIImage(named: "coffee"), iconBackgroundColor: .bgColor2, router: .donateRouter))
+            .staticCell(model: SettingsModel(title: "Sign Out", icon: UIImage(named: "coffee"), iconBackgroundColor: .bgColor2, router: .signOut))
         ]
         
         let generalSection = Section(title: "General", options: generalOptions)
-        let donateSection = Section(title: "Donate", options: donateOptions)
+        let donateSection = Section(title: "Exit", options: donateOptions)
+        
+        let accountOptions: [SettingsOptionType] = [
+            .staticCell(model: SettingsModel(title: "Sign Out", icon: UIImage(named: "sign-out"), iconBackgroundColor: .bgColor2, router: .signOut))
+        ]
+        
+        let accountSection = Section(title: "Account", options: accountOptions)
+
         
         output?.settingsSectionsFetched([generalSection, donateSection])
     }

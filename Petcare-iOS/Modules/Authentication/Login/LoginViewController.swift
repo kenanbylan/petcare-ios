@@ -20,12 +20,14 @@ final class LoginViewController: UIViewController {
     private lazy var emailForm: MyTextField = {
         let textfield = MyTextField()
         textfield.placeholder = "LOGIN_EMAIL_PLACEHOLDER".localized()
+        textfield.text = "ssoprano.tony130@gmail.com"
         return textfield
     }()
     
     private lazy var passwordForm: MyTextField = {
         let textfield = MyTextField()
         textfield.placeholder = "LOGIN_PASSWORD_PLACEHOLDER".localized()
+        textfield.text = "test1234"
         return textfield
     }()
     
@@ -75,10 +77,42 @@ final class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidload()
         style()
         layout()
         setupKeyboardDismissRecognizer()
+    }
+}
+
+// MARK: - Actions
+extension LoginViewController: LoginViewProtocol {
+    func showAlertMessage(message: String) {
+        showAlert(for: message)
+    }
+    
+    // MARK: - Button Actions
+    @objc func forgotPasswordButtonTapped(_ sender: Any) {
+        presenter?.navigateForgotPassword()
+    }
+    
+    @objc func loginButtonTapped(_ sender: Any) {
+        //validateTextfield()
+        presenter.navigateMain()
+    }
+    
+    @objc func signUpButtonTapped(_ sender: Any) {
+        presenter?.navigateSignUp()
+    }
+    
+    private func validateTextfield() {
+        do {
+            let email = try emailForm.validatedText(validationType: .email)
+            let password = try passwordForm.validatedText(validationType: .password)
+            let data = LoginRequest(email: email, password: password)
+            presenter.saveUser(data)
+            presenter.fetchLogin()
+        } catch(let error) {
+            showAlert(for: (error as! ValidationError).message)
+        }
     }
 }
 
@@ -115,39 +149,5 @@ extension LoginViewController {
             registerPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
             registerPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-    }
-}
-
-
-// MARK: - Actions
-extension LoginViewController: LoginViewProtocol {
-    func showAlertMessage(message: String) {
-        showAlert(for: message)
-    }
-    
-    // MARK: - Button Actions
-    @objc func forgotPasswordButtonTapped(_ sender: Any) {
-        presenter?.navigateForgotPassword()
-    }
-    
-    @objc func loginButtonTapped(_ sender: Any) {
-       // validateTextfield()
-        presenter.navigateMain()
-    }
-    
-    @objc func signUpButtonTapped(_ sender: Any) {
-        presenter?.navigateSignUp()
-    }
-    
-    private func validateTextfield() {
-        do {
-            let email = try emailForm.validatedText(validationType: .email)
-            let password = try passwordForm.validatedText(validationType: .password)
-            let data = LoginRequest(email: email, password: password)
-            presenter.saveUser(data)
-            presenter.navigateMain()
-        } catch(let error) {
-            showAlert(for: (error as! ValidationError).message)
-        }
     }
 }

@@ -9,8 +9,8 @@ import UIKit
 
 protocol PetImageViewProtocol: AnyObject {
     func prepareUI()
-    func getImage()
-    func dismissScreen()
+    func savePetsSuccess(message: String)
+    func savePetsError(message: String)
 }
 
 final class PetImageViewController: UIViewController {
@@ -44,9 +44,8 @@ final class PetImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
-        
         buildLayout()
+        prepareUI()
         prepareTitleLabel()
     }
     
@@ -57,12 +56,19 @@ final class PetImageViewController: UIViewController {
 }
 
 extension PetImageViewController: PetImageViewProtocol {
+    func savePetsSuccess(message: String) {
+        showAlert(title: "Success", message: message , type: .alert) {
+            //action
+            self.presenter?.navigateMainPage()
+        }
+    }
     
-    func dismissScreen() { }
+    func savePetsError(message: String) {
+        showAlert(title: "Error", message: message, type: .alert)
+    }
     
     func prepareUI() {
         view.backgroundColor = AppColors.bgColor
-        
         petImages.backgroundColor = AppColors.bgColor
         petImages.layer.cornerRadius = 12
         petImages.layer.shadowColor = AppColors.customLightGray.cgColor
@@ -80,21 +86,13 @@ extension PetImageViewController: PetImageViewProtocol {
     
     @objc func patiButtonClicked() {
         print(" Select Image clicked SaveButton")
-        presenter?.navigateResultPage()
+        presenter?.fetchRequest()
     }
-    
-    func getImage() { }
     
     func prepareTapGesture() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         petImages.isUserInteractionEnabled = true
         petImages.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if let vc = viewController as? UINavigationController {
-            vc.popToRootViewController(animated: false)
-        }
     }
 }
 
@@ -105,29 +103,22 @@ extension PetImageViewController: UIImagePickerControllerDelegate & UINavigation
         }) { _ in
             UIView.animate(withDuration: 0.3) {
                 self.petImages.transform = .identity
+                self.showImagePicker()
             }
         }
-        
-        showImagePicker()
     }
     
     private func showImagePicker() {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        let takePhotoAction = UIAlertAction(title: "Fotoğraf Çek", style: .default) { _ in
-            imagePicker.sourceType = .camera
-            self.present(imagePicker, animated: true, completion: nil)
-        }
-        
+ 
         let chooseFromLibraryAction = UIAlertAction(title: "Kütüphaneden Seç", style: .default) { _ in
             imagePicker.sourceType = .photoLibrary
             self.present(imagePicker, animated: true, completion: nil)
         }
         
         let cancelAction = UIAlertAction(title: "İptal", style: .cancel, handler: nil)
-        alertController.addAction(takePhotoAction)
         alertController.addAction(chooseFromLibraryAction)
         alertController.addAction(cancelAction)
         
@@ -137,10 +128,16 @@ extension PetImageViewController: UIImagePickerControllerDelegate & UINavigation
         present(alertController, animated: true, completion: nil)
     }
     
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             petImages.image = pickedImage
-            appButton.isEnabled = true
+            
+            if let imageData = pickedImage.jpegData(compressionQuality: 0.9) {
+                let imageBase64String = imageData.base64EncodedString()
+                presenter?.saveImage(data: imageBase64String)
+                appButton.isEnabled = true
+            }
         }
         picker.dismiss(animated: true, completion: nil)
     }

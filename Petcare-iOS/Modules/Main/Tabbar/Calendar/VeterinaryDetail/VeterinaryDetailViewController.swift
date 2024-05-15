@@ -88,7 +88,7 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
     
     private lazy var conversationTextView: CustomTextView = {
         return CustomTextView.Builder()
-            .text("Your text")
+            .text("Info: ")
             .textColor(AppColors.labelColor)
             .font(AppFonts.medium.font(size: 14))
             .shadowOffset(CGSize(width: 2, height: 2))

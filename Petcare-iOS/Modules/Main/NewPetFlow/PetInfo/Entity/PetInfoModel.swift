@@ -20,5 +20,6 @@ struct PetInfoModel {
     var height: String
     var birthDate: Date?
     var image: String?
+    var specialInfo: String?
 }
 

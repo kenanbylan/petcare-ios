@@ -10,19 +10,28 @@ import Foundation
 ///http://localhost:8081/api/v1/auth/activate-account?token=597459a
 
 struct EmailVerificationRequest: DataRequest {
+    typealias ResponseError = ExceptionErrorHandle
     typealias Response = EmailVerificationResponse
-    let verifyCode: String
+    
+    let sendCode: String
+    let resetPassword: Bool
     
     var url: String {
         let baseURL = APIConfig(environment: .development).baseURL()
-        let encodedVerifyCode = verifyCode.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        return "\(baseURL)auth/activate-account?token=\(encodedVerifyCode)"
+        if resetPassword {
+            return "\(baseURL)auth/isPasswordResetTokenValid"
+        }
+        return "\(baseURL)auth/activate-account"
     }
     
     var method: HTTPMethod = .get
     
     var headers: [String: String]? {
         return ["Content-Type": "application/json"]
+    }
+    
+    var queryItems: [String: String] {
+        return ["token": sendCode]
     }
 }
 

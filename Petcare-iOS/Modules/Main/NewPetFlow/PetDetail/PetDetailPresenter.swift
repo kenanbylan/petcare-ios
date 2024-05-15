@@ -9,23 +9,26 @@ import Foundation
 
 protocol PetDetailPresenterProtocol {
     func viewDidLoad()
+    var petData: PetResponse { get set }
 }
 
-final class PetDetailPresenter {
+final class PetDetailPresenter: PetDetailPresenterProtocol{
     private weak var view: PetDetailViewProtocol?
     let router: PetDetailProtocol?
     let interactor: PetDetailInteractorProtocol?
     
-    init(view: PetDetailViewProtocol? = nil, router: PetDetailProtocol?, interactor: PetDetailInteractorProtocol?) {
+    var petData: PetResponse
+    
+    init(view: PetDetailViewProtocol? = nil, router: PetDetailProtocol?, interactor: PetDetailInteractorProtocol?, petData: PetResponse) {
         self.view = view
         self.router = router
         self.interactor = interactor
+        self.petData = petData
     }
-}
-
-
-extension PetDetailPresenter: PetDetailPresenterProtocol {
+    
     func viewDidLoad() {
+        print("PetDetail \(petData)")
+        
     }
 }
 

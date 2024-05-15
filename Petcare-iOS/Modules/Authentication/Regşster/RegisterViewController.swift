@@ -97,7 +97,6 @@ final class RegisterViewController: BaseViewController {
     
     @objc func createButtonTapped() {
         validateTextfield()
-        //presenter.navigateToVetAddress()
     }
     
     private func validateTextfield() {
@@ -109,13 +108,17 @@ final class RegisterViewController: BaseViewController {
             let confirmPassword = try confirmPasswordTextfield.validatedText(validationType: .confirmPassword(password: password))
             
             let role: ROLE = typeRegisterSegmentedControl.selectedSegmentIndex == 0 ? .USER : .VETERINARY
-            let data = UserRegisterRequest(role: role,
-                                           name: name,
-                                           surname: lastname,
+            let data = UserRegisterRequest(name: name,
+                                           surname: lastname ,
                                            email: emailAddress,
-                                           password: password)
+                                           password: password ,
+                                           role: role)
             presenter.saveUser(data)
-            presenter.fetchRequest()
+            if role == .USER {
+                presenter.fetchRequest()
+            } else if role == .VETERINARY {
+                presenter.navigateToVetAddress()
+            }
             
         } catch(let error) {
             showAlert(for: (error as! ValidationError).message)
@@ -167,12 +170,8 @@ extension RegisterViewController: RegisterViewProtocol {
     
     func showAlertMessage(message: String, type: ROLE) {
         if type == .USER {
-            showAlert(title: "Success", message: message, type: .alert) {
+            showAlert(title: "Success User Account", message: message, type: .alert) {
                 self.presenter.navigateToEmailAddress()
-            }
-        } else if type == .VETERINARY {
-            showAlert(title: "Success", message: message, type: .alert) {
-                self.presenter.navigateToVetAddress()
             }
         }
     }

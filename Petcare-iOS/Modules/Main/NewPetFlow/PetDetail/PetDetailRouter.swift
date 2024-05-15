@@ -18,11 +18,11 @@ final class PetDetailRouter {
         self.navigationController = navigationController
     }
     
-    static func build(navigationController: UINavigationController?) -> PetDetailViewController {
+    static func build(navigationController: UINavigationController?, petData: PetResponse) -> PetDetailViewController {
         let view = PetDetailViewController()
         let router = PetDetailRouter(navigationController: navigationController)
         let interactor = PetDetailInteractor()
-        let presenter = PetDetailPresenter(view: view, router: router, interactor: interactor)
+        let presenter = PetDetailPresenter(view: view, router: router, interactor: interactor, petData: petData)
         
         view.presenter = presenter
         interactor.output = presenter

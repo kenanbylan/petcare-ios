@@ -89,7 +89,7 @@ final class VetMapViewController: BaseViewController {
     }
     
     private func fetchNearbyVetClinics(userLocation: CLLocation) {
-        let regionRadius: CLLocationDistance = 10000
+        let regionRadius: CLLocationDistance = 5000 //MARK: Distance
         
         let coordinateRegion = MKCoordinateRegion(center: userLocation.coordinate,
                                                   latitudinalMeters: regionRadius * 2.0,
@@ -98,7 +98,8 @@ final class VetMapViewController: BaseViewController {
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = "Veteriner"
         request.region = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-        
+        mapView.setRegion(coordinateRegion, animated: true)
+
         let search = MKLocalSearch(request: request)
         search.start { [weak self] (response, error) in
             guard let self = self else { return }

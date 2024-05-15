@@ -9,6 +9,9 @@ import UIKit
 
 final class VeterinaryTabbar: UITabBarController {
 
+    var window: UIWindow?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabbarInitView()
@@ -25,7 +28,7 @@ final class VeterinaryTabbar: UITabBarController {
     
     func loadHomeTab() {
         let navigationController = UINavigationController()
-        let homeView = VeterinaryHomeRouter.build(navigationController: navigationController)
+        let homeView = VeterinaryHomeRouter.build(navigationController: navigationController,window: window)
         
         navigationController.viewControllers.append(homeView)
         navigationController.tabBarItem.image = UIImage(systemName: Tabbar.homeIcon)

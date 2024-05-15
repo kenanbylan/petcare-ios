@@ -11,6 +11,7 @@ protocol SettingsPresenterProtocol {
     func viewDidLoad()
     func navigateDetail(detail: SettingsModel)
     func setTitle() -> String
+    func signOut()
 }
 
 final class SettingsPresenter {
@@ -43,6 +44,10 @@ extension SettingsPresenter: SettingsPresenterProtocol {
     
     func navigateDetail(detail: SettingsModel) {
         router?.navigateToDetail(detail: detail)
+    }
+    
+    func signOut() {
+        
     }
 }
 

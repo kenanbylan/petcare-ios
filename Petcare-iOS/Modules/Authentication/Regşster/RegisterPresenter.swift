@@ -82,12 +82,8 @@ extension RegisterPresenter: RegisterInteractorOutput {
         if !(response.message == nil)  {
             if userData?.role == .USER {
                 self.view?.showAlertMessage(message: response.message ??  "TEST", type: .USER)
-            } else if userData?.role == .VETERINARY {
-                self.view?.showAlertMessage(message: response.message ??  "TEST", type: .VETERINARY)
-                router?.navigateToVetAddress(userInfo: userData!)
             }
         }
-        view?.showAlertFailure(message: response.message ?? "nil")
     }
     
     func registrationFailure(error: ExceptionErrorHandle) {

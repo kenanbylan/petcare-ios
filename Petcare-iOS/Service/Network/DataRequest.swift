@@ -17,6 +17,7 @@ enum HTTPMethod: String {
 
 protocol DataRequest {
     associatedtype Response: Decodable
+    associatedtype ResponseError: Codable, Error
     
     var url: String { get }
     var method: HTTPMethod { get }

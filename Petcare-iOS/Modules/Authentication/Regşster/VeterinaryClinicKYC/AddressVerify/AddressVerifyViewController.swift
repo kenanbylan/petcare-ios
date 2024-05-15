@@ -112,7 +112,6 @@ final class AddressVerifyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
         buildLayout()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -133,7 +132,7 @@ final class AddressVerifyViewController: UIViewController {
             let no = try apartmentTextField.validatedText(validationType: .number)
             let mesken = try houseTextField.validatedText(validationType: .requiredField(field: "ADDRESS_VERIFY_no_mesken".localized()))
             
-            let address = VetAddress(clinicName: clinicName, clinicCity: city,phone: clinicPhone, clinicDiscrict: district, clinicStreet: street, clinicNo: no, apartmentNo: mesken)
+            let address = VetAddress(phoneNumber: clinicPhone, clinicName: clinicName, clinicCity: city, clinicDistrict: district, clinicStreet: street, clinicNo: no, apartmentNo: mesken)
             
             presenter?.saveVetAddressData(address: address)
             presenter?.navigateDocumentVerify()

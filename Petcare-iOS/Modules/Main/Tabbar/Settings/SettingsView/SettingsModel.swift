@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 struct SettingsModel {
-    let title : String
-    let icon : UIImage?
-    let iconBackgroundColor : UIColor
+    let title: String
+    let icon: UIImage?
+    let iconBackgroundColor: UIColor
     let router: Router
 }
 
@@ -21,4 +21,5 @@ enum Router {
     case manageNotification
     case privacyPolicy
     case personInformation
+    case signOut
 }

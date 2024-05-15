@@ -29,7 +29,6 @@ final class PetTypePresenter {
         self.router = router
         self.interactor = interactor
     }
-    
 }
 
 extension PetTypePresenter: PetTypePresenterProtocol {

@@ -8,6 +8,7 @@
 import Foundation
 
 struct RegisterRequest: DataRequest {
+    typealias ResponseError = ExceptionErrorHandle
     typealias Response = UserRegisterResponse
     
     var url: String {
@@ -15,16 +16,19 @@ struct RegisterRequest: DataRequest {
     }
     
     var method: HTTPMethod = .post
-    
-    //    var userRegister: UserRegisterRequest
-    var role: String
+
+    var role: ROLE.RawValue
     var name: String
     var surname: String
     var email: String
     var password: String
     
     var body: Data? {
-        let bodyDict = ["role": role, "name": name, "surname": surname, "email": email, "password": password]
+        let bodyDict = ["role": role,
+                        "name": name,
+                        "surname": surname,
+                        "email": email,
+                        "password": password]
         
         do {
             return try JSONSerialization.data(withJSONObject: bodyDict, options: [])

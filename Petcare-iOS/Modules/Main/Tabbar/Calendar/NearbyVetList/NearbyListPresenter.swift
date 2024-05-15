@@ -36,7 +36,6 @@ final class NearbyListPresenter {
     func setTitle() -> String {
         return self.title
     }
-
 }
 
 extension NearbyListPresenter: NearbyListPresenterProtocol {

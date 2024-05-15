@@ -9,7 +9,8 @@ import TipKit
 import PDFKit
 
 protocol DocumentVerifyViewProtocol: AnyObject {
-    func documentSave()
+    func showSuccessAlert(message: String) -> Void
+    func showFailureAlert(message: String) -> Void
 }
 
 final class DocumentVerifyViewController: UIViewController {
@@ -63,7 +64,6 @@ final class DocumentVerifyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
         buildLayout()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(documentViewTapped))
@@ -81,10 +81,9 @@ final class DocumentVerifyViewController: UIViewController {
     }
     
     @objc func documentButtonClicked() {
-        showAlert(title: "Harika", message: "Veteriner klinik başvurunuz kabul edilmiştir. Başvurunuz incelenmeye başlanmıştır. Sizi bilgilendireceğiz. Hesabınızı aktifleştirmek için mail adresinize gelen kodu giriniz.", type: .alert) {
-            self.presenter?.navigateToResult()
-        }
+        self.presenter?.fetchRequest()
     }
+    
     @objc func infoButtonTapped(_ sender: UIButton) {
         showAlert(title: "Information", message: "DocumentVerifyView_INFO_ALERT".localized(), type: .alert)
     }
@@ -130,9 +129,9 @@ extension DocumentVerifyViewController: UIImagePickerControllerDelegate & UINavi
         guard let selectedFileURL = urls.first else { return }
         handleSelectedPDF(selectedFileURL)
         do {
-            let pdfData = try Data(contentsOf: selectedFileURL)
-            //MARK: - burada kaydedilecek
-            
+            if let pdfBaseString = convertFileToBase64(fileURL: selectedFileURL) {
+                presenter?.saveDocument(data: pdfBaseString)
+            }
         } catch {
             print("PDF dosyasını veriye dönüştürme hatası: \(error)")
         }
@@ -141,7 +140,11 @@ extension DocumentVerifyViewController: UIImagePickerControllerDelegate & UINavi
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[.originalImage] as? UIImage, let imageURL = info[.imageURL] as? URL {
             appButton.isEnabled = true
-            let imageData = pickedImage.jpegData(compressionQuality: 0.8)
+            if let imageData = pickedImage.jpegData(compressionQuality: 0.9) {
+                let imageBaseString = imageData.base64EncodedString()
+                presenter?.saveDocument(data: imageBaseString)
+            }
+            
             //MARK: - Image Data backendde gönderilecektir.
             handleSelectedImage(imageURL)
         }
@@ -149,6 +152,30 @@ extension DocumentVerifyViewController: UIImagePickerControllerDelegate & UINavi
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func convertFileToBase64(fileURL: URL) -> String? {
+        do {
+            let fileData = try Data(contentsOf: fileURL)
+            return fileData.base64EncodedString()
+        } catch {
+            print("Dosya verisini base64'e dönüştürme hatası: \(error)")
+            return nil
+        }
+    }
+}
+
+extension DocumentVerifyViewController: DocumentVerifyViewProtocol {
+    func showSuccessAlert(message: String) {
+        showAlert(title: "Success", message: message,type: .alert) {
+            self.presenter?.navigateToResult()
+        }
+    }
+    
+    func showFailureAlert(message: String) {
+        showAlert(title: "Error", message: message,type: .alert) {
+            self.showAlert(title: "Error", message: message, type: .alert)
+        }
     }
 }
 

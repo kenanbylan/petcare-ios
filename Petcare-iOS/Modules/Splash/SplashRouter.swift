@@ -48,7 +48,6 @@ extension SplashRouter: SplashRouterProtocol {
         let loginVC = LoginRouter.build(navigationController: navigationController , window: window)
         navigationController.viewControllers.append(loginVC)
         window.rootViewController = navigationController
-        
     }
     
     func navigateToHome() {

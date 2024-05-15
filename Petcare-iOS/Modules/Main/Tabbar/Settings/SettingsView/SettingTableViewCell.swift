@@ -60,7 +60,12 @@ final class SettingTableViewCell: UITableViewCell {
         self.iconImageView.image = model.icon
     }
     
-    override func prepareForReuse() {
+    public func configureCell(with model: DateModel) {
+        self.settingsLabel.text = model.title
+        self.iconImageView.image = model.icon
+    }
+
+        override func prepareForReuse() {
         super.prepareForReuse()
         settingsLabel.text = nil
         iconImageView.image = nil

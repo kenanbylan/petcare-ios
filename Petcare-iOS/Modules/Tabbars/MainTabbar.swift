@@ -45,7 +45,7 @@ final class MainTabbar: UITabBarController {
     
     func loadSettingsTab() {
         let navigationController = UINavigationController()
-        let settings = SettingsRouter.build(navigationController: navigationController)
+        let settings = SettingsRouter.build(navigationController: navigationController, window: UIWindow())
         navigationController.viewControllers.append(settings)
         navigationController.tabBarItem.image = UIImage(systemName: Tabbar.settingsIcon )
         navigationController.tabBarItem.title = Tabbar.settingsText

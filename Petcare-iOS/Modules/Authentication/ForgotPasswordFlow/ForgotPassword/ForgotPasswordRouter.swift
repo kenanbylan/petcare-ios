@@ -8,7 +8,7 @@ import UIKit
 protocol ForgotPasswordRouterProtocol: AnyObject {
     func navigateToMain() -> Void
     func backToLogin() -> Void
-    func navigateToSendCode() -> Void
+    func navigateToSendCode(email: String) -> Void
 }
 
 final class ForgotPasswordRouter: ForgotPasswordRouterProtocol {
@@ -44,7 +44,9 @@ final class ForgotPasswordRouter: ForgotPasswordRouterProtocol {
         window?.rootViewController = navigationController
     }
     
-    func navigateToSendCode() {
-        navigationController?.present(CodeVerificationViewController(), animated: true)
+    
+    func navigateToSendCode(email: String) {
+        let accountEnable = EmailVerificationRouter.build(navigationController: self.navigationController, emailAddress: email, resetPassword: true)
+        self.navigationController?.pushViewController(accountEnable, animated: true)
     }
 }

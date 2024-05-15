@@ -25,7 +25,11 @@ final class RegisterInteractor : RegisterInteractorProtocol {
     }
     
     func registerUser(registerUser: UserRegisterRequest) {
-        let registerRequest = RegisterRequest(role: registerUser.role.rawValue, name: registerUser.name, surname: registerUser.surname, email: registerUser.email, password: registerUser.password)
+        let registerRequest = RegisterRequest(role: registerUser.role!.rawValue,
+                                              name: registerUser.name!,
+                                              surname: registerUser.surname!,
+                                              email: registerUser.email!,
+                                              password: registerUser.password!)
         
         networkService.request(registerRequest) { [weak self] result in
             guard self != nil else { return }
