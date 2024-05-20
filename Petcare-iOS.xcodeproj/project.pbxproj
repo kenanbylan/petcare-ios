@@ -20,9 +20,7 @@
 		930493912BCAFD24004026FE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930493902BCAFD24004026FE /* Network.swift */; };
 		930493932BCAFD45004026FE /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930493922BCAFD45004026FE /* DataRequest.swift */; };
 		930493952BCAFD62004026FE /* ExceptionErrorHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930493942BCAFD62004026FE /* ExceptionErrorHandle.swift */; };
-		930493972BCAFD88004026FE /* ImageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930493962BCAFD88004026FE /* ImageClient.swift */; };
 		9304939A2BCAFDBA004026FE /* LoginRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930493992BCAFDBA004026FE /* LoginRequests.swift */; };
-		9304939C2BCAFED2004026FE /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9304939B2BCAFED2004026FE /* ImageRequest.swift */; };
 		9309ADEF2B389DCC001BC2B0 /* PetAvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309ADEE2B389DCC001BC2B0 /* PetAvatarCell.swift */; };
 		9309ADF22B389E39001BC2B0 /* PetAvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309ADF12B389E39001BC2B0 /* PetAvatarModel.swift */; };
 		9309ADF62B3CA127001BC2B0 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9309ADF52B3CA127001BC2B0 /* UIImage + Extension.swift */; };
@@ -140,6 +138,7 @@
 		936E6C432BFBC52000A623BC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 936E6C412BFBC52000A623BC /* Localizable.strings */; };
 		936E6C4D2BFBE48D00A623BC /* PersonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C4C2BFBE48D00A623BC /* PersonResponse.swift */; };
 		936E6C522BFBE84E00A623BC /* HomeViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C512BFBE84E00A623BC /* HomeViewController + Extension.swift */; };
+		936E6C542BFBF7ED00A623BC /* ReminderListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C532BFBF7ED00A623BC /* ReminderListTableViewCell.swift */; };
 		93732DF92B16701E00DE636E /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93732DF82B16701E00DE636E /* UserRegister.swift */; };
 		937BE3792BE7E78000F62AAD /* SavePetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937BE3782BE7E78000F62AAD /* SavePetEntity.swift */; };
 		9381023B2B5D5F2600BF21AD /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381023A2B5D5F2600BF21AD /* SettingTableViewCell.swift */; };
@@ -269,9 +268,7 @@
 		930493902BCAFD24004026FE /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		930493922BCAFD45004026FE /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		930493942BCAFD62004026FE /* ExceptionErrorHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExceptionErrorHandle.swift; sourceTree = "<group>"; };
-		930493962BCAFD88004026FE /* ImageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClient.swift; sourceTree = "<group>"; };
 		930493992BCAFDBA004026FE /* LoginRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequests.swift; sourceTree = "<group>"; };
-		9304939B2BCAFED2004026FE /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		9309ADEE2B389DCC001BC2B0 /* PetAvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAvatarCell.swift; sourceTree = "<group>"; };
 		9309ADF12B389E39001BC2B0 /* PetAvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAvatarModel.swift; sourceTree = "<group>"; };
 		9309ADF52B3CA127001BC2B0 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
@@ -398,6 +395,7 @@
 		936E6C462BFBC58500A623BC /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		936E6C4C2BFBE48D00A623BC /* PersonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonResponse.swift; sourceTree = "<group>"; };
 		936E6C512BFBE84E00A623BC /* HomeViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController + Extension.swift"; sourceTree = "<group>"; };
+		936E6C532BFBF7ED00A623BC /* ReminderListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListTableViewCell.swift; sourceTree = "<group>"; };
 		93732DF82B16701E00DE636E /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
 		937BE3782BE7E78000F62AAD /* SavePetEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePetEntity.swift; sourceTree = "<group>"; };
 		9381023A2B5D5F2600BF21AD /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
@@ -551,7 +549,6 @@
 			children = (
 				930493902BCAFD24004026FE /* Network.swift */,
 				930493922BCAFD45004026FE /* DataRequest.swift */,
-				930493962BCAFD88004026FE /* ImageClient.swift */,
 				93A76AB22BEF81DE00759A1D /* NetworkToken.swift */,
 			);
 			path = Network;
@@ -560,8 +557,9 @@
 		930493982BCAFDA8004026FE /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				93A76AB42BEF8F5900759A1D /* GetPets.swift */,
+				93A76AB62BEF91A900759A1D /* GetPetById.swift */,
 				930493992BCAFDBA004026FE /* LoginRequests.swift */,
-				9304939B2BCAFED2004026FE /* ImageRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -700,6 +698,7 @@
 				932347242B9CA20400971E1D /* NearbyListTableViewCell.swift */,
 				93A47C5E2BF3B70000B336A7 /* AppointmentList.swift */,
 				936E6C302BFA773600A623BC /* PastAppointmentTableViewCell.swift */,
+				936E6C532BFBF7ED00A623BC /* ReminderListTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -1241,7 +1240,6 @@
 		936E6C4F2BFBE67E00A623BC /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				937BE37B2BED084C00F62AAD /* Request */,
 				936E6C502BFBE73C00A623BC /* View */,
 				93CE90702AF7BA5C0025FBB0 /* HomeRouter.swift */,
 				93CE906E2AF7BA550025FBB0 /* HomeInteractor.swift */,
@@ -1275,15 +1273,6 @@
 				937BE3782BE7E78000F62AAD /* SavePetEntity.swift */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		937BE37B2BED084C00F62AAD /* Request */ = {
-			isa = PBXGroup;
-			children = (
-				93A76AB42BEF8F5900759A1D /* GetPets.swift */,
-				93A76AB62BEF91A900759A1D /* GetPetById.swift */,
-			);
-			path = Request;
 			sourceTree = "<group>";
 		};
 		9387876A2BDEE2E1008C8C88 /* Entity */ = {
@@ -1859,6 +1848,7 @@
 				93A47C6C2BF3CC1C00B336A7 /* DateListInfoDetailPresenter.swift in Sources */,
 				93DD5AD02B41993B00BDE0A9 /* PetTypePresenter.swift in Sources */,
 				933780592ADA825200103273 /* LoginRouter.swift in Sources */,
+				936E6C542BFBF7ED00A623BC /* ReminderListTableViewCell.swift in Sources */,
 				936E6C222BFA23FB00A623BC /* ContractVetListInteractor.swift in Sources */,
 				93E1FDAD2B77A76D00BD72E1 /* PersonInformationViewController.swift in Sources */,
 				93CE906F2AF7BA550025FBB0 /* HomeInteractor.swift in Sources */,
@@ -1885,7 +1875,6 @@
 				933A22132B45D86500854DB0 /* PetInfoViewController.swift in Sources */,
 				93E1FDC52B77A7FB00BD72E1 /* PrivacyPolicyViewController.swift in Sources */,
 				93E1FDB72B77A7B000BD72E1 /* ManageNotificationRouter.swift in Sources */,
-				9304939C2BCAFED2004026FE /* ImageRequest.swift in Sources */,
 				939A83302BF52C6400453FC1 /* Reminder.swift in Sources */,
 				93E1FDBD2B77A7DA00BD72E1 /* DonateViewController.swift in Sources */,
 				93048F1C2B0AA4DD000BD03A /* String + Extension.swift in Sources */,
@@ -1906,7 +1895,6 @@
 				93AA9BC62BA2366600942F16 /* CustomTextView.swift in Sources */,
 				931D708A2BB9B6CD0012E7D1 /* VeterinaryHomeRouter.swift in Sources */,
 				938901E52BD55C5700183EEC /* EmailVerificationRouter.swift in Sources */,
-				930493972BCAFD88004026FE /* ImageClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

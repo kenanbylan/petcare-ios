@@ -8,7 +8,6 @@
 import UIKit
 import Combine
 
-
 final class AppButton: UIButton {
     var image: UIImage? {
         didSet {
@@ -84,7 +83,7 @@ final class AppButton: UIButton {
     
     private func configureButton() {
         titleColor = AppColors.primaryColor
-        titleLabel?.font = AppFonts.semibold.font(size: 14)
+        titleLabel?.font = AppFonts.medium.font(size: 14)
         layer.cornerRadius = 20
         layer.borderWidth = 1.5
         layer.borderColor = AppColors.borderColor?.cgColor
@@ -102,37 +101,43 @@ final class AppButton: UIButton {
         }
     }
     
-    
+    @discardableResult
     func setImage(_ image: UIImage?) -> AppButton {
         self.image = image
         return self
     }
     
+    @discardableResult
     func setTitle(_ title: String?) -> AppButton {
         self.title = title
         return self
     }
     
-    func setFont(_ font: UIFont) -> AppButton {
+    @discardableResult
+    func setFont(_ font: UIFont = AppFonts.medium.font(size: 14)!) -> AppButton {
         titleLabel?.font = font
         return self
     }
     
+    @discardableResult
     func setImageColor(_ imageColor: UIColor) -> AppButton {
         self.imageColor = imageColor
         return self
     }
     
+    @discardableResult
     func setTintColor(_ tintColor: UIColor) -> AppButton {
         self.tintColor = tintColor
         return self
     }
     
+    @discardableResult
     func setBackgroundColor(_ backgroundColor: UIColor?) -> AppButton {
         self.backgroundColor = backgroundColor
         return self
     }
     
+    @discardableResult
     func setTitleColor(_ titleColor: UIColor) -> AppButton {
         self.titleColor = titleColor
         return self

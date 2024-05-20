@@ -10,6 +10,6 @@ import Foundation
 struct Reminder: Codable {
     let title: String
     let date: Date
-    let identifier: String
+    let subtitle: String
 }
 

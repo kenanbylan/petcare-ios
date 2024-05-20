@@ -23,7 +23,7 @@ final class VeterinaryDetailRouter {
     static func build(navigationController: UINavigationController?, data: UserRegisterRequest) -> VeterinaryDetailViewController {
         let view = VeterinaryDetailViewController()
         let router = VeterinaryDetailRouter(navigationController: navigationController)
-        let interactor = VeterinaryDetailInteractor()
+        let interactor = VeterinaryDetailInteractor(networkManager: NetworkManager.shared )
         let presenter = VeterinaryDetailPresenter(view: view, router: router, interactor: interactor, data: data)
         
         view.presenter = presenter
@@ -36,4 +36,5 @@ extension VeterinaryDetailRouter: VeterinaryDetailRouterProtocol {
     func navigateToApprove() {
         
     }
+    
 }

@@ -29,7 +29,7 @@ class PetDetailViewController: UIViewController {
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 40
+        imageView.layer.cornerRadius = 20
         return imageView
     }()
     
@@ -40,7 +40,7 @@ class PetDetailViewController: UIViewController {
     }()
     
     private lazy var specialInfo: CustomLabel = {
-        let label = CustomLabel(text: presenter?.petData.specialInfo, fontSize: 17, fontType: .medium, textColor: AppColors.labelColor)
+        let label = CustomLabel(text: presenter?.petData.specialInfo, fontSize: 14, fontType: .medium, textColor: AppColors.labelColor)
         label.numberOfLines = 0
         return label
     }()
@@ -86,9 +86,8 @@ class PetDetailViewController: UIViewController {
     private lazy var deletePetButton: AppButton = {
         let appbutton = AppButton.build()
             .setTitle("PetDetailView_button".localized())
-            .setImage(UIImage(named: "pati")?.withRenderingMode(.alwaysTemplate).resized(to: CGSize(width: 25, height: 25)))
-            .setBackgroundColor(AppColors.primaryColor)
-            .setTitleColor(AppColors.customWhite)
+            .setBackgroundColor(AppColors.bgColor)
+            .setTitleColor(AppColors.labelColor)
         appbutton.addTarget(self, action: #selector(petDeleteTapped), for: .touchUpInside)
         return appbutton
     }()
@@ -110,8 +109,8 @@ class PetDetailViewController: UIViewController {
         prepareConstraint()
         
         petImages.backgroundColor = AppColors.bgColor
-        petImages.addShadow()
         
+        petImages.addShadow(shadowColor: AppColors.labelColor.cgColor, shadowOffset: CGSize(width: 1, height: 2), shadowOpacity: 0.4, shadowRadius: 3)
         infoOutSideStackView.backgroundColor = .secondarySystemBackground
         informationSideStackView.backgroundColor = .secondarySystemBackground
         
@@ -119,7 +118,6 @@ class PetDetailViewController: UIViewController {
                                        shadowOffset:CGSize(width: 5.0, height: 7.0), shadowOpacity: 0.7, shadowRadius: 4.0)
         informationSideStackView.addShadow(shadowColor: AppColors.customDarkGray.cgColor,
                                            shadowOffset:CGSize(width: 5.0, height: 7.0), shadowOpacity: 0.7, shadowRadius: 4.0)
-        
         
         keyvalueAge.data = [("\("PetDetailView_age".localized()): ", presenter?.formattedAge() ?? "6 month")]
         keyvalueHeight.data = [("\("PetDetailView_height".localized()): ", presenter?.formattedHeight() ?? "1.2 cm")]
@@ -170,7 +168,7 @@ class PetDetailViewController: UIViewController {
             informationSideStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
             informationSideStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5.wPercent),
             
-            deletePetButton.topAnchor.constraint(equalTo: informationSideStackView.bottomAnchor, constant: 7.wPercent),
+            deletePetButton.topAnchor.constraint(equalTo: informationSideStackView.bottomAnchor, constant: 20.wPercent),
             deletePetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 7.wPercent),
             deletePetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -7.wPercent),
         ])
@@ -183,6 +181,7 @@ class PetDetailViewController: UIViewController {
         informationSideStackView.addShadow(shadowColor: AppColors.customDarkGray.cgColor,
                                            shadowOffset:CGSize(width: 5.0, height: 7.0), shadowOpacity: 0.7, shadowRadius: 4.0)
         
+        petImages.addShadow(shadowColor: AppColors.labelColor.cgColor, shadowOffset: CGSize(width: 1, height: 2), shadowOpacity: 0.4, shadowRadius: 3)
     }
 }
 

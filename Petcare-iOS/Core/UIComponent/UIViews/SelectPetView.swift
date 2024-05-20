@@ -46,10 +46,10 @@ final class SelectPetView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = AppColors.bgColor
+        backgroundColor = .secondarySystemBackground
         layer.cornerRadius = 20
-        addShadow(shadowColor: AppColors.bgColor.cgColor)
-        
+        addShadow(shadowColor: AppColors.labelColor.cgColor, shadowOffset: CGSize(width: 1, height: 2), shadowOpacity: 0.4, shadowRadius: 3)
+
         addSubview(label)
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: topAnchor),
@@ -96,6 +96,6 @@ final class SelectPetView: UIView {
 extension SelectPetView {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        addShadow(shadowColor: AppColors.bgColor.cgColor)
+        addShadow(shadowColor: AppColors.labelColor.cgColor, shadowOffset: CGSize(width: 1, height: 2), shadowOpacity: 0.4, shadowRadius: 3)
     }
 }

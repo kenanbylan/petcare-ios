@@ -9,7 +9,9 @@ import Foundation
 import UIKit
 import SwiftUI
 
-protocol VeterinaryDetailViewProtocol: AnyObject { }
+protocol VeterinaryDetailViewProtocol: AnyObject, CustomAlert {
+    func updateView()
+}
 
 final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelegate{
     var presenter: VeterinaryDetailPresenterProtocol!
@@ -138,11 +140,9 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
         doctorImage.image = UIImage(named: "happy-female")
         
         ///MARK: Kullanıcı seçebileceği seçeneklerin listesi
-        let options = ["Boncuk", "Finoo", "Lunaa", "Doggy"]
         let availableDays = ["Pazartesi", "Çarşamba", "Perşembe"]
         let availableHours = ["09.00 - 11.00", "11.00 - 13.00","15.00 - 17.00"]
         
-        textField.setInputViewBottomSheet(options: options, target: self, selector: #selector(handleOptionSelection(_:)),title: "VeterinaryDetailView_select_pet".localized())
         availableDay.setInputViewBottomSheet(options: availableDays, target: self, selector: #selector(selectDays(_:)),title: "VeterinaryDetailView_select_days".localized())
         availableHour.setInputViewBottomSheet(options: availableHours, target: self, selector: #selector(selectHours(_:)),title: "VeterinaryDetailView_select_hours".localized())
         
@@ -178,9 +178,18 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
     
     @objc
     private func buttonTapped() {
-//        presenter.
+        // presenter.
     }
 }
+
+extension VeterinaryDetailViewController: VeterinaryDetailViewProtocol {
+    func updateView() {
+        DispatchQueue.main.async { [weak self] in
+            self?.textField.setInputViewBottomSheet(options: self?.presenter.petNames() ?? [] , target: self, selector: #selector(self?.handleOptionSelection(_:)),title: "VeterinaryDetailView_select_pet".localized())
+        }
+    }
+}
+
 
 extension VeterinaryDetailViewController: ViewCoding {
     func setupView() {

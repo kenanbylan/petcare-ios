@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 final class BottomSheetView: UIView, UITableViewDelegate, UITableViewDataSource {
-    let tableView = UITableView.init(frame: CGRect.zero, style: .grouped)
+    let tableView = UITableView.init(frame: CGRect.zero, style: .insetGrouped)
     var options: [String] = []
     var didSelectOption: ((String) -> Void)?
     var headerTitle: String? = nil
@@ -21,7 +21,6 @@ final class BottomSheetView: UIView, UITableViewDelegate, UITableViewDataSource 
         
         tableView.layer.cornerRadius = 20
         layer.cornerRadius = 20
-        
         
         backgroundColor = .clear
     }
