@@ -6,110 +6,248 @@
 
 
 ///MARK: Onboarding ViewController
-"ONBOARDING_BUTTON_PREVIUS" = "Previous";
-"ONBOARDING_TITLE_LABEL" = "Make sure always be perfect parent to your pets";
-"ONBOARDING_SUBTITLE_LABEL" = "Pin your favorite restaurants and create your own food guide";
-"ONBOARDING_TITLE_LABEL_2" = "We help you quickly find the best vet our veterinary clinic neares";
-"ONBOARDING_SUBTITLE_LABEL_2" = "Search and locate your favourite clinic on Maps";
-"ONBOARDING_TITLE_LABEL_3" = "7/24 consultation on call/ chat";
-"ONBOARDING_SUBTITLE_LABEL_3" = "Find veterinary shared by your friends.";
+"ONBOARDING_BUTTON_PREVIOUS" = "Previous";
+"ONBOARDING_TITLE_LABEL" = "Make sure to always be a perfect parent";
+"ONBOARDING_SUBTITLE_LABEL" = "Add your favorite veterinarians to favorites and create your own guide";
+
+"ONBOARDING_TITLE_LABEL_2" = "We help you quickly find our nearest veterinary clinic";
+"ONBOARDING_SUBTITLE_LABEL_2" = "Search and find your favorite clinic on Maps";
+
+"ONBOARDING_TITLE_LABEL_3" = "We offer consultation via call/chat 24/7";
+"ONBOARDING_SUBTITLE_LABEL_3" = "Find veterinarians shared by your friends.";
+
 "ONBOARDING_BUTTON_GET_STARTED" = "Get Started";
 "ONBOARDING_BUTTON_LOGIN" = "Login";
 "ONBOARDING_BUTTON_NEXT" = "Next";
 
 
-//MARK: - Smt Otp ViewController
-"SMS_OTP_HEADER_LABEL" = "Please check your email";
-"SMS_OTP_RESEND_CODE_BUTTON" = "Send code again";
-"SMS_OTP_VERIFICATION_TEXTFIELD" = "Please entry code";
-"SMS_OTP_VERIFICATION_BUTTON" = "Verification";
-
-
-//MARK: - New Password ViewController
-"NEWPASSWORD_HEADER_LABEL" = "Create new password";
-"NEWPASSWORD_SUBTITLE_LABEL" = "This password should be different from to previous password";
-"NEWPASSWORD_RESET_BUTTON" = "Reset Password";
-"NEWPASSWORD_RESET_TEXTFIELD" = "Reset password";
-"NEWPASSWORD_CONFIRM_RESET_TEXTFIELD" = "Confirm reset password";
-
-
-//MARK: - Smt Otp ViewController
-"SMS_OTP_SUBTITLE_LABEL" = "We have sent to %d";
-"SMS_OTP_HEADER_LABEL" = "Please check email address";
-"SMS_OTP_RESEND_CODE_BUTTON" = "Send code again";
-"SMS_OTP_VERIFICATION_TEXTFIELD" = "code";
-"SMS_OTP_VERIFICATION_BUTTON" = "Verification";
-
 //MARK: Login ViewController
 "LOGIN_EMAIL_PLACEHOLDER" = "Email";
 "LOGIN_PASSWORD_PLACEHOLDER" = "Password";
-"LOGIN_TEXT_FORGOTPASSWORD" =  "Forgot Password?";
-"LOGIN_TEXT_SIGNUP" = "Don't have an account? Sign Up";
+"LOGIN_TEXT_FORGOTPASSWORD" = "Forgot password?";
+"LOGIN_TEXT_SIGNUP" = "Don't have an account? Sign up";
 "LOGIN_TEXT_LOGIN" = "Login";
-"LOGIN_HEADER" = "Welcome to Paw Buddy";
+"LOGIN_HEADER" = "Welcome to PawBuddies";
 
 
 //MARK: Register ViewController
-"REGISTER_HEADER" = "Create an account";
-"REGISTER_HEADER_LABEL" = "Welcome to Petcare";
-"REGISTER_NAME_PLACEHOLDER" = "Name";
-"REGISTER_LASTNAME_PLACEHOLDER" = "Lastname";
-"REGISTER_EMAIL_PLACEHOLDER" = "Email address";
+"REGISTER_HEADER" = "Create your account";
+"REGISTER_HEADER_LABEL" = "Welcome to Paw Buddy, let's sign up";
+"REGISTER_NAME_PLACEHOLDER" = "First Name";
+"REGISTER_LASTNAME_PLACEHOLDER" = "Last Name";
+"REGISTER_EMAIL_PLACEHOLDER" = "Email";
 "REGISTER_PASSWORD_PLACEHOLDER" = "Password";
-"REGISTER_CONFIRM_PLACEHOLDER" = "Confirm password";
+"REGISTER_CONFIRM_PLACEHOLDER" = "Confirm Password";
 "REGISTER_CREATE_BUTTON" = "Create Account";
 "REGISTER_USER" = "User";
-"REGISTER_VET" = "Veterinary Account";
-"REGISTER_LASTNAME" = "Lastname";
-"REGISTER_USER_ALERT" = "Register is success. Let's go to Enable Account. We sent a confirmation code to your email address.";
-"REGISTER_VET_ALERT" = "Register is success. Let's verify the Vet address.";
+"REGISTER_VET" = "Vet Registration";
+"REGISTER_LASTNAME" = "Last Name";
+"REGISTER_USER_ALERT" = "Registration successful. Let's activate your account. We sent a confirmation code to your email.";
+"REGISTER_VET_ALERT" = "Registration successful. Let's verify your veterinary address.";
 
 
-//MARK: FORGOT PASSWORD
-"FORGOTPASSWORD_TITLE" = "Enter the email address with your account and we'll send an email with confirmation to reset your password";
+//MARK: Forgot password Screen
+"FORGOTPASSWORD_TITLE" = "Enter your email address, and we will send you a confirmation email to reset your password.";
 "FORGOTPASSWORD_HEADER" = "Forgot Password";
 "FORGOTPASSWORD_BUTTON" = "Send Code";
 
 
+//MARK: - SMS OTP ViewController
+"SMS_OTP_SUBTITLE_LABEL" = "We have sent to %d";
+"SMS_OTP_HEADER_LABEL" = "Check your email";
+"SMS_OTP_RESEND_CODE_BUTTON" = "Resend Code";
+"SMS_OTP_VERIFICATION_TEXTFIELD" = "Enter code";
+"SMS_OTP_VERIFICATION_BUTTON" = "Verify";
 
-///MARK: -Email verification controller
-"EmailVerification_header" = "To confirm your account, please forward the code sent to your e-mail address.";
-"EmailVerification_textfield" = "Code send";
+//MARK: - New Password ViewController
+"NEWPASSWORD_HEADER_LABEL" = "Enter your new password";
+"NEWPASSWORD_SUBTITLE_LABEL" = "Your password must be different from the previous one.";
+"NEWPASSWORD_RESET_BUTTON" = "Save";
+"NEWPASSWORD_RESET_TEXTFIELD" = "Enter new password";
+"NEWPASSWORD_CONFIRM_RESET_TEXTFIELD" = "Confirm password";
+
+
+/// email verification controller
+"EmailVerification_header" = "Please enter the code sent to your email to verify your account.";
+
+"EmailVerification_textfield" = "Verification Code";
 "EmailVerification_button" = "Activate Account";
 
 
-//MARK: AddressVerifyViewController
 
+//MARK: AddressVerifyViewController
 "ADDRESS_VERIFY_CITY" = "Select City";
-"ADDRESS_VERIFY_Country" = "Select Country";
 "ADDRESS_VERIFY_Name" = "Clinic Name";
-"ADDRESS_VERIFY_PHONE" = "Clinic phone number";
-"ADDRESS_VERIFY_DISTRICT" = "Select district";
-"ADDRESS_VERIFY_Street" = "Select street";
-"ADDRESS_VERIFY_No" = "Enter a number";
-"ADDRESS_VERIFY_apartmentNo" = "Enter residence no";
+"ADDRESS_VERIFY_PHONE" = "Enter Clinic Number";
+"ADDRESS_VERIFY_Country" = "Select Country";
+"ADDRESS_VERIFY_DISTRICT" = "Select District";
+"ADDRESS_VERIFY_Street" = "Select Street";
+"ADDRESS_VERIFY_No" = "Enter No.";
+"ADDRESS_VERIFY_apartmentNo" = "Enter Apartment No.";
 "ADDRESS_VERIFY_BUTTON_Continue" = "Continue";
 "ADDRESS_VERIFY_Header" = "Veterinary Address Verification";
 
-
 //mark: validation text:
-"ADDRESS_VERIFY_clinic_name" = "Please enter clinic name";
-"ADDRESS_VERIFY_tel_no" = "Please enter phone or number number";
-"ADDRESS_VERIFY_city_name" = "Please enter city";
-"ADDRESS_VERIFY_disctirct_name" = "Please enter dictrict";
-"ADDRESS_VERIFY_street_name" = "Please enter street name or no";
-"ADDRESS_VERIFY_no_name" = "Please enter apartment no";
-"ADDRESS_VERIFY_no_mesken" = "Please enter mesken no";
+
+"ADDRESS_VERIFY_clinic_name" = "Please enter the clinic name";
+"ADDRESS_VERIFY_tel_no" = "Please enter your mobile or clinic number";
+"ADDRESS_VERIFY_city_name" = "Please enter the city information";
+"ADDRESS_VERIFY_disctirct_name" = "Please enter the neighborhood/street information";
+"ADDRESS_VERIFY_street_name" = "Please enter the street name or number";
+"ADDRESS_VERIFY_no_name" = "Please enter the building number";
+"ADDRESS_VERIFY_no_mesken" = "Please enter the apartment number";
 
 
 //MARK: - DocumentVerifyViewController
-"DocumentVerifyView_HEADER" = "Please upload your veterinary qualification certificate in PDF or image format.";
+"DocumentVerifyView_HEADER" = "Upload your veterinary qualification certificate in PDF or image format.";
 "DocumentVerifyView_Title" = "Document Verification";
-"DocumentVerifyView_button" = "Document Save";
-"DocumentVerifyView_INFO_ALERT" = "You need to upload your veterinary qualification certificate for verification. We will notify you with a notification after checking";
-"DocumentVerifyView_BottomSheet_Title" = "Select the document type";
+"DocumentVerifyView_button" = "Save Document";
+"DocumentVerifyView_INFO_ALERT" = "You need to upload your veterinary qualification certificate for verification. We will notify you after we check it.";
+"DocumentVerifyView_BottomSheet_Title" = "Select Document Type";
 "DocumentVerifyView_BottomSheet_IMAGE" = "Image";
 "DocumentVerifyView_BottomSheet_pdf" = "PDF";
-"DocumentVerifyView_BottomSheet_Cancel" = "Cancel";
+"DocumentVerifyView_BottomSheet_Cancel" = "Close";
 "DocumentVerifyView_BottomSheet_handle_image_error" = "The selected image is not valid.";
-"DocumentVerifyView_BottomSheet_handle_pdf_error" = "The selected pdf is not valid.";
+"DocumentVerifyView_BottomSheet_handle_pdf_error" = "The selected PDF is not valid.";
+
+
+//MARK: - HomeViewController
+
+"Home_pet_title" = "Pet Information";
+"Home_pet_appointment_label" = "Upcoming Appointment";
+"Home_pet_reminder_label" = "Reminders";
+"Home_pet_upcoming_label" = "Upcoming Appointment";
+"Home_nearby_veterinary_label" = "Veterinarians Nearby";
+
+"Home_SlideView_label_1" = "Let's Care for Our Furry Friends with Love";
+"Home_SlideView_label_2" = "Let's Play with Our Cat, Walk with Our Dog";
+"Home_SlideView_label_3" = "The Happiness of Our Pets Is Our Happiness!";
+
+
+//MARK: ReminderView DETAIL Viewcontroller
+"ReminderView_Title" = "Reminder List";
+"ReminderView_delete" = "Delete";
+"ReminderView_detail_title" = "What should be the reminder title?";
+"ReminderView_detail_desc" = "What topic do you want to add a notification about?";
+"ReminderView_detail_button" = "Save";
+
+
+//MARK: NearbyListViewController
+"NearbyList_Title" = "Nearby Veterinary List";
+
+
+//MARK: - PetTypeViewController
+"PetTypeView_title" = "Hello my friend :)";
+"PetTypeView_header" = "What kind of pet do you have?";
+"PetTypeView_button" = "Let's Continue";
+"PetTypeView_back" = "Back";
+
+"PetTypeView_dog" = "Dog";
+"PetTypeView_cat" = "Cat";
+"PetTypeView_bird" = "Bird";
+"PetTypeView_hamster" = "Hamster";
+"PetTypeView_rabbit" = "Rabbit";
+"PetTypeView_other" = "Other";
+
+
+//MARK: - PetInfoViewController
+"PetInfoView_pet_name" = "Pet Name";
+"PetInfoView_pet_weight" = "Weight (kg)";
+"PetInfoView_pet_height" = "Height/Length (cm)";
+"PetInfoView_pet_button" = "Let's Continue";
+"PetInfoView_pet_female" = "Female";
+"PetInfoView_pet_male" = "Male";
+"PetInfoView_button" = "Let's Continue";
+
+
+//MARK: - PetImageViewController
+"PetImageView_title" = "Add your pet's image";
+"PetImageView_button" = "Save";
+"PetImageView_cancel" = "Cancel";
+"PetImageView_library" = "Select from Library";
+
+
+//MARK: PetDetailViewController
+
+"PetDetailView_age" = "Age";
+"PetDetailView_height" = "Height/Length";
+"PetDetailView_weight" = "Weight";
+"PetDetailView_info" = "Information: ";
+"PetDetailView_button" = "Delete Pet :/";
+"PetDetailView_error" = "Warning";
+"PetDetailView_desc" = "Are you sure you want to delete?";
+
+
+//MARK: - VetMapViewController
+"VetMapView_title" = "Veterinarians on the Map";
+
+
+//MARK: SettingsViewController
+"SettingsView_appearence" = "Theme Appearance";
+"SettingsView_title" = "Settings";
+"SettingsView_person_info" = "Personal Information";
+"SettingsView_notification" = "Notifications";
+"SettingsView_privacy" = "Privacy Policy";
+"SettingsView_vets" = "Edit Working Hours";
+"SettingsView_signout" = "Sign Out";
+"SettingsView_exit" = "Exit";
+
+
+//MARK: AppearanceViewController
+"AppearanceView_title" = "Appearance";
+"AppearanceView_dark" = "Dark";
+"AppearanceView_light" = "Light";
+"AppearanceView_system" = "System";
+
+
+//MARK: PersonInformationViewController
+"PersonInformationView_title" = "Personal Information";
+"PersonInformationView_button" = "Save";
+
+
+//MARK: ManageNotificationViewController
+
+"ManageNotificationView_title" = "Notifications";
+"ManageNotificationView_email" = "Send Email";
+"ManageNotificationView_notify" = "Send Notification";
+
+
+//MARK: - PrivacyPolicyViewController
+"PrivacyPolicyView_title" = "Privacy Policy";
+
+
+
+//MARK: - ContractVetListViewController
+"ContractVetListView_title" = "Contracted Veterinarians";
+
+
+//MARK: AppointmentHistoryViewController
+"AppointmentHistoryView_title" = "Appointment History";
+
+//MARK: VeterinaryDetailViewController
+"VeterinaryDetailView_select_pet" = "Select Pet";
+"VeterinaryDetailView_select_book" = "Book Appointment";
+"VeterinaryDetailView_select_days" = "Available Days";
+"VeterinaryDetailView_select_hours" = "Available Hours";
+"VeterinaryDetailView_info_label" = "What would you like to tell the veterinarian?";
+"VeterinaryDetailView_button" = "Create Appointment";
+
+
+//MARK: - VeterinarySettingsViewController
+"VeterinarySettingsView_title" = "Weekly Working Days";
+"VeterinarySettingsView_monday" = "Monday";
+"VeterinarySettingsView_tuesday" = "Tuesday";
+"VeterinarySettingsView_wednesday" = "Wednesday";
+"VeterinarySettingsView_thursday" = "Thursday";
+"VeterinarySettingsView_friday" = "Friday";
+"VeterinarySettingsView_clinic" = "Clinic Working Days";
+
+
+//MARK: DateListInfoDetailViewController
+"DateListInfoDetailView_title" = "Daily Working Hours";
+"DateListInfoDetailView_button" = "Save";
+"DateListInfoDetailView_header" = "Set Working Hours!";
+
+
+//MARK: VeterinaryHomeViewController
+"VeterinaryHomeView_title" = "Active Appointments";

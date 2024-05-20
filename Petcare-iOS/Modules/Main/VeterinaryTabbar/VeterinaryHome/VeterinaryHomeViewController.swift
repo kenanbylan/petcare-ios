@@ -27,25 +27,13 @@ final class VeterinaryHomeViewController: UIViewController {
         view.backgroundColor = AppColors.bgColor
         prepareTitleLabel()
         prepareTableView()
+        print("VeterinaryHomeViewController :\(TokenManager.shared.email) , \(TokenManager.shared.userRole) ,\(TokenManager.shared.userId)")
     }
-    
     
     private func prepareTitleLabel() {
-        let titleLabel = TitleLabel.configurationTitleLabel(withText: "Veterinary Appointments", fontSize: 17, textColor: AppColors.primaryColor)
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: presenter?.setTitle() ?? "nil" , fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
-        
-        let addButton = UIBarButtonItem(image: UIImage(systemName: "x.circle.fill"),
-                                        style: .plain,
-                                        target: self,
-                                        action: #selector(addButtonTapped))
-        addButton.tintColor = AppColors.primaryColor
-        navigationItem.rightBarButtonItem = addButton
     }
-    
-    @objc func addButtonTapped() {
-        presenter?.backToLogin()
-    }
-    
     
     private func prepareTableView() {
         tableView.delegate = self
@@ -63,7 +51,6 @@ extension VeterinaryHomeViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let appointment = presenter?.appointment(at: indexPath.row) else {
-            // Handle nil case or return a default cell
             return UITableViewCell()
         }
         
@@ -83,14 +70,9 @@ extension VeterinaryHomeViewController: UITableViewDelegate, UITableViewDataSour
 }
 
 extension VeterinaryHomeViewController: VeterinaryHomeViewProtocol {
+    func getSuccessRezervation() { }
     
-    func getSuccessRezervation() {
-        
-    }
-    
-    func getFailureRezervation() {
-        
-    }
+    func getFailureRezervation() { }
     
     func updatedTableView() {
         tableView.reloadData()

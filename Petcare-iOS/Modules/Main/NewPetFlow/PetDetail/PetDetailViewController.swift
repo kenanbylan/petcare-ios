@@ -29,7 +29,7 @@ class PetDetailViewController: UIViewController {
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 20
+        imageView.layer.cornerRadius = 40
         return imageView
     }()
     
@@ -77,11 +77,22 @@ class PetDetailViewController: UIViewController {
     
     private lazy var petGenre: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "dog")?.resized(to: CGSize(width: 25, height: 25))
+        imageView.image = UIImage(named: presenter?.petTypeImage() ?? "dog")?.resized(to: CGSize(width: 25, height: 25))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
+    
+    private lazy var deletePetButton: AppButton = {
+        let appbutton = AppButton.build()
+            .setTitle("PetDetailView_button".localized())
+            .setImage(UIImage(named: "pati")?.withRenderingMode(.alwaysTemplate).resized(to: CGSize(width: 25, height: 25)))
+            .setBackgroundColor(AppColors.primaryColor)
+            .setTitleColor(AppColors.customWhite)
+        appbutton.addTarget(self, action: #selector(petDeleteTapped), for: .touchUpInside)
+        return appbutton
+    }()
+    
     
     let keyvalueAge = KeyValueStackView(data: nil)
     let keyvalueWeight = KeyValueStackView(data: nil)
@@ -95,71 +106,83 @@ class PetDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
-        view.backgroundColor = AppColors.customBlue
+        view.backgroundColor = AppColors.bgColor
         prepareConstraint()
         
         petImages.backgroundColor = AppColors.bgColor
         petImages.addShadow()
         
-        infoOutSideStackView.backgroundColor = AppColors.customWhite.withAlphaComponent(0.4)
-        informationSideStackView.backgroundColor = AppColors.customWhite.withAlphaComponent(0.4)
+        infoOutSideStackView.backgroundColor = .secondarySystemBackground
+        informationSideStackView.backgroundColor = .secondarySystemBackground
         
-        infoOutSideStackView.addShadow(
-            shadowColor: AppColors.customDarkGray.cgColor,
-            shadowOffset:CGSize(width: 5.0, height: 7.0),
-            shadowOpacity: 0.7,
-            shadowRadius: 4.0)
+        infoOutSideStackView.addShadow(shadowColor: AppColors.customDarkGray.cgColor,
+                                       shadowOffset:CGSize(width: 5.0, height: 7.0), shadowOpacity: 0.7, shadowRadius: 4.0)
+        informationSideStackView.addShadow(shadowColor: AppColors.customDarkGray.cgColor,
+                                           shadowOffset:CGSize(width: 5.0, height: 7.0), shadowOpacity: 0.7, shadowRadius: 4.0)
         
-        informationSideStackView.addShadow(
-            shadowColor: AppColors.customDarkGray.cgColor,
-            shadowOffset:CGSize(width: 5.0, height: 7.0),
-            shadowOpacity: 0.7,
-            shadowRadius: 4.0)
         
-        keyvalueAge.data = [("Age", presenter?.petData.birthDate?.calculateAge() ?? "6 month")]
-        keyvalueHeight.data = [("Height", String(presenter?.petData.height ?? 1.2))]
-        keyvalueWeight.data = [("Weight", String(presenter?.petData.weight ?? 1.2))]
+        keyvalueAge.data = [("\("PetDetailView_age".localized()): ", presenter?.formattedAge() ?? "6 month")]
+        keyvalueHeight.data = [("\("PetDetailView_height".localized()): ", presenter?.formattedHeight() ?? "1.2 cm")]
+        keyvalueWeight.data = [("\("PetDetailView_weight".localized()): ", presenter?.formattedWeight() ?? "1.2 kg")]
+    }
+    
+    @objc func petDeleteTapped() {
+        print("petDeleteTapped clicked!")
+        guard let petName = presenter?.petData.name else { return }
+        showAlertAction(title: "PetDetailView_error".localized(), message: "\(petName) \("PetDetailView_desc".localized())" , type: .actionSheet) {
+            //
+        }
     }
     
     private func prepareConstraint() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
+        view.addSubview(headerStackView)
+        headerStackView.addArrangedSubview(petsNameLabel)
+        headerStackView.addArrangedSubview(petGenre)
+        headerStackView.addArrangedSubview(UIView())
+        headerStackView.addArrangedSubview(closeButton)
+        
+        view.addSubview(petImages)
+        view.addSubview(infoOutSideStackView)
+        view.addSubview(informationSideStackView)
+        view.addSubview(deletePetButton)
+        
+        infoOutSideStackView.addArrangedSubview(keyvalueAge)
+        infoOutSideStackView.addArrangedSubview(keyvalueHeight)
+        infoOutSideStackView.addArrangedSubview(keyvalueWeight)
+        
+        informationSideStackView.addArrangedSubview(specialInfo)
+        
+        NSLayoutConstraint.activate([
+            headerStackView.topAnchor.constraint(equalTo: view.topAnchor,constant: 5.wPercent),
+            headerStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 5.wPercent),
+            headerStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -5.wPercent),
             
-            view.addSubview(headerStackView)
-            headerStackView.addArrangedSubview(petsNameLabel)
-            headerStackView.addArrangedSubview(petGenre)
-            headerStackView.addArrangedSubview(UIView())
-            headerStackView.addArrangedSubview(closeButton)
+            petImages.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant: 5.wPercent),
+            petImages.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
+            petImages.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.wPercent),
+            petImages.heightAnchor.constraint(equalToConstant: UIScreen.screenWidth / 1.5),
             
-            view.addSubview(petImages)
-            view.addSubview(infoOutSideStackView)
-            view.addSubview(informationSideStackView)
+            infoOutSideStackView.topAnchor.constraint(equalTo: petImages.bottomAnchor, constant: 10.wPercent),
+            infoOutSideStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
+            infoOutSideStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5.wPercent),
             
-            infoOutSideStackView.addArrangedSubview(keyvalueAge)
-            infoOutSideStackView.addArrangedSubview(keyvalueHeight)
-            infoOutSideStackView.addArrangedSubview(keyvalueWeight)
+            informationSideStackView.topAnchor.constraint(equalTo: infoOutSideStackView.bottomAnchor, constant: 5.wPercent),
+            informationSideStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
+            informationSideStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5.wPercent),
             
-            informationSideStackView.addArrangedSubview(specialInfo)
-            
-            NSLayoutConstraint.activate([
-                headerStackView.topAnchor.constraint(equalTo: view.topAnchor,constant: 5.wPercent),
-                headerStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 5.wPercent),
-                headerStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -5.wPercent),
-                
-                petImages.topAnchor.constraint(equalTo: headerStackView.bottomAnchor, constant: 5.wPercent),
-                petImages.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
-                petImages.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.wPercent),
-                petImages.heightAnchor.constraint(equalToConstant: UIScreen.screenWidth / 1.5),
-                
-                infoOutSideStackView.topAnchor.constraint(equalTo: petImages.bottomAnchor, constant: 10.wPercent),
-                infoOutSideStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
-                infoOutSideStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5.wPercent),
-                
-                informationSideStackView.topAnchor.constraint(equalTo: infoOutSideStackView.bottomAnchor, constant: 5.wPercent),
-                informationSideStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
-                informationSideStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5.wPercent),
-            ])
-        }
+            deletePetButton.topAnchor.constraint(equalTo: informationSideStackView.bottomAnchor, constant: 7.wPercent),
+            deletePetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 7.wPercent),
+            deletePetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -7.wPercent),
+        ])
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        infoOutSideStackView.addShadow(shadowColor: AppColors.customDarkGray.cgColor,
+                                       shadowOffset:CGSize(width: 5.0, height: 7.0), shadowOpacity: 0.7, shadowRadius: 4.0)
+        informationSideStackView.addShadow(shadowColor: AppColors.customDarkGray.cgColor,
+                                           shadowOffset:CGSize(width: 5.0, height: 7.0), shadowOpacity: 0.7, shadowRadius: 4.0)
+        
     }
 }
 

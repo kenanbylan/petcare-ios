@@ -42,7 +42,7 @@ final class PetTypeViewController: UIViewController {
     }()
     
     private lazy var petTitle: CustomLabel = {
-        let petTitle = CustomLabel(text: "Which pet do you have ?", fontSize: 14, fontType: .medium, textColor: AppColors.customWhite)
+        let petTitle = CustomLabel(text: "PetTypeView_header".localized(), fontSize: 14, fontType: .medium, textColor: AppColors.customWhite)
         return petTitle
     }()
     
@@ -62,7 +62,7 @@ final class PetTypeViewController: UIViewController {
     
     private lazy var patiButton: AppButton = {
         let appbutton = AppButton.build()
-            .setTitle("Done")
+            .setTitle("PetTypeView_button".localized())
             .setImage(UIImage(named: "pati")?.withRenderingMode(.alwaysTemplate).resized(to: CGSize(width: 25, height: 25)))
             .setBackgroundColor(AppColors.primaryColor)
             .setTitleColor(AppColors.customWhite)
@@ -100,7 +100,7 @@ final class PetTypeViewController: UIViewController {
     
     
     private func setNavigationBar() {
-        navigationItem.setCustomBackButtonTitle("Back", color: AppColors.primaryColor)
+        navigationItem.setCustomBackButtonTitle("PetTypeView_back".localized(), color: AppColors.primaryColor)
         navigationController?.navigationBar.tintColor = AppColors.primaryColor
     }
 }
@@ -181,5 +181,12 @@ extension PetTypeViewController: ViewCoding {
             patiButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -5.wPercent),
             patiButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
+    }
+}
+
+extension PetTypeViewController {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        topStackView.addShadow(shadowColor: AppColors.bgColor.cgColor)
     }
 }

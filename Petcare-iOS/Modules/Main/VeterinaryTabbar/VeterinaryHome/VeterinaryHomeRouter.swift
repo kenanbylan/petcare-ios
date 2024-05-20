@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 protocol VeterinaryHomeRouterProtocol {
-    func backToLogin() -> Void
     func navigateToDateList() -> Void
 }
 
@@ -31,15 +30,7 @@ final class VeterinaryHomeRouter: VeterinaryHomeRouterProtocol {
         return view
     }
     
-    func backToLogin() {
-//        guard let window = window else { return }
-//        let loginViewController = LoginRouter.build(navigationController: nil, window: window)
-//        window.rootViewController = UINavigationController(rootViewController: loginViewController)
-//        window.makeKeyAndVisible()
-    }
-    
     func navigateToDateList() {
-        let dateList = DateListInfoRouter.build(navigationController: navigationController)
-        self.navigationController?.pushViewController(dateList, animated: true)
+        
     }
 }

@@ -35,11 +35,11 @@ final class KeyValueStackView: UIStackView {
         guard let data = data else { return }
         
         for (key, value) in data {
-            let keyLabel = CustomLabel(text: "", fontSize: 17, fontType: .bold, textColor: AppColors.labelColor)
+            let keyLabel = CustomLabel(text: "", fontSize: 14, fontType: .bold, textColor: AppColors.labelColor)
             keyLabel.text = key
             keyLabel.textAlignment = .left
             
-            let valueLabel = CustomLabel(text: "", fontSize: 17, fontType: .medium, textColor: AppColors.labelColor)
+            let valueLabel = CustomLabel(text: "", fontSize: 14, fontType: .medium, textColor: AppColors.labelColor)
             valueLabel.text = value
             valueLabel.textAlignment = .left
             

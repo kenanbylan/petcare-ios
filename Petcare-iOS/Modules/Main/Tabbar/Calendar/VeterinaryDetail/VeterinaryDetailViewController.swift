@@ -14,7 +14,6 @@ protocol VeterinaryDetailViewProtocol: AnyObject { }
 final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelegate{
     var presenter: VeterinaryDetailPresenterProtocol!
     
-    
     //MARK: UI Properties
     private let scrollView: UIScrollView = {
         let sView = UIScrollView()
@@ -31,7 +30,6 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
         return view
     }()
     
-    
     private let headerImageView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -40,7 +38,21 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
     
     private lazy var textField: MyTextField = {
         let textfield = MyTextField()
-        textfield.placeholder = "Select subject"
+        textfield.placeholder = "VeterinaryDetailView_select_pet".localized()
+        textfield.tintColor = AppColors.primaryColor
+        return textfield
+    }()
+    
+    private lazy var availableDay: MyTextField = {
+        let textfield = MyTextField()
+        textfield.placeholder = "VeterinaryDetailView_select_days".localized()
+        textfield.tintColor = AppColors.primaryColor
+        return textfield
+    }()
+    
+    private lazy var availableHour: MyTextField = {
+        let textfield = MyTextField()
+        textfield.placeholder = "VeterinaryDetailView_select_hours".localized()
         textfield.tintColor = AppColors.primaryColor
         return textfield
     }()
@@ -56,15 +68,14 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
     }()
     
     private let textLabel: CustomLabel = {
-        let label = CustomLabel(text: "Dr. Emirhan Veterinary", fontSize: 21, fontType: .semibold, textColor: AppColors.primaryColor)
+        let label = CustomLabel(text: "Kucukyali", fontSize: 21, fontType: .semibold, textColor: AppColors.primaryColor)
         return label
     }()
     
     private let infoLabel: CustomLabel = {
-        let label = CustomLabel(text: "What you want to bring up with the vet", fontSize: 14, fontType: .regular, textColor: AppColors.labelColor)
+        let label = CustomLabel(text: "VeterinaryDetailView_info_label".localized(), fontSize: 14, fontType: .medium, textColor: AppColors.labelColor)
         return label
     }()
-    
     
     private lazy var phoneLabel: UIButton = {
         let button = UIButton(type: .roundedRect)
@@ -88,7 +99,7 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
     
     private lazy var conversationTextView: CustomTextView = {
         return CustomTextView.Builder()
-            .text("Info: ")
+            .text("")
             .textColor(AppColors.labelColor)
             .font(AppFonts.medium.font(size: 14))
             .shadowOffset(CGSize(width: 2, height: 2))
@@ -111,21 +122,11 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
     
     private lazy var doneButton: AppButton = {
         let appbutton = AppButton.build()
-            .setTitle("Done")
+            .setTitle("VeterinaryDetailView_button".localized())
+            .setTitleColor(AppColors.customWhite)
             .setBackgroundColor(AppColors.primaryColor)
         appbutton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return appbutton
-    }()
-    
-    private lazy var datePicker: UIDatePicker = {
-        let picker = UIDatePicker()
-        picker.locale = .current
-        picker.datePickerMode = .dateAndTime
-        picker.preferredDatePickerStyle = .compact
-        picker.tintColor = AppColors.primaryColor
-        picker.translatesAutoresizingMaskIntoConstraints = false
-        picker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
-        return picker
     }()
     
     override func viewDidLoad() {
@@ -137,39 +138,47 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
         doctorImage.image = UIImage(named: "happy-female")
         
         ///MARK: Kullanıcı seçebileceği seçeneklerin listesi
-        let options = ["Genel Kontrol", "Aşı Takvimi", "Parazit Kontrolü", "Diyet Danışmanlığı", "Davranış Sorunları", "Acil Durum"]
+        let options = ["Boncuk", "Finoo", "Lunaa", "Doggy"]
+        let availableDays = ["Pazartesi", "Çarşamba", "Perşembe"]
+        let availableHours = ["09.00 - 11.00", "11.00 - 13.00","15.00 - 17.00"]
         
-        // UITextField'e BottomSheet'i ayarlayın
-        textField.setInputViewBottomSheet(options: options, target: self, selector: #selector(handleOptionSelection(_:)),title: "Subject")
+        textField.setInputViewBottomSheet(options: options, target: self, selector: #selector(handleOptionSelection(_:)),title: "VeterinaryDetailView_select_pet".localized())
+        availableDay.setInputViewBottomSheet(options: availableDays, target: self, selector: #selector(selectDays(_:)),title: "VeterinaryDetailView_select_days".localized())
+        availableHour.setInputViewBottomSheet(options: availableHours, target: self, selector: #selector(selectHours(_:)),title: "VeterinaryDetailView_select_hours".localized())
         
         setupKeyboardDismissRecognizer()
+        prepareGetData()
     }
-    // Selector metodu
-    @objc func handleOptionSelection(_ selectedOption: String) {
+    
+    private func prepareGetData() {
+        textLabel.text = presenter.getClinicName()
+        locationInfo.setTitle(presenter.getClinicAddress(), for: .normal)
+        phoneLabel.setTitle(presenter.getClinicPhone(), for: .normal)
+    }
+    
+    @objc
+    func handleOptionSelection(_ selectedOption: String) {
         textField.text = selectedOption
     }
     
+    @objc
+    func selectDays(_ selectedOption: String) {
+        availableDay.text = selectedOption
+    }
+    
+    @objc
+    func selectHours(_ selectedOption: String) {
+        availableHour.text = selectedOption
+    }
+    
     private func prepareTitleLabel() {
-        let titleLabel = TitleLabel.configurationTitleLabel(withText: "Book an Appointment", fontSize: 17, textColor: AppColors.primaryColor)
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: "VeterinaryDetailView_select_book".localized(), fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
     }
     
-    @objc private func buttonTapped() {
-        print("Done button clicked")
-        guard let presenter = presenter else { return }
-        let model = presenter.setResultView() // Presenter'dan modeli al
-        let approveResultViewController = ApproveResultViewController(with: model)
-        navigationController?.pushViewController(approveResultViewController, animated: true)
-    }
-    
-    
-    @objc private func datePickerValueChanged(_ sender: UIDatePicker) {
-        let components = Calendar.current.dateComponents([.month, .hour, .minute], from: sender.date)
-        let selectedMonth = components.month
-        let selectedDay = components.day
-        let selectedHour = components.hour
-        let selectedMinute = components.minute
-        print("Selected Month: \(String(describing: selectedMonth)), Hour: \(String(describing: selectedHour)), Minute: \(String(describing: selectedMinute))")
+    @objc
+    private func buttonTapped() {
+//        presenter.
     }
 }
 
@@ -187,7 +196,7 @@ extension VeterinaryDetailViewController: ViewCoding {
         scrollView.addSubview(contentView)
         contentView.addSubview(stackView)
         
-        let views: [UIView] = [textLabel, horizontalStackView, textField, datePicker, infoLabel, conversationTextView,doneButton ]
+        let views: [UIView] = [textLabel, horizontalStackView, textField, availableDay, availableHour , infoLabel, conversationTextView,doneButton ]
         for view in views {
             stackView.addArrangedSubview(view)
         }
@@ -211,6 +220,7 @@ extension VeterinaryDetailViewController: ViewCoding {
             headerImageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             headerImageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
+        
         headerImageViewBottom = self.headerImageView.bottomAnchor.constraint(equalTo: self.contentView.topAnchor, constant: -20)
         headerImageViewBottom.priority = UILayoutPriority(rawValue: 900)
         headerImageViewBottom.isActive = true
@@ -240,5 +250,12 @@ extension VeterinaryDetailViewController: ViewCoding {
             stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -UIScreen.screenHeight / 6),
             stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor)
         ])
+    }
+}
+
+extension VeterinaryDetailViewController {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        contentView.addShadow(shadowColor: AppColors.bgColor.cgColor)
     }
 }

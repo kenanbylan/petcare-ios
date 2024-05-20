@@ -32,7 +32,6 @@ final class NearbyListViewController: UIViewController {
         locationManager.requestPermissionToAccessLocation()
     }
     
-    
     private func prepareTableView() {
         view.addSubview(tableView)
         tableView.registerNib(with: NearbyListTableViewCell.identifier)
@@ -61,11 +60,11 @@ extension NearbyListViewController: NearbyListViewProtocol {
     }
     
     func showError(message: String) {
-        //alert
+        
     }
     
     func prepareTitle() {
-        let titleLabel = TitleLabel.configurationTitleLabel(withText: "Yakınımdaki veteriner listesi", fontSize: 17, textColor: AppColors.primaryColor)
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: "NearbyList_Title".localized(), fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
     }
 }

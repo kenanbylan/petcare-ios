@@ -12,7 +12,7 @@ protocol PetImageInteractorProtocol {
 }
 
 protocol PetImageInteractorOutput {
-    func petsRegisterSuccess(response: PetResponse) // Or Model
+    func petsRegisterSuccess(response: PetResponse)
     func petsRegisterFailure(error: ExceptionErrorHandle)
     func petsRegisterFailure(error: String)
 }
@@ -26,11 +26,7 @@ final class PetImageInteractor: PetImageInteractorProtocol {
     }
     
     func savePetRequest(petData: PetInfoModel) {
-        guard let userId = TokenManager.shared.userId,
-              let birthDate = petData.birthDate else {
-            // Eksik bilgi varsa işlemi durdur
-            return
-        }
+        guard let userId = TokenManager.shared.userId, let birthDate = petData.birthDate else { return }
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

@@ -16,24 +16,19 @@ protocol VeterinarySettingsInteractorOutput {
 }
 
 
-final class VeterinarySettingsInteractor:    VeterinarySettingsInteractorProtocol {
-    
+final class VeterinarySettingsInteractor: VeterinarySettingsInteractorProtocol {
     var output: VeterinarySettingsInteractorOutput?
     
     func fetchSettingsSections() {
         let generalOptions: [DayListType] = [
-            .staticCell(model: DateModel(title: "Monday", router: .monday)),
-            .staticCell(model: DateModel(title: "Tuesday", router: .tuesday)),
-            
-                .staticCell(model: DateModel(title: "Wednesday", router: .wednesday)),
-            
-                .staticCell(model: DateModel(title: "Thursday", router: .thursday)),
-            
-                .staticCell(model: DateModel(title: "Friday", router: .friday))
+            .staticCell(model: DateModel(title: "VeterinarySettingsView_monday".localized(), router: .monday)),
+            .staticCell(model: DateModel(title: "VeterinarySettingsView_tuesday".localized(), router: .tuesday)),
+            .staticCell(model: DateModel(title: "VeterinarySettingsView_wednesday".localized(), router: .wednesday)),
+            .staticCell(model: DateModel(title: "VeterinarySettingsView_thursday".localized(), router: .thursday)),
+            .staticCell(model: DateModel(title: "VeterinarySettingsView_friday".localized(), router: .friday))
         ]
         
-        let generalSection = SectionDay(title: "Day List", options: generalOptions)
-        
+        let generalSection = SectionDay(title: "VeterinarySettingsView_clinic".localized(), options: generalOptions)
         output?.settingsSectionsFetched([generalSection])
     }
 }

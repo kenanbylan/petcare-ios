@@ -15,7 +15,6 @@ struct DateModel {
 
 enum DayListType {
     case staticCell(model: DateModel)
-    case signOut
 }
 
 enum RouterDay {

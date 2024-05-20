@@ -40,3 +40,10 @@ class LoginButton: UIButton {
         
     }
 }
+
+extension LoginButton {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        layer.shadowColor = UIColor.gray.cgColor
+    }
+}

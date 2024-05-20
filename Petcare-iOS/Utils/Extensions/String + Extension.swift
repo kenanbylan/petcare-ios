@@ -43,10 +43,8 @@ extension String {
     func formatAsDistance() -> String {
         if let distanceValue = Double(self) {
             if distanceValue < 1000 {
-                // If the distance is less than 1000 meters, format it as meters
                 return "\(Int(distanceValue)) m"
             } else {
-                // If the distance is 1000 meters or more, format it as kilometers
                 let distanceInKm = distanceValue / 1000.0
                 let roundedDistance = String(format: "%.1f", distanceInKm)
                 return "\(roundedDistance) km"
@@ -72,7 +70,7 @@ extension String {
         if let year = ageComponents.year, year == 0, let month = ageComponents.month {
             return "\(month) months old"
         } else if let year = ageComponents.year {
-            return "\(year) yo"
+            return "\(year) years old"
         } else {
             return nil
         }

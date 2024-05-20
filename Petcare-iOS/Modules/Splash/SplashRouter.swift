@@ -12,6 +12,7 @@ protocol SplashRouterProtocol: AnyObject {
     func navigateToOnboarding() -> Void
     func navigateToLogin() -> Void
     func navigateToHome() -> Void
+    func navigateToVeterinaryHome() -> Void
 }
 
 final class SplashRouter {
@@ -52,5 +53,9 @@ extension SplashRouter: SplashRouterProtocol {
     
     func navigateToHome() {
         self.window.rootViewController = MainTabbar()
+    }
+    
+    func navigateToVeterinaryHome() {
+        self.window.rootViewController = VeterinaryTabbar()
     }
 }

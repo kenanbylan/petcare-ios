@@ -16,7 +16,7 @@ protocol LoginPresenterProtocol {
 
 final class LoginPresenter {
     weak var view: LoginViewProtocol?
-    let router: LoginRouterProtocol?
+    var router: LoginRouterProtocol?
     let interactor: LoginInteractorProtocol?
     
     var userData: LoginRequest?
@@ -56,7 +56,10 @@ extension LoginPresenter: LoginPresenterProtocol {
 }
 
 extension LoginPresenter: LoginInteractorOutput {
+    
     func registrationSuccess(user: LoginResponse) {
+        TokenManager.shared.clearTokens()
+        
         guard let jwtToken = user.token else { return }
         do {
             let decodedPayload = try JWTDecoder().decode(jwtToken: jwtToken)
@@ -78,7 +81,6 @@ extension LoginPresenter: LoginInteractorOutput {
                     router?.navigateToVeterinaryMain()
                 }
             } else {
-                //MARK: - burada backendden hesabın enable veya dissable olduğu durumuda gelmelidir. Bu işleme göre kullanıcıya farklı bir message gönderilecektir.
                 view?.showAlertMessage(message: "ROLE Alınamadı.")
             }
         } catch {
@@ -90,21 +92,4 @@ extension LoginPresenter: LoginInteractorOutput {
         view?.showAlertMessage(message: error.error ?? "error message is nil")
     }
     
-    private func decodingTokenMethodGetRole(jwtToken: String) -> ROLE?  {
-        do {
-            let decodedPayload = try TokenManager.shared.decodeJWT(jwtToken)
-
-            print("DECODED PAYLOAD : \(decodedPayload)")
-
-            if let userRoleString = decodedPayload["user_role"] as? String,
-               let userRole = ROLE(rawValue: userRoleString) {
-                return userRole
-            } else {
-                return nil
-            }
-        } catch {
-            print("DECODED PAYLOAD ERROR: \(error)")
-            return nil
-        }
-    }
 }

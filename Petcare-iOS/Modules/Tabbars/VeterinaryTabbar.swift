@@ -8,9 +8,7 @@
 import UIKit
 
 final class VeterinaryTabbar: UITabBarController {
-
     var window: UIWindow?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +36,10 @@ final class VeterinaryTabbar: UITabBarController {
     
     func loadSettingsTab() {
         let navigationController = UINavigationController()
-        let settings = VeterinarySettingsRouter.build(navigationController: navigationController)
+        let settings = SettingsRouter.build(navigationController: navigationController, window: UIWindow())
         navigationController.viewControllers.append(settings)
         navigationController.tabBarItem.image = UIImage(systemName: Tabbar.settingsIcon )
         navigationController.tabBarItem.title = Tabbar.settingsText
         self.addChild(navigationController)
     }
-    
 }

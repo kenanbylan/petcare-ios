@@ -11,9 +11,7 @@ protocol NearbyListInteractorProtocol {
     func getTableViewList()
 }
 
-protocol NearbyListInteractOutput {
-    
-}
+protocol NearbyListInteractOutput { }
 
 final class NearbyListInteractor: NearbyListInteractorProtocol {
     var output: NearbyListInteractOutput?

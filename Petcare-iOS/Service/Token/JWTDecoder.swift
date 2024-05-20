@@ -11,10 +11,10 @@ final class JWTDecoder {
     enum DecodeErrors: Error {
         case badToken
         case other
+        case invalidTokenFormat
     }
     
     func decode(jwtToken jwt: String) throws -> [String: Any] {
-        
         func base64Decode(_ base64: String) throws -> Data {
             let base64 = base64
                 .replacingOccurrences(of: "-", with: "+")
@@ -36,20 +36,10 @@ final class JWTDecoder {
         }
         
         let segments = jwt.components(separatedBy: ".")
+        guard segments.count == 3 else {
+            throw DecodeErrors.invalidTokenFormat
+        }
+        
         return try decodeJWTPart(segments[1])
     }
 }
-
-
-//Usage:
-/*
- 
- // Kullanım
- do {
- let jwtPayload = try TokenManager.shared.decodeJWT("your_jwt_token_here")
- // JWT içeriğiyle işlemleri yapın
- } catch {
- // Hata durumunda işlemleri yapın
- }
- 
- */

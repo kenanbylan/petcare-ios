@@ -18,7 +18,7 @@ final class PetImageViewController: UIViewController {
     
     //MARK: select pet image
     private lazy var petsNameLabel: CustomLabel = {
-        let label = CustomLabel(text: "Add your pet image", fontSize: 17, fontType: .bold, textColor: AppColors.labelColor)
+        let label = CustomLabel(text: "PetImageView_title".localized(), fontSize: 17, fontType: .bold, textColor: AppColors.labelColor)
         label.textAlignment = .left
         return label
     }()
@@ -34,7 +34,7 @@ final class PetImageViewController: UIViewController {
     private lazy var appButton: AppButton = {
         let appbutton = AppButton.build()
             .setImage(UIImage(named: "pati")?.resized(to: CGSize(width: 25, height: 25)))
-            .setTitle("Save")
+            .setTitle("PetImageView_button".localized())
             .setTitleColor(AppColors.labelColor)
         appbutton.addTarget(self, action: #selector(patiButtonClicked) , for: .touchUpInside)
         appbutton.isEnabled = false
@@ -58,7 +58,6 @@ final class PetImageViewController: UIViewController {
 extension PetImageViewController: PetImageViewProtocol {
     func savePetsSuccess(message: String) {
         showAlert(title: "Success", message: message , type: .alert) {
-            //action
             self.presenter?.navigateMainPage()
         }
     }
@@ -79,13 +78,7 @@ extension PetImageViewController: PetImageViewProtocol {
         prepareTapGesture()
     }
     
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        petImages.layer.shadowColor = AppColors.customLightGray.cgColor
-    }
-    
     @objc func patiButtonClicked() {
-        print(" Select Image clicked SaveButton")
         presenter?.fetchRequest()
     }
     
@@ -112,13 +105,13 @@ extension PetImageViewController: UIImagePickerControllerDelegate & UINavigation
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
- 
-        let chooseFromLibraryAction = UIAlertAction(title: "Kütüphaneden Seç", style: .default) { _ in
+        
+        let chooseFromLibraryAction = UIAlertAction(title: "PetImageView_library".localized(), style: .default) { _ in
             imagePicker.sourceType = .photoLibrary
             self.present(imagePicker, animated: true, completion: nil)
         }
         
-        let cancelAction = UIAlertAction(title: "İptal", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "PetImageView_cancel".localized(), style: .cancel, handler: nil)
         alertController.addAction(chooseFromLibraryAction)
         alertController.addAction(cancelAction)
         
@@ -174,5 +167,12 @@ extension PetImageViewController: ViewCoding {
             appButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 5.wPercent),
             appButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -5.wPercent),
         ])
+    }
+}
+
+extension PetImageViewController {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        petImages.layer.shadowColor = AppColors.customLightGray.cgColor
     }
 }

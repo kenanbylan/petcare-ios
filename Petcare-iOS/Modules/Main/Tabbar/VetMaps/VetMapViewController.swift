@@ -17,7 +17,6 @@ protocol VetMapViewProtocol: AnyObject {
 final class VetMapViewController: BaseViewController {
     var presenter: VetMapPresenterProtocol?
     var locationManager: CLLocationManager?
-    var clinicDetails: ClinicDetails?
     
     let mapView: MKMapView = {
         let map = MKMapView()
@@ -28,8 +27,8 @@ final class VetMapViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
         view.backgroundColor = AppColors.bgColor
+        
         setupViews()
         checkLocationServices()
         mapView.delegate = self
@@ -99,7 +98,7 @@ final class VetMapViewController: BaseViewController {
         request.naturalLanguageQuery = "Veteriner"
         request.region = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
-
+        
         let search = MKLocalSearch(request: request)
         search.start { [weak self] (response, error) in
             guard let self = self else { return }
@@ -189,11 +188,5 @@ extension VetMapViewController: MKMapViewDelegate {
         }
         
         return annotationView
-    }
-    private func showClinicDetailsBottomSheet(with address: String) {
-        let bottomSheetVC = MapBottomSheetViewController()
-        bottomSheetVC.clinicDetail = ClinicDetails(address: address)
-        bottomSheetVC.modalPresentationStyle = .pageSheet
-        present(bottomSheetVC, animated: true, completion: nil)
     }
 }

@@ -11,8 +11,6 @@ protocol VeterinarySettingsViewProtocol: AnyObject {
     
 }
 
-
-
 final class VeterinarySettingsViewController: UIViewController {
     var presenter: VeterinarySettingsPresenterProtocol?
     var models = [SectionDay]()
@@ -33,19 +31,16 @@ final class VeterinarySettingsViewController: UIViewController {
     }
     
     private func prepareTitleLabel() {
-        let titleLabel = TitleLabel.configurationTitleLabel(withText: "Veterinary Settings", fontSize: 17, textColor: AppColors.primaryColor)
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: "VeterinarySettingsView_title".localized(), fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
     }
 }
-
 
 extension VeterinarySettingsViewController: VeterinarySettingsViewProtocol {
     func updateTableView(with sections: [SectionDay]) {
         self.models = sections
         self.tableView.reloadData()
     }
-    
-    
     
     func prepareTableView() {
         view.addSubview(tableView)
@@ -54,10 +49,10 @@ extension VeterinarySettingsViewController: VeterinarySettingsViewProtocol {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = AppColors.bgColor
         tableView.frame = view.bounds
+
+        tableView.backgroundColor = AppColors.bgColor
         tableView.layer.cornerRadius = 10
-        tableView.layer.masksToBounds = true
     }
 }
 
@@ -79,11 +74,6 @@ extension VeterinarySettingsViewController: UITableViewDelegate, UITableViewData
             let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as! SettingTableViewCell
             cell.configureCell(with: settingModel)
             return cell
-        case .signOut:
-            let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-            cell.textLabel?.text = "Sign Out"
-            cell.textLabel?.textColor = .red // Optional: Customize sign out cell appearance
-            return cell
         }
     }
     
@@ -93,8 +83,7 @@ extension VeterinarySettingsViewController: UITableViewDelegate, UITableViewData
         switch selectedOption {
         case .staticCell(model: let model):
             presenter?.navigateDetail(detail: model)
-        case .signOut:
-            break
+            
         }
     }
     
@@ -102,7 +91,4 @@ extension VeterinarySettingsViewController: UITableViewDelegate, UITableViewData
         return models[section].title
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == models.count - 1 ? 60.0 : 0.0
-    }
 }

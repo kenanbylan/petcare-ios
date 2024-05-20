@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		93048EDF2B095096000BD03A /* CodeVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93048EDE2B095096000BD03A /* CodeVerificationViewController.swift */; };
 		93048EE12B0950C2000BD03A /* NewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93048EE02B0950C2000BD03A /* NewPasswordViewController.swift */; };
 		93048F022B0966DB000BD03A /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93048EFC2B0966DB000BD03A /* Poppins-Bold.ttf */; };
 		93048F032B0966DB000BD03A /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93048EFD2B0966DB000BD03A /* Poppins-SemiBold.ttf */; };
@@ -17,7 +16,6 @@
 		93048F072B0966DB000BD03A /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93048F012B0966DB000BD03A /* Poppins-Thin.ttf */; };
 		93048F092B0A8F8F000BD03A /* Int + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93048F082B0A8F8F000BD03A /* Int + Extension.swift */; };
 		93048F0D2B0A9164000BD03A /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93048F0C2B0A9164000BD03A /* Size.swift */; };
-		93048F162B0AA08B000BD03A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93048F182B0AA08B000BD03A /* Localizable.strings */; };
 		93048F1C2B0AA4DD000BD03A /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93048F1B2B0AA4DD000BD03A /* String + Extension.swift */; };
 		930493912BCAFD24004026FE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930493902BCAFD24004026FE /* Network.swift */; };
 		930493932BCAFD45004026FE /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930493922BCAFD45004026FE /* DataRequest.swift */; };
@@ -72,18 +70,12 @@
 		932D25552B7BFFC000B99FA3 /* PetDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25542B7BFFC000B99FA3 /* PetDetailInteractor.swift */; };
 		932D25572B7BFFC600B99FA3 /* PetDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25562B7BFFC600B99FA3 /* PetDetailPresenter.swift */; };
 		932D25592B7BFFCD00B99FA3 /* PetDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25582B7BFFCD00B99FA3 /* PetDetailRouter.swift */; };
-		932D255B2B7CC78F00B99FA3 /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D255A2B7CC78F00B99FA3 /* MapDetailView.swift */; };
-		932D256C2B80092F00B99FA3 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D256B2B80092F00B99FA3 /* AlertView.swift */; };
 		932D25752B825D4800B99FA3 /* NSObject + Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D25742B825D4800B99FA3 /* NSObject + Extension .swift */; };
 		932D257D2B827E1B00B99FA3 /* SlideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D257C2B827E1B00B99FA3 /* SlideCell.swift */; };
 		932D25802B82851B00B99FA3 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D257F2B82851B00B99FA3 /* SlideView.swift */; };
 		93307E982BE2C97300C665B4 /* NewPasswordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93307E972BE2C97300C665B4 /* NewPasswordRequest.swift */; };
 		93307E9A2BE3C6E400C665B4 /* JWTDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93307E992BE3C6E400C665B4 /* JWTDecoder.swift */; };
 		93307F1B2BE4FB5B00C665B4 /* VeterinaryRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93307F1A2BE4FB5B00C665B4 /* VeterinaryRegister.swift */; };
-		93364FC72B8E2DD000C430DB /* MapBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FC62B8E2DD000C430DB /* MapBottomSheetViewController.swift */; };
-		93364FC92B8F3D1000C430DB /* CodeVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FC82B8F3D1000C430DB /* CodeVerificationRouter.swift */; };
-		93364FCB2B8F3D1600C430DB /* CodeVerificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FCA2B8F3D1600C430DB /* CodeVerificationInteractor.swift */; };
-		93364FCD2B8F3D1B00C430DB /* CodeVerificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FCC2B8F3D1B00C430DB /* CodeVerificationPresenter.swift */; };
 		93364FCF2B8F3D2600C430DB /* NewPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FCE2B8F3D2600C430DB /* NewPasswordRouter.swift */; };
 		93364FD12B8F3D2C00C430DB /* NewPasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD02B8F3D2C00C430DB /* NewPasswordInteractor.swift */; };
 		93364FD32B8F3D3600C430DB /* NewPasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93364FD22B8F3D3600C430DB /* NewPasswordPresenter.swift */; };
@@ -130,16 +122,25 @@
 		934702112B0FF8910033C7CE /* CustomTextfieldBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934702102B0FF8910033C7CE /* CustomTextfieldBase.swift */; };
 		9348B45E2AE0631E00F7185A /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9348B45D2AE0631E00F7185A /* AppFonts.swift */; };
 		9363902F2BAB69BA00F9A6A1 /* PetAvatarCellFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9363902E2BAB69BA00F9A6A1 /* PetAvatarCellFooter.swift */; };
-		936390332BAC49F700F9A6A1 /* ReminderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936390322BAC49F700F9A6A1 /* ReminderCell.swift */; };
+		936390332BAC49F700F9A6A1 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936390322BAC49F700F9A6A1 /* ReminderView.swift */; };
 		9367243E2B8E156400897112 /* UserRegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367243D2B8E156400897112 /* UserRegisterResponse.swift */; };
 		936795942BDA9E350001FA47 /* EmaiVerificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936795932BDA9E350001FA47 /* EmaiVerificationRequest.swift */; };
+		936E6C002BF8B39500A623BC /* PersonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6BFF2BF8B39500A623BC /* PersonRequest.swift */; };
+		936E6C1C2BFA23DF00A623BC /* ContractVetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C1B2BFA23DF00A623BC /* ContractVetListViewController.swift */; };
+		936E6C1E2BFA23EA00A623BC /* ContractVetListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C1D2BFA23EA00A623BC /* ContractVetListRouter.swift */; };
+		936E6C202BFA23F100A623BC /* ContractVetListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C1F2BFA23F100A623BC /* ContractVetListPresenter.swift */; };
+		936E6C222BFA23FB00A623BC /* ContractVetListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C212BFA23FB00A623BC /* ContractVetListInteractor.swift */; };
+		936E6C292BFA4BBD00A623BC /* AppointmentHistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C282BFA4BBD00A623BC /* AppointmentHistoryRouter.swift */; };
+		936E6C2B2BFA4C3F00A623BC /* AppointmentHistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C2A2BFA4C3F00A623BC /* AppointmentHistoryInteractor.swift */; };
+		936E6C2D2BFA4C8B00A623BC /* AppointmentHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C2C2BFA4C8B00A623BC /* AppointmentHistoryViewController.swift */; };
+		936E6C2F2BFA4CE800A623BC /* AppointmentHistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C2E2BFA4CE800A623BC /* AppointmentHistoryPresenter.swift */; };
+		936E6C312BFA773600A623BC /* PastAppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C302BFA773600A623BC /* PastAppointmentTableViewCell.swift */; };
+		936E6C342BFA876800A623BC /* PastAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C332BFA876800A623BC /* PastAppointment.swift */; };
+		936E6C372BFBA4B300A623BC /* PetDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C362BFBA4B300A623BC /* PetDelete.swift */; };
+		936E6C432BFBC52000A623BC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 936E6C412BFBC52000A623BC /* Localizable.strings */; };
+		936E6C4D2BFBE48D00A623BC /* PersonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C4C2BFBE48D00A623BC /* PersonResponse.swift */; };
+		936E6C522BFBE84E00A623BC /* HomeViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936E6C512BFBE84E00A623BC /* HomeViewController + Extension.swift */; };
 		93732DF92B16701E00DE636E /* UserRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93732DF82B16701E00DE636E /* UserRegister.swift */; };
-		9378A8E52BD7C94E0064FE2C /* DateListInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378A8E42BD7C94E0064FE2C /* DateListInfoViewController.swift */; };
-		9378A8E72BD7C9530064FE2C /* DateListInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378A8E62BD7C9530064FE2C /* DateListInfoRouter.swift */; };
-		9378A8E92BD7C95E0064FE2C /* DateListInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378A8E82BD7C95E0064FE2C /* DateListInfoPresenter.swift */; };
-		9378A8EB2BD7C9660064FE2C /* DateListInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378A8EA2BD7C9660064FE2C /* DateListInfoInteractor.swift */; };
-		9378A8ED2BD7CC2C0064FE2C /* DateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378A8EC2BD7CC2C0064FE2C /* DateList.swift */; };
-		9378A8F02BD7D9F40064FE2C /* CustomDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9378A8EF2BD7D9F40064FE2C /* CustomDateCollectionViewCell.swift */; };
 		937BE3792BE7E78000F62AAD /* SavePetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937BE3782BE7E78000F62AAD /* SavePetEntity.swift */; };
 		9381023B2B5D5F2600BF21AD /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381023A2B5D5F2600BF21AD /* SettingTableViewCell.swift */; };
 		938102402B5D636D00BF21AD /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9381023F2B5D636D00BF21AD /* SettingsModel.swift */; };
@@ -162,6 +163,8 @@
 		938901E72BD55C5D00183EEC /* EmailVerificationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938901E62BD55C5D00183EEC /* EmailVerificationPresenter.swift */; };
 		938901E92BD55C6300183EEC /* EmailVerificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938901E82BD55C6300183EEC /* EmailVerificationInteractor.swift */; };
 		939A83302BF52C6400453FC1 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939A832F2BF52C6400453FC1 /* Reminder.swift */; };
+		939A83342BF5391500453FC1 /* ReminderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939A83332BF5391500453FC1 /* ReminderDetailViewController.swift */; };
+		939A83362BF53A0B00453FC1 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939A83352BF53A0B00453FC1 /* AddViewController.swift */; };
 		93A47C5F2BF3B70000B336A7 /* AppointmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A47C5E2BF3B70000B336A7 /* AppointmentList.swift */; };
 		93A47C632BF3B95800B336A7 /* AppointmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A47C622BF3B95800B336A7 /* AppointmentModel.swift */; };
 		93A47C662BF3C59B00B336A7 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A47C652BF3C59B00B336A7 /* DateModel.swift */; };
@@ -183,20 +186,15 @@
 		93AA9BC02BA1002B00942F16 /* ImageLabelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BBF2BA1002B00942F16 /* ImageLabelBuilder.swift */; };
 		93AA9BC32BA192C500942F16 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BC22BA192C500942F16 /* BottomSheetView.swift */; };
 		93AA9BC62BA2366600942F16 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BC52BA2366600942F16 /* CustomTextView.swift */; };
-		93AA9BC92BA4C63B00942F16 /* ApproveResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BC82BA4C63B00942F16 /* ApproveResultViewController.swift */; };
-		93AA9BCE2BA4E72600942F16 /* ApproveResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BCD2BA4E72600942F16 /* ApproveResultModel.swift */; };
 		93AA9BD12BA6167B00942F16 /* KeyValueStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BD02BA6167B00942F16 /* KeyValueStackView.swift */; };
 		93AA9BD42BA6244D00942F16 /* NearbyVetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BD32BA6244D00942F16 /* NearbyVetView.swift */; };
-		93AA9BD62BA62AA200942F16 /* VeterinerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BD52BA62AA200942F16 /* VeterinerService.swift */; };
 		93AA9BDC2BA700EF00942F16 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BDB2BA700EF00942F16 /* ReminderViewController.swift */; };
 		93AA9BDE2BA700FA00942F16 /* ReminderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BDD2BA700FA00942F16 /* ReminderPresenter.swift */; };
 		93AA9BE02BA7010000942F16 /* ReminderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BDF2BA7010000942F16 /* ReminderRouter.swift */; };
 		93AA9BE22BA7010800942F16 /* ReminderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93AA9BE12BA7010800942F16 /* ReminderInteractor.swift */; };
 		93B004DB2B8B353300302B3D /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B004DA2B8B353300302B3D /* TokenManager.swift */; };
-		93B004DD2B8B95B900302B3D /* ClinicDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B004DC2B8B95B900302B3D /* ClinicDetailsViewController.swift */; };
 		93C46DFA2B040C540055BA0F /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46DF92B040C540055BA0F /* MyTextField.swift */; };
 		93C46E0A2B04C7AF0055BA0F /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E092B04C7AF0055BA0F /* LoginButton.swift */; };
-		93C46E0C2B04CB620055BA0F /* GoogleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E0B2B04CB620055BA0F /* GoogleButton.swift */; };
 		93C46E0E2B04EB310055BA0F /* UINavigationController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E0D2B04EB310055BA0F /* UINavigationController + Extension.swift */; };
 		93C46E132B0509DD0055BA0F /* Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C46E122B0509DD0055BA0F /* Combine.framework */; };
 		93C46E162B0542B30055BA0F /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C46E152B0542B30055BA0F /* CustomLabel.swift */; };
@@ -258,7 +256,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		93048EDE2B095096000BD03A /* CodeVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationViewController.swift; sourceTree = "<group>"; };
 		93048EE02B0950C2000BD03A /* NewPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordViewController.swift; sourceTree = "<group>"; };
 		93048EFC2B0966DB000BD03A /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		93048EFD2B0966DB000BD03A /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -268,10 +265,6 @@
 		93048F012B0966DB000BD03A /* Poppins-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		93048F082B0A8F8F000BD03A /* Int + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int + Extension.swift"; sourceTree = "<group>"; };
 		93048F0C2B0A9164000BD03A /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
-		93048F122B0AA030000BD03A /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		93048F132B0AA030000BD03A /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
-		93048F172B0AA08B000BD03A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		93048F192B0AA08E000BD03A /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		93048F1B2B0AA4DD000BD03A /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		930493902BCAFD24004026FE /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		930493922BCAFD45004026FE /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
@@ -327,18 +320,12 @@
 		932D25542B7BFFC000B99FA3 /* PetDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailInteractor.swift; sourceTree = "<group>"; };
 		932D25562B7BFFC600B99FA3 /* PetDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailPresenter.swift; sourceTree = "<group>"; };
 		932D25582B7BFFCD00B99FA3 /* PetDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailRouter.swift; sourceTree = "<group>"; };
-		932D255A2B7CC78F00B99FA3 /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
-		932D256B2B80092F00B99FA3 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		932D25742B825D4800B99FA3 /* NSObject + Extension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject + Extension .swift"; sourceTree = "<group>"; };
 		932D257C2B827E1B00B99FA3 /* SlideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCell.swift; sourceTree = "<group>"; };
 		932D257F2B82851B00B99FA3 /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
 		93307E972BE2C97300C665B4 /* NewPasswordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordRequest.swift; sourceTree = "<group>"; };
 		93307E992BE3C6E400C665B4 /* JWTDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTDecoder.swift; sourceTree = "<group>"; };
 		93307F1A2BE4FB5B00C665B4 /* VeterinaryRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeterinaryRegister.swift; sourceTree = "<group>"; };
-		93364FC62B8E2DD000C430DB /* MapBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBottomSheetViewController.swift; sourceTree = "<group>"; };
-		93364FC82B8F3D1000C430DB /* CodeVerificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationRouter.swift; sourceTree = "<group>"; };
-		93364FCA2B8F3D1600C430DB /* CodeVerificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationInteractor.swift; sourceTree = "<group>"; };
-		93364FCC2B8F3D1B00C430DB /* CodeVerificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationPresenter.swift; sourceTree = "<group>"; };
 		93364FCE2B8F3D2600C430DB /* NewPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordRouter.swift; sourceTree = "<group>"; };
 		93364FD02B8F3D2C00C430DB /* NewPasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordInteractor.swift; sourceTree = "<group>"; };
 		93364FD22B8F3D3600C430DB /* NewPasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPasswordPresenter.swift; sourceTree = "<group>"; };
@@ -388,16 +375,30 @@
 		934702102B0FF8910033C7CE /* CustomTextfieldBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextfieldBase.swift; sourceTree = "<group>"; };
 		9348B45D2AE0631E00F7185A /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
 		9363902E2BAB69BA00F9A6A1 /* PetAvatarCellFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetAvatarCellFooter.swift; sourceTree = "<group>"; };
-		936390322BAC49F700F9A6A1 /* ReminderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCell.swift; sourceTree = "<group>"; };
+		936390322BAC49F700F9A6A1 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
 		9367243D2B8E156400897112 /* UserRegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterResponse.swift; sourceTree = "<group>"; };
 		936795932BDA9E350001FA47 /* EmaiVerificationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmaiVerificationRequest.swift; sourceTree = "<group>"; };
+		936E6BFF2BF8B39500A623BC /* PersonRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonRequest.swift; sourceTree = "<group>"; };
+		936E6C1B2BFA23DF00A623BC /* ContractVetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractVetListViewController.swift; sourceTree = "<group>"; };
+		936E6C1D2BFA23EA00A623BC /* ContractVetListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractVetListRouter.swift; sourceTree = "<group>"; };
+		936E6C1F2BFA23F100A623BC /* ContractVetListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractVetListPresenter.swift; sourceTree = "<group>"; };
+		936E6C212BFA23FB00A623BC /* ContractVetListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractVetListInteractor.swift; sourceTree = "<group>"; };
+		936E6C282BFA4BBD00A623BC /* AppointmentHistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHistoryRouter.swift; sourceTree = "<group>"; };
+		936E6C2A2BFA4C3F00A623BC /* AppointmentHistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHistoryInteractor.swift; sourceTree = "<group>"; };
+		936E6C2C2BFA4C8B00A623BC /* AppointmentHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHistoryViewController.swift; sourceTree = "<group>"; };
+		936E6C2E2BFA4CE800A623BC /* AppointmentHistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHistoryPresenter.swift; sourceTree = "<group>"; };
+		936E6C302BFA773600A623BC /* PastAppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastAppointmentTableViewCell.swift; sourceTree = "<group>"; };
+		936E6C332BFA876800A623BC /* PastAppointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastAppointment.swift; sourceTree = "<group>"; };
+		936E6C362BFBA4B300A623BC /* PetDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDelete.swift; sourceTree = "<group>"; };
+		936E6C382BFBC43800A623BC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		936E6C392BFBC43800A623BC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		936E6C422BFBC52000A623BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		936E6C442BFBC57A00A623BC /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		936E6C452BFBC57A00A623BC /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Main.strings; sourceTree = "<group>"; };
+		936E6C462BFBC58500A623BC /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		936E6C4C2BFBE48D00A623BC /* PersonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonResponse.swift; sourceTree = "<group>"; };
+		936E6C512BFBE84E00A623BC /* HomeViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController + Extension.swift"; sourceTree = "<group>"; };
 		93732DF82B16701E00DE636E /* UserRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegister.swift; sourceTree = "<group>"; };
-		9378A8E42BD7C94E0064FE2C /* DateListInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateListInfoViewController.swift; sourceTree = "<group>"; };
-		9378A8E62BD7C9530064FE2C /* DateListInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateListInfoRouter.swift; sourceTree = "<group>"; };
-		9378A8E82BD7C95E0064FE2C /* DateListInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateListInfoPresenter.swift; sourceTree = "<group>"; };
-		9378A8EA2BD7C9660064FE2C /* DateListInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateListInfoInteractor.swift; sourceTree = "<group>"; };
-		9378A8EC2BD7CC2C0064FE2C /* DateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateList.swift; sourceTree = "<group>"; };
-		9378A8EF2BD7D9F40064FE2C /* CustomDateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateCollectionViewCell.swift; sourceTree = "<group>"; };
 		937BE3782BE7E78000F62AAD /* SavePetEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePetEntity.swift; sourceTree = "<group>"; };
 		9381023A2B5D5F2600BF21AD /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		9381023F2B5D636D00BF21AD /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
@@ -420,6 +421,8 @@
 		938901E62BD55C5D00183EEC /* EmailVerificationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationPresenter.swift; sourceTree = "<group>"; };
 		938901E82BD55C6300183EEC /* EmailVerificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationInteractor.swift; sourceTree = "<group>"; };
 		939A832F2BF52C6400453FC1 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		939A83332BF5391500453FC1 /* ReminderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderDetailViewController.swift; sourceTree = "<group>"; };
+		939A83352BF53A0B00453FC1 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		93A47C5E2BF3B70000B336A7 /* AppointmentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentList.swift; sourceTree = "<group>"; };
 		93A47C622BF3B95800B336A7 /* AppointmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentModel.swift; sourceTree = "<group>"; };
 		93A47C652BF3C59B00B336A7 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
@@ -441,20 +444,15 @@
 		93AA9BBF2BA1002B00942F16 /* ImageLabelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLabelBuilder.swift; sourceTree = "<group>"; };
 		93AA9BC22BA192C500942F16 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		93AA9BC52BA2366600942F16 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
-		93AA9BC82BA4C63B00942F16 /* ApproveResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveResultViewController.swift; sourceTree = "<group>"; };
-		93AA9BCD2BA4E72600942F16 /* ApproveResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveResultModel.swift; sourceTree = "<group>"; };
 		93AA9BD02BA6167B00942F16 /* KeyValueStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStackView.swift; sourceTree = "<group>"; };
 		93AA9BD32BA6244D00942F16 /* NearbyVetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyVetView.swift; sourceTree = "<group>"; };
-		93AA9BD52BA62AA200942F16 /* VeterinerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeterinerService.swift; sourceTree = "<group>"; };
 		93AA9BDB2BA700EF00942F16 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		93AA9BDD2BA700FA00942F16 /* ReminderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPresenter.swift; sourceTree = "<group>"; };
 		93AA9BDF2BA7010000942F16 /* ReminderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderRouter.swift; sourceTree = "<group>"; };
 		93AA9BE12BA7010800942F16 /* ReminderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderInteractor.swift; sourceTree = "<group>"; };
 		93B004DA2B8B353300302B3D /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
-		93B004DC2B8B95B900302B3D /* ClinicDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicDetailsViewController.swift; sourceTree = "<group>"; };
 		93C46DF92B040C540055BA0F /* MyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextField.swift; sourceTree = "<group>"; };
 		93C46E092B04C7AF0055BA0F /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
-		93C46E0B2B04CB620055BA0F /* GoogleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleButton.swift; sourceTree = "<group>"; };
 		93C46E0D2B04EB310055BA0F /* UINavigationController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController + Extension.swift"; sourceTree = "<group>"; };
 		93C46E122B0509DD0055BA0F /* Combine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Combine.framework; path = System/Library/Frameworks/Combine.framework; sourceTree = SDKROOT; };
 		93C46E152B0542B30055BA0F /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
@@ -536,17 +534,6 @@
 			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
-		93048EDC2B09504C000BD03A /* CodeVerification */ = {
-			isa = PBXGroup;
-			children = (
-				93048EDE2B095096000BD03A /* CodeVerificationViewController.swift */,
-				93364FC82B8F3D1000C430DB /* CodeVerificationRouter.swift */,
-				93364FCA2B8F3D1600C430DB /* CodeVerificationInteractor.swift */,
-				93364FCC2B8F3D1B00C430DB /* CodeVerificationPresenter.swift */,
-			);
-			path = CodeVerification;
-			sourceTree = "<group>";
-		};
 		93048EDD2B095066000BD03A /* NewPassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -579,15 +566,6 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
-		9309ADF02B389E1D001BC2B0 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				937BE37B2BED084C00F62AAD /* Pets */,
-				9309ADF12B389E39001BC2B0 /* PetAvatarModel.swift */,
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
 		930EEEC72B7828C80008D051 /* Appearance */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,17 +575,6 @@
 				930EEECE2B7829560008D051 /* AppearanceRouter.swift */,
 			);
 			path = Appearance;
-			sourceTree = "<group>";
-		};
-		931144E42AFC178500F6365E /* ComponentViews */ = {
-			isa = PBXGroup;
-			children = (
-				93AA9BD22BA6244100942F16 /* NearbyVetView */,
-				93AA9BC12BA192B700942F16 /* BottomSheetView */,
-				93DD5ABF2B4044B400BDE0A9 /* UpcomingVeterinary */,
-				9347020D2B0FF6DE0033C7CE /* FactoryTextfield */,
-			);
-			path = ComponentViews;
 			sourceTree = "<group>";
 		};
 		931144E72AFC1A7700F6365E /* Protocols */ = {
@@ -626,16 +593,6 @@
 				9347020B2B0FF0540033C7CE /* Onboarding.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		931D70662BB997AF0012E7D1 /* VeterinaryClinicKYC */ = {
-			isa = PBXGroup;
-			children = (
-				931D70692BB9AD560012E7D1 /* ResultVerify */,
-				931D70682BB9AD320012E7D1 /* DocumentVerify */,
-				931D70672BB997CB0012E7D1 /* AddressVerify */,
-			);
-			path = VeterinaryClinicKYC;
 			sourceTree = "<group>";
 		};
 		931D70672BB997CB0012E7D1 /* AddressVerify */ = {
@@ -676,7 +633,6 @@
 			isa = PBXGroup;
 			children = (
 				93A47C672BF3CB4A00B336A7 /* DateListInfoDetail */,
-				9378A8E32BD7C92C0064FE2C /* DateListInfo */,
 				931D70862BB9B6880012E7D1 /* VeterinarySettings */,
 				931D70852BB9B6680012E7D1 /* VeterinaryHome */,
 			);
@@ -687,7 +643,6 @@
 			isa = PBXGroup;
 			children = (
 				93A47C612BF3B94E00B336A7 /* Entity */,
-				93A47C5D2BF3B6E700B336A7 /* View */,
 				931D70872BB9B6C80012E7D1 /* VeterinaryHomeViewController.swift */,
 				931D70892BB9B6CD0012E7D1 /* VeterinaryHomeRouter.swift */,
 				931D708B2BB9B6D60012E7D1 /* VeterinaryHomePresenter.swift */,
@@ -741,7 +696,10 @@
 		932347232B9CA1E500971E1D /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				9381023A2B5D5F2600BF21AD /* SettingTableViewCell.swift */,
 				932347242B9CA20400971E1D /* NearbyListTableViewCell.swift */,
+				93A47C5E2BF3B70000B336A7 /* AppointmentList.swift */,
+				936E6C302BFA773600A623BC /* PastAppointmentTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -749,6 +707,7 @@
 		932D25512B7BFF6200B99FA3 /* PetDetail */ = {
 			isa = PBXGroup;
 			children = (
+				936E6C352BFBA4A100A623BC /* Request */,
 				932D25522B7BFF9300B99FA3 /* PetDetailViewController.swift */,
 				932D25542B7BFFC000B99FA3 /* PetDetailInteractor.swift */,
 				932D25562B7BFFC600B99FA3 /* PetDetailPresenter.swift */,
@@ -757,35 +716,17 @@
 			path = PetDetail;
 			sourceTree = "<group>";
 		};
-		932D255D2B7CC79F00B99FA3 /* MapView */ = {
-			isa = PBXGroup;
-			children = (
-				932D255A2B7CC78F00B99FA3 /* MapDetailView.swift */,
-				93364FC62B8E2DD000C430DB /* MapBottomSheetViewController.swift */,
-			);
-			path = MapView;
-			sourceTree = "<group>";
-		};
 		932D255E2B7FF89200B99FA3 /* AppElements */ = {
 			isa = PBXGroup;
 			children = (
-				9399E18F2BAEB4D800D3D077 /* FormFieldView */,
+				9347020D2B0FF6DE0033C7CE /* FactoryTextfield */,
 				93AA9BC42BA2365400942F16 /* CustomTextView */,
 				93AA9BBC2BA0FFD900942F16 /* ImageLabel */,
-				932D256A2B80090700B99FA3 /* AlertView */,
 				93C46E142B05429B0055BA0F /* CustomLabel */,
 				93F0CE412B0CE62000D5BAD7 /* CustomStackView */,
 				93C46E102B0509000055BA0F /* Buttons */,
 			);
 			path = AppElements;
-			sourceTree = "<group>";
-		};
-		932D255F2B7FF8D900B99FA3 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				931144E52AFC179500F6365E /* OnboardingCell.swift */,
-			);
-			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		932D25602B7FF92900B99FA3 /* BaseView */ = {
@@ -800,7 +741,6 @@
 			isa = PBXGroup;
 			children = (
 				93450D602B44883200ADDADD /* LocationManager.swift */,
-				93AA9BD52BA62AA200942F16 /* VeterinerService.swift */,
 			);
 			path = "Map Location";
 			sourceTree = "<group>";
@@ -818,28 +758,12 @@
 			isa = PBXGroup;
 			children = (
 				93AA9BCF2BA6167100942F16 /* KeyValueStackView */,
+				93C46E0F2B0508F30055BA0F /* UICollectionViewCell */,
 				932347232B9CA1E500971E1D /* TableViewCell */,
-				931144E42AFC178500F6365E /* ComponentViews */,
-				93C46E0F2B0508F30055BA0F /* CollectionViewCell */,
+				936E6C472BFBDA3500A623BC /* UIViews */,
 				932D255E2B7FF89200B99FA3 /* AppElements */,
 			);
 			path = UIComponent;
-			sourceTree = "<group>";
-		};
-		932D256A2B80090700B99FA3 /* AlertView */ = {
-			isa = PBXGroup;
-			children = (
-				932D256B2B80092F00B99FA3 /* AlertView.swift */,
-			);
-			path = AlertView;
-			sourceTree = "<group>";
-		};
-		932D257B2B827D9300B99FA3 /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				932D257C2B827E1B00B99FA3 /* SlideCell.swift */,
-			);
-			path = Calendar;
 			sourceTree = "<group>";
 		};
 		932D257E2B8284FC00B99FA3 /* View */ = {
@@ -902,7 +826,7 @@
 				933780282ADA7E2200103273 /* Core */,
 				9337802C2ADA7E4100103273 /* Modules */,
 				933780262ADA7E1300103273 /* Resources */,
-				93048F182B0AA08B000BD03A /* Localizable.strings */,
+				936E6C412BFBC52000A623BC /* Localizable.strings */,
 			);
 			path = "Petcare-iOS";
 			sourceTree = "<group>";
@@ -931,7 +855,8 @@
 		933780282ADA7E2200103273 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				93AA9BD72BA64D0200942F16 /* Manager */,
+				936E6C4B2BFBE47800A623BC /* Model */,
+				931D709B2BBD9ED90012E7D1 /* Validation */,
 				932D25642B7FFCD600B99FA3 /* UIComponent */,
 				932D25622B7FF94100B99FA3 /* Map Location */,
 				932D25602B7FF92900B99FA3 /* BaseView */,
@@ -977,7 +902,6 @@
 		9337802C2ADA7E4100103273 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				93AA9BC72BA4C61C00942F16 /* ApproveResultView */,
 				933780352ADA7E9100103273 /* Tabbars */,
 				9337802D2ADA7E4C00103273 /* Splash */,
 				9337802E2ADA7E5400103273 /* Onboarding */,
@@ -1001,8 +925,8 @@
 		9337802E2ADA7E5400103273 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				936E6C482BFBDB0A00A623BC /* Entity */,
 				931144EA2AFC1DA800F6365E /* View */,
-				933780402ADA814400103273 /* OnboardingModel.swift */,
 				9337804A2ADA81A700103273 /* OnboardingRouter.swift */,
 				9337804C2ADA81AF00103273 /* OnboardingInteractor.swift */,
 				933780482ADA81A100103273 /* OnboardingPresenter.swift */,
@@ -1013,9 +937,11 @@
 		9337802F2ADA7E5A00103273 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				93048EDD2B095066000BD03A /* NewPassword */,
+				93048EDB2B09503F000BD03A /* ForgotPassword */,
+				938901E32BD55B5200183EEC /* EmailVerification */,
 				933780392ADA7F2900103273 /* Login */,
-				9337803C2ADA7F4000103273 /* ForgotPasswordFlow */,
-				9337803A2ADA7F2F00103273 /* Register */,
+				9337803A2ADA7F2F00103273 /* RegisterFlow */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -1033,27 +959,21 @@
 		933780322ADA7E7200103273 /* VetMaps */ = {
 			isa = PBXGroup;
 			children = (
-				932D255D2B7CC79F00B99FA3 /* MapView */,
 				93CE90842AF7D5AF0025FBB0 /* VetMapRouter.swift */,
 				93CE90862AF7D5C40025FBB0 /* VetMapInteractor.swift */,
 				93CE90882AF7D5CC0025FBB0 /* VetMapPresenter.swift */,
 				93CE90822AF7D5980025FBB0 /* VetMapViewController.swift */,
-				93B004DC2B8B95B900302B3D /* ClinicDetailsViewController.swift */,
 			);
 			path = VetMaps;
 			sourceTree = "<group>";
 		};
-		933780332ADA7E7B00103273 /* Home */ = {
+		933780332ADA7E7B00103273 /* HomeFlow */ = {
 			isa = PBXGroup;
 			children = (
-				9309ADF02B389E1D001BC2B0 /* Entity */,
-				93CE90702AF7BA5C0025FBB0 /* HomeRouter.swift */,
-				93CE906E2AF7BA550025FBB0 /* HomeInteractor.swift */,
-				93CE906C2AF7BA4C0025FBB0 /* HomePresenter.swift */,
-				93CE90682AF7BA380025FBB0 /* HomeViewController.swift */,
-				9363902E2BAB69BA00F9A6A1 /* PetAvatarCellFooter.swift */,
+				936E6C4F2BFBE67E00A623BC /* Home */,
+				936E6C262BFA399500A623BC /* ContractAppointment */,
 			);
-			path = Home;
+			path = HomeFlow;
 			sourceTree = "<group>";
 		};
 		933780352ADA7E9100103273 /* Tabbars */ = {
@@ -1065,26 +985,23 @@
 			path = Tabbars;
 			sourceTree = "<group>";
 		};
-		933780362ADA7E9600103273 /* Settings */ = {
+		933780362ADA7E9600103273 /* SettingsFlow */ = {
 			isa = PBXGroup;
 			children = (
+				936E6C4E2BFBE54A00A623BC /* Settings */,
 				930EEEC72B7828C80008D051 /* Appearance */,
 				93E1FDAB2B77A74600BD72E1 /* PrivacyPolicy */,
 				93E1FDAA2B77A73500BD72E1 /* Donate */,
 				93E1FDA92B77A72700BD72E1 /* ManageNotification */,
 				93E1FDA82B77A70700BD72E1 /* PersonInformation */,
-				9381023C2B5D62F100BF21AD /* SettingsView */,
-				93CE90922AF7D6000025FBB0 /* SettingsRouter.swift */,
-				93CE908E2AF7D5F50025FBB0 /* SettingsInteractor.swift */,
-				93CE90902AF7D5FA0025FBB0 /* SettingsPresenter.swift */,
-				93CE908C2AF7D5E60025FBB0 /* SettingsViewController.swift */,
 			);
-			path = Settings;
+			path = SettingsFlow;
 			sourceTree = "<group>";
 		};
 		933780372ADA7EA900103273 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				939A83312BF538F300453FC1 /* ReminderDetail */,
 				93AA9BDA2BA700D400942F16 /* Reminder */,
 				93AA9BB32B9F81E000942F16 /* VeterinaryDetail */,
 				932347172B9C9E4100971E1D /* NearbyVetList */,
@@ -1101,7 +1018,7 @@
 		933780392ADA7F2900103273 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				9337805A2ADA826B00103273 /* User.swift */,
+				936E6C492BFBDBF300A623BC /* Entity */,
 				933780582ADA825200103273 /* LoginRouter.swift */,
 				933780562ADA824D00103273 /* LoginInteractor.swift */,
 				933780542ADA824500103273 /* LoginPresenter.swift */,
@@ -1110,29 +1027,16 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		9337803A2ADA7F2F00103273 /* Register */ = {
+		9337803A2ADA7F2F00103273 /* RegisterFlow */ = {
 			isa = PBXGroup;
 			children = (
-				931D70662BB997AF0012E7D1 /* VeterinaryClinicKYC */,
-				93732DF72B16700F00DE636E /* Entity */,
-				93822B402AF9888B00989255 /* RegisterRouter.swift */,
-				93822B3C2AF9887C00989255 /* RegisterInteractor.swift */,
-				93822B3E2AF9888600989255 /* RegisterPresenter.swift */,
-				93822B3A2AF9887300989255 /* RegisterViewController.swift */,
+				931D70672BB997CB0012E7D1 /* AddressVerify */,
+				931D70682BB9AD320012E7D1 /* DocumentVerify */,
+				931D70692BB9AD560012E7D1 /* ResultVerify */,
+				936E6C4A2BFBDC1800A623BC /* Register */,
 			);
-			name = Register;
+			name = RegisterFlow;
 			path = "Regşster";
-			sourceTree = "<group>";
-		};
-		9337803C2ADA7F4000103273 /* ForgotPasswordFlow */ = {
-			isa = PBXGroup;
-			children = (
-				938901E32BD55B5200183EEC /* EmailVerification */,
-				93048EDB2B09503F000BD03A /* ForgotPassword */,
-				93048EDC2B09504C000BD03A /* CodeVerification */,
-				93048EDD2B095066000BD03A /* NewPassword */,
-			);
-			path = ForgotPasswordFlow;
 			sourceTree = "<group>";
 		};
 		933A220B2B45D82400854DB0 /* PetInfo */ = {
@@ -1208,20 +1112,152 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		936390312BAC49EC00F9A6A1 /* Reminder */ = {
-			isa = PBXGroup;
-			children = (
-				936390322BAC49F700F9A6A1 /* ReminderCell.swift */,
-			);
-			path = Reminder;
-			sourceTree = "<group>";
-		};
 		936795922BDA9E260001FA47 /* EmaiVerificationRequest */ = {
 			isa = PBXGroup;
 			children = (
 				936795932BDA9E350001FA47 /* EmaiVerificationRequest.swift */,
 			);
 			path = EmaiVerificationRequest;
+			sourceTree = "<group>";
+		};
+		936E6BFE2BF8B38A00A623BC /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				936E6BFF2BF8B39500A623BC /* PersonRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		936E6C1A2BFA23A400A623BC /* ContractVetList */ = {
+			isa = PBXGroup;
+			children = (
+				936E6C1B2BFA23DF00A623BC /* ContractVetListViewController.swift */,
+				936E6C1D2BFA23EA00A623BC /* ContractVetListRouter.swift */,
+				936E6C1F2BFA23F100A623BC /* ContractVetListPresenter.swift */,
+				936E6C212BFA23FB00A623BC /* ContractVetListInteractor.swift */,
+			);
+			path = ContractVetList;
+			sourceTree = "<group>";
+		};
+		936E6C262BFA399500A623BC /* ContractAppointment */ = {
+			isa = PBXGroup;
+			children = (
+				936E6C272BFA39AD00A623BC /* AppointmentHistory */,
+				936E6C1A2BFA23A400A623BC /* ContractVetList */,
+			);
+			path = ContractAppointment;
+			sourceTree = "<group>";
+		};
+		936E6C272BFA39AD00A623BC /* AppointmentHistory */ = {
+			isa = PBXGroup;
+			children = (
+				936E6C322BFA874F00A623BC /* Entity */,
+				936E6C282BFA4BBD00A623BC /* AppointmentHistoryRouter.swift */,
+				936E6C2A2BFA4C3F00A623BC /* AppointmentHistoryInteractor.swift */,
+				936E6C2C2BFA4C8B00A623BC /* AppointmentHistoryViewController.swift */,
+				936E6C2E2BFA4CE800A623BC /* AppointmentHistoryPresenter.swift */,
+			);
+			path = AppointmentHistory;
+			sourceTree = "<group>";
+		};
+		936E6C322BFA874F00A623BC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				936E6C332BFA876800A623BC /* PastAppointment.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		936E6C352BFBA4A100A623BC /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				936E6C362BFBA4B300A623BC /* PetDelete.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		936E6C472BFBDA3500A623BC /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				93DD5AD22B4316E100BDE0A9 /* SelectPetView.swift */,
+				93A47C722BF3D32700B336A7 /* MultiSelectView.swift */,
+				936390322BAC49F700F9A6A1 /* ReminderView.swift */,
+				93DD5AC02B4044C000BDE0A9 /* UpcomingVeterinary.swift */,
+				93AA9BD32BA6244D00942F16 /* NearbyVetView.swift */,
+				93AA9BC22BA192C500942F16 /* BottomSheetView.swift */,
+			);
+			path = UIViews;
+			sourceTree = "<group>";
+		};
+		936E6C482BFBDB0A00A623BC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				933780402ADA814400103273 /* OnboardingModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		936E6C492BFBDBF300A623BC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				9337805A2ADA826B00103273 /* User.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		936E6C4A2BFBDC1800A623BC /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				93732DF72B16700F00DE636E /* Entity */,
+				93822B402AF9888B00989255 /* RegisterRouter.swift */,
+				93822B3C2AF9887C00989255 /* RegisterInteractor.swift */,
+				93822B3E2AF9888600989255 /* RegisterPresenter.swift */,
+				93822B3A2AF9887300989255 /* RegisterViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		936E6C4B2BFBE47800A623BC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9309ADF12B389E39001BC2B0 /* PetAvatarModel.swift */,
+				9381023F2B5D636D00BF21AD /* SettingsModel.swift */,
+				936E6C4C2BFBE48D00A623BC /* PersonResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		936E6C4E2BFBE54A00A623BC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				93CE90922AF7D6000025FBB0 /* SettingsRouter.swift */,
+				93CE908E2AF7D5F50025FBB0 /* SettingsInteractor.swift */,
+				93CE90902AF7D5FA0025FBB0 /* SettingsPresenter.swift */,
+				93CE908C2AF7D5E60025FBB0 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		936E6C4F2BFBE67E00A623BC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				937BE37B2BED084C00F62AAD /* Request */,
+				936E6C502BFBE73C00A623BC /* View */,
+				93CE90702AF7BA5C0025FBB0 /* HomeRouter.swift */,
+				93CE906E2AF7BA550025FBB0 /* HomeInteractor.swift */,
+				93CE906C2AF7BA4C0025FBB0 /* HomePresenter.swift */,
+				93CE90682AF7BA380025FBB0 /* HomeViewController.swift */,
+				936E6C512BFBE84E00A623BC /* HomeViewController + Extension.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		936E6C502BFBE73C00A623BC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9363902E2BAB69BA00F9A6A1 /* PetAvatarCellFooter.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		93732DF72B16700F00DE636E /* Entity */ = {
@@ -1233,27 +1269,6 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		9378A8E32BD7C92C0064FE2C /* DateListInfo */ = {
-			isa = PBXGroup;
-			children = (
-				9378A8EE2BD7D9E70064FE2C /* View */,
-				9378A8EC2BD7CC2C0064FE2C /* DateList.swift */,
-				9378A8E42BD7C94E0064FE2C /* DateListInfoViewController.swift */,
-				9378A8E62BD7C9530064FE2C /* DateListInfoRouter.swift */,
-				9378A8E82BD7C95E0064FE2C /* DateListInfoPresenter.swift */,
-				9378A8EA2BD7C9660064FE2C /* DateListInfoInteractor.swift */,
-			);
-			path = DateListInfo;
-			sourceTree = "<group>";
-		};
-		9378A8EE2BD7D9E70064FE2C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				9378A8EF2BD7D9F40064FE2C /* CustomDateCollectionViewCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		937BE3772BE7E77100F62AAD /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -1262,22 +1277,13 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		937BE37B2BED084C00F62AAD /* Pets */ = {
+		937BE37B2BED084C00F62AAD /* Request */ = {
 			isa = PBXGroup;
 			children = (
 				93A76AB42BEF8F5900759A1D /* GetPets.swift */,
 				93A76AB62BEF91A900759A1D /* GetPetById.swift */,
 			);
-			path = Pets;
-			sourceTree = "<group>";
-		};
-		9381023C2B5D62F100BF21AD /* SettingsView */ = {
-			isa = PBXGroup;
-			children = (
-				9381023F2B5D636D00BF21AD /* SettingsModel.swift */,
-				9381023A2B5D5F2600BF21AD /* SettingTableViewCell.swift */,
-			);
-			path = SettingsView;
+			path = Request;
 			sourceTree = "<group>";
 		};
 		9387876A2BDEE2E1008C8C88 /* Entity */ = {
@@ -1311,13 +1317,6 @@
 			path = EmailVerification;
 			sourceTree = "<group>";
 		};
-		9399E18F2BAEB4D800D3D077 /* FormFieldView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FormFieldView;
-			sourceTree = "<group>";
-		};
 		939A832E2BF52C5F00453FC1 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
@@ -1326,12 +1325,13 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		93A47C5D2BF3B6E700B336A7 /* View */ = {
+		939A83312BF538F300453FC1 /* ReminderDetail */ = {
 			isa = PBXGroup;
 			children = (
-				93A47C5E2BF3B70000B336A7 /* AppointmentList.swift */,
+				939A83332BF5391500453FC1 /* ReminderDetailViewController.swift */,
+				939A83352BF53A0B00453FC1 /* AddViewController.swift */,
 			);
-			path = View;
+			path = ReminderDetail;
 			sourceTree = "<group>";
 		};
 		93A47C612BF3B94E00B336A7 /* Entity */ = {
@@ -1353,7 +1353,6 @@
 		93A47C672BF3CB4A00B336A7 /* DateListInfoDetail */ = {
 			isa = PBXGroup;
 			children = (
-				93A47C712BF3D31F00B336A7 /* View */,
 				93A47C682BF3CBF300B336A7 /* Entity */,
 				93A47C692BF3CC1300B336A7 /* DateListInfoDetailViewController.swift */,
 				93A47C6B2BF3CC1C00B336A7 /* DateListInfoDetailPresenter.swift */,
@@ -1368,14 +1367,6 @@
 			children = (
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		93A47C712BF3D31F00B336A7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				93A47C722BF3D32700B336A7 /* MultiSelectView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		93AA9BB32B9F81E000942F16 /* VeterinaryDetail */ = {
@@ -1398,14 +1389,6 @@
 			path = ImageLabel;
 			sourceTree = "<group>";
 		};
-		93AA9BC12BA192B700942F16 /* BottomSheetView */ = {
-			isa = PBXGroup;
-			children = (
-				93AA9BC22BA192C500942F16 /* BottomSheetView.swift */,
-			);
-			path = BottomSheetView;
-			sourceTree = "<group>";
-		};
 		93AA9BC42BA2365400942F16 /* CustomTextView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1414,37 +1397,12 @@
 			name = CustomTextView;
 			sourceTree = "<group>";
 		};
-		93AA9BC72BA4C61C00942F16 /* ApproveResultView */ = {
-			isa = PBXGroup;
-			children = (
-				93AA9BC82BA4C63B00942F16 /* ApproveResultViewController.swift */,
-				93AA9BCD2BA4E72600942F16 /* ApproveResultModel.swift */,
-			);
-			path = ApproveResultView;
-			sourceTree = "<group>";
-		};
 		93AA9BCF2BA6167100942F16 /* KeyValueStackView */ = {
 			isa = PBXGroup;
 			children = (
 				93AA9BD02BA6167B00942F16 /* KeyValueStackView.swift */,
 			);
 			path = KeyValueStackView;
-			sourceTree = "<group>";
-		};
-		93AA9BD22BA6244100942F16 /* NearbyVetView */ = {
-			isa = PBXGroup;
-			children = (
-				93AA9BD32BA6244D00942F16 /* NearbyVetView.swift */,
-			);
-			path = NearbyVetView;
-			sourceTree = "<group>";
-		};
-		93AA9BD72BA64D0200942F16 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				931D709B2BBD9ED90012E7D1 /* Validation */,
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		93AA9BDA2BA700D400942F16 /* Reminder */ = {
@@ -1479,15 +1437,14 @@
 			path = Token;
 			sourceTree = "<group>";
 		};
-		93C46E0F2B0508F30055BA0F /* CollectionViewCell */ = {
+		93C46E0F2B0508F30055BA0F /* UICollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				936390312BAC49EC00F9A6A1 /* Reminder */,
-				932D257B2B827D9300B99FA3 /* Calendar */,
-				932D255F2B7FF8D900B99FA3 /* Onboarding */,
-				93DD5AC22B4065EA00BDE0A9 /* PetList */,
+				931144E52AFC179500F6365E /* OnboardingCell.swift */,
+				932D257C2B827E1B00B99FA3 /* SlideCell.swift */,
+				9309ADEE2B389DCC001BC2B0 /* PetAvatarCell.swift */,
 			);
-			path = CollectionViewCell;
+			path = UICollectionViewCell;
 			sourceTree = "<group>";
 		};
 		93C46E102B0509000055BA0F /* Buttons */ = {
@@ -1496,7 +1453,6 @@
 				933A22212B45F6DD00854DB0 /* SeeAllButton */,
 				93C46E172B0548B00055BA0F /* AppButton.swift */,
 				93C46E092B04C7AF0055BA0F /* LoginButton.swift */,
-				93C46E0B2B04CB620055BA0F /* GoogleButton.swift */,
 				934702042B0E78680033C7CE /* LoadingUICustomButton.swift */,
 			);
 			path = Buttons;
@@ -1518,29 +1474,13 @@
 			path = CustomLabel;
 			sourceTree = "<group>";
 		};
-		93DD5ABF2B4044B400BDE0A9 /* UpcomingVeterinary */ = {
-			isa = PBXGroup;
-			children = (
-				93DD5AC02B4044C000BDE0A9 /* UpcomingVeterinary.swift */,
-			);
-			path = UpcomingVeterinary;
-			sourceTree = "<group>";
-		};
-		93DD5AC22B4065EA00BDE0A9 /* PetList */ = {
-			isa = PBXGroup;
-			children = (
-				9309ADEE2B389DCC001BC2B0 /* PetAvatarCell.swift */,
-			);
-			path = PetList;
-			sourceTree = "<group>";
-		};
 		93DD5AC52B418E4300BDE0A9 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
-				933780362ADA7E9600103273 /* Settings */,
+				933780362ADA7E9600103273 /* SettingsFlow */,
 				933780322ADA7E7200103273 /* VetMaps */,
 				933780372ADA7EA900103273 /* Calendar */,
-				933780332ADA7E7B00103273 /* Home */,
+				933780332ADA7E7B00103273 /* HomeFlow */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -1559,7 +1499,6 @@
 		93DD5ACA2B418F1900BDE0A9 /* PetType */ = {
 			isa = PBXGroup;
 			children = (
-				93DD5AD12B4316D200BDE0A9 /* View */,
 				93DD5AC72B418E7D00BDE0A9 /* PetTypeViewController.swift */,
 				93DD5ACB2B41976300BDE0A9 /* PetTypeRouter.swift */,
 				93DD5ACD2B4198CC00BDE0A9 /* PetTypeInteractor.swift */,
@@ -1568,17 +1507,10 @@
 			path = PetType;
 			sourceTree = "<group>";
 		};
-		93DD5AD12B4316D200BDE0A9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				93DD5AD22B4316E100BDE0A9 /* SelectPetView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		93E1FDA82B77A70700BD72E1 /* PersonInformation */ = {
 			isa = PBXGroup;
 			children = (
+				936E6BFE2BF8B38A00A623BC /* Request */,
 				93E1FDAC2B77A76D00BD72E1 /* PersonInformationViewController.swift */,
 				93E1FDAE2B77A77F00BD72E1 /* PersonInformationRouter.swift */,
 				93E1FDB02B77A78800BD72E1 /* PersonInformationInteractor.swift */,
@@ -1724,6 +1656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93048F052B0966DB000BD03A /* Poppins-Black.ttf in Resources */,
+				936E6C432BFBC52000A623BC /* Localizable.strings in Resources */,
 				93048F032B0966DB000BD03A /* Poppins-SemiBold.ttf in Resources */,
 				93048F072B0966DB000BD03A /* Poppins-Thin.ttf in Resources */,
 				9337801E2ADA7DAA00103273 /* LaunchScreen.storyboard in Resources */,
@@ -1732,7 +1665,6 @@
 				933780192ADA7DA800103273 /* Main.storyboard in Resources */,
 				93048F042B0966DB000BD03A /* Poppins-Medium.ttf in Resources */,
 				93048F022B0966DB000BD03A /* Poppins-Bold.ttf in Resources */,
-				93048F162B0AA08B000BD03A /* Localizable.strings in Resources */,
 				9347020C2B0FF0540033C7CE /* Onboarding.storyboard in Resources */,
 				930CB6C02AF18F4F00E632A7 /* Splash.storyboard in Resources */,
 			);
@@ -1762,11 +1694,12 @@
 				93822B322AF9672400989255 /* AppColors.swift in Sources */,
 				93822B3D2AF9887C00989255 /* RegisterInteractor.swift in Sources */,
 				932347222B9C9EFC00971E1D /* NearbyList.swift in Sources */,
+				936E6C4D2BFBE48D00A623BC /* PersonResponse.swift in Sources */,
 				93AA9BDE2BA700FA00942F16 /* ReminderPresenter.swift in Sources */,
 				93DD5ACE2B4198CC00BDE0A9 /* PetTypeInteractor.swift in Sources */,
 				93048F092B0A8F8F000BD03A /* Int + Extension.swift in Sources */,
 				93AA9BB22B9E3C9B00942F16 /* CLLocationCoordinate2D + Extension.swift in Sources */,
-				936390332BAC49F700F9A6A1 /* ReminderCell.swift in Sources */,
+				936390332BAC49F700F9A6A1 /* ReminderView.swift in Sources */,
 				933780412ADA814400103273 /* OnboardingModel.swift in Sources */,
 				932D25552B7BFFC000B99FA3 /* PetDetailInteractor.swift in Sources */,
 				931D70732BB9AE420012E7D1 /* ResultVerifyViewController.swift in Sources */,
@@ -1779,25 +1712,27 @@
 				93C46E162B0542B30055BA0F /* CustomLabel.swift in Sources */,
 				9309ADEF2B389DCC001BC2B0 /* PetAvatarCell.swift in Sources */,
 				931D706D2BB9AD800012E7D1 /* DocumentVerifyInteractor.swift in Sources */,
+				936E6C292BFA4BBD00A623BC /* AppointmentHistoryRouter.swift in Sources */,
 				931D70812BB9AE930012E7D1 /* AddressVerifyRouter.swift in Sources */,
 				93B004DB2B8B353300302B3D /* TokenManager.swift in Sources */,
 				93CE90832AF7D5980025FBB0 /* VetMapViewController.swift in Sources */,
 				93E6D7192B98761000471954 /* UITableView + Extension.swift in Sources */,
 				933780552ADA824500103273 /* LoginPresenter.swift in Sources */,
-				93AA9BCE2BA4E72600942F16 /* ApproveResultModel.swift in Sources */,
 				934702052B0E78680033C7CE /* LoadingUICustomButton.swift in Sources */,
 				93C46DFA2B040C540055BA0F /* MyTextField.swift in Sources */,
 				933A22152B45E83D00854DB0 /* UILabel + Extension.swift in Sources */,
+				939A83362BF53A0B00453FC1 /* AddViewController.swift in Sources */,
 				931D707B2BB9AE7D0012E7D1 /* AddressVerifyPresenter.swift in Sources */,
 				931D706B2BB9AD790012E7D1 /* DocumentVerifyPresenter.swift in Sources */,
+				936E6C522BFBE84E00A623BC /* HomeViewController + Extension.swift in Sources */,
 				931D708C2BB9B6D60012E7D1 /* VeterinaryHomePresenter.swift in Sources */,
 				933780492ADA81A100103273 /* OnboardingPresenter.swift in Sources */,
 				93364FD52B8F5ED300C430DB /* UIView + Extension.swift in Sources */,
 				932D257D2B827E1B00B99FA3 /* SlideCell.swift in Sources */,
+				936E6C342BFA876800A623BC /* PastAppointment.swift in Sources */,
 				93822B3F2AF9888600989255 /* RegisterPresenter.swift in Sources */,
 				9337805B2ADA826B00103273 /* User.swift in Sources */,
 				933A22172B45EADB00854DB0 /* CustomStackViewBuilder.swift in Sources */,
-				93AA9BD62BA62AA200942F16 /* VeterinerService.swift in Sources */,
 				93822B452AFA85BF00989255 /* ForgotPasswordViewController.swift in Sources */,
 				93E1FDCB2B77A80F00BD72E1 /* PrivacyPolicyPresenter.swift in Sources */,
 				93AA9BC02BA1002B00942F16 /* ImageLabelBuilder.swift in Sources */,
@@ -1839,12 +1774,11 @@
 				931D70712BB9AD8F0012E7D1 /* DocumentVerifyViewController.swift in Sources */,
 				93822B412AF9888B00989255 /* RegisterRouter.swift in Sources */,
 				93AA9BC32BA192C500942F16 /* BottomSheetView.swift in Sources */,
-				9378A8E92BD7C95E0064FE2C /* DateListInfoPresenter.swift in Sources */,
 				93E1FDB92B77A7B900BD72E1 /* ManageNotificationInteractor.swift in Sources */,
 				93C46E0E2B04EB310055BA0F /* UINavigationController + Extension.swift in Sources */,
-				93AA9BC92BA4C63B00942F16 /* ApproveResultViewController.swift in Sources */,
 				933780672ADC0DF900103273 /* SplashPresenter.swift in Sources */,
 				9387876E2BDEE30F008C8C88 /* ForgotPasswordDTO.swift in Sources */,
+				936E6C1E2BFA23EA00A623BC /* ContractVetListRouter.swift in Sources */,
 				932D25572B7BFFC600B99FA3 /* PetDetailPresenter.swift in Sources */,
 				933A22272B473C2700854DB0 /* UINavigationItem + Extension.swift in Sources */,
 				938901E02BD518AC00183EEC /* ForgotPasswordEntity.swift in Sources */,
@@ -1865,13 +1799,11 @@
 				93E1FDB12B77A78800BD72E1 /* PersonInformationInteractor.swift in Sources */,
 				93CE90932AF7D6000025FBB0 /* SettingsRouter.swift in Sources */,
 				930EEECD2B7829510008D051 /* AppearanceInteractor.swift in Sources */,
-				93364FC72B8E2DD000C430DB /* MapBottomSheetViewController.swift in Sources */,
 				931144EC2AFC1DC000F6365E /* OnboardingView.swift in Sources */,
 				938786502BDC54BD008C8C88 /* SeeAllButon.swift in Sources */,
 				933780692ADC0DFF00103273 /* SplashInteractor.swift in Sources */,
 				933A220F2B45D85500854DB0 /* PetInfoInteractor.swift in Sources */,
 				93CE907F2AF7D5580025FBB0 /* CalendarModel.swift in Sources */,
-				9378A8ED2BD7CC2C0064FE2C /* DateList.swift in Sources */,
 				93307F1B2BE4FB5B00C665B4 /* VeterinaryRegister.swift in Sources */,
 				93CE90692AF7BA380025FBB0 /* HomeViewController.swift in Sources */,
 				93DD5AC12B4044C000BDE0A9 /* UpcomingVeterinary.swift in Sources */,
@@ -1881,24 +1813,23 @@
 				93DD5AC82B418E7D00BDE0A9 /* PetTypeViewController.swift in Sources */,
 				9381023B2B5D5F2600BF21AD /* SettingTableViewCell.swift in Sources */,
 				93822B3B2AF9887300989255 /* RegisterViewController.swift in Sources */,
-				9378A8F02BD7D9F40064FE2C /* CustomDateCollectionViewCell.swift in Sources */,
+				936E6C372BFBA4B300A623BC /* PetDelete.swift in Sources */,
 				932D25802B82851B00B99FA3 /* SlideView.swift in Sources */,
 				93E1FDC32B77A7EC00BD72E1 /* DonateRouter.swift in Sources */,
 				9323471F2B9C9E9600971E1D /* NearbyListViewController.swift in Sources */,
 				933A221A2B45F15400854DB0 /* PetImageRouter.swift in Sources */,
+				936E6C1C2BFA23DF00A623BC /* ContractVetListViewController.swift in Sources */,
 				938901DB2BD5095500183EEC /* APIEnvironment.swift in Sources */,
-				93048EDF2B095096000BD03A /* CodeVerificationViewController.swift in Sources */,
+				936E6C2D2BFA4C8B00A623BC /* AppointmentHistoryViewController.swift in Sources */,
 				93822B472AFA85C800989255 /* ForgotPasswordPresenter.swift in Sources */,
 				93E1FDBF2B77A7E000BD72E1 /* DonatePresenter.swift in Sources */,
 				93AA9BB72B9F822A00942F16 /* VeterinaryDetailPresenter.swift in Sources */,
 				933780142ADA7DA800103273 /* SceneDelegate.swift in Sources */,
 				93AA9BD12BA6167B00942F16 /* KeyValueStackView.swift in Sources */,
-				9378A8E52BD7C94E0064FE2C /* DateListInfoViewController.swift in Sources */,
 				938102402B5D636D00BF21AD /* SettingsModel.swift in Sources */,
 				9309ADF22B389E39001BC2B0 /* PetAvatarModel.swift in Sources */,
 				931D709A2BBD90E50012E7D1 /* ValidationManager.swift in Sources */,
 				930493932BCAFD45004026FE /* DataRequest.swift in Sources */,
-				93B004DD2B8B95B900302B3D /* ClinicDetailsViewController.swift in Sources */,
 				93E1FDC92B77A80A00BD72E1 /* PrivacyPolicyRouter.swift in Sources */,
 				93CE90792AF7D5370025FBB0 /* CalendarRouter.swift in Sources */,
 				93A47C632BF3B95800B336A7 /* AppointmentModel.swift in Sources */,
@@ -1908,33 +1839,32 @@
 				93A47C5F2BF3B70000B336A7 /* AppointmentList.swift in Sources */,
 				93DD5ACC2B41976300BDE0A9 /* PetTypeRouter.swift in Sources */,
 				930493952BCAFD62004026FE /* ExceptionErrorHandle.swift in Sources */,
-				9378A8E72BD7C9530064FE2C /* DateListInfoRouter.swift in Sources */,
 				936795942BDA9E350001FA47 /* EmaiVerificationRequest.swift in Sources */,
 				93C46E0A2B04C7AF0055BA0F /* LoginButton.swift in Sources */,
 				933780532ADA823D00103273 /* LoginViewController.swift in Sources */,
 				93E1FDC12B77A7E700BD72E1 /* DonateInteractor.swift in Sources */,
-				93C46E0C2B04CB620055BA0F /* GoogleButton.swift in Sources */,
+				936E6C312BFA773600A623BC /* PastAppointmentTableViewCell.swift in Sources */,
 				9309ADF82B3CAB4B001BC2B0 /* UIScreen + Extension.swift in Sources */,
-				93364FC92B8F3D1000C430DB /* CodeVerificationRouter.swift in Sources */,
 				93822B492AFA85DE00989255 /* ForgotPasswordInteractor.swift in Sources */,
 				93048F0D2B0A9164000BD03A /* Size.swift in Sources */,
 				932D25752B825D4800B99FA3 /* NSObject + Extension .swift in Sources */,
+				939A83342BF5391500453FC1 /* ReminderDetailViewController.swift in Sources */,
 				93A47C6E2BF3CC2300B336A7 /* DateListInfoDetailInteractor.swift in Sources */,
 				93A76AB52BEF8F5900759A1D /* GetPets.swift in Sources */,
 				93CE907D2AF7D5460025FBB0 /* CalendarPresenter.swift in Sources */,
 				93450D612B44883200ADDADD /* LocationManager.swift in Sources */,
 				933A220D2B45D84300854DB0 /* PetInfoRouter.swift in Sources */,
-				93364FCD2B8F3D1B00C430DB /* CodeVerificationPresenter.swift in Sources */,
 				93C46E182B0548B00055BA0F /* AppButton.swift in Sources */,
 				93CE90852AF7D5AF0025FBB0 /* VetMapRouter.swift in Sources */,
 				93A47C6C2BF3CC1C00B336A7 /* DateListInfoDetailPresenter.swift in Sources */,
 				93DD5AD02B41993B00BDE0A9 /* PetTypePresenter.swift in Sources */,
 				933780592ADA825200103273 /* LoginRouter.swift in Sources */,
-				932D256C2B80092F00B99FA3 /* AlertView.swift in Sources */,
+				936E6C222BFA23FB00A623BC /* ContractVetListInteractor.swift in Sources */,
 				93E1FDAD2B77A76D00BD72E1 /* PersonInformationViewController.swift in Sources */,
 				93CE906F2AF7BA550025FBB0 /* HomeInteractor.swift in Sources */,
 				93307E982BE2C97300C665B4 /* NewPasswordRequest.swift in Sources */,
 				93A47C732BF3D32700B336A7 /* MultiSelectView.swift in Sources */,
+				936E6C2B2BFA4C3F00A623BC /* AppointmentHistoryInteractor.swift in Sources */,
 				932D25532B7BFF9300B99FA3 /* PetDetailViewController.swift in Sources */,
 				931D707D2BB9AE830012E7D1 /* AddressVerifyViewController.swift in Sources */,
 				931D70922BB9B6F20012E7D1 /* VeterinarySettingsPresenter.swift in Sources */,
@@ -1945,13 +1875,13 @@
 				93CE906D2AF7BA4C0025FBB0 /* HomePresenter.swift in Sources */,
 				931D70882BB9B6C80012E7D1 /* VeterinaryHomeViewController.swift in Sources */,
 				9367243E2B8E156400897112 /* UserRegisterResponse.swift in Sources */,
-				93364FCB2B8F3D1600C430DB /* CodeVerificationInteractor.swift in Sources */,
 				9323471B2B9C9E8400971E1D /* NearbyListPresenter.swift in Sources */,
 				93A47C702BF3CC2800B336A7 /* DateListInfoDetailRouter.swift in Sources */,
 				93732DF92B16701E00DE636E /* UserRegister.swift in Sources */,
 				93364FF32B9374D200C430DB /* PetInfoEnum.swift in Sources */,
 				93307E9A2BE3C6E400C665B4 /* JWTDecoder.swift in Sources */,
 				933A22252B4729AF00854DB0 /* UITextField + Extension.swift in Sources */,
+				936E6C002BF8B39500A623BC /* PersonRequest.swift in Sources */,
 				933A22132B45D86500854DB0 /* PetInfoViewController.swift in Sources */,
 				93E1FDC52B77A7FB00BD72E1 /* PrivacyPolicyViewController.swift in Sources */,
 				93E1FDB72B77A7B000BD72E1 /* ManageNotificationRouter.swift in Sources */,
@@ -1961,11 +1891,11 @@
 				93048F1C2B0AA4DD000BD03A /* String + Extension.swift in Sources */,
 				930EEECF2B7829560008D051 /* AppearanceRouter.swift in Sources */,
 				938901DD2BD509CD00183EEC /* APIConfig.swift in Sources */,
-				932D255B2B7CC78F00B99FA3 /* MapDetailView.swift in Sources */,
 				93822B4B2AFA85E500989255 /* ForgotPasswordRouter.swift in Sources */,
+				936E6C2F2BFA4CE800A623BC /* AppointmentHistoryPresenter.swift in Sources */,
 				93CE90892AF7D5CC0025FBB0 /* VetMapPresenter.swift in Sources */,
 				93AA9BBB2B9F823B00942F16 /* VeterinaryDetailViewController.swift in Sources */,
-				9378A8EB2BD7C9660064FE2C /* DateListInfoInteractor.swift in Sources */,
+				936E6C202BFA23F100A623BC /* ContractVetListPresenter.swift in Sources */,
 				931D709D2BBD9EDE0012E7D1 /* Validation.swift in Sources */,
 				930493912BCAFD24004026FE /* Network.swift in Sources */,
 				93A76AB72BEF91A900759A1D /* GetPetById.swift in Sources */,
@@ -1991,20 +1921,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		93048F182B0AA08B000BD03A /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				93048F172B0AA08B000BD03A /* en */,
-				93048F192B0AA08E000BD03A /* tr */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		933780172ADA7DA800103273 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				933780182ADA7DA800103273 /* Base */,
-				93048F132B0AA030000BD03A /* tr */,
+				936E6C392BFBC43800A623BC /* en */,
+				936E6C452BFBC57A00A623BC /* tr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -2013,9 +1935,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				9337801D2ADA7DAA00103273 /* Base */,
-				93048F122B0AA030000BD03A /* tr */,
+				936E6C382BFBC43800A623BC /* en */,
+				936E6C442BFBC57A00A623BC /* tr */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		936E6C412BFBC52000A623BC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				936E6C422BFBC52000A623BC /* en */,
+				936E6C462BFBC58500A623BC /* tr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2110,7 +2042,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -2168,7 +2100,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -2190,9 +2122,10 @@
 				DEVELOPMENT_TEAM = 6RYG55F8TD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Petcare-iOS/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = PawBuddies;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "NearMe requires locations so it can offer nearby points of interest";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "NearMe requires locations so it can offer nearby points of interest";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please give me location permission";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2226,9 +2159,10 @@
 				DEVELOPMENT_TEAM = 6RYG55F8TD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Petcare-iOS/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = PawBuddies;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "NearMe requires locations so it can offer nearby points of interest";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "NearMe requires locations so it can offer nearby points of interest";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please give me location permission";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

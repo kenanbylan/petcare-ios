@@ -22,11 +22,9 @@ final class DateListInfoDetailPresenter {
     let router: DateListInfoDetailRouterProtocol?
     let interactor: DateListInfoDetailInteractorProtocol?
     
-    
     //MARK: Variables
     var title: String = "Date Time Select"
-    var dateTimeList: [String: Bool] = ["09.00": true, "11.00": false , "13.00": true, "15.00": true, "17.00": false]
-    
+    var dateTimeList: [String: Bool] = ["09.00 - 11.00": true, "11.00 - 13.00": false , "13.00 - 15.00": true, "15.00 - 17.00": true, "17.00 - 19.00": false]
     
     init(view: DateListInfoDetailViewController? , router: DateListInfoDetailRouterProtocol?, interactor: DateListInfoDetailInteractorProtocol?) {
         self.view = view

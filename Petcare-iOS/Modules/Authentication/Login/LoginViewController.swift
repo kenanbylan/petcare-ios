@@ -1,6 +1,4 @@
 import UIKit
-import Combine
-import SwiftUI
 
 protocol LoginViewProtocol: AnyObject {
     func showAlertMessage(message: String) -> Void
@@ -20,14 +18,12 @@ final class LoginViewController: UIViewController {
     private lazy var emailForm: MyTextField = {
         let textfield = MyTextField()
         textfield.placeholder = "LOGIN_EMAIL_PLACEHOLDER".localized()
-        textfield.text = "ssoprano.tony130@gmail.com"
         return textfield
     }()
     
     private lazy var passwordForm: MyTextField = {
         let textfield = MyTextField()
         textfield.placeholder = "LOGIN_PASSWORD_PLACEHOLDER".localized()
-        textfield.text = "test1234"
         return textfield
     }()
     
@@ -80,6 +76,8 @@ final class LoginViewController: UIViewController {
         style()
         layout()
         setupKeyboardDismissRecognizer()
+        
+        print("Login bilgileri :\(TokenManager.shared.email) , \(TokenManager.shared.userRole) ,\(TokenManager.shared.userId)"  )
     }
 }
 
@@ -95,8 +93,7 @@ extension LoginViewController: LoginViewProtocol {
     }
     
     @objc func loginButtonTapped(_ sender: Any) {
-        //validateTextfield()
-        presenter.navigateMain()
+        validateTextfield()
     }
     
     @objc func signUpButtonTapped(_ sender: Any) {

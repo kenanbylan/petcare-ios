@@ -172,3 +172,9 @@ extension SlideView {
     }
 }
 
+extension SlideView {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        carouselCollection.addShadow(shadowColor: AppColors.bgColor.cgColor)
+    }
+}

@@ -9,7 +9,7 @@ import Foundation
 protocol PetInfoPresenterProtocol {
     func viewDidLoad()
     func navigateSelectPetImage()
-    func selectedGenderType(index: Int) -> Gender?
+    func selectedGenderType(index: Int) -> String?
     func savePetInfo(_ data: PetInfoModel)
     
     var title: String { get }
@@ -24,9 +24,8 @@ final class PetInfoPresenter {
     let interactor: PetInfoInteractorProtocol?
     var selectedPet: String
     var selectedDateTime: Date = .now //MARK: Default value is empty
-    var petGenre: Int = 0 //Default male
+    var petGenre: Int = 0 //MARK: Default male
     var petInfoData: PetInfoModel?
-    
     
     init(view: PetInfoViewProtocol?, router: PetInfoRouterProtocol?, interactor: PetInfoInteractorProtocol?, selectedPet: String) {
         self.view = view
@@ -37,17 +36,16 @@ final class PetInfoPresenter {
 }
 
 extension PetInfoPresenter: PetInfoPresenterProtocol {
-
+    var title: String {
+        return "Almost Done"
+    }
+    
     func savePetInfo(_ data: PetInfoModel) {
         petInfoData = data
     }
     
-    func selectedGenderType(index: Int) -> Gender? {
-        return index == 0 ? .MALE : .FEMALE
-    }
-    
-    var title: String {
-        return "Almost Done"
+    func selectedGenderType(index: Int) -> String? {
+        return index == 0 ? "MALE": "FEMALE"
     }
     
     func navigateSelectPetImage() {
@@ -62,4 +60,3 @@ extension PetInfoPresenter: PetInfoPresenterProtocol {
 extension PetInfoPresenter: PetInfoInteractorOutput {
     
 }
-

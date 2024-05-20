@@ -1,12 +1,5 @@
-/*
- Localizable.strings
- Petcare-iOS
- 
- Created by Kenan Baylan on 19.11.2023.
- */
-
-
-"ONBOARDING_BUTTON_PREVIUS" = "Önceki";
+//MARK: Onboarding ViewController
+"ONBOARDING_BUTTON_PREVIOUS" = "Önceki";
 "ONBOARDING_TITLE_LABEL" = "Her zaman mükemmel bir ebeveyn olmak için emin olun";
 "ONBOARDING_SUBTITLE_LABEL" = "Favori veterinerlerinizi favoriye ekle ve kendi rehberinizi oluşturun";
 
@@ -27,7 +20,7 @@
 "LOGIN_TEXT_FORGOTPASSWORD" =  "Şifremi unuttum?";
 "LOGIN_TEXT_SIGNUP" = "Henüz hesabınız yok mu? Kayıt ol";
 "LOGIN_TEXT_LOGIN" = "Giriş Yap";
-"LOGIN_HEADER" = "Paw Buddy'ye Hoşgeldin";
+"LOGIN_HEADER" = "PawBuddies Hoşgeldiniz";
 
 
 //MARK: Register ViewController
@@ -52,7 +45,7 @@
 "FORGOTPASSWORD_BUTTON" = "Kodu Gönder";
 
 
-//MARK: - Smt Otp ViewController
+//MARK: - SMS OTP ViewController
 "SMS_OTP_SUBTITLE_LABEL" = "We have sent to %d";
 "SMS_OTP_HEADER_LABEL" = "E mail kutunuzu kontrol edin";
 "SMS_OTP_RESEND_CODE_BUTTON" = "Tekrar gönder";
@@ -72,7 +65,6 @@
 
 "EmailVerification_textfield" = "Gönderilen kod";
 "EmailVerification_button" = "Hesabı Aktifleştir";
-
 
 
 
@@ -112,3 +104,143 @@
 "DocumentVerifyView_BottomSheet_handle_pdf_error" = "Seçilen Pdf geçerli değil.";
 
 
+//MARK: - HomeViewController
+
+"Home_pet_title" = "Evcil Hayvan Bilgisi";
+"Home_pet_appointment_label" = "Yaklaşan Randevu";
+"Home_pet_reminder_label" = "Hatırlatıcılar";
+"Home_pet_upcoming_label" = "Yaklaşan Randevu";
+"Home_nearby_veterinary_label" = "Yakındaki Veterinerler";
+
+"Home_SlideView_label_1" = "Tüylü Dostlarımıza Sevgiyle Bakalım";
+"Home_SlideView_label_2" = "Kedimizle Oynayalım, Köpeğimizle Yürüyüşe Çıkalım";
+"Home_SlideView_label_3" = "Evcil Hayvanlarımızın Mutluluğu, Bizim Mutluluğumuzdur!";
+
+
+//MARK: ReminderView DETAIL Viewcontroller
+"ReminderView_Title" = "Hatırlatıcı Listesi";
+"ReminderView_delete" = "Sil";
+"ReminderView_detail_title" = "Hatırlatıcı başlığı ne olmalı?";
+"ReminderView_detail_desc" = "Bir bildirim eklemek istediğiniz konu nedir?";
+"ReminderView_detail_button" = "Kaydet";
+
+
+//MARK: NearbyListViewController
+"NearbyList_Title" = "Yakındaki Veteriner Listesi";
+
+
+//MARK: - PetTypeViewController
+"PetTypeView_title" = "Merhaba dostum :)";
+"PetTypeView_header" = "Hangi tür evcil hayvanınız var?";
+"PetTypeView_button" = "Devam edelim";
+"PetTypeView_back" = "Geri";
+
+"PetTypeView_dog" = "Köpek";
+"PetTypeView_cat" = "Kedi";
+"PetTypeView_bird" = "Kuş";
+"PetTypeView_hamster" = "Hamster";
+"PetTypeView_rabbit" = "Tavşan";
+"PetTypeView_other" = "Diğer";
+
+
+//MARK: - PetInfoViewController
+"PetInfoView_pet_name" = "Evcil Hayvan Adı";
+"PetInfoView_pet_weight" = "Ağırlık (kg)";
+"PetInfoView_pet_height" = "Boy/Uzunluk (cm)";
+"PetInfoView_pet_button" = "Devam edelim";
+"PetInfoView_pet_female" = "Dişi";
+"PetInfoView_pet_male" = "Erkek";
+"PetInfoView_button" = "Devam edelim";
+
+
+//MARK: - PetImageViewController
+"PetImageView_title" = "Evcil hayvanınızın resmini ekleyin";
+"PetImageView_button" = "Kaydet";
+"PetImageView_cancel" = "İptal";
+"PetImageView_library" = "Kütüphaneden Seç";
+
+
+//MARK: PetDetailViewController
+
+"PetDetailView_age" = "Yaş";
+"PetDetailView_height" = "Boy/Uzunluk";
+"PetDetailView_weight" = "Ağırlık";
+"PetDetailView_info" = "Bilgi: ";
+"PetDetailView_button" = "Evcil Hayvanı Sil :/";
+"PetDetailView_error" = "Uyarı";
+"PetDetailView_desc" = "Silmek istediğinizden emin misiniz?";
+
+
+//MARK: - VetMapViewController
+"VetMapView_title" = "Harita üzerindeki Veterinerler";
+
+
+//MARK: SettingsViewController
+"SettingsView_appearence" = "Tema Görünümü";
+"SettingsView_title" = "Ayarlar";
+"SettingsView_person_info" = "Kişisel Bilgiler";
+"SettingsView_notification" = "Bildirimler";
+"SettingsView_privacy" = "Gizlilik Politikası";
+"SettingsView_vets" = "Çalışma Saatlerini Düzenle";
+"SettingsView_signout" = "Çıkış Yap";
+"SettingsView_exit" = "Çıkış";
+
+
+//MARK: AppearanceViewController
+"AppearanceView_title" = "Görünüm";
+"AppearanceView_dark" = "Koyu";
+"AppearanceView_light" = "Açık";
+"AppearanceView_system" = "Sistem";
+
+
+//MARK: PersonInformationViewController
+"PersonInformationView_title" = "Kişisel Bilgiler";
+"PersonInformationView_button" = "Kaydet";
+
+
+//MARK: ManageNotificationViewController
+
+"ManageNotificationView_title" = "Bildirimler";
+"ManageNotificationView_email" = "E-posta Gönder";
+"ManageNotificationView_notify" = "Bildirim Gönder";
+
+
+//MARK: - PrivacyPolicyViewController
+"PrivacyPolicyView_title" = "Gizlilik Politikası";
+
+
+
+//MARK: - ContractVetListViewController
+"ContractVetListView_title" = "Anlaşmalı Veterinerler";
+
+
+//MARK: AppointmentHistoryViewController
+"AppointmentHistoryView_title" = "Randevu Geçmişi";
+
+//MARK: VeterinaryDetailViewController
+"VeterinaryDetailView_select_pet" = "Evcil Hayvan Seç";
+"VeterinaryDetailView_select_book" = "Randevu Oluştur";
+"VeterinaryDetailView_select_days" = "Uygun Günler";
+"VeterinaryDetailView_select_hours" = "Uygun Saatler";
+"VeterinaryDetailView_info_label" = "Veteriner ile ne hakkında konuşmak istersiniz?";
+"VeterinaryDetailView_button" = "Randevu Oluştur";
+
+
+//MARK: - VeterinarySettingsViewController
+"VeterinarySettingsView_title" = "Haftalık Çalışma Günleri";
+"VeterinarySettingsView_monday" = "Pazartesi";
+"VeterinarySettingsView_tuesday" = "Salı";
+"VeterinarySettingsView_wednesday" = "Çarşamba";
+"VeterinarySettingsView_thursday" = "Perşembe";
+"VeterinarySettingsView_friday" = "Cuma";
+"VeterinarySettingsView_clinic" = "Klinik Çalışma Günleri";
+
+
+//MARK: DateListInfoDetailViewController
+"DateListInfoDetailView_title" = "Günlük Çalışma Saatleri";
+"DateListInfoDetailView_button" = "Kaydet";
+"DateListInfoDetailView_header" = "Çalışma Saatlerini Ayarla!";
+
+
+//MARK: VeterinaryHomeViewController
+"VeterinaryHomeView_title" = "Aktif Randevular";

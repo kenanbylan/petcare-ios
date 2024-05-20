@@ -10,12 +10,10 @@ import UIKit
 protocol SplashInteractorProtocol: AnyObject{
     func checkInternetConnection()
     func checkLanguage()
-    func checkUserSession()
 }
 
 protocol SplashInteractorOutputProtocol {
     func internetConnectionStatus(_ status: Bool)
-    func userSessionStatus(_ loggedIn: Bool)
 }
 
 final class SplashInteractor: SplashInteractorProtocol {
@@ -24,12 +22,6 @@ final class SplashInteractor: SplashInteractorProtocol {
     func checkInternetConnection() {
         let internet = false
         self.output?.internetConnectionStatus(internet)
-    }
-    
-    func checkUserSession() {
-        let loggedIn = true  //MARK: -user session control
-        
-        output?.userSessionStatus(loggedIn)
     }
     
     func checkLanguage() {

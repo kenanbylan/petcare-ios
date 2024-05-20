@@ -102,11 +102,6 @@ final class AppButton: UIButton {
         }
     }
     
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        addShadow(shadowColor: AppColors.bgColor.cgColor)
-        layer.borderColor = AppColors.borderColor?.cgColor
-    }
     
     func setImage(_ image: UIImage?) -> AppButton {
         self.image = image
@@ -141,5 +136,13 @@ final class AppButton: UIButton {
     func setTitleColor(_ titleColor: UIColor) -> AppButton {
         self.titleColor = titleColor
         return self
+    }
+}
+
+extension AppButton {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        addShadow(shadowColor: AppColors.bgColor.cgColor)
+        layer.borderColor = AppColors.borderColor?.cgColor
     }
 }

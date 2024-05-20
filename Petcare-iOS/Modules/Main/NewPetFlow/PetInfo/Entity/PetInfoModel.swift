@@ -13,7 +13,7 @@ enum Gender: Int {
 }
 
 struct PetInfoModel {
-    var gender: Gender?
+    var gender: String?
     var type: String?
     var name: String
     var weight: String

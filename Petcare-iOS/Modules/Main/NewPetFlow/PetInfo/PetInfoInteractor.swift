@@ -11,12 +11,11 @@ protocol PetInfoInteractorProtocol {
     //TODO:
 }
 
-
 protocol PetInfoInteractorOutput {
     //TODO:
 }
 
 final class PetInfoInteractor: PetInfoInteractorProtocol {
-    
     var output: PetInfoInteractorOutput?
+    
 }

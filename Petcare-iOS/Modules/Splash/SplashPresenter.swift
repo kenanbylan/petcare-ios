@@ -24,7 +24,13 @@ final class SplashPresenter: SplashPresenterProtocol {
     
     func viewDidLoad() {
         if TokenManager.shared.isTokenValid() {
-            router?.navigateToHome()
+            if TokenManager.shared.userRole == "VETERINARY" {
+                router?.navigateToVeterinaryHome()
+            } else if TokenManager.shared.userRole == "USER" {
+                router?.navigateToHome()
+            } else {
+                router?.navigateToLogin()
+            }
         } else {
             router?.navigateToLogin()
         }
@@ -32,11 +38,6 @@ final class SplashPresenter: SplashPresenterProtocol {
 }
 
 extension SplashPresenter: SplashInteractorOutputProtocol {
-    
-    func userSessionStatus(_ loggedIn: Bool) {
-        
-    }
-    
     func internetConnectionStatus(_ status: Bool) {
         if status {
             print("Device Connected Internet")

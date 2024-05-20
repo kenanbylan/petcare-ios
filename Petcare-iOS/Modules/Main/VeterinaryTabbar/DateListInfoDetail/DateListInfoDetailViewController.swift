@@ -4,12 +4,12 @@
 //
 //  Created by Kenan Baylan on 14.05.2024.
 
-
 import UIKit
 
 protocol DateListInfoDetailViewProtocol: AnyObject {
-    func prepareTitle()
+    
 }
+
 
 final class DateListInfoDetailViewController: UIViewController {
     var presenter: DateListInfoDetailPresenterProtocol!
@@ -27,7 +27,7 @@ final class DateListInfoDetailViewController: UIViewController {
     }()
     
     private lazy var workingTitle: CustomLabel = {
-        let petTitle = CustomLabel(text: "Çalışma saatlerini seçerek ayarlayabilirsin!", fontSize: 14, fontType: .medium, textColor: AppColors.customWhite)
+        let petTitle = CustomLabel(text: "DateListInfoDetailView_header".localized(), fontSize: 14, fontType: .medium, textColor: AppColors.customWhite)
         return petTitle
     }()
     
@@ -47,11 +47,10 @@ final class DateListInfoDetailViewController: UIViewController {
     
     private lazy var doneButton: AppButton = {
         let appbutton = AppButton.build()
-            .setTitle("Kaydet")
+            .setTitle("DateListInfoDetailView_button".localized())
             .setImage(UIImage(named: "pati")?.withRenderingMode(.alwaysTemplate).resized(to: CGSize(width: 25, height: 25)))
             .setBackgroundColor(AppColors.primaryColor)
             .setTitleColor(AppColors.customWhite)
-        appbutton.isEnabled = false
         appbutton.addTarget(self, action: #selector(doneButtonClicked), for: .touchUpInside)
         return appbutton
     }()
@@ -72,15 +71,16 @@ final class DateListInfoDetailViewController: UIViewController {
         topStackView.addArrangedSubview(arrowIcon)
         
         setupConstraints()
+        prepareTitleLabel()
+    }
+    
+    private func prepareTitleLabel() {
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: "DateListInfoDetailView_title".localized(), fontSize: 17, textColor: AppColors.primaryColor)
+        navigationItem.titleView = titleLabel
     }
 }
 
 extension DateListInfoDetailViewController: DateListInfoDetailViewProtocol {
-    func prepareTitle() {
-        let titleLabel = TitleLabel.configurationTitleLabel(withText: "" , fontSize: 17, textColor: AppColors.primaryColor)
-        navigationItem.titleView = titleLabel
-    }
-    
     func prepareMultiSelectView(selections: [String: Bool]) {
         for (timeSlot, isSelected) in selections {
             let timeSelectView = MultiSelectView()
@@ -91,7 +91,6 @@ extension DateListInfoDetailViewController: DateListInfoDetailViewProtocol {
             stackView.addArrangedSubview(timeSelectView)
         }
     }
-    
 }
 
 //MARK: - Button Action
@@ -130,9 +129,7 @@ extension DateListInfoDetailViewController {
 }
 
 extension DateListInfoDetailViewController: MultiSelectViewDelegate {
-    
     func didSelect(_ view: MultiSelectView, isSelected: Bool) {
-        // Handle selection state changes here
         print("Time slot \(view.itemTitle) selected: \(isSelected)")
     }
 }

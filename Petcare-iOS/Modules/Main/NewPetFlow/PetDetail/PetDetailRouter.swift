@@ -32,7 +32,6 @@ final class PetDetailRouter {
 
 extension PetDetailRouter: PetDetailProtocol {
     func dissmis() {
+        navigationController?.dismiss(animated: true)
     }
-    
-    
 }
