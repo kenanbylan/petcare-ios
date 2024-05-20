@@ -20,11 +20,11 @@ final class VeterinaryDetailRouter {
         self.navigationController = navigationController
     }
     
-    static func build(navigationController: UINavigationController?) -> VeterinaryDetailViewController {
+    static func build(navigationController: UINavigationController?, data: UserRegisterRequest) -> VeterinaryDetailViewController {
         let view = VeterinaryDetailViewController()
         let router = VeterinaryDetailRouter(navigationController: navigationController)
         let interactor = VeterinaryDetailInteractor()
-        let presenter = VeterinaryDetailPresenter(view: view, router: router, interactor: interactor)
+        let presenter = VeterinaryDetailPresenter(view: view, router: router, interactor: interactor, data: data)
         
         view.presenter = presenter
         interactor.output = presenter

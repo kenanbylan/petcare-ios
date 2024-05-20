@@ -23,9 +23,17 @@ final class SplashPresenter: SplashPresenterProtocol {
     }
     
     func viewDidLoad() {
-        interactor.checkInternetConnection()
-        interactor.checkLanguage()
-        interactor.checkUserSession()
+        if TokenManager.shared.isTokenValid() {
+            if TokenManager.shared.userRole == "VETERINARY" {
+                router?.navigateToVeterinaryHome()
+            } else if TokenManager.shared.userRole == "USER" {
+                router?.navigateToHome()
+            } else {
+                router?.navigateToLogin()
+            }
+        } else {
+            router?.navigateToLogin()
+        }
     }
 }
 
@@ -38,7 +46,4 @@ extension SplashPresenter: SplashInteractorOutputProtocol {
         }
     }
     
-    func userSessionStatus(_ loggedIn: Bool) {
-        router?.navigateToLogin()
-    }
 }

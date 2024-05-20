@@ -10,7 +10,6 @@ import UIKit
 
 protocol ImageClientService {
     func downloadImage<Request: DataRequest>(request: Request, completion: @escaping (UIImage?, Error?) -> Void)
-    func setImage(from url: String, placeholderImage: UIImage?, completion: @escaping (UIImage?) -> Void)
 }
 
 final class ImageClient {
@@ -74,24 +73,4 @@ extension ImageClient: ImageClientService {
         }
     }
     
-    func setImage(from url: String, placeholderImage: UIImage?, completion: @escaping (UIImage?) -> Void) {
-        let request = ImageRequest(url: url)
-        if let cacheImage = cachedImageForURL[url] {
-            completion(cacheImage)
-        } else {
-            downloadImage(request: request) { [weak self] image, error in
-                guard let self = self else {
-                    return
-                }
-                
-                guard let image = image else {
-                    print(error?.localizedDescription)
-                    return
-                }
-                
-                self.cachedImageForURL[url] = image
-                completion(self.cachedImageForURL[url])
-            }
-        }
-    }
 }

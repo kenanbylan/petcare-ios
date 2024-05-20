@@ -8,7 +8,6 @@
 import UIKit.UINavigationController
 
 protocol PetTypeRouterProtocol: AnyObject {
-    func navigateToBreed() -> Void
     func navigateToPetInfo(selectPet: String) -> Void
 }
 
@@ -30,8 +29,6 @@ final class PetTypeRouter: PetTypeRouterProtocol {
         
         return view
     }
-    
-    func navigateToBreed() { }
     
     func navigateToPetInfo(selectPet: String) {
         let petInfoVC = PetInfoRouter.build(navigationController: navigationController, selectedPet: selectPet)

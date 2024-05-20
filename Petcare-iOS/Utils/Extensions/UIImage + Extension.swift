@@ -14,4 +14,9 @@ extension UIImage {
             self.draw(in: CGRect(origin: .zero, size: targetSize))
         }
     }
+    
+    convenience init?(base64String: String) {  //Araştır.
+        guard let data = Data(base64Encoded: base64String) else { return nil }
+        self.init(data: data)
+    }
 }

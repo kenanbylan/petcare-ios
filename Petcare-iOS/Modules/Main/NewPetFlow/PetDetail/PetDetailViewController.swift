@@ -16,29 +16,20 @@ class PetDetailViewController: UIViewController {
     var presenter: PetDetailPresenterProtocol?
     
     private lazy var petsNameLabel: CustomLabel = {
-        let label = CustomLabel(text: "Bobo, Holosko", fontSize: 21, fontType: .bold, textColor: AppColors.labelColor)
+        let label = CustomLabel(text: presenter?.petData.name, fontSize: 21, fontType: .bold, textColor: AppColors.labelColor)
         label.numberOfLines = 0
-        return label
-    }()
-    
-    private lazy var subTitleLabel: UILabel = {
-        let label = UILabel()
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Enter the email address with your account and we'll send an email with confirmation to reset your password"
-        label.numberOfLines = 3
-        label.tintColor = AppColors.labelColor
-        label.font = AppFonts.medium.font(size: 14)
-        label.textAlignment = .justified
         return label
     }()
     
     private lazy var petImages: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "info-cat")
+        if let base64Image = presenter?.petData.image, let image = UIImage(base64String: base64Image) {
+            imageView.image = image
+        }
+        
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 20
+        imageView.layer.cornerRadius = 40
         return imageView
     }()
     
@@ -46,6 +37,12 @@ class PetDetailViewController: UIViewController {
         let button = UIButton(type: .close)
         button.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var specialInfo: CustomLabel = {
+        let label = CustomLabel(text: presenter?.petData.specialInfo, fontSize: 17, fontType: .medium, textColor: AppColors.labelColor)
+        label.numberOfLines = 0
+        return label
     }()
     
     @objc private func dismissView() {
@@ -68,13 +65,32 @@ class PetDetailViewController: UIViewController {
             .withCornerRadius(20)
             .build()
     }()
-
+    
+    private lazy var informationSideStackView: CustomStackView = {
+        return CustomStackViewBuilder()
+            .withAxis(.vertical)
+            .distribution(distribution: .fill)
+            .withLayoutMargins(top: 20, left: 20, bottom: 20, right: 20)
+            .withCornerRadius(20)
+            .build()
+    }()
+    
     private lazy var petGenre: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "dog")?.resized(to: CGSize(width: 25, height: 25))
+        imageView.image = UIImage(named: presenter?.petTypeImage() ?? "dog")?.resized(to: CGSize(width: 25, height: 25))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
+    }()
+    
+    private lazy var deletePetButton: AppButton = {
+        let appbutton = AppButton.build()
+            .setTitle("PetDetailView_button".localized())
+            .setImage(UIImage(named: "pati")?.withRenderingMode(.alwaysTemplate).resized(to: CGSize(width: 25, height: 25)))
+            .setBackgroundColor(AppColors.primaryColor)
+            .setTitleColor(AppColors.customWhite)
+        appbutton.addTarget(self, action: #selector(petDeleteTapped), for: .touchUpInside)
+        return appbutton
     }()
     
     
@@ -82,25 +98,40 @@ class PetDetailViewController: UIViewController {
     let keyvalueWeight = KeyValueStackView(data: nil)
     let keyvalueHeight = KeyValueStackView(data: nil)
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewDidLoad()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
-        view.backgroundColor = AppColors.customBlue
+        view.backgroundColor = AppColors.bgColor
         prepareConstraint()
         
         petImages.backgroundColor = AppColors.bgColor
         petImages.addShadow()
         
-        infoOutSideStackView.backgroundColor = AppColors.customWhite.withAlphaComponent(0.4)
-        infoOutSideStackView.addShadow(
-            shadowColor: AppColors.customDarkGray.cgColor,
-            shadowOffset:CGSize(width: 5.0, height: 7.0),
-            shadowOpacity: 0.7,
-            shadowRadius: 4.0)
-
-        keyvalueAge.data = [("Age", "6 months")]
-        keyvalueHeight.data = [("Height", "40 CM") ]
-        keyvalueWeight.data = [("Weight", "4 Kg 2 gr")]
+        infoOutSideStackView.backgroundColor = .secondarySystemBackground
+        informationSideStackView.backgroundColor = .secondarySystemBackground
+        
+        infoOutSideStackView.addShadow(shadowColor: AppColors.customDarkGray.cgColor,
+                                       shadowOffset:CGSize(width: 5.0, height: 7.0), shadowOpacity: 0.7, shadowRadius: 4.0)
+        informationSideStackView.addShadow(shadowColor: AppColors.customDarkGray.cgColor,
+                                           shadowOffset:CGSize(width: 5.0, height: 7.0), shadowOpacity: 0.7, shadowRadius: 4.0)
+        
+        
+        keyvalueAge.data = [("\("PetDetailView_age".localized()): ", presenter?.formattedAge() ?? "6 month")]
+        keyvalueHeight.data = [("\("PetDetailView_height".localized()): ", presenter?.formattedHeight() ?? "1.2 cm")]
+        keyvalueWeight.data = [("\("PetDetailView_weight".localized()): ", presenter?.formattedWeight() ?? "1.2 kg")]
+    }
+    
+    @objc func petDeleteTapped() {
+        print("petDeleteTapped clicked!")
+        guard let petName = presenter?.petData.name else { return }
+        showAlertAction(title: "PetDetailView_error".localized(), message: "\(petName) \("PetDetailView_desc".localized())" , type: .actionSheet) {
+            //
+        }
     }
     
     private func prepareConstraint() {
@@ -112,11 +143,14 @@ class PetDetailViewController: UIViewController {
         
         view.addSubview(petImages)
         view.addSubview(infoOutSideStackView)
+        view.addSubview(informationSideStackView)
+        view.addSubview(deletePetButton)
         
         infoOutSideStackView.addArrangedSubview(keyvalueAge)
         infoOutSideStackView.addArrangedSubview(keyvalueHeight)
         infoOutSideStackView.addArrangedSubview(keyvalueWeight)
-    
+        
+        informationSideStackView.addArrangedSubview(specialInfo)
         
         NSLayoutConstraint.activate([
             headerStackView.topAnchor.constraint(equalTo: view.topAnchor,constant: 5.wPercent),
@@ -128,12 +162,27 @@ class PetDetailViewController: UIViewController {
             petImages.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.wPercent),
             petImages.heightAnchor.constraint(equalToConstant: UIScreen.screenWidth / 1.5),
             
-            
             infoOutSideStackView.topAnchor.constraint(equalTo: petImages.bottomAnchor, constant: 10.wPercent),
             infoOutSideStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
             infoOutSideStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5.wPercent),
             
+            informationSideStackView.topAnchor.constraint(equalTo: infoOutSideStackView.bottomAnchor, constant: 5.wPercent),
+            informationSideStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
+            informationSideStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5.wPercent),
+            
+            deletePetButton.topAnchor.constraint(equalTo: informationSideStackView.bottomAnchor, constant: 7.wPercent),
+            deletePetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 7.wPercent),
+            deletePetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -7.wPercent),
         ])
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        infoOutSideStackView.addShadow(shadowColor: AppColors.customDarkGray.cgColor,
+                                       shadowOffset:CGSize(width: 5.0, height: 7.0), shadowOpacity: 0.7, shadowRadius: 4.0)
+        informationSideStackView.addShadow(shadowColor: AppColors.customDarkGray.cgColor,
+                                           shadowOffset:CGSize(width: 5.0, height: 7.0), shadowOpacity: 0.7, shadowRadius: 4.0)
+        
     }
 }
 

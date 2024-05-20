@@ -37,13 +37,11 @@ extension UIViewController: UITextFieldDelegate {
             let alertController = UIAlertController(title: "Uyarı", message: alert, preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(alertAction)
-            
-            //TODO:
             self.present(alertController, animated: true, completion: nil)
         }
     }
     
-    func showAlert(title: String, message: String, type: UIAlertController.Style  ,  action: (() -> Void)? = nil) {
+    func showAlert(title: String, message: String, type: UIAlertController.Style, action: (() -> Void)? = nil) {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: title, message: message, preferredStyle: type)
             let okAction = UIAlertAction(title: "OK", style: .default) { _ in
@@ -54,14 +52,17 @@ extension UIViewController: UITextFieldDelegate {
         }
     }
     
-    func showAlert(for alert: String, action: (() -> Void)? = nil) {
-        let alertController = UIAlertController(title: nil, message: alert, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            action?()
+    func showAlertAction(title: String, message: String, type: UIAlertController.Style, action: (() -> Void)? = nil) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: type)
+            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                action?()
+            }
+            alertController.addAction(okAction)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
         }
-        
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
     }
 }
 

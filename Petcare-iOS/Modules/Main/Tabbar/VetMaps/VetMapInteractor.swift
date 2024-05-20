@@ -7,21 +7,12 @@
 
 import Foundation
 
-protocol VetMapInteractorProtocol {
-    func getMapData()
-}
-
-protocol VetMapInteractorOutput {
-    
-}
+protocol VetMapInteractorProtocol { }
+protocol VetMapInteractorOutput { }
 
 
 final class VetMapInteractor : VetMapInteractorProtocol {
-
     var output: VetMapInteractorOutput?
-    func getMapData() {
-        
-    }
     
 }
 

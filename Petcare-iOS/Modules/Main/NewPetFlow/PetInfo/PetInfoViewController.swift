@@ -49,7 +49,7 @@ final class PetInfoViewController: BaseViewController {
     
     private lazy var petsNameTextfield: MyTextField = {
         let textfield = MyTextField()
-        textfield.placeholder = "Pet name"
+        textfield.placeholder = "PetInfoView_pet_name".localized()
         textfield.tintColor = AppColors.primaryColor
         return textfield
     }()
@@ -62,7 +62,7 @@ final class PetInfoViewController: BaseViewController {
     }()
     
     let genderSegmentedControl: UISegmentedControl = {
-        let items = ["Male", "Female"]
+        let items = ["PetInfoView_pet_male".localized(), "PetInfoView_pet_female".localized()]
         let segmentedControl = UISegmentedControl(items: items)
         segmentedControl.selectedSegmentIndex = 0 // Default to Male
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
@@ -71,22 +71,35 @@ final class PetInfoViewController: BaseViewController {
     
     private lazy var weightTextField: MyTextField = {
         let textfield = MyTextField()
-        textfield.placeholder = "Weight (kg)"
+        textfield.placeholder = "PetInfoView_pet_weight".localized()
         textfield.keyboardType = .decimalPad
         return textfield
     }()
     
     private lazy var heightTextField: MyTextField = {
         let textfield = MyTextField()
-        textfield.placeholder = "Height (cm)"
+        textfield.placeholder = "PetInfoView_pet_height".localized()
         textfield.keyboardType = .numberPad
         return textfield
+    }()
+    
+    private lazy var conversationTextView: CustomTextView = {
+        return CustomTextView.Builder()
+            .text("")
+            .textColor(AppColors.labelColor)
+            .font(AppFonts.medium.font(size: 14))
+            .shadowOffset(CGSize(width: 2, height: 2))
+            .cornerRadius(12)
+            .borderWidth(2)
+            .borderColor(AppColors.borderColor)
+            .height(UIScreen.screenWidth / 2)
+            .build()
     }()
     
     //MARK: BUİLDER PATTERN
     private lazy var appButton: AppButton = {
         let appbutton = AppButton.build()
-            .setTitle("Continue")
+            .setTitle("PetInfoView_button".localized())
             .setTitleColor(AppColors.customWhite)
             .setImage(UIImage(named: "coffee")?.resized(to: CGSize(width: 25, height: 25)))
             .setBackgroundColor(AppColors.primaryColor)
@@ -139,14 +152,14 @@ extension PetInfoViewController {
     
     func validate() {
         do {
-            let petName = try petsNameTextfield.validatedText(validationType: ValidatorsType.requiredField(field: "Pets Name "))
-            let height = try heightTextField.validatedText(validationType: ValidatorsType.requiredField(field: "Height "))
-            let weight = try self.weightTextField.validatedText(validationType: ValidatorsType.requiredField(field: "Weight"))
+            let petName = try petsNameTextfield.validatedText(validationType: ValidatorsType.requiredField(field: "PetInfoView_pet_name".localized()))
+            let height = try heightTextField.validatedText(validationType: ValidatorsType.requiredField(field: "PetInfoView_pet_height".localized()))
+            let weight = try self.weightTextField.validatedText(validationType: ValidatorsType.requiredField(field: "PetInfoView_pet_weight".localized()))
             let genderIndex = genderSegmentedControl.selectedSegmentIndex
             let petGenre = presenter?.selectedGenderType(index: genderIndex)
+            let petInfo = conversationTextView.text
             
-            let data = PetInfoModel(gender: petGenre, type: presenter?.selectedPet, name: petName , weight: weight, height: height, birthDate: presenter?.selectedDateTime)
-            
+            let data = PetInfoModel(gender: petGenre, type: presenter?.selectedPet, name: petName , weight: weight, height: height, birthDate: presenter?.selectedDateTime,specialInfo: petInfo)
             
             presenter?.savePetInfo(data)
             presenter?.navigateSelectPetImage()
@@ -178,7 +191,7 @@ extension PetInfoViewController: ViewCoding {
         self.contentView.addSubview(allStackView)
         self.contentView.addSubview(appButton)
         
-        let views: [UIView] = [genderSegmentedControl,petsNameTextfield,dateBirthTextfield,hStackView]
+        let views: [UIView] = [genderSegmentedControl,petsNameTextfield,dateBirthTextfield,hStackView, conversationTextView]
         for i in views { allStackView.addArrangedSubview(i) }
         
         hStackView.addArrangedSubview(weightTextField)
@@ -199,7 +212,7 @@ extension PetInfoViewController: ViewCoding {
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -30.wPercent),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
             allStackView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor,constant: 24),
@@ -210,6 +223,8 @@ extension PetInfoViewController: ViewCoding {
             appButton.topAnchor.constraint(equalTo: self.allStackView.bottomAnchor, constant: 10.wPercent),
             appButton.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor,constant: 5.wPercent),
             appButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor,constant: -5.wPercent),
+            
+            conversationTextView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
 }

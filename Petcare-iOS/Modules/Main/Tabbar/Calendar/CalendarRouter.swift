@@ -38,7 +38,7 @@ final class CalendarRouter {
 
 extension CalendarRouter: CalendarRouterProtocol {
     func navigateToNearbyList(with onlyShow: Bool) {
-        let view =  NearbyListRouter.build(navigationController: navigationController, onlyShow: onlyShow ? true : false)
+        let view =  NearbyListRouter.build(navigationController: navigationController)
         navigationController?.pushViewController(view, animated: true)
     }
     

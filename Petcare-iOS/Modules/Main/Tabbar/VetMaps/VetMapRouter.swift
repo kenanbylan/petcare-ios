@@ -8,9 +8,7 @@
 import Foundation
 import UIKit
 
-protocol VetMapRouterProtocol: AnyObject {
-    
-}
+protocol VetMapRouterProtocol: AnyObject { }
 
 final class VetMapRouter: VetMapRouterProtocol {
     var navigationController: UINavigationController?
@@ -20,7 +18,6 @@ final class VetMapRouter: VetMapRouterProtocol {
     }
     
     static func build(navigationController: UINavigationController?) -> VetMapViewController {
-
         let view = VetMapViewController()
         let router = VetMapRouter(navigationController: navigationController)
         let interactor = VetMapInteractor()

@@ -8,7 +8,6 @@
 import UIKit
 
 protocol PetInfoRouterProtocol {
-    func navigatePetFlowResult() -> Void
     func navigateSelectPetImage(_ data: PetInfoModel) -> Void
 }
 
@@ -32,10 +31,6 @@ final class PetInfoRouter {
 }
 
 extension PetInfoRouter: PetInfoRouterProtocol {
-    func navigatePetFlowResult() {
-        
-    }
-    
     func navigateSelectPetImage(_ data: PetInfoModel) {
         let petSelectImageVC = PetImageRouter.build(navigationController: navigationController, petInfoData: data)
         navigationController?.pushViewController(petSelectImageVC, animated: true)

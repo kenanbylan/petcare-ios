@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 
-protocol VeterinaryHomeRouterProtocol: AnyObject {
-    func backToLogin() -> Void
+protocol VeterinaryHomeRouterProtocol {
     func navigateToDateList() -> Void
 }
 
@@ -20,7 +19,7 @@ final class VeterinaryHomeRouter: VeterinaryHomeRouterProtocol {
         self.navigationController = navigationController
     }
     
-    static func build(navigationController: UINavigationController?) -> VeterinaryHomeViewController {
+    static func build(navigationController: UINavigationController?, window: UIWindow?) -> VeterinaryHomeViewController {
         let view = VeterinaryHomeViewController()
         let router = VeterinaryHomeRouter(navigationController: navigationController)
         let interactor = VeterinaryHomeInteractor()
@@ -31,10 +30,7 @@ final class VeterinaryHomeRouter: VeterinaryHomeRouterProtocol {
         return view
     }
     
-    func backToLogin() {}
-    
     func navigateToDateList() {
-        let dateList = DateListInfoRouter.build(navigationController: navigationController)
-        self.navigationController?.pushViewController(dateList, animated: true)
+        
     }
 }

@@ -8,7 +8,6 @@
 import Foundation
 
 protocol VetMapPresenterProtocol {
-    func viewDidLoad()
     func setTitle() -> String
 }
 
@@ -18,9 +17,8 @@ final class VetMapPresenter {
     let router: VetMapRouterProtocol?
     let interactor: VetMapInteractorProtocol?
     
-    let mapTitle = "Veterinary List"
+    let mapTitle = "VetMapView_title".localized()
     
- 
     init(view: VetMapViewController? , router: VetMapRouterProtocol?, interactor: VetMapInteractorProtocol?) {
         self.view = view
         self.router = router
@@ -32,12 +30,6 @@ extension VetMapPresenter: VetMapPresenterProtocol {
     func setTitle() -> String {
         return self.mapTitle
     }
-  
-    func viewDidLoad() {
-        
-    }
 }
 
-extension VetMapPresenter: VetMapInteractorOutput {
-   
-}
+extension VetMapPresenter: VetMapInteractorOutput { }

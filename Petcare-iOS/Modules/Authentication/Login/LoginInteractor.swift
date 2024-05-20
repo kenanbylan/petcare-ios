@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 
 protocol LoginInteractorProtocol {
     func login(user: LoginRequest) -> Void
@@ -17,8 +16,7 @@ protocol LoginInteractorOutput {
     func registrationFailure(error: ExceptionErrorHandle)
 }
 
-final class LoginInteractor: LoginInteractorProtocol, ObservableObject {
-    
+final class LoginInteractor: LoginInteractorProtocol {
     var output: LoginInteractorOutput?
     let networkService: NetworkService
     
@@ -34,8 +32,8 @@ final class LoginInteractor: LoginInteractorProtocol, ObservableObject {
             switch result {
             case .success(let response):
                 print("loginUser: \(response)")
-                //self.output?.registrationSuccess(user: response)
-            case .failure(let error): 
+                self?.output?.registrationSuccess(user: response)
+            case .failure(let error):
                 print("Interactor Error \(error.error)")
                 self?.output?.registrationFailure(error: error)
             }

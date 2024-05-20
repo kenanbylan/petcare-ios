@@ -17,13 +17,14 @@ enum HTTPMethod: String {
 
 protocol DataRequest {
     associatedtype Response: Decodable
+    associatedtype ResponseError: Codable, Error
     
     var url: String { get }
     var method: HTTPMethod { get }
     var headers: [String : String] { get }
     var queryItems: [String : String] { get }
     var body: Data? { get }
-    func decode(_ data: Data) throws -> Response // New decoding method
+    func decode(_ data: Data) throws -> Response
 }
 
 extension DataRequest where Response: Decodable {

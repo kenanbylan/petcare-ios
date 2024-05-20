@@ -1,6 +1,4 @@
 import UIKit
-import Combine
-import SwiftUI
 
 protocol LoginViewProtocol: AnyObject {
     func showAlertMessage(message: String) -> Void
@@ -75,10 +73,43 @@ final class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidload()
         style()
         layout()
         setupKeyboardDismissRecognizer()
+        
+        print("Login bilgileri :\(TokenManager.shared.email) , \(TokenManager.shared.userRole) ,\(TokenManager.shared.userId)"  )
+    }
+}
+
+// MARK: - Actions
+extension LoginViewController: LoginViewProtocol {
+    func showAlertMessage(message: String) {
+        showAlert(for: message)
+    }
+    
+    // MARK: - Button Actions
+    @objc func forgotPasswordButtonTapped(_ sender: Any) {
+        presenter?.navigateForgotPassword()
+    }
+    
+    @objc func loginButtonTapped(_ sender: Any) {
+        validateTextfield()
+    }
+    
+    @objc func signUpButtonTapped(_ sender: Any) {
+        presenter?.navigateSignUp()
+    }
+    
+    private func validateTextfield() {
+        do {
+            let email = try emailForm.validatedText(validationType: .email)
+            let password = try passwordForm.validatedText(validationType: .password)
+            let data = LoginRequest(email: email, password: password)
+            presenter.saveUser(data)
+            presenter.fetchLogin()
+        } catch(let error) {
+            showAlert(for: (error as! ValidationError).message)
+        }
     }
 }
 
@@ -115,38 +146,5 @@ extension LoginViewController {
             registerPasswordButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
             registerPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-    }
-}
-
-
-// MARK: - Actions
-extension LoginViewController: LoginViewProtocol {
-    func showAlertMessage(message: String) {
-        showAlert(for: message)
-    }
-    
-    // MARK: - Button Actions
-    @objc func forgotPasswordButtonTapped(_ sender: Any) {
-        presenter?.navigateForgotPassword()
-    }
-    
-    @objc func loginButtonTapped(_ sender: Any) {
-        validateTextfield()
-    }
-    
-    @objc func signUpButtonTapped(_ sender: Any) {
-        presenter?.navigateSignUp()
-    }
-    
-    private func validateTextfield() {
-        do {
-            let email = try emailForm.validatedText(validationType: .email)
-            let password = try passwordForm.validatedText(validationType: .password)
-            let data = LoginRequest(email: email, password: password)
-            presenter.saveUser(data)
-            presenter.navigateMain()
-        } catch(let error) {
-            showAlert(for: (error as! ValidationError).message)
-        }
     }
 }
