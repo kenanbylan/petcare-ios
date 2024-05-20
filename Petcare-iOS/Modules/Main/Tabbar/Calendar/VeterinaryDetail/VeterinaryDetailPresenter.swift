@@ -10,7 +10,9 @@ import Foundation
 protocol VeterinaryDetailPresenterProtocol {
     func viewDidLoad()
     func setTitle() -> String
-    func setResultView() -> ApproveResultModel
+    func getClinicName() -> String
+    func getClinicAddress() -> String
+    func getClinicPhone() -> String
 }
 
 final class VeterinaryDetailPresenter: VeterinaryDetailPresenterProtocol {
@@ -20,10 +22,13 @@ final class VeterinaryDetailPresenter: VeterinaryDetailPresenterProtocol {
     let router: VeterinaryDetailRouterProtocol?
     let interactor: VeterinaryDetailInteractorProtocol?
     
-    init(view: VeterinaryDetailViewController?,router: VeterinaryDetailRouterProtocol?, interactor: VeterinaryDetailInteractorProtocol?) {
+    var data: UserRegisterRequest?
+    
+    init(view: VeterinaryDetailViewController?,router: VeterinaryDetailRouterProtocol?, interactor: VeterinaryDetailInteractorProtocol?,data: UserRegisterRequest?) {
         self.view = view
         self.router = router
         self.interactor = interactor
+        self.data = data
     }
     
     func viewDidLoad() {
@@ -34,15 +39,20 @@ final class VeterinaryDetailPresenter: VeterinaryDetailPresenterProtocol {
         return title
     }
     
-    func setResultView() -> ApproveResultModel {
-        let model = ApproveResultModel(
-            backgroundImageName: "approve-background",
-            title: "Tebrikler",
-            subTitle: "Randevu oluşturuldu. Rezervasyon ekranından randevuyu görebilirsin.",
-            imageName: "splash_transparent",
-            buttonTitle: "Devam Et")
-        return model
+    func getClinicName() -> String {
+        return data?.address?.clinicName ?? "Kucukyali"
     }
+    
+    func getClinicPhone() -> String {
+        return data?.address?.phoneNumber ?? "053X XXX XX XX"
+    }
+    
+    func getClinicAddress() -> String {
+        let city = data?.address?.clinicCity ?? ""
+        let district = data?.address?.clinicDistrict ?? ""
+        return city + district
+    }
+    
 }
 
 extension VeterinaryDetailPresenter: VeterinaryDetailInteractorOutput { }

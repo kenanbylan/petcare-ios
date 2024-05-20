@@ -3,40 +3,14 @@
 //  Petcare-iOS
 //
 //  Created by Kenan Baylan on 13.04.2024.
-//
-import Foundation
+//  MARK: KBKit
+
 import UIKit
-
-enum NetworkError: Error {
-    case invalidURL
-    case requestFailed(Error)
-    case invalidResponse
-    case invalidData
-    case unauthorized // 401
-    case forbidden // 403
-    case notFound // 404
-    case badRequest // 400
-    case serverError // 5xx
-    case unknown(Int)
-    case status(Int) //
-}
-
-struct ExceptionErrorHandle: Codable, Error {
-    var ebusinessCode: String?
-    var businessErrorDetails: String?
-    var error: String?
-    
-    init(ebusinessCode: String?, businessErrorDetails: String?, error: String?) {
-        self.ebusinessCode = ebusinessCode
-        self.businessErrorDetails = businessErrorDetails
-        self.error = error
-    }
-}
-
 
 protocol NetworkService {
     func request<Request: DataRequest>(_ request: Request, completion: @escaping (Result<Request.Response, ExceptionErrorHandle>) -> Void)
 }
+
 
 final class DefaultNetworkService: NetworkService {
     func request<Request: DataRequest>(_ request: Request, completion: @escaping (Result<Request.Response, ExceptionErrorHandle>) -> Void) {
@@ -56,7 +30,7 @@ final class DefaultNetworkService: NetworkService {
         
         guard let url = urlComponent.url else {
             let error = NSError(
-                domain: ErrorResponse.invalidEndpoint.rawValue,
+                domain: "url Component error",
                 code: 404,
                 userInfo: nil
             )
@@ -66,9 +40,9 @@ final class DefaultNetworkService: NetworkService {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
-        urlRequest.allHTTPHeaderFields = request.headers // header eklendi.
+        urlRequest.allHTTPHeaderFields = request.headers
         urlRequest.httpBody = request.body
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type") // Content-Type ayarlandı
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
@@ -94,7 +68,7 @@ final class DefaultNetworkService: NetworkService {
                     completion(.failure(.init(ebusinessCode: nil, businessErrorDetails: nil, error: error.localizedDescription)))
                 }
                 
-            case 400:
+            case 400,401,403,422:
                 guard let data = data else {
                     completion(.failure(.init(ebusinessCode: "\(httpResponse.statusCode)", businessErrorDetails: nil, error: "Data decoding error")))
                     return
@@ -121,7 +95,7 @@ final class DefaultNetworkService: NetworkService {
                 }
                 
             default:
-                completion(.failure(.init(ebusinessCode: "\(httpResponse.statusCode)", businessErrorDetails: nil, error: "Default")))
+                completion(.failure(.init(ebusinessCode: "\(httpResponse.statusCode)", businessErrorDetails: nil, error: "Default uydastıudas")))
             }
         }
         .resume()

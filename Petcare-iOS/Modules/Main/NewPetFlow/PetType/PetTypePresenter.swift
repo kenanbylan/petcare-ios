@@ -8,12 +8,11 @@
 import Foundation
 
 protocol PetTypePresenterProtocol {
-    func viewDidLoad()
-    func navigateToPetInfo()
-
     var selectPet: String { get set }
     var petTypes: [String] { get }
     var title: String { get }
+    
+    func navigateToPetInfo()
 }
 
 final class PetTypePresenter {
@@ -22,7 +21,12 @@ final class PetTypePresenter {
     let interactor: PetTypeInteractorProtocol?
     
     var selectedPet: String = ""
-    private let petTypesList = ["Cat", "Dog", "Bird", "Fish", "Rabbit", "Other"]
+    private let petTypesList = ["PetTypeView_dog".localized(),
+                                "PetTypeView_cat".localized(),
+                                "PetTypeView_bird".localized(),
+                                "PetTypeView_hamster".localized(),
+                                "PetTypeView_rabbit".localized(),
+                                "PetTypeView_other".localized()]
     
     init(view: PetTypeViewProtocol? = nil, router: PetTypeRouterProtocol?, interactor: PetTypeInteractorProtocol?) {
         self.view = view
@@ -39,17 +43,13 @@ extension PetTypePresenter: PetTypePresenterProtocol {
     }
     
     var title: String {
-        return "Hello my friend"
+        return "Hello my friend" // will be add localizable.
     }
     
     var petTypes: [String] {
         return petTypesList
     }
-    
-    func viewDidLoad() {
-        
-    }
-    
+     
     func navigateToPetInfo() {
         if !selectedPet.isEmpty {
             print("!!selectedPet : \(selectedPet)")
@@ -58,6 +58,5 @@ extension PetTypePresenter: PetTypePresenterProtocol {
     }
 }
 
-extension PetTypePresenter: PetTypeInteractorOutput {
-    
-}
+
+extension PetTypePresenter: PetTypeInteractorOutput { }

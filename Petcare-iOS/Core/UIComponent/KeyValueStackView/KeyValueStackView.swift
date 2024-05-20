@@ -30,23 +30,19 @@ final class KeyValueStackView: UIStackView {
     
     private func setupStackView() {
         translatesAutoresizingMaskIntoConstraints = false
-        // Önceki stack view'ı temizle
         self.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
         guard let data = data else { return }
         
-        // Her bir key-value çifti için
         for (key, value) in data {
-            // Label'ler oluştur ve ayarla
-            let keyLabel = CustomLabel(text: "", fontSize: 17, fontType: .bold, textColor: AppColors.labelColor)
+            let keyLabel = CustomLabel(text: "", fontSize: 14, fontType: .bold, textColor: AppColors.labelColor)
             keyLabel.text = key
             keyLabel.textAlignment = .left
             
-            let valueLabel = CustomLabel(text: "", fontSize: 17, fontType: .medium, textColor: AppColors.labelColor)
+            let valueLabel = CustomLabel(text: "", fontSize: 14, fontType: .medium, textColor: AppColors.labelColor)
             valueLabel.text = value
             valueLabel.textAlignment = .left
             
-            // Label'leri stack view'a ekle
             self.addArrangedSubview(keyLabel)
             self.addArrangedSubview(valueLabel)
         }

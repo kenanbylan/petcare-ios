@@ -10,27 +10,18 @@ import UIKit
 protocol SplashInteractorProtocol: AnyObject{
     func checkInternetConnection()
     func checkLanguage()
-    func checkUserSession()
-
 }
 
 protocol SplashInteractorOutputProtocol {
     func internetConnectionStatus(_ status: Bool)
-    func userSessionStatus(_ loggedIn: Bool)
 }
 
 final class SplashInteractor: SplashInteractorProtocol {
     var output: SplashInteractorOutputProtocol?
     
     func checkInternetConnection() {
-        let internet = NetworkMonitor.shared.isConnected
+        let internet = false
         self.output?.internetConnectionStatus(internet)
-    }
-    
-    func checkUserSession() {
-        // TokenManager.isTokenValid()
-        let loggedIn = true  // kullanıcı oturumunun kontrolü
-        output?.userSessionStatus(loggedIn)
     }
     
     func checkLanguage() {

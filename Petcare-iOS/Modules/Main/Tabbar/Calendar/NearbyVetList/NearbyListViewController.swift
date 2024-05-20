@@ -16,8 +16,6 @@ protocol NearbyListViewProtocol: AnyObject {
 final class NearbyListViewController: UIViewController {
     var presenter: NearbyListPresenterProtocol!
     private let locationManager = LocationManager() // Create an instance of LocationManager
-
-    var activityIndicator = UIActivityIndicatorView()
     
     private let tableView: UITableView = {
         let tableView = UITableView.init(frame: .zero, style: .insetGrouped)
@@ -30,11 +28,9 @@ final class NearbyListViewController: UIViewController {
         presenter.viewDidLoad()
         prepareTableView()
         prepareTitle()
-        prepareActivityIndicator()
         locationManager.delegate = self
         locationManager.requestPermissionToAccessLocation()
     }
-    
     
     private func prepareTableView() {
         view.addSubview(tableView)
@@ -44,15 +40,6 @@ final class NearbyListViewController: UIViewController {
         tableView.frame = view.bounds
         tableView.delegate = self
         tableView.dataSource = self
-    }
-    
-    private func prepareActivityIndicator() {
-        view.addSubview(activityIndicator)
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
     }
 }
 
@@ -73,11 +60,11 @@ extension NearbyListViewController: NearbyListViewProtocol {
     }
     
     func showError(message: String) {
-        //alert
+        
     }
     
     func prepareTitle() {
-        let titleLabel = TitleLabel.configurationTitleLabel(withText: "Nearby Veterinary List", fontSize: 17, textColor: AppColors.primaryColor)
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: "NearbyList_Title".localized(), fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
     }
 }

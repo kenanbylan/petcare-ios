@@ -17,7 +17,7 @@ enum APIEnvironment {
     func baseURL() -> String {
         switch self {
         case .development:
-            return "http://localhost:8081"
+            return "http://localhost:8082"
         case .test:
             return "https://jsonplaceholder.org"
         case .production:

@@ -19,16 +19,12 @@ final class NearbyListTableViewCell: UITableViewCell {
     private lazy var address: CustomLabel = {
         let label = CustomLabel(text: "Çınar Mahallesi 747.Sok no:16 daire:2 Bağcılar/İstanbul", fontSize: 14, fontType: .regular, textColor: AppColors.labelColor)
         label.numberOfLines = 0
-//        label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-//        label.setContentHuggingPriority(.defaultLow, for: .vertical)
         return label
     }()
     
     private lazy var distance: CustomLabel = {
-        let label = CustomLabel(text: "1.4 KM", fontSize: 14, fontType: .regular, textColor: AppColors.labelColor)
+        let label = CustomLabel(text: "", fontSize: 14, fontType: .regular, textColor: AppColors.labelColor)
         label.textAlignment = .right
-        
-//        label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal) // Yatayda sıkıştırılmayı artır
         return label
     }()
     
@@ -40,7 +36,7 @@ final class NearbyListTableViewCell: UITableViewCell {
         image.contentMode = .scaleAspectFit
         return image
     }()
-  
+    
     private lazy var insideStackView: CustomStackView = {
         let stack = CustomStackView()
         stack.axis = .vertical
@@ -76,6 +72,43 @@ final class NearbyListTableViewCell: UITableViewCell {
         self.address.text = nearbyList.address
         self.distance.text = nearbyList.distance.formatAsDistance()
     }
+    
+    func configureContractCell(with contractVet: UserRegisterRequest) {
+        self.title.text = contractVet.address?.clinicName
+        
+        if let address = contractVet.address {
+            var fullAddress = ""
+            if let clinicCity = address.clinicCity { fullAddress += clinicCity }
+            
+            if let clinicDistrict = address.clinicDistrict {
+                if !fullAddress.isEmpty { fullAddress += ", " }
+                fullAddress += clinicDistrict
+            }
+            
+            if let clinicStreet = address.clinicStreet {
+                if !fullAddress.isEmpty {
+                    fullAddress += ", " }
+                fullAddress += clinicStreet
+            }
+            
+            if let clinicNo = address.clinicNo {
+                if !fullAddress.isEmpty {
+                    fullAddress += ", "
+                }
+                fullAddress += clinicNo
+            }
+            
+            if let apartmentNo = address.apartmentNo {
+                if !fullAddress.isEmpty {
+                    fullAddress += ", "
+                }
+                fullAddress += apartmentNo
+            }
+            self.address.text = fullAddress
+        } else {
+            self.address.text = "Address not available"
+        }
+    }
 }
 
 extension NearbyListTableViewCell: ViewCoding {
@@ -86,7 +119,7 @@ extension NearbyListTableViewCell: ViewCoding {
         outsideStackView.addArrangedSubview(insideStackView)
         outsideStackView.addArrangedSubview(distance)
         outsideStackView.addArrangedSubview(UIView())
-
+        
         insideStackView.addArrangedSubview(title)
         insideStackView.addArrangedSubview(address)
     }

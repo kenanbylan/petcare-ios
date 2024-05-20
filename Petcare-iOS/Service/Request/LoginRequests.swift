@@ -7,6 +7,7 @@
 import Foundation
 
 struct LoginRequests: DataRequest {
+    typealias ResponseError = ExceptionErrorHandle
     typealias Response = LoginResponse // Response type
     
     let email: String

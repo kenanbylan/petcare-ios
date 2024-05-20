@@ -92,9 +92,12 @@ final class CustomTextView: UITextView {
             return textView
         }
     }
-    
+}
+
+extension CustomTextView {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         layer.borderColor = AppColors.borderColor!.cgColor
     }
 }
+

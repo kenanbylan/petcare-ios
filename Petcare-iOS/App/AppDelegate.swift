@@ -11,23 +11,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        NetworkMonitor.shared.startMonitoring()
-        
-        if let savedTheme = UserDefaults.standard.string(forKey: "selectedTheme"),
-           let theme = AppTheme(rawValue: savedTheme) {
-            UIApplication.shared.windows.forEach { window in
-                switch theme {
-                case .light:
-                    window.overrideUserInterfaceStyle = .light
-                case .dark:
-                    window.overrideUserInterfaceStyle = .dark
-                case .device:
-                    if #available(iOS 13.0, *) {
-                        window.overrideUserInterfaceStyle = .unspecified
-                    }
-                }
-            }
-        }
         
         return true
     }

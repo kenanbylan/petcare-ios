@@ -15,14 +15,12 @@ protocol NearbyListRouterProtocol: AnyObject {
 
 final class NearbyListRouter {
     var navigationController: UINavigationController?
-    var onlyShow: Bool?
     
-    init(navigationController: UINavigationController? = nil, onlyShow: Bool = false) {
+    init(navigationController: UINavigationController? = nil) {
         self.navigationController = navigationController
-        self.onlyShow = onlyShow
     }
     
-    static func build(navigationController: UINavigationController?, onlyShow: Bool) -> NearbyListViewController {
+    static func build(navigationController: UINavigationController?) -> NearbyListViewController {
         let view = NearbyListViewController()
         let router = NearbyListRouter(navigationController: navigationController)
         let interactor = NearbyListInteractor()
@@ -40,12 +38,6 @@ extension NearbyListRouter: NearbyListRouterProtocol {
     }
     
     func navigateToDetail(data: NearbyPlace) {
-        if onlyShow ?? false {
-        } else {
-            let view = VeterinaryDetailRouter.build(navigationController: navigationController)
-            //                navigationController?.present(view, animated: true)
-            navigationController?.pushViewController(view, animated: true)
-        }
         
     }
 }

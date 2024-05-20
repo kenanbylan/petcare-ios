@@ -171,9 +171,10 @@ final class CalendarViewController: BaseViewController {
 }
 
 extension CalendarViewController: SlideViewProtocol {
-    func currentPageDidChange(to page: Int) {
-        UIView.animate(withDuration: 0.7) {
-            
-        }
+    func currentPageDidChange(to page: Int) {}
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        nearbyView.addShadow(shadowColor: AppColors.bgColor.cgColor)
     }
 }

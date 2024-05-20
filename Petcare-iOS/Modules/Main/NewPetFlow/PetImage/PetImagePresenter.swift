@@ -8,11 +8,9 @@
 import Foundation
 
 protocol PetImagePresenterProtocol {
-    func viewDidLoad() -> Void
-    func dismissScreen() -> Void
     func navigateMainPage() -> Void
-    func navigateResultPage()
-    func setResultView() -> ApproveResultModel
+    func saveImage(data: String) -> Void
+    func fetchRequest()
 }
 
 final class PetImagePresenter {
@@ -20,6 +18,7 @@ final class PetImagePresenter {
     let router: PetImageRouterProtocol?
     let interactor: PetImageInteractorProtocol?
     let petInfoData: PetInfoModel
+    var selectImage: String?
     
     init(view: PetImageViewProtocol?, router: PetImageRouterProtocol?, interactor: PetImageInteractorProtocol?, petInfoData: PetInfoModel) {
         self.view = view
@@ -27,38 +26,43 @@ final class PetImagePresenter {
         self.interactor = interactor
         self.petInfoData = petInfoData
     }
-
-    
-    func setResultView() -> ApproveResultModel {
-        let model = ApproveResultModel(
-            backgroundImageName: "approve-background",
-            title: "Ekledinnnn!!",
-            subTitle: "Evcil Hayvanını Ekledin. Anasayfadaki evcil hayvanlarının görebilir ve diğer yavrucukları ekleyebilirsin :)",
-            imageName: "splash_transparent",
-            buttonTitle: "Devam Et")
-        return model
-    }
 }
 
 extension PetImagePresenter: PetImagePresenterProtocol {
-    func navigateResultPage() {
-        let result = ApproveResultModel(backgroundImageName: "approve-background",
-                                        title: petInfoData.name,
-                                        subTitle:"Evcil Hayvanını Ekledin. Anasayfadaki evcil hayvanlarının görebilir ve diğer yavrucukları ekleyebilirsin :)",
-                                        imageName: petInfoData.image ?? "",
-                                        buttonTitle: "Devam et" )
-        
-        router?.navigateToResultPage(model: result)
+    func saveImage(data: String) {
+        selectImage = data
     }
     
     func navigateMainPage() {
         router?.navigateToMainTabbar()
     }
     
-    func viewDidLoad() {
-        view?.prepareUI()
+    func fetchRequest() {
+        let latestData = PetInfoModel(gender: petInfoData.gender,
+                                      type: petInfoData.type,
+                                      name: petInfoData.name,
+                                      weight: petInfoData.weight,
+                                      height: petInfoData.height,
+                                      birthDate: petInfoData.birthDate,
+                                      image: selectImage,
+                                      specialInfo: petInfoData.specialInfo)
+        
+        interactor?.savePetRequest(petData: latestData)
     }
-    func dismissScreen() { }
 }
 
-extension PetImagePresenter: PetImageInteractorOutput { }
+extension PetImagePresenter: PetImageInteractorOutput {
+    func petsRegisterFailure(error: String) {
+        view?.savePetsError(message: error)
+    }
+    
+    func petsRegisterSuccess(response: PetResponse) {
+        print("PET SAVE İMAGE  RESPONSE: \(response)")
+        router?.navigateToMainTabbar()
+    }
+    
+    func petsRegisterFailure(error: ExceptionErrorHandle) {
+        print("PET SAVE İMAGE  RESPONSE: \(error)")
+        view?.savePetsError(message: error.error ?? "petsRegisterFailure error")
+    }
+}
