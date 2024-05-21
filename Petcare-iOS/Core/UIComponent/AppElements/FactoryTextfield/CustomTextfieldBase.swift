@@ -68,7 +68,7 @@ class CustomTextFieldBase: UITextField, UITextFieldDelegate {
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 4
     }
-        
+    
     @objc private func toggleSecurity() {
         isSecureTextEntryToggle.toggle()
     }
@@ -97,5 +97,10 @@ extension CustomTextFieldBase {
         super.traitCollectionDidChange(previousTraitCollection)
         layer.shadowColor = AppColors.customDarkGray.cgColor
         layer.borderColor = AppColors.borderColor?.cgColor
+    }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

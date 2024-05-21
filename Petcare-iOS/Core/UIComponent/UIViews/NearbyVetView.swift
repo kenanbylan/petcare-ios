@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 final class NearbyVetView: UIView {
-    
     private lazy var veterinaryAvatar: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "patiShape")
+        imageView.image = UIImage(named: "location_icon")?.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = AppColors.primaryColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -42,6 +42,7 @@ final class NearbyVetView: UIView {
         super.init(frame: frame)
         buildLayout()
         prepareVeterinaryViews()
+        addShadow( shadowColor: AppColors.customDarkGray.cgColor, shadowOffset:CGSize(width: 2.0, height: 4.0), shadowOpacity: 0.7, shadowRadius: 4.0)
     }
     
     required init?(coder: NSCoder) {
@@ -74,10 +75,6 @@ extension NearbyVetView: ViewCoding {
         
         backgroundColor = AppColors.bgColor
         layer.cornerRadius = 12
-        layer.borderWidth = 1
-        layer.borderColor = AppColors.customDarkGray.cgColor
-        
-        veterinaryAvatar.addShadow(shadowColor: AppColors.bgColor.cgColor)
         veterinaryAvatar.layer.cornerRadius = 20
     }
     
@@ -109,7 +106,6 @@ extension NearbyVetView: ViewCoding {
 extension NearbyVetView {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        veterinaryAvatar.addShadow(shadowColor: AppColors.bgColor.cgColor)
-        layer.borderColor = AppColors.customDarkGray.cgColor
+        addShadow( shadowColor: AppColors.customDarkGray.cgColor, shadowOffset:CGSize(width: 2.0, height: 4.0), shadowOpacity: 0.7, shadowRadius: 4.0)
     }
 }

@@ -143,6 +143,7 @@ extension SlideView {
         addSubview(carouselCollection)
         addSubview(pageControl)
         setupConstraints()
+        addShadow(shadowColor: AppColors.labelColor.cgColor, shadowOffset: CGSize(width: 1, height: 2), shadowOpacity: 0.4, shadowRadius: 3)
     }
     
     public func configureView(with data: [SlideData]) {
@@ -175,6 +176,7 @@ extension SlideView {
 extension SlideView {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        carouselCollection.addShadow(shadowColor: AppColors.bgColor.cgColor)
+        carouselCollection.addShadow(shadowColor: AppColors.labelColor.cgColor, shadowOffset: CGSize(width: 1, height: 2), shadowOpacity: 0.4, shadowRadius: 3)
+        addShadow(shadowColor: AppColors.labelColor.cgColor, shadowOffset: CGSize(width: 1, height: 2), shadowOpacity: 0.4, shadowRadius: 3)
     }
 }

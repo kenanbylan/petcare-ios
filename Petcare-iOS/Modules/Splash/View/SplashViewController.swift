@@ -13,15 +13,16 @@ protocol SplashViewProtocol: AnyObject {
 
 final class SplashViewController: BaseViewController {
     var presenter: SplashPresenterProtocol!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        presenter?.viewDidLoad()
-     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+            self.presenter?.viewDidLoad()
+        })
+    }
 }
 
 extension SplashViewController: SplashViewProtocol {
     func noInternetConnection() {
+        
     }
-    
 }
-

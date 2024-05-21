@@ -78,7 +78,7 @@ final class ManageNotificationViewController: UIViewController {
             pushNotificationSwitch.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
         ])
         
-        let pushNotificationLabel = CustomLabel(text: "ManageNotificationView_nofity".localized(), fontSize: 14, fontType: .medium, textColor: AppColors.labelColor)
+        let pushNotificationLabel = CustomLabel(text: "ManageNotificationView_notify".localized(), fontSize: 14, fontType: .medium, textColor: AppColors.labelColor)
         
         view.addSubview(pushNotificationLabel)
         pushNotificationLabel.translatesAutoresizingMaskIntoConstraints = false

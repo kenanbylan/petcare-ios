@@ -20,6 +20,8 @@ protocol HomePresenterProtocol {
     func fetchNearbyVets(at location: CLLocationCoordinate2D)
     func vet(at index: Int) -> NearbyPlace?
     func prepareSlideData() -> [SlideView.SlideData]
+    
+    func getUserPets() -> Void
 }
 
 final class HomePresenter {
@@ -109,6 +111,11 @@ extension HomePresenter: HomePresenterProtocol {
         view?.prepareUI()
         interactor?.getPetsbyId()
         view?.updateNearbyVetView()
+        view?.reloadData()
+    }
+    
+    func getUserPets() {
+        interactor?.getPetsbyId()
     }
     
     func getPetByPetId(petId: String) {
@@ -118,10 +125,9 @@ extension HomePresenter: HomePresenterProtocol {
 
 extension HomePresenter: HomeInteractorOutput {
     func getPetsSuccess(response: [PetResponse]) {
-        print("Response \(response)")
-        view?.getPetsSuccess("message success")
         pets = response
-        
+        view?.getPetsSuccess("message success")
+        view?.reloadData()
     }
     
     func getPetsFailure(error: String) { }

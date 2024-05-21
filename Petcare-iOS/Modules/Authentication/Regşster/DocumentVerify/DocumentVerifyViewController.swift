@@ -43,7 +43,7 @@ final class DocumentVerifyViewController: UIViewController {
     
     private lazy var appButton: AppButton = {
         let appbutton = AppButton.build()
-            .setImage(UIImage(systemName: "doc.circle")?.resized(to: CGSize(width: 25, height: 25)))
+            .setImage(UIImage(named: "pati")?.resized(to: CGSize(width: 25, height: 25)))
             .setTitle("Document save")
             .setTitleColor(AppColors.primaryColor)
         appbutton.addTarget(self, action: #selector(documentButtonClicked) , for: .touchUpInside)
@@ -53,9 +53,6 @@ final class DocumentVerifyViewController: UIViewController {
     
     private let documentView: UIView = {
         let view = UIView()
-        view.addShadow(shadowColor: AppColors.customGray.cgColor)
-        view.layer.borderWidth = 1.5
-        view.layer.borderColor = AppColors.customGray.cgColor
         view.contentMode = .scaleAspectFit
         view.isUserInteractionEnabled = true
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -68,12 +65,6 @@ final class DocumentVerifyViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(documentViewTapped))
         documentView.addGestureRecognizer(tapGesture)
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        view.layer.borderColor = AppColors.customGray.cgColor
-        view.addShadow(shadowColor: AppColors.customGray.cgColor)
     }
     
     @objc func documentViewTapped() {
@@ -233,6 +224,12 @@ extension DocumentVerifyViewController: ViewCoding {
         view.backgroundColor = AppColors.bgColor
         title = "DocumentVerifyView_Title".localized()
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: infoPopupButton)
+
+        documentView.backgroundColor = AppColors.bgColor
+        documentView.layer.cornerRadius = 12
+        documentView.addShadow( shadowColor: AppColors.customDarkGray.cgColor, shadowOffset:CGSize(width: 2.0, height: 4.0), shadowOpacity: 0.7, shadowRadius: 4.0)
+        
+        imageView.addShadow( shadowColor: AppColors.customDarkGray.cgColor, shadowOffset:CGSize(width: 2.0, height: 4.0), shadowOpacity: 0.7, shadowRadius: 4.0)
     }
     
     func setupHierarchy() {
@@ -261,11 +258,20 @@ extension DocumentVerifyViewController: ViewCoding {
             appButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -5.wPercent),
         ])
         
+        
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: documentView.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: documentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: documentView.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: documentView.bottomAnchor),
         ])
+    }
+}
+
+extension DocumentVerifyViewController {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        imageView.addShadow( shadowColor: AppColors.customDarkGray.cgColor, shadowOffset:CGSize(width: 2.0, height: 4.0), shadowOpacity: 0.7, shadowRadius: 4.0)
+        documentView.addShadow(shadowColor: AppColors.customGray.cgColor)
     }
 }

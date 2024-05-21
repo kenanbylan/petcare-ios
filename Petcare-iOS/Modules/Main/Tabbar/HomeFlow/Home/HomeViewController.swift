@@ -176,6 +176,7 @@ final class HomeViewController: UIViewController {
         collectionView.reloadData()
         updateReminderView()
         sliderView?.configureView(with: sliderData)
+        presenter?.getUserPets()
     }
     
     private func prepareViews() {
@@ -186,12 +187,21 @@ final class HomeViewController: UIViewController {
         setupConstraints()
         setHeader()
         updateReminderView()
+        prepareShadowView()
     }
     
     private func prepareSlideView() {
         sliderView = SlideView(pages: 3, delegate: self)
         sliderData = presenter?.prepareSlideData() ?? []
         sliderView?.configureView(with: sliderData)
+    }
+    
+    func prepareShadowView() {
+
+        upComingVeterinaryView.addShadow(shadowColor: AppColors.labelColor.cgColor, shadowOffset: CGSize(width: 1, height: 2), shadowOpacity: 0.4, shadowRadius: 3)
+        reminderView.addShadow(shadowColor: AppColors.labelColor.cgColor, shadowOffset: CGSize(width: 1, height: 2), shadowOpacity: 0.4, shadowRadius: 3)
+        nearbyView.addShadow(shadowColor: AppColors.labelColor.cgColor, shadowOffset: CGSize(width: 1, height: 2), shadowOpacity: 0.4, shadowRadius: 3)
+
     }
     
     private func setHeader() {
@@ -247,7 +257,6 @@ extension HomeViewController: UICollectionViewDataSource , UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let pet = presenter?.pets[indexPath.item] else { return }
         guard let petId = pet.id else { return }
-        print("Tıklanan petId: \(petId)")
         presenter?.getPetByPetId(petId: petId)
     }
     
@@ -266,7 +275,6 @@ extension HomeViewController: UICollectionViewDataSource , UICollectionViewDeleg
         return CGSize(width: 50, height: 50)
     }
 }
-
 
 extension HomeViewController {
     func updateReminderView() {
@@ -312,7 +320,9 @@ extension HomeViewController: HomeViewProtocol {
     }
     
     func reloadData() {
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 }
 
