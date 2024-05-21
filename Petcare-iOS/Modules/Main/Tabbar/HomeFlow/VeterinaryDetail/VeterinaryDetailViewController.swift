@@ -52,6 +52,7 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
         return textfield
     }()
     
+    //TODO: READ ONLY
     private lazy var availableHour: MyTextField = {
         let textfield = MyTextField()
         textfield.placeholder = "VeterinaryDetailView_select_hours".localized()

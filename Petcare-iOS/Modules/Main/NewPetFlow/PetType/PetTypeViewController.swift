@@ -70,7 +70,7 @@ final class PetTypeViewController: UIViewController {
         appbutton.addTarget(self, action: #selector(patiButtonClicked), for: .touchUpInside)
         return appbutton
     }()
-        
+    
     //MARK: Variable's
     var petTypeViews: [SelectPetView] = []
     
@@ -113,7 +113,7 @@ extension PetTypeViewController: PetTypeViewProtocol {
 extension PetTypeViewController: SelectPetViewDelegate {
     func didSelect(_ view: SelectPetView) {
         presenter?.selectPet = view.petType
-
+        
         print("selected Pet :", presenter?.selectPet ?? "")
         let isAnyItemSelected = petTypeViews.contains { $0.isSelected }
         delegate?.didSelectPet()
@@ -162,7 +162,7 @@ extension PetTypeViewController: ViewCoding {
             scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             
             contentView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor),
+            contentView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor,constant: 100),
             contentView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor),

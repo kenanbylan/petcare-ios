@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct ForgotPasswordRequest: Codable {
+struct ForgotPasswordRequests: Codable {
     var email: String
 }
 

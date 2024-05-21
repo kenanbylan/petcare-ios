@@ -32,7 +32,7 @@ final class SettingsInteractor: SettingsInteractorProtocol {
         ]
         
         let generalSection = Section(title: "General", options: generalOptions)
-        let donateSection = Section(title: "SettingsView_exit".localized(), options: donateOptions)
+        let donateSection = Section(title: "", options: donateOptions)
         
         output?.settingsSectionsFetched([generalSection, donateSection])
     }

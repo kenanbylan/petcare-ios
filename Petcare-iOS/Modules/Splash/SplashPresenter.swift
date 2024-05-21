@@ -23,6 +23,7 @@ final class SplashPresenter: SplashPresenterProtocol {
     }
     
     func viewDidLoad() {
+        //TODO:
         if TokenManager.shared.isTokenValid() {
             if TokenManager.shared.userRole == "VETERINARY" {
                 router?.navigateToVeterinaryHome()
@@ -45,5 +46,4 @@ extension SplashPresenter: SplashInteractorOutputProtocol {
             print("Device not connected internet")
         }
     }
-    
 }
