@@ -21,6 +21,8 @@ final class ReminderDetailViewController: UIViewController {
     let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.registerNib(with: ReminderListTableViewCell.identifier)
+        tableView.registerCodedCell(with: ReminderListTableViewCell.self)
         return tableView
     }()
     
@@ -39,7 +41,6 @@ final class ReminderDetailViewController: UIViewController {
         navigationItem.titleView = titleLabel
     }
     
-    
     private func setupNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
         navigationItem.rightBarButtonItem?.tintColor = AppColors.primaryColor
@@ -50,7 +51,7 @@ final class ReminderDetailViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-
+        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -100,7 +101,7 @@ final class ReminderDetailViewController: UIViewController {
         vc.completion = { [weak self] title, body, date in
             DispatchQueue.main.async {
                 self?.navigationController?.popToRootViewController(animated: true)
-                let newReminder = Reminder(title: title, date: date, identifier: "id_\(title)")
+                let newReminder = Reminder(title: title, date: date, subtitle: body)
                 self?.models.append(newReminder)
                 self?.saveData()
                 self?.sortModels()
@@ -145,37 +146,13 @@ extension ReminderDetailViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-        
         let reminder = models[indexPath.row]
-        cell.textLabel?.text = reminder.title
-        cell.textLabel?.font = AppFonts.medium.font(size: 17)
-        
-        // Set up date formatter
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE, MMM d, yyyy, h:mm a"
-        
-        // Add subtitle to cell
-        cell.detailTextLabel?.text = formatter.string(from: reminder.date) // Use the formatter here
-        cell.detailTextLabel?.textColor = AppColors.primaryColor
-        cell.detailTextLabel?.font = AppFonts.medium.font(size: 17)
-        
-        
-        let date = reminder.date
-        
-        cell.selectionStyle = .none
-        if date < Date() {
-            cell.textLabel?.textColor = AppColors.customDarkGray
-            cell.detailTextLabel?.textColor = AppColors.customDarkGray
-        }
+        let cell = tableView.dequeCell(cellClass: ReminderListTableViewCell.self, indexPath: indexPath)
+        cell.configure(with: reminder)
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
-    
+        
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { suggestedActions in
             return self.makeContextMenu(for: indexPath)

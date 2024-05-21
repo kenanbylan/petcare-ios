@@ -19,7 +19,7 @@ final class SlideCell: UICollectionViewCell {
     }()
     
     private lazy var sliderTitle: CustomLabel = {
-        let label = CustomLabel(text: "Veterinarians", fontSize: 14, fontType: .regular, textColor: AppColors.primaryColor)
+        let label = CustomLabel(text: "Veterinarians", fontSize: 14, fontType: .medium, textColor: AppColors.primaryColor)
         label.textAlignment = .center
         return label
     }()
@@ -27,7 +27,7 @@ final class SlideCell: UICollectionViewCell {
     private lazy var textContainerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.3) // Arka plan rengi burada ayarlanabilir
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         return view
     }()
     
@@ -64,10 +64,10 @@ final class SlideCell: UICollectionViewCell {
             textContainerView.trailingAnchor.constraint(equalTo: backgroundImageView.trailingAnchor),
             textContainerView.bottomAnchor.constraint(equalTo: backgroundImageView.bottomAnchor),
             
-            sliderTitle.leadingAnchor.constraint(equalTo: textContainerView.leadingAnchor, constant: 10),
-            sliderTitle.trailingAnchor.constraint(equalTo: textContainerView.trailingAnchor, constant: -10),
-            sliderTitle.topAnchor.constraint(equalTo: textContainerView.topAnchor, constant: 10),
-            sliderTitle.bottomAnchor.constraint(equalTo: textContainerView.bottomAnchor, constant: -10),
+            sliderTitle.leadingAnchor.constraint(equalTo: textContainerView.leadingAnchor, constant: 16),
+            sliderTitle.trailingAnchor.constraint(equalTo: textContainerView.trailingAnchor, constant: -16),
+            sliderTitle.topAnchor.constraint(equalTo: textContainerView.topAnchor, constant: 16),
+            sliderTitle.bottomAnchor.constraint(equalTo: textContainerView.bottomAnchor, constant: -16),
         ])
     }
 }

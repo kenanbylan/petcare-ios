@@ -5,7 +5,6 @@
 //
 
 import UIKit
-import SwiftUI
 import MapKit
 
 protocol NearbyListViewProtocol: AnyObject {
@@ -15,7 +14,7 @@ protocol NearbyListViewProtocol: AnyObject {
 
 final class NearbyListViewController: UIViewController {
     var presenter: NearbyListPresenterProtocol!
-    private let locationManager = LocationManager() // Create an instance of LocationManager
+    private let locationManager = LocationManager()
     
     private let tableView: UITableView = {
         let tableView = UITableView.init(frame: .zero, style: .insetGrouped)
@@ -41,6 +40,11 @@ final class NearbyListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    func prepareTitle() {
+        let titleLabel = TitleLabel.configurationTitleLabel(withText: "NearbyList_Title".localized(), fontSize: 17, textColor: AppColors.primaryColor)
+        navigationItem.titleView = titleLabel
+    }
 }
 
 extension NearbyListViewController: LocationManagerDelegate {
@@ -62,11 +66,6 @@ extension NearbyListViewController: NearbyListViewProtocol {
     func showError(message: String) {
         
     }
-    
-    func prepareTitle() {
-        let titleLabel = TitleLabel.configurationTitleLabel(withText: "NearbyList_Title".localized(), fontSize: 17, textColor: AppColors.primaryColor)
-        navigationItem.titleView = titleLabel
-    }
 }
 
 extension NearbyListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -78,6 +77,7 @@ extension NearbyListViewController: UITableViewDelegate, UITableViewDataSource {
         let list = presenter.vet(at: indexPath.row)
         let cell = tableView.dequeCell(cellClass: NearbyListTableViewCell.self, indexPath: indexPath)
         cell.configureCell(with: list)
+        cell.accessoryType = .none
         return cell
     }
     

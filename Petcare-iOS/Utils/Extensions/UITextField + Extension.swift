@@ -46,10 +46,8 @@ extension UITextField {
         
         datePicker.sizeToFit()
         
-        
         self.inputView = datePicker
         
-        //CreateToolbar
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 45))
         toolbar.barStyle = .default
         toolbar.isTranslucent = true
@@ -72,17 +70,26 @@ extension UITextField {
         self.resignFirstResponder()
     }
     
-  
     func setInputViewBottomSheet(options: [String], target: Any, selector: Selector, title: String?) {
-        let bottomSheetView = BottomSheetView(frame: CGRect(x: 0, y: UIScreen.screenHeight, width: UIScreen.screenWidth, height: UIScreen.screenHeight / 2.5), title: title ?? "test")
+        let bottomSheetView = BottomSheetView(frame: CGRect(x: 0, y: UIScreen.screenHeight, width: UIScreen.screenWidth, height: UIScreen.screenHeight / 2), title: title ?? "test")
         bottomSheetView.options = options
         bottomSheetView.didSelectOption = { selectedOption in
             self.text = selectedOption
             if let target = target as? UIViewController {
                 target.perform(selector, with: selectedOption)
             }
+            
+            UIView.animate(withDuration: 0.3) {
+                bottomSheetView.frame.origin.y = UIScreen.screenHeight
+            } completion: { _ in
+                bottomSheetView.removeFromSuperview()
+            }
         }
         self.inputView = bottomSheetView
+        
+        UIView.animate(withDuration: 0.3) {
+            bottomSheetView.frame.origin.y = UIScreen.screenHeight - bottomSheetView.frame.height
+        }
     }
 }
 
@@ -90,12 +97,9 @@ extension UITextView {
     func setInputAccessoryView() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        
         toolbar.items = [spacer, doneButton]
-        
         self.inputAccessoryView = toolbar
     }
     

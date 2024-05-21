@@ -6,7 +6,7 @@
 
 import Foundation
 
-struct ForgotPasswordDTO: DataRequest {
+struct ForgotPasswordRequest: DataRequest {
     typealias ResponseError = ExceptionErrorHandle
     typealias Response = ForgotPasswordResponse
     

@@ -25,7 +25,7 @@ final class ForgotPasswordInteractor: ForgotPasswordInteractorProtocol {
     }
     
     func forgotpassword(email: String)  {
-        let request = ForgotPasswordDTO(email: email)
+        let request = ForgotPasswordRequest(email: email)
         
         networkService.request(request) { [weak self] result in
             switch result {

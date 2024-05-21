@@ -31,7 +31,7 @@ final class SettingsViewController: BaseViewController {
         return tableView
     }()
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         presenter.viewDidLoad()
         prepareTableView()
@@ -56,7 +56,6 @@ extension SettingsViewController: SettingsViewProtocol {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = AppColors.bgColor
         tableView.frame = view.bounds
         tableView.layer.cornerRadius = 10
         tableView.layer.masksToBounds = true
@@ -105,7 +104,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         let footer = UIView()
         footer.frame = CGRect(x: 0, y: 0, width: UIScreen.screenWidth, height: 100)
         if section == models.count - 1 {
-            let lbl = CustomLabel(text: "Version 1.0.0", fontSize: 15, fontType: .medium, textColor: AppColors.primaryColor)
+            let lbl = CustomLabel(text: "Version 1.0.1", fontSize: 15, fontType: .medium, textColor: AppColors.primaryColor)
             lbl.translatesAutoresizingMaskIntoConstraints = false
             footer.addSubview(lbl)
             

@@ -13,6 +13,9 @@ protocol VeterinaryDetailPresenterProtocol {
     func getClinicName() -> String
     func getClinicAddress() -> String
     func getClinicPhone() -> String
+    func petNames() -> [String]
+    
+    var pets: [PetResponse] { get set }
 }
 
 final class VeterinaryDetailPresenter: VeterinaryDetailPresenterProtocol {
@@ -23,6 +26,8 @@ final class VeterinaryDetailPresenter: VeterinaryDetailPresenterProtocol {
     let interactor: VeterinaryDetailInteractorProtocol?
     
     var data: UserRegisterRequest?
+    var pets: [PetResponse] = []
+
     
     init(view: VeterinaryDetailViewController?,router: VeterinaryDetailRouterProtocol?, interactor: VeterinaryDetailInteractorProtocol?,data: UserRegisterRequest?) {
         self.view = view
@@ -33,6 +38,11 @@ final class VeterinaryDetailPresenter: VeterinaryDetailPresenterProtocol {
     
     func viewDidLoad() {
         interactor?.fetchVeterinaryData()
+        interactor?.getUserPets()
+    }
+    
+    func petNames() -> [String] {
+        return pets.map { $0.name ?? "Sirius" }
     }
     
     func setTitle() -> String {
@@ -55,4 +65,13 @@ final class VeterinaryDetailPresenter: VeterinaryDetailPresenterProtocol {
     
 }
 
-extension VeterinaryDetailPresenter: VeterinaryDetailInteractorOutput { }
+extension VeterinaryDetailPresenter: VeterinaryDetailInteractorOutput {
+    func getPetsSuccess(response: [PetResponse]) {
+        pets = response
+        view?.updateView()
+    }
+    
+    func getPetsFailure(error: String) {
+        
+    }
+}

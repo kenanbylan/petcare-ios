@@ -7,6 +7,18 @@
 
 import UIKit
 
+protocol CustomAlert {
+    func newShowAlert(_ message: String?, action: ((UIAlertAction) -> Void)?)
+}
+
+extension CustomAlert where Self: UIViewController {
+    func newShowAlert(_ message: String?, action: ((UIAlertAction) -> Void)? = nil) {
+        let alertViewController = UIAlertController(title: "Error" , message: message, preferredStyle: .alert)
+        alertViewController.addAction(.init(title: "Ok" , style: .default, handler: action))
+        self.present(alertViewController, animated: true)
+    }
+}
+
 extension UIViewController {
     func setupKeyboardDismissRecognizer() {
         let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(
