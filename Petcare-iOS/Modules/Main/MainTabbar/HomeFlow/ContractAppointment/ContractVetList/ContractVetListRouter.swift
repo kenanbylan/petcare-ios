@@ -27,7 +27,7 @@ final class ContractVetListRouter {
     static func build(navigationController: UINavigationController?) -> ContractVetListViewController {
         let view = ContractVetListViewController()
         let router = ContractVetListRouter(navigationController: navigationController)
-        let interactor = ContractVetListInteractor()
+        let interactor = ContractVetListInteractor(networkManager: NetworkManager.shared)
         
         let presenter = ContractVetListPresenter(view: view, interactor: interactor, router: router)
         
@@ -44,8 +44,8 @@ extension ContractVetListRouter: ContractVetListRouterProtocol {
     }
     
     func navigateToDetail(data: UserRegisterRequest) {
-        let view = VeterinaryDetailRouter.build(navigationController: navigationController, data: data)
-        navigationController?.pushViewController(view, animated: true)
+//        let view = VeterinaryDetailRouter.build(navigationController: navigationController, data: data)
+//        navigationController?.pushViewController(view, animated: true)
     }
     
     func navigateToHistory() {

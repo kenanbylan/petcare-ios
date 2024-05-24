@@ -34,7 +34,5 @@ enum APIEnvironment {
         case .production:
             return "/api/v1"
         }
-        
     }
 }
-

@@ -8,87 +8,72 @@
 import UIKit
 
 protocol VeterinarySettingsViewProtocol: AnyObject {
-    
+    func updateTableView()
 }
 
 final class VeterinarySettingsViewController: UIViewController {
     var presenter: VeterinarySettingsPresenterProtocol?
-    var models = [SectionDay]()
     
     private let tableView: UITableView = {
-        let tableView = UITableView.init(frame: CGRect.zero, style: .insetGrouped)
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.registerNib(with: SettingTableViewCell.identifier)
+        tableView.registerCodedCell(with: SettingTableViewCell.self)
         return tableView
     }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
-        view.backgroundColor = AppColors.bgColor
         prepareTitleLabel()
         prepareTableView()
-        
     }
     
     private func prepareTitleLabel() {
         let titleLabel = TitleLabel.configurationTitleLabel(withText: "VeterinarySettingsView_title".localized(), fontSize: 17, textColor: AppColors.primaryColor)
         navigationItem.titleView = titleLabel
     }
-}
-
-extension VeterinarySettingsViewController: VeterinarySettingsViewProtocol {
-    func updateTableView(with sections: [SectionDay]) {
-        self.models = sections
-        self.tableView.reloadData()
-    }
     
-    func prepareTableView() {
+    private func prepareTableView() {
         view.addSubview(tableView)
-        tableView.registerNib(with: SettingTableViewCell.identifier)
-        tableView.registerCodedCell(with: SettingTableViewCell.self)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.frame = view.bounds
-
-        tableView.backgroundColor = AppColors.bgColor
         tableView.layer.cornerRadius = 10
+    }
+}
+
+extension VeterinarySettingsViewController: VeterinarySettingsViewProtocol {
+    func updateTableView() {
+        tableView.reloadData()
     }
 }
 
 extension VeterinarySettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models[section].options.count
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return models.count
+        return presenter?.getModels()?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = models[indexPath.section].options[indexPath.row]
-        
-        switch model {
-        case .staticCell(model: let settingModel):
-            let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as! SettingTableViewCell
-            cell.configureCell(with: settingModel)
-            return cell
-        }
+        guard let model = presenter?.getModels()?[indexPath.row] else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as! SettingTableViewCell
+        cell.configureCell(with: model)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let selectedOption = models[indexPath.section].options[indexPath.row]
-        switch selectedOption {
-        case .staticCell(model: let model):
-            presenter?.navigateDetail(detail: model)
-            
-        }
+        guard let model = presenter?.getModels()?[indexPath.row] else { return }
+        presenter?.navigateDetail(detail: model)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return models[section].title
+        return nil
     }
-    
 }

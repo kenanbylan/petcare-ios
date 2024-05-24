@@ -8,20 +8,25 @@ import Foundation
 
 protocol VeterinarySettingsPresenterProtocol {
     func viewDidLoad() -> Void
-    func navigateMain() -> Void
     func backToLogin() -> Void
-    func navigateDetail(detail: DateModel?)
+    func navigateDetail(detail: DayModel?)
+    func getModels() -> [DayModel]?
 }
 
 final class VeterinarySettingsPresenter {
     private weak var view: VeterinarySettingsViewController?
     private let router: VeterinarySettingsRouterProtocol?
     private let interactor: VeterinarySettingsInteractorProtocol?
+    private var models = [DayModel]()
     
     init(view: VeterinarySettingsViewController?, router: VeterinarySettingsRouterProtocol?, interactor: VeterinarySettingsInteractorProtocol?) {
         self.view = view
         self.router = router
         self.interactor = interactor
+    }
+    
+    func getModels() -> [DayModel]? {
+        return models
     }
 }
 
@@ -31,24 +36,22 @@ extension VeterinarySettingsPresenter: VeterinarySettingsPresenterProtocol {
         interactor?.fetchSettingsSections()
     }
     
-    func navigateDetail(detail: DateModel?) {
+    func navigateDetail(detail: DayModel?) {
+        guard let detail = detail else { return }
         router?.navigateToDetail(detail: detail)
-    }
-    
-    func navigateMain() {
-        
     }
     
     func backToLogin() {
         router?.backToLogin()
     }
+
 }
 
-
 extension VeterinarySettingsPresenter: VeterinarySettingsInteractorOutput {
-    func settingsSectionsFetched(_ sections: [SectionDay]) {
-        view?.updateTableView(with: sections)
+    func settingsSectionsFetched(_ sections: [DayModel]) {
+        // Interactor'dan gelen verileri saklama
+        models = sections
+        // View Controller'ı güncelleme
+        view?.updateTableView()
     }
-    
-    
 }

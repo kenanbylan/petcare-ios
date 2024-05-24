@@ -25,6 +25,7 @@ final class ContractVetListViewController: UIViewController {
         super.viewDidLoad()
         prepareTableView()
         prepareTitle()
+        presenter?.viewDidLoad()
     }
     
     private func prepareTableView() {

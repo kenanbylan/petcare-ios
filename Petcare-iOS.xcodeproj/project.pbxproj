@@ -237,6 +237,8 @@
 		93E6D7192B98761000471954 /* UITableView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E6D7182B98761000471954 /* UITableView + Extension.swift */; };
 		93E6D71B2B987CB500471954 /* UICollectionView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E6D71A2B987CB500471954 /* UICollectionView + Extension.swift */; };
 		93F0CE432B0CE62E00D5BAD7 /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F0CE422B0CE62E00D5BAD7 /* CustomStackView.swift */; };
+		93F899052BFE0EF20015A2F6 /* GetVeterinariesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F899042BFE0EF20015A2F6 /* GetVeterinariesRequest.swift */; };
+		93F899072BFE0FE50015A2F6 /* VeterinaryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F899062BFE0FE50015A2F6 /* VeterinaryResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -489,6 +491,8 @@
 		93E6D7182B98761000471954 /* UITableView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Extension.swift"; sourceTree = "<group>"; };
 		93E6D71A2B987CB500471954 /* UICollectionView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Extension.swift"; sourceTree = "<group>"; };
 		93F0CE422B0CE62E00D5BAD7 /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
+		93F899042BFE0EF20015A2F6 /* GetVeterinariesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVeterinariesRequest.swift; sourceTree = "<group>"; };
+		93F899062BFE0FE50015A2F6 /* VeterinaryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeterinaryResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -557,6 +561,7 @@
 				93A76AB42BEF8F5900759A1D /* GetPets.swift */,
 				93A76AB62BEF91A900759A1D /* GetPetById.swift */,
 				930493992BCAFDBA004026FE /* LoginRequests.swift */,
+				93F899042BFE0EF20015A2F6 /* GetVeterinariesRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -920,7 +925,7 @@
 			children = (
 				931D70842BB9B6560012E7D1 /* VeterinaryTabbar */,
 				93DD5AC62B418E5900BDE0A9 /* NewPetFlow */,
-				93DD5AC52B418E4300BDE0A9 /* Tabbar */,
+				93DD5AC52B418E4300BDE0A9 /* MainTabbar */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1156,6 +1161,7 @@
 				9309ADF12B389E39001BC2B0 /* PetAvatarModel.swift */,
 				9381023F2B5D636D00BF21AD /* SettingsModel.swift */,
 				936E6C4C2BFBE48D00A623BC /* PersonResponse.swift */,
+				93F899062BFE0FE50015A2F6 /* VeterinaryResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1378,14 +1384,14 @@
 			path = CustomLabel;
 			sourceTree = "<group>";
 		};
-		93DD5AC52B418E4300BDE0A9 /* Tabbar */ = {
+		93DD5AC52B418E4300BDE0A9 /* MainTabbar */ = {
 			isa = PBXGroup;
 			children = (
 				933780362ADA7E9600103273 /* SettingsFlow */,
 				933780322ADA7E7200103273 /* VetMaps */,
 				933780332ADA7E7B00103273 /* HomeFlow */,
 			);
-			path = Tabbar;
+			path = MainTabbar;
 			sourceTree = "<group>";
 		};
 		93DD5AC62B418E5900BDE0A9 /* NewPetFlow */ = {
@@ -1706,6 +1712,7 @@
 				93307F1B2BE4FB5B00C665B4 /* VeterinaryRegister.swift in Sources */,
 				93CE90692AF7BA380025FBB0 /* HomeViewController.swift in Sources */,
 				93DD5AC12B4044C000BDE0A9 /* UpcomingVeterinary.swift in Sources */,
+				93F899072BFE0FE50015A2F6 /* VeterinaryResponse.swift in Sources */,
 				93CE908D2AF7D5E60025FBB0 /* SettingsViewController.swift in Sources */,
 				931D70832BB9B4600012E7D1 /* VeterinaryTabbar.swift in Sources */,
 				931D706F2BB9AD850012E7D1 /* DocumentVerifyRouter.swift in Sources */,
@@ -1761,6 +1768,7 @@
 				93E1FDAD2B77A76D00BD72E1 /* PersonInformationViewController.swift in Sources */,
 				93CE906F2AF7BA550025FBB0 /* HomeInteractor.swift in Sources */,
 				93307E982BE2C97300C665B4 /* NewPasswordRequest.swift in Sources */,
+				93F899052BFE0EF20015A2F6 /* GetVeterinariesRequest.swift in Sources */,
 				93A47C732BF3D32700B336A7 /* MultiSelectView.swift in Sources */,
 				936E6C2B2BFA4C3F00A623BC /* AppointmentHistoryInteractor.swift in Sources */,
 				932D25532B7BFF9300B99FA3 /* PetDetailViewController.swift in Sources */,

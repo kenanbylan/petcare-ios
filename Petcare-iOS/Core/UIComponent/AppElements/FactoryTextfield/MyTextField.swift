@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 ///MARK: - Custom Textfields
-class MyTextField: CustomTextFieldBase {
-    
+final class MyTextField: CustomTextFieldBase {
     func validate() -> Bool {
         let text = self.text ?? ""
         return !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
+    
 }

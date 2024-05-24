@@ -8,7 +8,6 @@
 import Foundation
 
 protocol PetDetailPresenterProtocol {
-    func viewDidLoad()
     var petData: PetResponse { get set }
     func petTypeImage() -> String?
     func formattedAge() -> String
@@ -28,10 +27,6 @@ final class PetDetailPresenter: PetDetailPresenterProtocol {
         self.router = router
         self.interactor = interactor
         self.petData = petData
-    }
-    
-    func viewDidLoad() {
-        print("PetDetail \(petData)")
     }
     
     func petTypeImage() -> String? {

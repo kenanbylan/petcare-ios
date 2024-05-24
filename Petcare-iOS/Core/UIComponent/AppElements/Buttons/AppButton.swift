@@ -31,7 +31,6 @@ final class AppButton: UIButton {
     
     var imageColor: UIColor? {
         didSet {
-            // Eğer imageColor değişirse, görüntüye tintColor uygulanmalıdır.
             if let color = imageColor {
                 imageView?.tintColor = color
             }
@@ -66,9 +65,8 @@ final class AppButton: UIButton {
             self.transform = CGAffineTransform(scaleX: scaleX, y: y)
         }, completion: nil)
     }
-
+    
     private func adjustContent() {
-        // Bu metod, image ve title'ı kontrol eder ve düğmenin içeriğini uygun şekilde ayarlar.
         if let image = image, let title = title {
             setImage(image, for: .normal)
             setTitle(title, for: .normal)

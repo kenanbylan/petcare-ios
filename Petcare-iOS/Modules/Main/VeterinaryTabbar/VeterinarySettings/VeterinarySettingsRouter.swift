@@ -10,11 +10,10 @@ import UIKit
 
 protocol VeterinarySettingsRouterProtocol: AnyObject {
     func backToLogin() -> Void
-    func navigateToDetail(detail: DateModel?)
+    func navigateToDetail(detail: DayModel?)
 }
 
 final class VeterinarySettingsRouter: VeterinarySettingsRouterProtocol {
-    
     var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -22,7 +21,6 @@ final class VeterinarySettingsRouter: VeterinarySettingsRouterProtocol {
     }
     
     static func build(navigationController: UINavigationController?) -> VeterinarySettingsViewController {
-        
         let view = VeterinarySettingsViewController()
         let router = VeterinarySettingsRouter(navigationController: navigationController)
         let interactor = VeterinarySettingsInteractor()
@@ -37,7 +35,7 @@ final class VeterinarySettingsRouter: VeterinarySettingsRouterProtocol {
         navigationController?.popToRootViewController(animated: true)
     }
     
-    func navigateToDetail(detail: DateModel?) {
+    func navigateToDetail(detail: DayModel?) {
         let vc = DateListInfoDetailRouter.build(navigationController: navigationController)
         self.navigationController?.pushViewController(vc, animated: true)
     }
