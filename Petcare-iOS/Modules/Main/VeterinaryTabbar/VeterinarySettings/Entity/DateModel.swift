@@ -7,14 +7,9 @@
 
 import UIKit
 
-struct DateModel {
-    let icon: UIImage? = UIImage(systemName: "calendar")
-    let title: String?
+struct DayModel {
+    let title: String
     let router: RouterDay
-}
-
-enum DayListType {
-    case staticCell(model: DateModel)
 }
 
 enum RouterDay {
@@ -24,10 +19,3 @@ enum RouterDay {
     case thursday
     case friday
 }
-
-struct SectionDay {
-    let title: String
-    let options: [DayListType]
-}
-
-

@@ -53,7 +53,7 @@ extension AppointmentHistoryViewController: UITableViewDelegate, UITableViewData
         guard let data = presenter?.appointmentHistoryList(at: indexPath.item) else { return UITableViewCell() }
         let cell = tableView.dequeCell(cellClass: PastAppointmentTableViewCell.self, indexPath: indexPath)
         cell.configureCell(with: data)
-        
+        cell.accessoryType = .none
         return cell
     }
     

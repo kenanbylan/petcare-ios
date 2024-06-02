@@ -73,42 +73,24 @@ final class NearbyListTableViewCell: UITableViewCell {
         self.distance.text = nearbyList.distance.formatAsDistance()
     }
     
-    func configureContractCell(with contractVet: UserRegisterRequest) {
-        self.title.text = contractVet.address?.clinicName
+    func configureContractCell(with contractVet: VeterinaryResponse) {
+        self.title.text = contractVet.address?.clinicName ?? "Clinic Name not available"
         
         if let address = contractVet.address {
-            var fullAddress = ""
-            if let clinicCity = address.clinicCity { fullAddress += clinicCity }
+            var addressComponents: [String] = []
             
-            if let clinicDistrict = address.clinicDistrict {
-                if !fullAddress.isEmpty { fullAddress += ", " }
-                fullAddress += clinicDistrict
-            }
+            if !address.clinicCity.isEmpty { addressComponents.append(address.clinicCity) }
+            if !address.clinicDistrict.isEmpty { addressComponents.append(address.clinicDistrict) }
+            if !address.clinicStreet.isEmpty { addressComponents.append(address.clinicStreet) }
+            if !address.clinicNo.isEmpty { addressComponents.append(address.clinicNo) }
+            if !address.apartmentNo.isEmpty { addressComponents.append(address.apartmentNo) }
             
-            if let clinicStreet = address.clinicStreet {
-                if !fullAddress.isEmpty {
-                    fullAddress += ", " }
-                fullAddress += clinicStreet
-            }
-            
-            if let clinicNo = address.clinicNo {
-                if !fullAddress.isEmpty {
-                    fullAddress += ", "
-                }
-                fullAddress += clinicNo
-            }
-            
-            if let apartmentNo = address.apartmentNo {
-                if !fullAddress.isEmpty {
-                    fullAddress += ", "
-                }
-                fullAddress += apartmentNo
-            }
-            self.address.text = fullAddress
+            self.address.text = addressComponents.joined(separator: ", ")
         } else {
             self.address.text = "Address not available"
         }
     }
+    
 }
 
 extension NearbyListTableViewCell: ViewCoding {
