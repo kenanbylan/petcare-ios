@@ -23,18 +23,19 @@ final class SplashPresenter: SplashPresenterProtocol {
     }
     
     func viewDidLoad() {
+        router?.navigateToOnboarding()
         //TODO:
-        if TokenManager.shared.isTokenValid() {
-            if TokenManager.shared.userRole == "VETERINARY" {
-                router?.navigateToVeterinaryHome()
-            } else if TokenManager.shared.userRole == "USER" {
-                router?.navigateToHome()
-            } else {
-                router?.navigateToLogin()
-            }
-        } else {
-            router?.navigateToLogin()
-        }
+        //        if TokenManager.shared.isTokenValid() {
+        //            if TokenManager.shared.userRole == "VETERINARY" {
+        //                router?.navigateToVeterinaryHome()
+        //            } else if TokenManager.shared.userRole == "USER" {
+        //                router?.navigateToHome()
+        //            } else {
+        //                router?.navigateToLogin()
+        //            }
+        //        } else {
+        //            router?.navigateToLogin()
+        //        }
     }
 }
 

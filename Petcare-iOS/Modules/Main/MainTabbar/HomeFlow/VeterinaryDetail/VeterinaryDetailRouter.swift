@@ -20,7 +20,7 @@ final class VeterinaryDetailRouter {
         self.navigationController = navigationController
     }
     
-    static func build(navigationController: UINavigationController?, data: UserRegisterRequest) -> VeterinaryDetailViewController {
+    static func build(navigationController: UINavigationController?, data: VeterinaryResponse) -> VeterinaryDetailViewController {
         let view = VeterinaryDetailViewController()
         let router = VeterinaryDetailRouter(navigationController: navigationController)
         let interactor = VeterinaryDetailInteractor(networkManager: NetworkManager.shared )

@@ -53,7 +53,7 @@ extension ContractVetListPresenter: ContractVetListPresenterProtocol {
     }
     
     func navigateToDetail(data: VeterinaryResponse) {
-//        router?.navigateToDetail(data: data)
+                router?.navigateToDetail(data: data)
     }
     
     func navigateToHistory() {
