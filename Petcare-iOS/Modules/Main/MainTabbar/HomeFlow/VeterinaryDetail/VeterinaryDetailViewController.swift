@@ -13,7 +13,7 @@ protocol VeterinaryDetailViewProtocol: AnyObject, CustomAlert {
     func updateView()
 }
 
-final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelegate{
+final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelegate {
     var presenter: VeterinaryDetailPresenterProtocol!
     
     //MARK: UI Properties
@@ -42,6 +42,7 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
         let textfield = MyTextField()
         textfield.placeholder = "VeterinaryDetailView_select_pet".localized()
         textfield.tintColor = AppColors.primaryColor
+        textfield.isShouldChangeCharactersIn()
         return textfield
     }()
     
@@ -49,6 +50,7 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
         let textfield = MyTextField()
         textfield.placeholder = "VeterinaryDetailView_select_days".localized()
         textfield.tintColor = AppColors.primaryColor
+        textfield.isShouldChangeCharactersIn()
         return textfield
     }()
     
@@ -57,6 +59,7 @@ final class VeterinaryDetailViewController: UIViewController, UIScrollViewDelega
         let textfield = MyTextField()
         textfield.placeholder = "VeterinaryDetailView_select_hours".localized()
         textfield.tintColor = AppColors.primaryColor
+        textfield.isShouldChangeCharactersIn()
         return textfield
     }()
     
@@ -190,7 +193,6 @@ extension VeterinaryDetailViewController: VeterinaryDetailViewProtocol {
         }
     }
 }
-
 
 extension VeterinaryDetailViewController: ViewCoding {
     func setupView() {

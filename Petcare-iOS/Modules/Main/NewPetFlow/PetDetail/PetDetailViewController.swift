@@ -15,6 +15,11 @@ protocol PetDetailViewProtocol: AnyObject {
 class PetDetailViewController: UIViewController {
     var presenter: PetDetailPresenterProtocol?
     
+    let keyvalueAge = KeyValueStackView(data: nil)
+    let keyvalueWeight = KeyValueStackView(data: nil)
+    let keyvalueHeight = KeyValueStackView(data: nil)
+    
+    
     private lazy var petsNameLabel: CustomLabel = {
         let label = CustomLabel(text: presenter?.petData.name, fontSize: 21, fontType: .bold, textColor: AppColors.labelColor)
         label.numberOfLines = 0
@@ -61,7 +66,7 @@ class PetDetailViewController: UIViewController {
         return CustomStackViewBuilder()
             .withAxis(.vertical)
             .distribution(distribution: .fill)
-            .withLayoutMargins(top: 20, left: 20, bottom: 20, right: 20)
+            .withLayoutMargins(top: 10, left: 20, bottom: 10, right: 20)
             .withCornerRadius(20)
             .build()
     }()
@@ -93,23 +98,23 @@ class PetDetailViewController: UIViewController {
     }()
     
     
-    let keyvalueAge = KeyValueStackView(data: nil)
-    let keyvalueWeight = KeyValueStackView(data: nil)
-    let keyvalueHeight = KeyValueStackView(data: nil)
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        presenter?.viewDidLoad()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.viewDidLoad()
-        view.backgroundColor = AppColors.bgColor
+        prepareViews()
         prepareConstraint()
-        
+        prepareInfoView()
+    }
+    
+    func prepareInfoView() {
+        keyvalueAge.data = [("\("PetDetailView_age".localized()): ", presenter?.formattedAge() ?? "6 month")]
+        keyvalueHeight.data = [("\("PetDetailView_height".localized()): ", presenter?.formattedHeight() ?? "1.2 cm")]
+        keyvalueWeight.data = [("\("PetDetailView_weight".localized()): ", presenter?.formattedWeight() ?? "1.2 kg")]
+    }
+    
+    func prepareViews() {
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bg_image.png")!)
         petImages.backgroundColor = AppColors.bgColor
-        
+
         petImages.addShadow(shadowColor: AppColors.labelColor.cgColor, shadowOffset: CGSize(width: 1, height: 2), shadowOpacity: 0.4, shadowRadius: 3)
         infoOutSideStackView.backgroundColor = .secondarySystemBackground
         informationSideStackView.backgroundColor = .secondarySystemBackground
@@ -119,9 +124,6 @@ class PetDetailViewController: UIViewController {
         informationSideStackView.addShadow(shadowColor: AppColors.customDarkGray.cgColor,
                                            shadowOffset:CGSize(width: 5.0, height: 7.0), shadowOpacity: 0.7, shadowRadius: 4.0)
         
-        keyvalueAge.data = [("\("PetDetailView_age".localized()): ", presenter?.formattedAge() ?? "6 month")]
-        keyvalueHeight.data = [("\("PetDetailView_height".localized()): ", presenter?.formattedHeight() ?? "1.2 cm")]
-        keyvalueWeight.data = [("\("PetDetailView_weight".localized()): ", presenter?.formattedWeight() ?? "1.2 kg")]
     }
     
     @objc func petDeleteTapped() {
@@ -168,23 +170,27 @@ class PetDetailViewController: UIViewController {
             informationSideStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
             informationSideStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5.wPercent),
             
-            deletePetButton.topAnchor.constraint(equalTo: informationSideStackView.bottomAnchor, constant: 20.wPercent),
+            deletePetButton.topAnchor.constraint(equalTo: informationSideStackView.bottomAnchor, constant: 10.wPercent),
             deletePetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 7.wPercent),
             deletePetButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -7.wPercent),
         ])
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        infoOutSideStackView.addShadow(shadowColor: AppColors.customDarkGray.cgColor,
-                                       shadowOffset:CGSize(width: 5.0, height: 7.0), shadowOpacity: 0.7, shadowRadius: 4.0)
-        informationSideStackView.addShadow(shadowColor: AppColors.customDarkGray.cgColor,
-                                           shadowOffset:CGSize(width: 5.0, height: 7.0), shadowOpacity: 0.7, shadowRadius: 4.0)
-        
-        petImages.addShadow(shadowColor: AppColors.labelColor.cgColor, shadowOffset: CGSize(width: 1, height: 2), shadowOpacity: 0.4, shadowRadius: 3)
     }
 }
 
 extension PetDetailViewController: PetDetailViewProtocol {
     func setupUI() { }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        infoOutSideStackView.addShadow(shadowColor: AppColors.customDarkGray.cgColor,
+                                       shadowOffset:CGSize(width: 5.0, height: 7.0),
+                                       shadowOpacity: 0.7, shadowRadius: 4.0)
+        informationSideStackView.addShadow(shadowColor: AppColors.customDarkGray.cgColor,
+                                           shadowOffset:CGSize(width: 5.0, height: 7.0),
+                                           shadowOpacity: 0.7, shadowRadius: 4.0)
+        petImages.addShadow(shadowColor: AppColors.labelColor.cgColor,
+                            shadowOffset: CGSize(width: 1, height: 2),
+                            shadowOpacity: 0.4, shadowRadius: 3)
+    }
+    
 }

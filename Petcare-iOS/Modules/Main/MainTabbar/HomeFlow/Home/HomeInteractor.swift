@@ -15,7 +15,6 @@ protocol HomeInteractorProtocol {
 protocol HomeInteractorOutput {
     func getPetsSuccess(response: [PetResponse])
     func getPetsFailure(error: String)
-    func getPetsFailure(error: ExceptionErrorHandle)
     
     func getPetDetailSucces(response: PetResponse)
     func getPetDetailFailure(error: String)

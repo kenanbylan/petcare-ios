@@ -11,7 +11,7 @@ import UIKit.UINavigationController
 
 protocol ContractVetListRouterProtocol: AnyObject {
     func navigateToLogin() -> Void
-    func navigateToDetail(data: UserRegisterRequest) -> Void
+    func navigateToDetail(data: VeterinaryResponse) -> Void
     func navigateToHistory() -> Void
     static func build(navigationController: UINavigationController?) -> ContractVetListViewController
 }
@@ -27,7 +27,7 @@ final class ContractVetListRouter {
     static func build(navigationController: UINavigationController?) -> ContractVetListViewController {
         let view = ContractVetListViewController()
         let router = ContractVetListRouter(navigationController: navigationController)
-        let interactor = ContractVetListInteractor()
+        let interactor = ContractVetListInteractor(networkManager: NetworkManager.shared)
         
         let presenter = ContractVetListPresenter(view: view, interactor: interactor, router: router)
         
@@ -43,7 +43,7 @@ extension ContractVetListRouter: ContractVetListRouterProtocol {
         navigationController?.popToRootViewController(animated: true)
     }
     
-    func navigateToDetail(data: UserRegisterRequest) {
+    func navigateToDetail(data: VeterinaryResponse) {
         let view = VeterinaryDetailRouter.build(navigationController: navigationController, data: data)
         navigationController?.pushViewController(view, animated: true)
     }

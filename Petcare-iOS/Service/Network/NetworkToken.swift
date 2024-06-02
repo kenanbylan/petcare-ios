@@ -13,12 +13,12 @@ final class NetworkManager {
     private init() {}
     
     func sendRequest<T: Codable>(urlString: String,
-                                  method: HTTPMethod,
-                                  body: Data? = nil,
-                                  headers: [String: String]? = nil,
-                                  responseType: T.Type,
-                                  successHandler: @escaping (T) -> Void,
-                                  errorHandler: @escaping (Error) -> Void) {
+                                 method: HTTPMethod,
+                                 body: Data? = nil,
+                                 headers: [String: String]? = nil,
+                                 responseType: T.Type,
+                                 successHandler: @escaping (T) -> Void,
+                                 errorHandler: @escaping (Error) -> Void) {
         
         guard let url = URL(string: urlString) else {
             errorHandler(NetworkError.invalidURL)

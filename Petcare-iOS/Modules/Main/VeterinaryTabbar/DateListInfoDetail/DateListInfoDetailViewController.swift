@@ -31,14 +31,6 @@ final class DateListInfoDetailViewController: UIViewController {
         return petTitle
     }()
     
-    private lazy var arrowIcon: UIImageView = {
-        let image = UIImageView()
-        let myImage = UIImage(named: "arrow_down")
-        let resizedImage = myImage!.resized(to: CGSize(width: 12, height: 12))
-        image.image = resizedImage
-        image.contentMode = .scaleAspectFit
-        return image
-    }()
     
     private lazy var stackView: CustomStackView = {
         let stackView = CustomStackView(axis: .vertical, alignment: .fill, distribution: .equalSpacing, spacing: 24)
@@ -66,9 +58,8 @@ final class DateListInfoDetailViewController: UIViewController {
         view.addSubview(topStackView)
         view.addSubview(stackView)
         view.addSubview(doneButton)
-
+        
         topStackView.addArrangedSubview(workingTitle)
-        topStackView.addArrangedSubview(arrowIcon)
         
         setupConstraints()
         prepareTitleLabel()
@@ -98,13 +89,12 @@ extension DateListInfoDetailViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-           
+            
             topStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 5.wPercent),
             topStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 5.wPercent),
             topStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -5.wPercent),
-            topStackView.heightAnchor.constraint(equalToConstant: 10.wPercent),
+            topStackView.heightAnchor.constraint(equalToConstant: 12.wPercent),
             
-           
             stackView.topAnchor.constraint(equalTo: topStackView.bottomAnchor, constant: 5.wPercent),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5.wPercent),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5.wPercent),
@@ -125,7 +115,7 @@ extension DateListInfoDetailViewController {
         // Backend'e seçilen zaman dilimlerini gönder
         print("Selected time slots: \(selectedTimeSlots)")
     }
-
+    
 }
 
 extension DateListInfoDetailViewController: MultiSelectViewDelegate {

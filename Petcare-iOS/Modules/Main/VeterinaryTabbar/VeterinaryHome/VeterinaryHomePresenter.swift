@@ -23,11 +23,11 @@ final class VeterinaryHomePresenter {
     
     //MOCK DATA'S
     let rezervationList: [AppointmentModel] = [
-        AppointmentModel(rezervationName: "Fluffy's Checkup", date: "2024-05-15", time: "10:00", info: "Routine checkup for Fluffy"),
-        AppointmentModel(rezervationName: "Max's Vaccination", date: "2024-05-17", time: "13:30", info: "Annual vaccination for Max"),
-        AppointmentModel(rezervationName: "Buddy's Surgery", date: "2024-05-20", time: "15:00", info: "Minor surgery for Buddy"),
+        AppointmentModel(rezervationName: "Minnoş'un Kontrolü", date: "2024-05-15", time: "10:00", info: "Minnoş için rutin kontrol"),
+        AppointmentModel(rezervationName: "Max'in Aşısı", date: "2024-05-17", time: "13:30", info: "Max için yıllık aşı"),
+        AppointmentModel(rezervationName: "Pırpır'ın Ameliyatı", date: "2024-05-20", time: "15:00", info: "Boncuk için küçük bir ameliyat")
     ]
-    
+
     init(view: VeterinaryHomeViewController?, router: VeterinaryHomeRouterProtocol?, interactor: VeterinaryHomeInteractorProtocol?) {
         self.view = view
         self.router = router

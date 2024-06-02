@@ -131,8 +131,7 @@ extension HomePresenter: HomeInteractorOutput {
     }
     
     func getPetsFailure(error: String) { }
-    func getPetsFailure(error: ExceptionErrorHandle) { }
-    
+
     func getPetDetailSucces(response: PetResponse) {
         router?.navigateToPetDetail(petData: response)
     }

@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 class CustomTextFieldBase: UITextField, UITextFieldDelegate {
-    
+    var isShouldChangeCharactersInEnabled: Bool = false
+
     var padding: UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 5.wPercent, bottom: 0, right: 10.wPercent)
     }
@@ -41,6 +42,10 @@ class CustomTextFieldBase: UITextField, UITextFieldDelegate {
         delegate = self
     }
     
+    func isShouldChangeCharactersIn() {
+        isShouldChangeCharactersInEnabled = true
+    }
+    
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
@@ -68,7 +73,7 @@ class CustomTextFieldBase: UITextField, UITextFieldDelegate {
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 4
     }
-    
+        
     @objc private func toggleSecurity() {
         isSecureTextEntryToggle.toggle()
     }
@@ -97,10 +102,5 @@ extension CustomTextFieldBase {
         super.traitCollectionDidChange(previousTraitCollection)
         layer.shadowColor = AppColors.customDarkGray.cgColor
         layer.borderColor = AppColors.borderColor?.cgColor
-    }
-    
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }

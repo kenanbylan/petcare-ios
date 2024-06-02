@@ -24,6 +24,7 @@ final class LoginViewController: UIViewController {
     private lazy var passwordForm: MyTextField = {
         let textfield = MyTextField()
         textfield.placeholder = "LOGIN_PASSWORD_PLACEHOLDER".localized()
+        textfield.isSecureTextEntry = true
         return textfield
     }()
     

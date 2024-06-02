@@ -25,11 +25,11 @@ final class VeterinaryDetailPresenter: VeterinaryDetailPresenterProtocol {
     let router: VeterinaryDetailRouterProtocol?
     let interactor: VeterinaryDetailInteractorProtocol?
     
-    var data: UserRegisterRequest?
+    var data: VeterinaryResponse?
     var pets: [PetResponse] = []
 
     
-    init(view: VeterinaryDetailViewController?,router: VeterinaryDetailRouterProtocol?, interactor: VeterinaryDetailInteractorProtocol?,data: UserRegisterRequest?) {
+    init(view: VeterinaryDetailViewController?,router: VeterinaryDetailRouterProtocol?, interactor: VeterinaryDetailInteractorProtocol?,data: VeterinaryResponse?) {
         self.view = view
         self.router = router
         self.interactor = interactor

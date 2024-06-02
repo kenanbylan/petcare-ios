@@ -60,9 +60,9 @@ final class SettingTableViewCell: UITableViewCell {
         self.iconImageView.image = model.icon
     }
     
-    public func configureCell(with model: DateModel) {
+    public func configureCell(with model: DayModel) {
         self.settingsLabel.text = model.title
-        self.iconImageView.image = model.icon
+        self.iconImageView.image = UIImage(systemName: "calendar.circle")
     }
 
         override func prepareForReuse() {
